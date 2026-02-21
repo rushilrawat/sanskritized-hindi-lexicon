@@ -1,0 +1,127 @@
+[
+  {
+    "english": "love",
+    "category": "Emotion",
+    "description": "Affection or deep emotional attachment.",
+    "sanskrit_derived": [
+      { "dev": "प्रेम", "roman": "prem", "ipa": "preːm", "tags": ["formal"] },
+      { "dev": "स्नेह", "roman": "sneh", "ipa": "sneːɦ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मोहब्बत", "roman": "mohabbat", "ipa": "moːɦəbːət", "tags": ["colloquial"] },
+      { "dev": "इश्क़", "roman": "ishq", "ipa": "ɪʃq", "tags": ["literary"] }
+    ]
+  },
+  {
+    "english": "knowledge",
+    "category": "Education",
+    "description": "Awareness or understanding gained through experience or study.",
+    "sanskrit_derived": [
+      { "dev": "ज्ञान", "roman": "gyaan", "ipa": "ɡjaːn", "tags": ["formal", "philosophical"] },
+      { "dev": "विद्या", "roman": "vidya", "ipa": "ʋɪd̪jaː", "tags": ["classical", "academic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "इल्म", "roman": "ilm", "ipa": "ɪlm", "tags": ["formal"] }
+    ]
+  },
+  {
+    "english": "king",
+    "category": "Governance",
+    "description": "A male sovereign ruler of a kingdom.",
+    "sanskrit_derived": [
+      { "dev": "राजा", "roman": "raja", "ipa": "raːdʒaː", "tags": ["formal"] },
+      { "dev": "नृप", "roman": "nrip", "ipa": "nr̩p", "tags": ["classical", "archaic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बादशाह", "roman": "badshah", "ipa": "baːd̪ʃaːɦ", "tags": ["formal"] },
+      { "dev": "सुल्तान", "roman": "sultan", "ipa": "sʊlt̪aːn", "tags": ["formal"] }
+    ]
+  },
+  {
+    "english": "water",
+    "category": "Nature",
+    "description": "A transparent, odorless liquid essential for life.",
+    "sanskrit_derived": [
+      { "dev": "जल", "roman": "jal", "ipa": "dʒəl", "tags": ["formal"] },
+      { "dev": "नीर", "roman": "neer", "ipa": "niːr", "tags": ["literary", "archaic"] },
+      { "dev": "पानी", "roman": "paani", "ipa": "paːniː", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "आब", "roman": "aab", "ipa": "aːb", "tags": ["literary"] }
+    ]
+  },
+  {
+    "english": "war",
+    "category": "Governance",
+    "description": "Armed conflict between states or groups.",
+    "sanskrit_derived": [
+      { "dev": "युद्ध", "roman": "yuddh", "ipa": "jʊd̪d̪ʱ", "tags": ["formal"] },
+      { "dev": "संग्राम", "roman": "sangraam", "ipa": "səŋɡraːm", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जंग", "roman": "jang", "ipa": "dʒəŋɡ", "tags": ["colloquial"] }
+    ]
+  },
+  {
+    "english": "book",
+    "category": "Education",
+    "description": "A written or printed work consisting of pages.",
+    "sanskrit_derived": [
+      { "dev": "पुस्तक", "roman": "pustak", "ipa": "pʊst̪ək", "tags": ["formal"] },
+      { "dev": "ग्रन्थ", "roman": "granth", "ipa": "ɡrənt̪ʱ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "किताब", "roman": "kitaab", "ipa": "kɪt̪aːb", "tags": ["colloquial"] }
+    ]
+  },
+  {
+    "english": "friend",
+    "category": "Relationship",
+    "description": "A person with whom one has a bond of mutual affection.",
+    "sanskrit_derived": [
+      { "dev": "मित्र", "roman": "mitr", "ipa": "mɪt̪r", "tags": ["formal"] },
+      { "dev": "सखा", "roman": "sakha", "ipa": "səkʰaː", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "दोस्त", "roman": "dost", "ipa": "d̪oːst̪", "tags": ["colloquial"] },
+      { "dev": "यार", "roman": "yaar", "ipa": "jaːr", "tags": ["colloquial"] }
+    ]
+  },
+  {
+    "english": "city",
+    "category": "Geography",
+    "description": "A large and permanent human settlement.",
+    "sanskrit_derived": [
+      { "dev": "नगर", "roman": "nagar", "ipa": "nəɡər", "tags": ["formal"] },
+      { "dev": "पुर", "roman": "pur", "ipa": "pʊr", "tags": ["classical", "archaic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शहर", "roman": "shehar", "ipa": "ʃeːɦər", "tags": ["colloquial"] }
+    ]
+  },
+  {
+    "english": "sky",
+    "category": "Nature",
+    "description": "The expanse of air above the earth.",
+    "sanskrit_derived": [
+      { "dev": "आकाश", "roman": "aakash", "ipa": "aːkaːʃ", "tags": ["formal"] },
+      { "dev": "गगन", "roman": "gagan", "ipa": "ɡəɡən", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "आसमान", "roman": "aasmaan", "ipa": "aːsmaːn", "tags": ["colloquial"] }
+    ]
+  },
+  {
+    "english": "justice",
+    "category": "Law",
+    "description": "The quality of being fair and reasonable.",
+    "sanskrit_derived": [
+      { "dev": "न्याय", "roman": "nyaay", "ipa": "njaːj", "tags": ["formal", "legal"] },
+      { "dev": "धर्म", "roman": "dharm", "ipa": "d̪ʱərm", "tags": ["philosophical", "religious"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "इंसाफ़", "roman": "insaaf", "ipa": "ɪnsaːf", "tags": ["colloquial"] },
+      { "dev": "अदालत", "roman": "adalat", "ipa": "əd̪aːlət̪", "tags": ["legal"] }
+    ]
+  }
+]
