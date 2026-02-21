@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
-import { buildReplacementMap, replaceSentence } from "@/lib/replaceLogic";
+import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
 
 const concepts = wordsData as Concept[];
 
@@ -10,9 +10,9 @@ const Replace = () => {
 
   const map = useMemo(() => buildReplacementMap(concepts), []);
 
-  const output = useMemo(() => {
-    if (!input.trim()) return "";
-    return replaceSentence(input, map);
+  const { text: output, segments } = useMemo(() => {
+    if (!input.trim()) return { text: "", segments: [] };
+    return replaceSentenceWithHighlights(input, map);
   }, [input, map]);
 
   const hasChanges = input.trim() !== "" && output !== input;
@@ -47,7 +47,15 @@ const Replace = () => {
               )}
             </label>
             <div className="w-full rounded-lg border border-border bg-saffron-light p-4 font-devanagari text-foreground min-h-[80px] whitespace-pre-wrap">
-              {output}
+              {segments.map((seg, i) =>
+                seg.replaced ? (
+                  <mark key={i} className="bg-primary/20 text-foreground px-0.5 rounded-sm">
+                    {seg.text}
+                  </mark>
+                ) : (
+                  <span key={i}>{seg.text}</span>
+                )
+              )}
             </div>
           </div>
         )}
