@@ -1,4 +1,5 @@
 import type { Concept } from "@/types/word";
+import InlineAudio from "@/components/InlineAudio";
 
 interface WordCardProps {
   concept: Concept;
@@ -21,15 +22,18 @@ const WordCard = ({ concept }: WordCardProps) => {
           <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">
             Sanskrit-Derived
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {concept.sanskrit_derived.map((w, i) => (
               <li key={i} className="bg-saffron-light rounded-md px-3 py-2">
-                <span className="font-devanagari text-base font-medium text-foreground">{w.dev}</span>
-                <span className="ml-2 text-sm text-muted-foreground">{w.roman}</span>
-                <span className="ml-2 text-ipa">/{w.ipa}/</span>
-                <div className="flex gap-1 mt-1 flex-wrap">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="font-devanagari text-base font-medium text-foreground">{w.dev}</span>
+                  <span className="text-sm text-muted-foreground">{w.roman}</span>
+                  <span className="text-ipa">/{w.ipa}/</span>
+                  <InlineAudio text={w.dev} />
+                </div>
+                <div className="flex gap-1 mt-1.5 flex-wrap">
                   {w.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded bg-accent text-accent-foreground">
+                    <span key={tag} className="tag-pill">
                       {tag}
                     </span>
                   ))}
@@ -39,20 +43,26 @@ const WordCard = ({ concept }: WordCardProps) => {
           </ul>
         </div>
 
+        {/* Divider on mobile */}
+        <div className="block sm:hidden border-t border-border" />
+
         {/* Other Historical Sources */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
             Other Historical Sources
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {concept.other_historical_sources.map((w, i) => (
               <li key={i} className="bg-secondary rounded-md px-3 py-2">
-                <span className="font-devanagari text-base font-medium text-foreground">{w.dev}</span>
-                <span className="ml-2 text-sm text-muted-foreground">{w.roman}</span>
-                <span className="ml-2 text-ipa">/{w.ipa}/</span>
-                <div className="flex gap-1 mt-1 flex-wrap">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="font-devanagari text-base font-medium text-foreground">{w.dev}</span>
+                  <span className="text-sm text-muted-foreground">{w.roman}</span>
+                  <span className="text-ipa">/{w.ipa}/</span>
+                  <InlineAudio text={w.dev} />
+                </div>
+                <div className="flex gap-1 mt-1.5 flex-wrap">
                   {w.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                    <span key={tag} className="tag-pill">
                       {tag}
                     </span>
                   ))}
@@ -62,6 +72,9 @@ const WordCard = ({ concept }: WordCardProps) => {
           </ul>
         </div>
       </div>
+
+      {/* Desktop divider between sections */}
+      <div className="hidden sm:block absolute inset-y-0 left-1/2 w-px bg-border" />
     </div>
   );
 };

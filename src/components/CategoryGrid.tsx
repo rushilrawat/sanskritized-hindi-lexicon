@@ -12,7 +12,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect }: CategoryGridPr
         className={`px-4 py-3 rounded-lg text-sm font-medium transition-all border ${
           selectedCategory === null
             ? "bg-primary text-primary-foreground border-primary"
-            : "bg-card text-foreground border-border hover:border-primary/40"
+            : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
         }`}
       >
         All
@@ -24,7 +24,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect }: CategoryGridPr
           className={`px-4 py-3 rounded-lg text-sm font-medium transition-all border ${
             selectedCategory === cat
               ? "bg-primary text-primary-foreground border-primary"
-              : "bg-card text-foreground border-border hover:border-primary/40"
+              : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
           }`}
         >
           {cat}

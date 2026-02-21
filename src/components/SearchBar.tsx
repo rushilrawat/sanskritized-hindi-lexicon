@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Search } from "lucide-react";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  autoFocus?: boolean;
   placeholder?: string;
 }
 
-const SearchBar = ({ onSearch, placeholder = "Search by English, Devanagari, or Roman..." }: SearchBarProps) => {
+const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or Roman..." }: SearchBarProps) => {
   const [query, setQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (autoFocus && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [autoFocus]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -19,6 +27,7 @@ const SearchBar = ({ onSearch, placeholder = "Search by English, Devanagari, or 
     <div className="relative w-full max-w-xl mx-auto">
       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
       <input
+        ref={inputRef}
         type="text"
         value={query}
         onChange={handleChange}

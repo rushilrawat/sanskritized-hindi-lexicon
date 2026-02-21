@@ -1,10 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import SearchBar from "@/components/SearchBar";
 import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
 import CategoryGrid from "@/components/CategoryGrid";
+import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 
 const concepts = wordsData as Concept[];
@@ -41,13 +42,18 @@ const Index = () => {
     return list;
   }, [search, selectedCategory]);
 
+  const handleViewWotdEntry = useCallback(() => {
+    if (wotd) {
+      setSearch(wotd.english);
+      setSelectedCategory(null);
+    }
+  }, [wotd]);
+
   return (
     <div className="container-page">
       {/* Hero */}
       <section className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-2">
-          Sanskritized Hindi Lexicon
-        </h1>
+        <AnimatedHeading />
         <p className="text-muted-foreground max-w-lg mx-auto">
           A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.
         </p>
@@ -55,13 +61,13 @@ const Index = () => {
 
       {/* Search */}
       <section className="mb-8">
-        <SearchBar onSearch={setSearch} />
+        <SearchBar onSearch={setSearch} autoFocus />
       </section>
 
       {/* Word of the Day */}
       {wotd && !search && !selectedCategory && (
         <section className="mb-10">
-          <WordOfTheDay concept={wotd} />
+          <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
         </section>
       )}
 
@@ -75,7 +81,7 @@ const Index = () => {
       </section>
 
       {/* Word List */}
-      <section className="space-y-4">
+      <section className="space-y-5">
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground py-8">No entries found.</p>
         )}

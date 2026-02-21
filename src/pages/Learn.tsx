@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import { flattenWords } from "@/lib/flattenWords";
@@ -14,7 +14,6 @@ const Learn = () => {
   const words = useMemo(() => {
     const flat = flattenWords(concepts);
     if (shuffled) {
-      // Fisher-Yates shuffle with a copy
       const arr = [...flat];
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -32,6 +31,16 @@ const Learn = () => {
   const handlePrev = useCallback(() => {
     setIndex((prev) => (prev - 1 + words.length) % words.length);
   }, [words.length]);
+
+  // Arrow key navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") handleNext();
+      else if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrev]);
 
   const handleShuffle = () => {
     setShuffled((s) => !s);
@@ -51,7 +60,7 @@ const Learn = () => {
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-foreground mb-2">Learn Words</h1>
         <p className="text-muted-foreground mb-4">
-          Study one word at a time with pronunciation.
+          Study one word at a time with pronunciation. Use ← → arrow keys to navigate.
         </p>
         <button
           onClick={handleShuffle}
