@@ -42,6 +42,14 @@ const About = () => {
             documents both categories alongside words that entered Hindi through other historical
             routes of cultural and linguistic exchange.
           </p>
+          <a
+            href="https://en.wikipedia.org/wiki/Sanskrit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm text-primary hover:underline"
+          >
+            Learn more about Sanskrit on Wikipedia →
+          </a>
         </section>
 
         <section>

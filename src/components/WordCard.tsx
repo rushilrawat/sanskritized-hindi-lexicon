@@ -7,8 +7,8 @@ interface WordCardProps {
 
 const WordCard = ({ concept }: WordCardProps) => {
   return (
-    <div className="card-elevated p-5 animate-fade-in">
-      <div className="flex items-start justify-between mb-3">
+    <div className="card-elevated p-5 border-l-4 border-l-primary animate-fade-in">
+      <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
           <p className="text-sm text-muted-foreground mt-0.5">{concept.description}</p>
@@ -16,7 +16,7 @@ const WordCard = ({ concept }: WordCardProps) => {
         <span className="tag-badge shrink-0 ml-3">{concept.category}</span>
       </div>
 
-      <div className="space-y-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Sanskrit-derived */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">

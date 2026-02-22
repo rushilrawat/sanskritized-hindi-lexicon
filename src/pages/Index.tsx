@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import SearchBar from "@/components/SearchBar";
@@ -13,16 +13,21 @@ const concepts = wordsData as Concept[];
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Index = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
-  // Sync from URL param
+  // Reset search when navigating back to home with no params
   useEffect(() => {
     const q = searchParams.get("search");
-    if (q) setSearch(q);
-  }, [searchParams]);
+    if (q) {
+      setSearch(q);
+    } else {
+      setSearch("");
+    }
+  }, [searchParams, location.key]);
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -52,7 +57,6 @@ const Index = () => {
     return list;
   }, [search, selectedCategory]);
 
-  // Available letters for jump nav
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
   }, [filtered]);
@@ -66,8 +70,9 @@ const Index = () => {
     if (wotd) {
       setSearch(wotd.english);
       setSelectedCategory(null);
+      setSearchParams({ search: wotd.english });
     }
-  }, [wotd]);
+  }, [wotd, setSearchParams]);
 
   // Group words by first letter for anchors
   const lettersRendered = new Set<string>();

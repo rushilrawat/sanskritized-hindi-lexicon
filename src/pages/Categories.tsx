@@ -15,10 +15,13 @@ const Categories = () => {
   }, []);
 
   const filtered = useMemo(() => {
-    if (!selectedCategory) return [];
-    return concepts
-      .filter((c) => c.category === selectedCategory)
-      .sort((a, b) => a.english.localeCompare(b.english));
+    if (selectedCategory) {
+      return concepts
+        .filter((c) => c.category === selectedCategory)
+        .sort((a, b) => a.english.localeCompare(b.english));
+    }
+    // "All" shows everything
+    return [...concepts].sort((a, b) => a.english.localeCompare(b.english));
   }, [selectedCategory]);
 
   return (
@@ -36,20 +39,14 @@ const Categories = () => {
         />
       </div>
 
-      {selectedCategory && (
-        <div className="mt-8 space-y-4">
+      <div className="mt-8 space-y-4">
+        {selectedCategory && (
           <h2 className="text-lg font-semibold text-foreground">{selectedCategory}</h2>
-          {filtered.map((concept) => (
-            <WordCard key={concept.english} concept={concept} />
-          ))}
-        </div>
-      )}
-
-      {!selectedCategory && (
-        <p className="text-center text-muted-foreground py-12">
-          Select a category above to view entries.
-        </p>
-      )}
+        )}
+        {filtered.map((concept) => (
+          <WordCard key={concept.english} concept={concept} />
+        ))}
+      </div>
     </div>
   );
 };
