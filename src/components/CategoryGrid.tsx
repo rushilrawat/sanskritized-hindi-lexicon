@@ -6,10 +6,10 @@ interface CategoryGridProps {
 
 const CategoryGrid = ({ categories, selectedCategory, onSelect }: CategoryGridProps) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+    <div className="flex flex-wrap gap-2">
       <button
         onClick={() => onSelect(null)}
-        className={`px-4 py-3 rounded-lg text-sm font-medium transition-all border ${
+        className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all border whitespace-nowrap ${
           selectedCategory === null
             ? "bg-primary text-primary-foreground border-primary"
             : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
@@ -21,7 +21,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect }: CategoryGridPr
         <button
           key={cat}
           onClick={() => onSelect(cat)}
-          className={`px-4 py-3 rounded-lg text-sm font-medium transition-all border ${
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all border whitespace-nowrap ${
             selectedCategory === cat
               ? "bg-primary text-primary-foreground border-primary"
               : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"

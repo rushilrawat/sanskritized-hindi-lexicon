@@ -5,10 +5,11 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
   autoFocus?: boolean;
   placeholder?: string;
+  initialValue?: string;
 }
 
-const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or Roman..." }: SearchBarProps) => {
-  const [query, setQuery] = useState("");
+const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or Roman...", initialValue = "" }: SearchBarProps) => {
+  const [query, setQuery] = useState(initialValue);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -16,6 +17,10 @@ const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by Engli
       inputRef.current.focus();
     }
   }, [autoFocus]);
+
+  useEffect(() => {
+    setQuery(initialValue);
+  }, [initialValue]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

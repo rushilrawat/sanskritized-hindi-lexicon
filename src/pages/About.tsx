@@ -14,22 +14,43 @@ const About = () => {
         </section>
 
         <section>
+          <h2 className="text-lg font-semibold mb-2">About Hindi</h2>
+          <p className="text-muted-foreground">
+            Hindi is a modern Indo-Aryan language, part of the broader Indo-European language family.
+            It is primarily spoken in northern and central India, and serves as one of the two official
+            languages of the Indian Union. Written in the Devanagari script, Hindi has evolved over
+            centuries through contact with numerous languages and cultures across the subcontinent.
+          </p>
+          <a
+            href="https://en.wikipedia.org/wiki/Hindi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm text-primary hover:underline"
+          >
+            Learn more about Hindi on Wikipedia →
+          </a>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold mb-2">Sanskrit's Historical Influence</h2>
+          <p className="text-muted-foreground">
+            Sanskrit, one of the oldest documented languages of the Indo-European family, has served
+            as a foundational source of vocabulary for Hindi and many other South Asian languages.
+            Its influence extends through two primary channels: <em>tatsama</em> words (direct
+            borrowings that retain their original Sanskrit form) and <em>tadbhava</em> words
+            (forms that have naturally evolved through centuries of spoken usage). This lexicon
+            documents both categories alongside words that entered Hindi through other historical
+            routes of cultural and linguistic exchange.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-lg font-semibold mb-2">Neutrality Statement</h2>
           <p className="text-muted-foreground">
             This project does not advocate for any linguistic purism. It does not assign value
             hierarchies to words based on their origins. Every word in every language carries
             historical weight and cultural significance. This lexicon exists purely as an
             educational and archival resource.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold mb-2">Linguistic Clarification</h2>
-          <p className="text-muted-foreground">
-            Hindi, as a living language, has absorbed vocabulary from many sources over centuries.
-            Sanskrit-derived words include both <em>tatsama</em> (direct borrowings) and{" "}
-            <em>tadbhava</em> (naturally evolved forms). Words from Persian, Arabic, and other
-            languages entered through trade, governance, literature, and cultural exchange.
           </p>
         </section>
 

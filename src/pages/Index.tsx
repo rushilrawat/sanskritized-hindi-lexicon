@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import SearchBar from "@/components/SearchBar";
@@ -9,10 +10,19 @@ import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 
 const concepts = wordsData as Concept[];
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Index = () => {
-  const [search, setSearch] = useState("");
+  const [searchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("search") || "");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Sync from URL param
+  useEffect(() => {
+    const q = searchParams.get("search");
+    if (q) setSearch(q);
+  }, [searchParams]);
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -42,12 +52,25 @@ const Index = () => {
     return list;
   }, [search, selectedCategory]);
 
+  // Available letters for jump nav
+  const availableLetters = useMemo(() => {
+    return new Set(filtered.map((c) => c.english[0].toUpperCase()));
+  }, [filtered]);
+
+  const handleJumpToLetter = (letter: string) => {
+    const el = document.getElementById(`word-${letter}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const handleViewWotdEntry = useCallback(() => {
     if (wotd) {
       setSearch(wotd.english);
       setSelectedCategory(null);
     }
   }, [wotd]);
+
+  // Group words by first letter for anchors
+  const lettersRendered = new Set<string>();
 
   return (
     <div className="container-page">
@@ -61,7 +84,7 @@ const Index = () => {
 
       {/* Search */}
       <section className="mb-8">
-        <SearchBar onSearch={setSearch} autoFocus />
+        <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
       </section>
 
       {/* Word of the Day */}
@@ -71,8 +94,8 @@ const Index = () => {
         </section>
       )}
 
-      {/* Category Filter */}
-      <section className="mb-8">
+      {/* Category Filter - sticky */}
+      <section className="mb-4 sticky top-14 z-40 bg-background py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <CategoryGrid
           categories={categories}
           selectedCategory={selectedCategory}
@@ -80,14 +103,43 @@ const Index = () => {
         />
       </section>
 
+      {/* A-Z Jump Navigation */}
+      {!search && filtered.length > 5 && (
+        <section className="mb-6">
+          <div className="flex flex-wrap gap-1 justify-center">
+            {alphabet.map((letter) => (
+              <button
+                key={letter}
+                onClick={() => handleJumpToLetter(letter)}
+                disabled={!availableLetters.has(letter)}
+                className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                  availableLetters.has(letter)
+                    ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
+                    : "text-muted-foreground/30 cursor-default"
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Word List */}
-      <section className="space-y-5">
+      <section className="space-y-5" ref={listRef}>
         {filtered.length === 0 && (
-          <p className="text-center text-muted-foreground py-8">No entries found.</p>
+          <p className="text-center text-muted-foreground py-8">No entries found. Try another term.</p>
         )}
-        {filtered.map((concept) => (
-          <WordCard key={concept.english} concept={concept} />
-        ))}
+        {filtered.map((concept) => {
+          const firstLetter = concept.english[0].toUpperCase();
+          const needsAnchor = !lettersRendered.has(firstLetter);
+          if (needsAnchor) lettersRendered.add(firstLetter);
+          return (
+            <div key={concept.english} id={needsAnchor ? `word-${firstLetter}` : undefined}>
+              <WordCard concept={concept} />
+            </div>
+          );
+        })}
       </section>
     </div>
   );

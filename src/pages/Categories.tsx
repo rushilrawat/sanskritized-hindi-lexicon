@@ -28,11 +28,13 @@ const Categories = () => {
         Explore vocabulary grouped by thematic categories.
       </p>
 
-      <CategoryGrid
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelect={setSelectedCategory}
-      />
+      <div className="sticky top-14 z-40 bg-background py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <CategoryGrid
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelect={setSelectedCategory}
+        />
+      </div>
 
       {selectedCategory && (
         <div className="mt-8 space-y-4">

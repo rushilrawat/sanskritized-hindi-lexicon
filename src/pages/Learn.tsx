@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import { flattenWords } from "@/lib/flattenWords";
@@ -10,9 +11,19 @@ const concepts = wordsData as Concept[];
 const Learn = () => {
   const [shuffled, setShuffled] = useState(false);
   const [index, setIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const categories = useMemo(() => {
+    const cats = new Set(concepts.map((c) => c.category));
+    return Array.from(cats).sort();
+  }, []);
 
   const words = useMemo(() => {
-    const flat = flattenWords(concepts);
+    let filtered = selectedCategory
+      ? concepts.filter((c) => c.category === selectedCategory)
+      : concepts;
+    const flat = flattenWords(filtered, "sanskrit_derived");
     if (shuffled) {
       const arr = [...flat];
       for (let i = arr.length - 1; i > 0; i--) {
@@ -22,7 +33,7 @@ const Learn = () => {
       return arr;
     }
     return flat;
-  }, [shuffled]);
+  }, [shuffled, selectedCategory]);
 
   const handleNext = useCallback(() => {
     setIndex((prev) => (prev + 1) % words.length);
@@ -32,7 +43,6 @@ const Learn = () => {
     setIndex((prev) => (prev - 1 + words.length) % words.length);
   }, [words.length]);
 
-  // Arrow key navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") handleNext();
@@ -47,6 +57,17 @@ const Learn = () => {
     setIndex(0);
   };
 
+  // Reset index when category changes
+  useEffect(() => {
+    setIndex(0);
+  }, [selectedCategory]);
+
+  const handleViewFullEntry = useCallback(() => {
+    if (words[index]) {
+      navigate(`/?search=${encodeURIComponent(words[index].english)}`);
+    }
+  }, [words, index, navigate]);
+
   if (words.length === 0) {
     return (
       <div className="container-page text-center text-muted-foreground py-12">
@@ -60,15 +81,27 @@ const Learn = () => {
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-foreground mb-2">Learn Words</h1>
         <p className="text-muted-foreground mb-4">
-          Study one word at a time with pronunciation. Use ← → arrow keys to navigate.
+          Study Sanskrit-derived words one at a time. Use ← → arrow keys to navigate.
         </p>
-        <button
-          onClick={handleShuffle}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-        >
-          <Shuffle className="h-4 w-4" />
-          {shuffled ? "Sequential" : "Shuffle"}
-        </button>
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <button
+            onClick={handleShuffle}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          >
+            <Shuffle className="h-4 w-4" />
+            {shuffled ? "Sequential" : "Shuffle"}
+          </button>
+          <select
+            value={selectedCategory || ""}
+            onChange={(e) => setSelectedCategory(e.target.value || null)}
+            className="px-3 py-2 rounded-lg border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+          >
+            <option value="">All Categories</option>
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <LearnCard
@@ -77,6 +110,7 @@ const Learn = () => {
         onPrev={handlePrev}
         current={index}
         total={words.length}
+        onViewFullEntry={handleViewFullEntry}
       />
     </div>
   );

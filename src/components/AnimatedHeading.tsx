@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const headings = [
-  { text: "Sanskritized Hindi Lexicon", className: "font-body" },
-  { text: "संस्कृतनिष्ठ हिंदी कोश", className: "font-devanagari" },
+  { text: "Sanskritized Hindi Lexicon", className: "font-body text-foreground" },
+  { text: "संस्कृतनिष्ठ हिंदी कोश", className: "font-devanagari text-primary" },
   { text: "/səns.kɾɪ.t̪aɪzd ˈhɪndi ˈlɛksɪkən/", className: "font-mono text-muted-foreground" },
 ];
 
