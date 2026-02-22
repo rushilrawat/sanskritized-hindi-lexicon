@@ -46,10 +46,10 @@ const Replace = () => {
                 <span className="ml-2 text-xs text-primary font-normal">· replacements applied</span>
               )}
             </label>
-            <div className="w-full rounded-lg border border-border bg-saffron-light p-4 font-devanagari text-foreground min-h-[80px] whitespace-pre-wrap">
+            <div className="w-full rounded-lg border border-primary/30 bg-saffron-light p-4 font-devanagari text-foreground min-h-[80px] whitespace-pre-wrap">
               {segments.map((seg, i) =>
                 seg.replaced ? (
-                  <mark key={i} className="bg-primary/20 text-foreground px-0.5 rounded-sm">
+                  <mark key={i} className="bg-primary/25 text-primary font-medium px-0.5 rounded-sm">
                     {seg.text}
                   </mark>
                 ) : (
