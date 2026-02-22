@@ -7,9 +7,10 @@ interface LearnCardProps {
   onPrev: () => void;
   current: number;
   total: number;
+  onViewFullEntry?: () => void;
 }
 
-const LearnCard = ({ word, onNext, onPrev, current, total }: LearnCardProps) => {
+const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: LearnCardProps) => {
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(word.dev);
     utterance.lang = "hi-IN";
@@ -33,18 +34,43 @@ const LearnCard = ({ word, onNext, onPrev, current, total }: LearnCardProps) => 
         Listen
       </button>
 
-      <div className="space-y-1 mb-6">
+      <div className="space-y-1 mb-4">
         <p className="text-lg text-foreground font-medium">{word.roman}</p>
         <p className="text-ipa">/{word.ipa}/</p>
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>
         <div className="flex gap-1 justify-center mt-2">
-          {word.tags.map((tag) => (
+          {word.tags.slice(0, 2).map((tag) => (
             <span key={tag} className="tag-badge">{tag}</span>
           ))}
         </div>
       </div>
+
+      {/* Synonyms (Paryayvachi) */}
+      {word.synonyms.length > 0 && (
+        <div className="mb-4 pt-3 border-t border-border">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+            पर्यायवाची · Synonyms
+          </p>
+          <div className="flex gap-2 justify-center flex-wrap">
+            {word.synonyms.map((syn) => (
+              <span key={syn} className="font-devanagari text-sm text-foreground bg-saffron-light px-2 py-0.5 rounded">
+                {syn}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {onViewFullEntry && (
+        <button
+          onClick={onViewFullEntry}
+          className="text-sm text-primary hover:underline transition-colors mb-3"
+        >
+          View Full Entry →
+        </button>
+      )}
 
       <div className="flex items-center justify-between pt-4 border-t border-border">
         <button

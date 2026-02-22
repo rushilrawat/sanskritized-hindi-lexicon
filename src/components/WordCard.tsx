@@ -16,13 +16,13 @@ const WordCard = ({ concept }: WordCardProps) => {
         <span className="tag-badge shrink-0 ml-3">{concept.category}</span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+      <div className="space-y-4 mt-4">
         {/* Sanskrit-derived */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">
             Sanskrit-Derived
           </h4>
-          <ul className="space-y-2.5">
+          <ul className="space-y-2">
             {concept.sanskrit_derived.map((w, i) => (
               <li key={i} className="bg-saffron-light rounded-md px-3 py-2">
                 <div className="flex items-center gap-1.5 flex-wrap">
@@ -32,10 +32,8 @@ const WordCard = ({ concept }: WordCardProps) => {
                   <InlineAudio text={w.dev} />
                 </div>
                 <div className="flex gap-1 mt-1.5 flex-wrap">
-                  {w.tags.map((tag) => (
-                    <span key={tag} className="tag-pill">
-                      {tag}
-                    </span>
+                  {w.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className="tag-pill">{tag}</span>
                   ))}
                 </div>
               </li>
@@ -43,15 +41,12 @@ const WordCard = ({ concept }: WordCardProps) => {
           </ul>
         </div>
 
-        {/* Divider on mobile */}
-        <div className="block sm:hidden border-t border-border" />
-
         {/* Other Historical Sources */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
             Other Historical Sources
           </h4>
-          <ul className="space-y-2.5">
+          <ul className="space-y-2">
             {concept.other_historical_sources.map((w, i) => (
               <li key={i} className="bg-secondary rounded-md px-3 py-2">
                 <div className="flex items-center gap-1.5 flex-wrap">
@@ -61,10 +56,8 @@ const WordCard = ({ concept }: WordCardProps) => {
                   <InlineAudio text={w.dev} />
                 </div>
                 <div className="flex gap-1 mt-1.5 flex-wrap">
-                  {w.tags.map((tag) => (
-                    <span key={tag} className="tag-pill">
-                      {tag}
-                    </span>
+                  {w.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className="tag-pill">{tag}</span>
                   ))}
                 </div>
               </li>
@@ -72,9 +65,6 @@ const WordCard = ({ concept }: WordCardProps) => {
           </ul>
         </div>
       </div>
-
-      {/* Desktop divider between sections */}
-      <div className="hidden sm:block absolute inset-y-0 left-1/2 w-px bg-border" />
     </div>
   );
 };
