@@ -74,14 +74,21 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Sticky Search + A-Z */}
-      <div className="sticky top-0 z-20 bg-background/95 backdrop-blur-sm pb-4 -mx-4 px-4 pt-2">
-        <section className="mb-3">
-          <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
-        </section>
+      {/* Search */}
+      <section className="mb-8">
+        <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
+      </section>
 
-        {/* A-Z Jump Navigation */}
-        {!search && filtered.length > 5 && (
+      {/* Word of the Day */}
+      {wotd && !search && (
+        <section className="mb-10">
+          <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
+        </section>
+      )}
+
+      {/* A-Z Jump Navigation */}
+      {!search && filtered.length > 5 && (
+        <section className="mb-6">
           <div className="flex flex-wrap gap-1 justify-center">
             {alphabet.map((letter) => (
               <button
@@ -98,13 +105,6 @@ const Index = () => {
               </button>
             ))}
           </div>
-        )}
-      </div>
-
-      {/* Word of the Day */}
-      {wotd && !search && (
-        <section className="mb-10">
-          <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
         </section>
       )}
 
