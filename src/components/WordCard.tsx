@@ -7,7 +7,7 @@ interface WordCardProps {
 
 const WordCard = ({ concept }: WordCardProps) => {
   return (
-    <div className="card-elevated p-5 border-l-4 border-l-primary animate-fade-in">
+    <div className="card-elevated p-5 animate-fade-in">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-semibold text-foreground capitalize">{concept.english}</h3>

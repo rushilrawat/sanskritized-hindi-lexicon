@@ -49,7 +49,7 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
 
       {/* Synonyms (Paryayvachi) */}
       {word.synonyms.length > 0 && (
-        <div className="mb-4 pt-3 border-t border-border">
+        <div className="mb-3 pt-3 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
             पर्यायवाची · Synonyms
           </p>
@@ -57,6 +57,22 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
             {word.synonyms.map((syn) => (
               <span key={syn} className="font-devanagari text-sm text-foreground bg-saffron-light px-2 py-0.5 rounded">
                 {syn}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Antonyms (Vilom) */}
+      {word.antonyms.length > 0 && (
+        <div className="mb-3 pt-3 border-t border-border">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+            विलोम · Antonyms
+          </p>
+          <div className="flex gap-2 justify-center flex-wrap">
+            {word.antonyms.map((ant) => (
+              <span key={ant} className="font-devanagari text-sm text-foreground bg-secondary px-2 py-0.5 rounded">
+                {ant}
               </span>
             ))}
           </div>

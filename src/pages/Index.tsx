@@ -1,11 +1,10 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
-import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import SearchBar from "@/components/SearchBar";
 import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
-import CategoryGrid from "@/components/CategoryGrid";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 
@@ -15,11 +14,9 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") || "");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  // Reset search when navigating back to home with no params
   useEffect(() => {
     const q = searchParams.get("search");
     if (q) {
@@ -29,19 +26,10 @@ const Index = () => {
     }
   }, [searchParams, location.key]);
 
-  const categories = useMemo(() => {
-    const cats = new Set(concepts.map((c) => c.category));
-    return Array.from(cats).sort();
-  }, []);
-
   const wotd = useMemo(() => getWordOfTheDay(concepts), []);
 
   const filtered = useMemo(() => {
     let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
-
-    if (selectedCategory) {
-      list = list.filter((c) => c.category === selectedCategory);
-    }
 
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -55,7 +43,7 @@ const Index = () => {
     }
 
     return list;
-  }, [search, selectedCategory]);
+  }, [search]);
 
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
@@ -69,7 +57,6 @@ const Index = () => {
   const handleViewWotdEntry = useCallback(() => {
     if (wotd) {
       setSearch(wotd.english);
-      setSelectedCategory(null);
       setSearchParams({ search: wotd.english });
     }
   }, [wotd, setSearchParams]);
@@ -93,20 +80,11 @@ const Index = () => {
       </section>
 
       {/* Word of the Day */}
-      {wotd && !search && !selectedCategory && (
+      {wotd && !search && (
         <section className="mb-10">
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
         </section>
       )}
-
-      {/* Category Filter - sticky */}
-      <section className="mb-4 sticky top-14 z-40 bg-background py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <CategoryGrid
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelect={setSelectedCategory}
-        />
-      </section>
 
       {/* A-Z Jump Navigation */}
       {!search && filtered.length > 5 && (

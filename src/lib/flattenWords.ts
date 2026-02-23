@@ -5,6 +5,7 @@ export interface FlatWord extends WordEntry {
   category: string;
   source: "sanskrit_derived" | "other_historical_sources";
   synonyms: string[];
+  antonyms: string[];
 }
 
 export function flattenWords(
@@ -13,6 +14,17 @@ export function flattenWords(
 ): FlatWord[] {
   const flat: FlatWord[] = [];
   for (const concept of concepts) {
+    // Resolve antonym Devanagari from linked english words
+    const antonymDevs: string[] = [];
+    if (concept.antonyms) {
+      for (const ant of concept.antonyms) {
+        const antConcept = concepts.find((c) => c.english === ant);
+        if (antConcept && antConcept.sanskrit_derived.length > 0) {
+          antonymDevs.push(antConcept.sanskrit_derived[0].dev);
+        }
+      }
+    }
+
     if (!sourceFilter || sourceFilter === "sanskrit_derived") {
       const sanskritDevs = concept.sanskrit_derived.map((w) => w.dev);
       for (const w of concept.sanskrit_derived) {
@@ -22,6 +34,7 @@ export function flattenWords(
           category: concept.category,
           source: "sanskrit_derived",
           synonyms: sanskritDevs.filter((d) => d !== w.dev),
+          antonyms: antonymDevs,
         });
       }
     }
@@ -33,6 +46,7 @@ export function flattenWords(
           category: concept.category,
           source: "other_historical_sources",
           synonyms: [],
+          antonyms: antonymDevs,
         });
       }
     }

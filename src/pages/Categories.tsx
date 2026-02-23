@@ -5,6 +5,7 @@ import CategoryGrid from "@/components/CategoryGrid";
 import WordCard from "@/components/WordCard";
 
 const concepts = wordsData as Concept[];
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -15,14 +16,23 @@ const Categories = () => {
   }, []);
 
   const filtered = useMemo(() => {
+    let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
     if (selectedCategory) {
-      return concepts
-        .filter((c) => c.category === selectedCategory)
-        .sort((a, b) => a.english.localeCompare(b.english));
+      list = list.filter((c) => c.category === selectedCategory);
     }
-    // "All" shows everything
-    return [...concepts].sort((a, b) => a.english.localeCompare(b.english));
+    return list;
   }, [selectedCategory]);
+
+  const availableLetters = useMemo(() => {
+    return new Set(filtered.map((c) => c.english[0].toUpperCase()));
+  }, [filtered]);
+
+  const handleJumpToLetter = (letter: string) => {
+    const el = document.getElementById(`cat-word-${letter}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const lettersRendered = new Set<string>();
 
   return (
     <div className="container-page">
@@ -36,16 +46,46 @@ const Categories = () => {
           categories={categories}
           selectedCategory={selectedCategory}
           onSelect={setSelectedCategory}
+          showCounts
         />
       </div>
 
-      <div className="mt-8 space-y-4">
+      {/* A-Z Jump Navigation */}
+      {filtered.length > 5 && (
+        <section className="my-6">
+          <div className="flex flex-wrap gap-1 justify-center">
+            {alphabet.map((letter) => (
+              <button
+                key={letter}
+                onClick={() => handleJumpToLetter(letter)}
+                disabled={!availableLetters.has(letter)}
+                className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                  availableLetters.has(letter)
+                    ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
+                    : "text-muted-foreground/30 cursor-default"
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div className="mt-4 space-y-4">
         {selectedCategory && (
           <h2 className="text-lg font-semibold text-foreground">{selectedCategory}</h2>
         )}
-        {filtered.map((concept) => (
-          <WordCard key={concept.english} concept={concept} />
-        ))}
+        {filtered.map((concept) => {
+          const firstLetter = concept.english[0].toUpperCase();
+          const needsAnchor = !lettersRendered.has(firstLetter);
+          if (needsAnchor) lettersRendered.add(firstLetter);
+          return (
+            <div key={concept.english} id={needsAnchor ? `cat-word-${firstLetter}` : undefined}>
+              <WordCard concept={concept} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
