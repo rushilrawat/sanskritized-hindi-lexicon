@@ -74,8 +74,8 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Search */}
-      <section className="mb-8">
+      {/* Search - Sticky */}
+      <section className="sticky top-16 z-20 bg-background/95 backdrop-blur-sm py-3 -mx-4 px-4 mb-5">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
       </section>
 
