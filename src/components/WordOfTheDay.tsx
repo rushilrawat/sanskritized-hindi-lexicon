@@ -1,5 +1,6 @@
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
+import wordsData from "@/data/words.json";
 
 interface WordOfTheDayProps {
   concept: Concept;
@@ -9,6 +10,23 @@ interface WordOfTheDayProps {
 const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   const mainWord = concept.sanskrit_derived[0];
   if (!mainWord) return null;
+
+  // Gather synonyms (other sanskrit-derived words for same concept)
+  const synonymDevs = concept.sanskrit_derived
+    .map((w) => w.dev)
+    .filter((d) => d !== mainWord.dev);
+
+  // Resolve antonyms to Devanagari from linked english words
+  const antonymDevs: string[] = [];
+  if (concept.antonyms) {
+    const allConcepts = wordsData as Concept[];
+    for (const ant of concept.antonyms) {
+      const antConcept = allConcepts.find((c) => c.english === ant);
+      if (antConcept && antConcept.sanskrit_derived.length > 0) {
+        antonymDevs.push(antConcept.sanskrit_derived[0].dev);
+      }
+    }
+  }
 
   return (
     <div className="card-elevated p-6 border-l-4 border-l-primary">
@@ -27,6 +45,35 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
       </div>
       <p className="text-foreground font-medium capitalize">{concept.english}</p>
       <p className="text-sm text-muted-foreground mt-1">{concept.description}</p>
+
+      {/* Synonyms */}
+      {synonymDevs.length > 0 && (
+        <div className="mt-3">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            पर्यायवाची · Synonyms:{" "}
+          </span>
+          {synonymDevs.map((s) => (
+            <span key={s} className="font-devanagari text-sm text-foreground bg-saffron-light px-2 py-0.5 rounded mr-1.5">
+              {s}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Antonyms */}
+      {antonymDevs.length > 0 && (
+        <div className="mt-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            विलोम · Antonyms:{" "}
+          </span>
+          {antonymDevs.map((a) => (
+            <span key={a} className="font-devanagari text-sm text-foreground bg-secondary px-2 py-0.5 rounded mr-1.5">
+              {a}
+            </span>
+          ))}
+        </div>
+      )}
+
       {onViewEntry && (
         <button
           onClick={onViewEntry}

@@ -10,7 +10,21 @@
     "other_historical_sources": [
       { "dev": "मोहब्बत", "roman": "mohabbat", "ipa": "moːɦəbːət", "tags": ["colloquial"] },
       { "dev": "इश्क़", "roman": "ishq", "ipa": "ɪʃq", "tags": ["literary"] }
-    ]
+    ],
+    "antonyms": ["hatred"]
+  },
+  {
+    "english": "hatred",
+    "category": "Emotion",
+    "description": "Intense dislike or ill will.",
+    "sanskrit_derived": [
+      { "dev": "घृणा", "roman": "ghrina", "ipa": "ɡʱr̩ɳaː", "tags": ["formal"] },
+      { "dev": "द्वेष", "roman": "dvesh", "ipa": "d̪ʋeːʂ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "नफ़रत", "roman": "nafrat", "ipa": "nəfɾət̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["love"]
   },
   {
     "english": "knowledge",
@@ -22,7 +36,21 @@
     ],
     "other_historical_sources": [
       { "dev": "इल्म", "roman": "ilm", "ipa": "ɪlm", "tags": ["formal"] }
-    ]
+    ],
+    "antonyms": ["ignorance"]
+  },
+  {
+    "english": "ignorance",
+    "category": "Education",
+    "description": "Lack of knowledge or awareness.",
+    "sanskrit_derived": [
+      { "dev": "अज्ञान", "roman": "agyaan", "ipa": "əɡjaːn", "tags": ["formal"] },
+      { "dev": "अविद्या", "roman": "avidya", "ipa": "əʋɪd̪jaː", "tags": ["classical", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जहालत", "roman": "jahalat", "ipa": "dʒəɦaːlət̪", "tags": ["formal"] }
+    ],
+    "antonyms": ["knowledge"]
   },
   {
     "english": "king",
@@ -35,7 +63,8 @@
     "other_historical_sources": [
       { "dev": "बादशाह", "roman": "badshah", "ipa": "baːd̪ʃaːɦ", "tags": ["formal"] },
       { "dev": "सुल्तान", "roman": "sultan", "ipa": "sʊlt̪aːn", "tags": ["formal"] }
-    ]
+    ],
+    "antonyms": []
   },
   {
     "english": "water",
@@ -48,7 +77,8 @@
     ],
     "other_historical_sources": [
       { "dev": "आब", "roman": "aab", "ipa": "aːb", "tags": ["literary"] }
-    ]
+    ],
+    "antonyms": []
   },
   {
     "english": "war",
@@ -60,7 +90,22 @@
     ],
     "other_historical_sources": [
       { "dev": "जंग", "roman": "jang", "ipa": "dʒəŋɡ", "tags": ["colloquial"] }
-    ]
+    ],
+    "antonyms": ["peace"]
+  },
+  {
+    "english": "peace",
+    "category": "Emotion",
+    "description": "A state of tranquility or calm.",
+    "sanskrit_derived": [
+      { "dev": "शान्ति", "roman": "shaanti", "ipa": "ʃaːnt̪ɪ", "tags": ["formal"] },
+      { "dev": "चैन", "roman": "chain", "ipa": "tʃɛːn", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "अमन", "roman": "aman", "ipa": "əmən", "tags": ["formal"] },
+      { "dev": "सुकून", "roman": "sukoon", "ipa": "sʊkuːn", "tags": ["literary"] }
+    ],
+    "antonyms": ["war"]
   },
   {
     "english": "book",
@@ -72,11 +117,12 @@
     ],
     "other_historical_sources": [
       { "dev": "किताब", "roman": "kitaab", "ipa": "kɪt̪aːb", "tags": ["colloquial"] }
-    ]
+    ],
+    "antonyms": []
   },
   {
     "english": "friend",
-    "category": "Relationship",
+    "category": "Relationships",
     "description": "A person with whom one has a bond of mutual affection.",
     "sanskrit_derived": [
       { "dev": "मित्र", "roman": "mitr", "ipa": "mɪt̪r", "tags": ["formal"] },
@@ -85,7 +131,21 @@
     "other_historical_sources": [
       { "dev": "दोस्त", "roman": "dost", "ipa": "d̪oːst̪", "tags": ["colloquial"] },
       { "dev": "यार", "roman": "yaar", "ipa": "jaːr", "tags": ["colloquial"] }
-    ]
+    ],
+    "antonyms": ["enemy"]
+  },
+  {
+    "english": "enemy",
+    "category": "Relationships",
+    "description": "A person who is actively opposed or hostile.",
+    "sanskrit_derived": [
+      { "dev": "शत्रु", "roman": "shatru", "ipa": "ʃət̪rʊ", "tags": ["formal"] },
+      { "dev": "रिपु", "roman": "ripu", "ipa": "rɪpʊ", "tags": ["classical", "archaic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "दुश्मन", "roman": "dushman", "ipa": "d̪ʊʃmən", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["friend"]
   },
   {
     "english": "city",
@@ -97,7 +157,8 @@
     ],
     "other_historical_sources": [
       { "dev": "शहर", "roman": "shehar", "ipa": "ʃeːɦər", "tags": ["colloquial"] }
-    ]
+    ],
+    "antonyms": []
   },
   {
     "english": "sky",
@@ -109,7 +170,8 @@
     ],
     "other_historical_sources": [
       { "dev": "आसमान", "roman": "aasmaan", "ipa": "aːsmaːn", "tags": ["colloquial"] }
-    ]
+    ],
+    "antonyms": []
   },
   {
     "english": "justice",
@@ -122,6 +184,20 @@
     "other_historical_sources": [
       { "dev": "इंसाफ़", "roman": "insaaf", "ipa": "ɪnsaːf", "tags": ["colloquial"] },
       { "dev": "अदालत", "roman": "adalat", "ipa": "əd̪aːlət̪", "tags": ["legal"] }
-    ]
+    ],
+    "antonyms": ["injustice"]
+  },
+  {
+    "english": "injustice",
+    "category": "Law",
+    "description": "Lack of fairness or justice.",
+    "sanskrit_derived": [
+      { "dev": "अन्याय", "roman": "anyaay", "ipa": "ənjaːj", "tags": ["formal", "legal"] },
+      { "dev": "अधर्म", "roman": "adharm", "ipa": "əd̪ʱərm", "tags": ["philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़ुल्म", "roman": "zulm", "ipa": "zʊlm", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["justice"]
   }
 ]

@@ -24,4 +24,5 @@ export interface Concept {
   description: string;
   sanskrit_derived: WordEntry[];
   other_historical_sources: WordEntry[];
+  antonyms?: string[];
 }
