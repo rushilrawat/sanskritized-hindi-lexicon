@@ -1,6 +1,19 @@
 import { NavLink } from "react-router-dom";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Share2 } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
+
+const handleShare = async () => {
+  const url = window.location.origin;
+  const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
+    } catch {}
+  } else {
+    await navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard!");
+  }
+};
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -65,7 +78,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
           <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
             <BookOpen className="h-5 w-5 text-primary" />
             <span className="font-semibold text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
@@ -92,12 +105,20 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
               <TextSizeControl />
               <HighContrastToggle />
+              <button
+                onClick={handleShare}
+                aria-label="Share this website"
+                title="Share"
+                className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
         </div>
         {/* Mobile nav */}
         <div className="sm:hidden border-t border-border">
-          <div className="max-w-4xl mx-auto px-4 flex items-center justify-between py-2">
+          <div className="w-full px-4 flex items-center justify-between py-2">
             <nav className="flex items-center gap-1 overflow-x-auto">
               {navItems.map((item) => (
                 <NavLink
@@ -119,6 +140,13 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="flex items-center gap-1 ml-2">
               <TextSizeControl />
               <HighContrastToggle />
+              <button
+                onClick={handleShare}
+                aria-label="Share"
+                className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
         </div>

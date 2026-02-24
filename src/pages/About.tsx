@@ -79,10 +79,25 @@ const About = () => {
           </a>
         </section>
 
-        <section className="border-t border-border pt-6">
+        <section className="border-t border-border pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground italic">
             This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.
           </p>
+          <button
+            onClick={async () => {
+              const url = window.location.origin;
+              const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
+              if (navigator.share) {
+                try { await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url }); } catch {}
+              } else {
+                await navigator.clipboard.writeText(url);
+                alert("Link copied to clipboard!");
+              }
+            }}
+            className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
+          >
+            Liked our project? Share it →
+          </button>
         </section>
       </div>
     </div>

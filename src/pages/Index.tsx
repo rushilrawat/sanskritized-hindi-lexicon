@@ -67,7 +67,7 @@ const Index = () => {
   return (
     <div className="container-page">
       {/* Hero */}
-      <section className="text-center mb-10">
+      <section className="text-center mb-10 pt-6">
         <AnimatedHeading />
         <p className="text-muted-foreground max-w-lg mx-auto">
           A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.
