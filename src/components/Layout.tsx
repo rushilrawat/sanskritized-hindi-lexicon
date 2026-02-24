@@ -1,18 +1,36 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BookOpen, Share2 } from "lucide-react";
+import { BookOpen, Share2, Check } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 
-const handleShare = async () => {
-  const url = window.location.origin;
-  const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
-    } catch {}
-  } else {
-    await navigator.clipboard.writeText(url);
-    alert("Link copied to clipboard!");
-  }
+const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    const url = window.location.origin;
+    const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
+      } catch {}
+    } else {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleShare}
+      aria-label={label || "Share this website"}
+      title={copied ? "Copied!" : "Share"}
+      className={className}
+    >
+      {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+      {copied && <span className="ml-1 text-xs">Copied!</span>}
+    </button>
+  );
 };
 
 const navItems = [
@@ -105,14 +123,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
               <TextSizeControl />
               <HighContrastToggle />
-              <button
-                onClick={handleShare}
-                aria-label="Share this website"
-                title="Share"
-                className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              >
-                <Share2 className="h-3.5 w-3.5" />
-              </button>
+              <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
             </div>
           </div>
         </div>
@@ -140,13 +151,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="flex items-center gap-1 ml-2">
               <TextSizeControl />
               <HighContrastToggle />
-              <button
-                onClick={handleShare}
-                aria-label="Share"
-                className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Share2 className="h-3.5 w-3.5" />
-              </button>
+              <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center" label="Share" />
             </div>
           </div>
         </div>
