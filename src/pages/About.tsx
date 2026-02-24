@@ -63,6 +63,25 @@ const About = () => {
         </section>
 
         <section>
+          <h2 className="text-lg font-semibold mb-2">Devanagari Script · देवनागरी</h2>
+          <p className="text-muted-foreground">
+            Devanagari is an abugida writing system used to write Hindi, Sanskrit, Marathi, Nepali,
+            and several other South Asian languages. Derived from the ancient Brahmi script, it is
+            written from left to right and is recognized for its distinctive horizontal headline
+            (शिरोरेखा) connecting the letters. Each character represents a consonant-vowel combination,
+            making it a highly phonetic script where pronunciation closely follows written form.
+          </p>
+          <a
+            href="https://en.wikipedia.org/wiki/Devanagari"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm text-primary hover:underline"
+          >
+            Learn more about Devanagari on Wikipedia →
+          </a>
+        </section>
+
+        <section>
           <h2 className="text-lg font-semibold mb-2">Open Source</h2>
           <p className="text-muted-foreground">
             This project is open-source and welcomes contributions. The data is maintained in a
