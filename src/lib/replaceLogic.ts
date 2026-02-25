@@ -3,6 +3,7 @@ import type { Concept } from "@/types/word";
 export interface ReplacementMap {
   from: string;
   to: string;
+  toRoman: string;
 }
 
 export interface TextSegment {
@@ -14,11 +15,12 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
   const map: ReplacementMap[] = [];
   for (const concept of concepts) {
     if (concept.sanskrit_derived.length === 0) continue;
-    const target = concept.sanskrit_derived[0].dev;
+    const targetDev = concept.sanskrit_derived[0].dev;
+    const targetRoman = concept.sanskrit_derived[0].roman;
     for (const other of concept.other_historical_sources) {
-      map.push({ from: other.dev, to: target });
+      map.push({ from: other.dev, to: targetDev, toRoman: targetRoman });
       if (other.roman) {
-        map.push({ from: other.roman, to: target });
+        map.push({ from: other.roman, to: targetDev, toRoman: targetRoman });
       }
     }
   }
@@ -27,12 +29,19 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
   return map;
 }
 
+// Detect if a string is primarily Devanagari
+function isDevanagari(s: string): boolean {
+  const devChars = s.match(/[\u0900-\u097F]/g);
+  return !!devChars && devChars.length > s.length / 3;
+}
+
 export function replaceSentence(text: string, map: ReplacementMap[]): string {
   let result = text;
-  for (const { from, to } of map) {
+  for (const { from, to, toRoman } of map) {
     const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(escaped, "g");
-    result = result.replace(regex, to);
+    const target = isDevanagari(from) ? to : toRoman;
+    result = result.replace(regex, target);
   }
   return result;
 }
@@ -41,7 +50,6 @@ export function replaceSentenceWithHighlights(
   text: string,
   map: ReplacementMap[]
 ): { text: string; segments: TextSegment[] } {
-  // Build a list of replacement ranges
   interface Match {
     start: number;
     end: number;
@@ -49,24 +57,23 @@ export function replaceSentenceWithHighlights(
   }
   const matches: Match[] = [];
 
-  for (const { from, to } of map) {
+  for (const { from, to, toRoman } of map) {
     const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(escaped, "g");
+    const target = isDevanagari(from) ? to : toRoman;
     let m: RegExpExecArray | null;
     while ((m = regex.exec(text)) !== null) {
-      // Check no overlap with existing matches
       const start = m.index;
       const end = start + from.length;
       const overlaps = matches.some(
         (existing) => start < existing.end && end > existing.start
       );
       if (!overlaps) {
-        matches.push({ start, end, to });
+        matches.push({ start, end, to: target });
       }
     }
   }
 
-  // Sort by position
   matches.sort((a, b) => a.start - b.start);
 
   const segments: TextSegment[] = [];
