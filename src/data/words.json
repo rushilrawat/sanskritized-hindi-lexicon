@@ -199,5 +199,222 @@
       { "dev": "ज़ुल्म", "roman": "zulm", "ipa": "zʊlm", "tags": ["colloquial"] }
     ],
     "antonyms": ["justice"]
+  },
+  {
+    "english": "truth",
+    "category": "Abstract Concepts",
+    "description": "The quality of being in accordance with fact or reality.",
+    "sanskrit_derived": [
+      { "dev": "सत्य", "roman": "satya", "ipa": "sət̪jə", "tags": ["formal", "philosophical"] },
+      { "dev": "यथार्थ", "roman": "yathaarth", "ipa": "jət̪ʰaːrt̪ʰ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हक़ीक़त", "roman": "haqeeqat", "ipa": "ɦəqiːqət̪", "tags": ["colloquial"] },
+      { "dev": "सच", "roman": "sach", "ipa": "sətʃ", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["falsehood"]
+  },
+  {
+    "english": "falsehood",
+    "category": "Abstract Concepts",
+    "description": "The state of being untrue or deceptive.",
+    "sanskrit_derived": [
+      { "dev": "असत्य", "roman": "asatya", "ipa": "əsət̪jə", "tags": ["formal"] },
+      { "dev": "मिथ्या", "roman": "mithya", "ipa": "mɪt̪ʰjaː", "tags": ["classical", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "झूठ", "roman": "jhooth", "ipa": "dʒʱuːʈʰ", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["truth"]
+  },
+  {
+    "english": "time",
+    "category": "Abstract Concepts",
+    "description": "The indefinite continued progress of existence.",
+    "sanskrit_derived": [
+      { "dev": "काल", "roman": "kaal", "ipa": "kaːl", "tags": ["formal", "philosophical"] },
+      { "dev": "समय", "roman": "samay", "ipa": "səməj", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "वक़्त", "roman": "waqt", "ipa": "ʋəqt̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "body",
+    "category": "Body & Health",
+    "description": "The physical structure of a person or animal.",
+    "sanskrit_derived": [
+      { "dev": "शरीर", "roman": "shareer", "ipa": "ʃəriːr", "tags": ["formal"] },
+      { "dev": "देह", "roman": "deh", "ipa": "d̪eːɦ", "tags": ["literary"] },
+      { "dev": "काया", "roman": "kaaya", "ipa": "kaːjaː", "tags": ["literary", "religious"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जिस्म", "roman": "jism", "ipa": "dʒɪsm", "tags": ["colloquial"] },
+      { "dev": "बदन", "roman": "badan", "ipa": "bəd̪ən", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "medicine",
+    "category": "Body & Health",
+    "description": "A substance used to treat illness or injury.",
+    "sanskrit_derived": [
+      { "dev": "औषधि", "roman": "aushadhi", "ipa": "ɔːʂəd̪ʱɪ", "tags": ["formal", "classical"] },
+      { "dev": "चिकित्सा", "roman": "chikitsa", "ipa": "tʃɪkɪt̪saː", "tags": ["formal", "technical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "दवा", "roman": "dawaa", "ipa": "d̪əʋaː", "tags": ["colloquial"] },
+      { "dev": "इलाज", "roman": "ilaaj", "ipa": "ɪlaːdʒ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "death",
+    "category": "Body & Health",
+    "description": "The cessation of all biological functions.",
+    "sanskrit_derived": [
+      { "dev": "मृत्यु", "roman": "mrityu", "ipa": "mr̩t̪jʊ", "tags": ["formal"] },
+      { "dev": "निधन", "roman": "nidhan", "ipa": "nɪd̪ʱən", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मौत", "roman": "maut", "ipa": "mɔːt̪", "tags": ["colloquial"] },
+      { "dev": "इंतिक़ाल", "roman": "intiqaal", "ipa": "ɪnt̪ɪqaːl", "tags": ["formal"] }
+    ],
+    "antonyms": ["life"]
+  },
+  {
+    "english": "life",
+    "category": "Body & Health",
+    "description": "The condition that distinguishes living organisms from dead matter.",
+    "sanskrit_derived": [
+      { "dev": "जीवन", "roman": "jeevan", "ipa": "dʒiːʋən", "tags": ["formal"] },
+      { "dev": "प्राण", "roman": "praan", "ipa": "praːɳ", "tags": ["classical", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़िन्दगी", "roman": "zindagi", "ipa": "zɪnd̪əɡiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["death"]
+  },
+  {
+    "english": "society",
+    "category": "Society",
+    "description": "An organized group of people living together in a community.",
+    "sanskrit_derived": [
+      { "dev": "समाज", "roman": "samaaj", "ipa": "səmaːdʒ", "tags": ["formal"] },
+      { "dev": "संघ", "roman": "sangh", "ipa": "səŋɡʱ", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मुआशरा", "roman": "muaashara", "ipa": "mʊaːʃəraː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "language",
+    "category": "Society",
+    "description": "A system of communication used by a community.",
+    "sanskrit_derived": [
+      { "dev": "भाषा", "roman": "bhasha", "ipa": "bʱaːʂaː", "tags": ["formal"] },
+      { "dev": "वाणी", "roman": "vaani", "ipa": "ʋaːɳiː", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़बान", "roman": "zabaan", "ipa": "zəbaːn", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "religion",
+    "category": "Society",
+    "description": "A system of faith and worship.",
+    "sanskrit_derived": [
+      { "dev": "धर्म", "roman": "dharm", "ipa": "d̪ʱərm", "tags": ["formal", "religious"] },
+      { "dev": "पन्थ", "roman": "panth", "ipa": "pənt̪ʰ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मज़हब", "roman": "mazhab", "ipa": "məzɦəb", "tags": ["colloquial"] },
+      { "dev": "दीन", "roman": "deen", "ipa": "d̪iːn", "tags": ["formal", "religious"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "teacher",
+    "category": "Occupations",
+    "description": "A person who teaches or instructs others.",
+    "sanskrit_derived": [
+      { "dev": "गुरु", "roman": "guru", "ipa": "ɡʊrʊ", "tags": ["formal", "religious"] },
+      { "dev": "शिक्षक", "roman": "shikshak", "ipa": "ʃɪkʂək", "tags": ["formal", "academic"] },
+      { "dev": "आचार्य", "roman": "acharya", "ipa": "aːtʃaːrjə", "tags": ["classical", "academic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "उस्ताद", "roman": "ustaad", "ipa": "ʊst̪aːd̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "soldier",
+    "category": "Occupations",
+    "description": "A person who serves in an army.",
+    "sanskrit_derived": [
+      { "dev": "सैनिक", "roman": "sainik", "ipa": "sɛːnɪk", "tags": ["formal"] },
+      { "dev": "योद्धा", "roman": "yoddha", "ipa": "joːd̪d̪ʱaː", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सिपाही", "roman": "sipaahi", "ipa": "sɪpaːɦiː", "tags": ["colloquial"] },
+      { "dev": "फ़ौजी", "roman": "fauji", "ipa": "fɔːdʒiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "mountain",
+    "category": "Geography",
+    "description": "A large natural elevation of the earth's surface.",
+    "sanskrit_derived": [
+      { "dev": "पर्वत", "roman": "parvat", "ipa": "pərʋət̪", "tags": ["formal"] },
+      { "dev": "गिरि", "roman": "giri", "ipa": "ɡɪrɪ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "कोह", "roman": "koh", "ipa": "koːɦ", "tags": ["literary"] },
+      { "dev": "पहाड़", "roman": "pahaad", "ipa": "pəɦaːɽ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "river",
+    "category": "Geography",
+    "description": "A large natural flowing body of water.",
+    "sanskrit_derived": [
+      { "dev": "नदी", "roman": "nadi", "ipa": "nəd̪iː", "tags": ["formal"] },
+      { "dev": "सरिता", "roman": "sarita", "ipa": "sərɪt̪aː", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "दरिया", "roman": "dariya", "ipa": "d̪ərɪjaː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "strength",
+    "category": "Abstract Concepts",
+    "description": "The quality of being physically or mentally strong.",
+    "sanskrit_derived": [
+      { "dev": "शक्ति", "roman": "shakti", "ipa": "ʃəkt̪ɪ", "tags": ["formal"] },
+      { "dev": "बल", "roman": "bal", "ipa": "bəl", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ताक़त", "roman": "taaqat", "ipa": "t̪aːqət̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["weakness"]
+  },
+  {
+    "english": "weakness",
+    "category": "Abstract Concepts",
+    "description": "The state of lacking physical or mental strength.",
+    "sanskrit_derived": [
+      { "dev": "दुर्बलता", "roman": "durbalta", "ipa": "d̪ʊrbəlt̪aː", "tags": ["formal"] },
+      { "dev": "निर्बलता", "roman": "nirbalta", "ipa": "nɪrbəlt̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "कमज़ोरी", "roman": "kamzori", "ipa": "kəmzoːriː", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["strength"]
   }
 ]
