@@ -22,8 +22,10 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
     const allConcepts = wordsData as Concept[];
     for (const ant of concept.antonyms) {
       const antConcept = allConcepts.find((c) => c.english === ant);
-      if (antConcept && antConcept.sanskrit_derived.length > 0) {
-        antonymDevs.push(antConcept.sanskrit_derived[0].dev);
+      if (antConcept) {
+        for (const w of antConcept.sanskrit_derived) {
+          antonymDevs.push(w.dev);
+        }
       }
     }
   }

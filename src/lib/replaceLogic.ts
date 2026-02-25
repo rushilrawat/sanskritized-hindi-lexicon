@@ -17,6 +17,9 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
     const target = concept.sanskrit_derived[0].dev;
     for (const other of concept.other_historical_sources) {
       map.push({ from: other.dev, to: target });
+      if (other.roman) {
+        map.push({ from: other.roman, to: target });
+      }
     }
   }
   // Sort by length descending to avoid partial matches
