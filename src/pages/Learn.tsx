@@ -4,7 +4,7 @@ import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import { flattenWords } from "@/lib/flattenWords";
 import LearnCard from "@/components/LearnCard";
-import { Shuffle } from "lucide-react";
+import { Shuffle, Dices } from "lucide-react";
 
 const concepts = wordsData as Concept[];
 
@@ -47,6 +47,12 @@ const Learn = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") handleNext();
       else if (e.key === "ArrowLeft") handlePrev();
+      else if (e.key === " ") {
+        e.preventDefault();
+        const utterance = new SpeechSynthesisUtterance(words[index]?.dev);
+        utterance.lang = "hi-IN";
+        window.speechSynthesis.speak(utterance);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -55,6 +61,10 @@ const Learn = () => {
   const handleShuffle = () => {
     setShuffled((s) => !s);
     setIndex(0);
+  };
+
+  const handleRandom = () => {
+    setIndex(Math.floor(Math.random() * words.length));
   };
 
   // Reset index when category changes
@@ -81,7 +91,7 @@ const Learn = () => {
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-foreground mb-2">Learn Words</h1>
         <p className="text-muted-foreground mb-4">
-          Study Sanskrit-derived words one at a time. Use ← → arrow keys to navigate.
+          Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.
         </p>
         <div className="flex items-center justify-center gap-2 flex-wrap">
           <button
@@ -90,6 +100,13 @@ const Learn = () => {
           >
             <Shuffle className="h-4 w-4" />
             {shuffled ? "Sequential" : "Shuffle"}
+          </button>
+          <button
+            onClick={handleRandom}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          >
+            <Dices className="h-4 w-4" />
+            Random
           </button>
           <select
             value={selectedCategory || ""}

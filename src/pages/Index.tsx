@@ -9,6 +9,10 @@ import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 
 const concepts = wordsData as Concept[];
+
+function normalize(s: string): string {
+  return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Index = () => {
@@ -32,11 +36,11 @@ const Index = () => {
     let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
 
     if (search.trim()) {
-      const q = search.toLowerCase();
+      const q = normalize(search);
       list = list.filter((c) => {
-        if (c.english.toLowerCase().includes(q)) return true;
+        if (normalize(c.english).includes(q)) return true;
         for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          if (w.dev.includes(q) || w.roman.toLowerCase().includes(q)) return true;
+          if (w.dev.includes(search.trim()) || normalize(w.roman).includes(q)) return true;
         }
         return false;
       });

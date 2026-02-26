@@ -11,6 +11,17 @@ import Learn from "./pages/Learn";
 import Replace from "./pages/Replace";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import { validateWords } from "@/lib/validateWords";
+import wordsData from "@/data/words.json";
+import type { Concept } from "@/types/word";
+
+// Validate data on load (dev only)
+if (import.meta.env.DEV) {
+  const issues = validateWords(wordsData as Concept[]);
+  if (issues.length > 0) {
+    console.warn("⚠️ Word data validation issues:", issues);
+  }
+}
 
 const queryClient = new QueryClient();
 
