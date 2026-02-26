@@ -3,8 +3,9 @@ import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import CategoryGrid from "@/components/CategoryGrid";
 import WordCard from "@/components/WordCard";
+import DataFallback from "@/components/DataFallback";
 
-const concepts = wordsData as Concept[];
+const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Categories = () => {
@@ -33,6 +34,10 @@ const Categories = () => {
   };
 
   const lettersRendered = new Set<string>();
+
+  if (concepts.length === 0) {
+    return <DataFallback />;
+  }
 
   return (
     <div className="container-page">

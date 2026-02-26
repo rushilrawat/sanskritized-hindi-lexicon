@@ -5,13 +5,15 @@ import type { Concept } from "@/types/word";
 import { flattenWords } from "@/lib/flattenWords";
 import LearnCard from "@/components/LearnCard";
 import { Shuffle, Dices } from "lucide-react";
+import { useAccessibility } from "@/hooks/useAccessibility";
+import DataFallback from "@/components/DataFallback";
 
-const concepts = wordsData as Concept[];
+const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
 
 const Learn = () => {
   const [shuffled, setShuffled] = useState(false);
   const [index, setIndex] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
   const navigate = useNavigate();
 
   const categories = useMemo(() => {
@@ -78,10 +80,14 @@ const Learn = () => {
     }
   }, [words, index, navigate]);
 
+  if (concepts.length === 0) {
+    return <DataFallback />;
+  }
+
   if (words.length === 0) {
     return (
       <div className="container-page text-center text-muted-foreground py-12">
-        No words available.
+        No words in this category.
       </div>
     );
   }
