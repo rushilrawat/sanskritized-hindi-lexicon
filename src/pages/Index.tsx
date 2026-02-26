@@ -7,8 +7,9 @@ import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
+import DataFallback from "@/components/DataFallback";
 
-const concepts = wordsData as Concept[];
+const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
 
 function normalize(s: string): string {
   return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -67,6 +68,10 @@ const Index = () => {
 
   // Group words by first letter for anchors
   const lettersRendered = new Set<string>();
+
+  if (concepts.length === 0) {
+    return <DataFallback message="No word data found. The lexicon data file may be empty or malformed." />;
+  }
 
   return (
     <div className="container-page">

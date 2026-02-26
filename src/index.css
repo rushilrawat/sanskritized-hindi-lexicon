@@ -55,6 +55,43 @@
     --ink-light: 215 14% 50%;
   }
 
+  /* Dark Mode */
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 40 10% 90%;
+
+    --card: 220 14% 13%;
+    --card-foreground: 40 10% 90%;
+
+    --popover: 220 14% 13%;
+    --popover-foreground: 40 10% 90%;
+
+    --primary: 28 72% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 12% 18%;
+    --secondary-foreground: 40 10% 85%;
+
+    --muted: 220 10% 18%;
+    --muted-foreground: 215 10% 55%;
+
+    --accent: 28 20% 18%;
+    --accent-foreground: 28 60% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 28 72% 52%;
+
+    --saffron: 28 72% 52%;
+    --saffron-light: 28 30% 18%;
+    --saffron-dark: 28 60% 70%;
+    --ink: 40 10% 90%;
+    --ink-light: 215 10% 55%;
+  }
+
   /* High Contrast Mode */
   .high-contrast {
     --background: 0 0% 100%;

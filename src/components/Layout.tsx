@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BookOpen, Share2, Check } from "lucide-react";
+import { BookOpen, Share2, Check, Moon, Sun } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
@@ -92,6 +92,21 @@ const HighContrastToggle = () => {
   );
 };
 
+const DarkModeToggle = () => {
+  const { darkMode, toggleDarkMode } = useAccessibility();
+
+  return (
+    <button
+      onClick={toggleDarkMode}
+      aria-label="Toggle dark mode"
+      title={darkMode ? "Light mode" : "Dark mode"}
+      className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+    >
+      {darkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+    </button>
+  );
+};
+
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -123,6 +138,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
               <TextSizeControl />
               <HighContrastToggle />
+              <DarkModeToggle />
               <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
             </div>
           </div>
@@ -151,6 +167,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="flex items-center gap-1 ml-2">
               <TextSizeControl />
               <HighContrastToggle />
+              <DarkModeToggle />
               <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center" label="Share" />
             </div>
           </div>

@@ -3,8 +3,9 @@ import { Copy, Check } from "lucide-react";
 import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
 import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
+import DataFallback from "@/components/DataFallback";
 
-const concepts = wordsData as Concept[];
+const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
 
 const Replace = () => {
   const [input, setInput] = useState("");
@@ -18,6 +19,10 @@ const Replace = () => {
   }, [input, map]);
 
   const hasChanges = input.trim() !== "" && output !== input;
+
+  if (concepts.length === 0) {
+    return <DataFallback />;
+  }
 
   return (
     <div className="container-page">
