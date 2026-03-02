@@ -103,10 +103,28 @@ const Index = () => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
   }, [filtered]);
 
-  const handleJumpToLetter = (letter: string) => {
-    const el = document.getElementById(`word-${letter}`);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const handleJumpToLetter = useCallback((letter: string) => {
+    // Find the index of the first word starting with this letter
+    const idx = filtered.findIndex(
+      (c) => c.english[0].toUpperCase() === letter
+    );
+    if (idx === -1) return;
+
+    // Ensure enough items are loaded to include this letter
+    if (idx >= visibleCount) {
+      setVisibleCount(Math.min(idx + BATCH_SIZE, filtered.length));
+      // Wait for render, then scroll
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const el = document.getElementById(`word-${letter}`);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    } else {
+      const el = document.getElementById(`word-${letter}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [filtered, visibleCount]);
 
   const handleViewWotdEntry = useCallback(() => {
     if (wotd) {
