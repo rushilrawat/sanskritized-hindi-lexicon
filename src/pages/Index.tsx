@@ -16,10 +16,15 @@ function normalize(s: string): string {
 }
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+const BATCH_SIZE = 15;
+
 const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const [activeLetter, setActiveLetter] = useState<string | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -50,6 +55,50 @@ const Index = () => {
     return list;
   }, [search]);
 
+  // Reset visible count when filter changes
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [filtered]);
+
+  // Infinite scroll observer
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < filtered.length) {
+          setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, filtered.length));
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [visibleCount, filtered.length]);
+
+  // Track current letter on scroll
+  useEffect(() => {
+    if (search || !listRef.current) return;
+
+    const handleScroll = () => {
+      const letters = listRef.current?.querySelectorAll("[data-letter]");
+      if (!letters) return;
+      let current: string | null = null;
+      for (const el of letters) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 140) {
+          current = (el as HTMLElement).dataset.letter || null;
+        }
+      }
+      setActiveLetter(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [search]);
+
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
   }, [filtered]);
@@ -68,6 +117,7 @@ const Index = () => {
 
   // Group words by first letter for anchors
   const lettersRendered = new Set<string>();
+  const visibleItems = filtered.slice(0, visibleCount);
 
   if (concepts.length === 0) {
     return <DataFallback message="No word data found. The lexicon data file may be empty or malformed." />;
@@ -99,21 +149,32 @@ const Index = () => {
       {!search && filtered.length > 5 && (
         <section className="mb-6">
           <div className="flex flex-wrap gap-1 justify-center">
-            {alphabet.map((letter) => (
-              <button
-                key={letter}
-                onClick={() => handleJumpToLetter(letter)}
-                disabled={!availableLetters.has(letter)}
-                className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
-                  availableLetters.has(letter)
-                    ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
-                    : "text-muted-foreground/30 cursor-default"
-                }`}
-              >
-                {letter}
-              </button>
-            ))}
+            {alphabet.map((letter) => {
+              const isAvailable = availableLetters.has(letter);
+              const isActive = activeLetter === letter;
+              return (
+                <button
+                  key={letter}
+                  onClick={() => handleJumpToLetter(letter)}
+                  disabled={!isAvailable}
+                  className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                    isActive
+                      ? "bg-primary text-primary-foreground border border-primary shadow-sm"
+                      : isAvailable
+                        ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
+                        : "text-muted-foreground/30 cursor-default"
+                  }`}
+                >
+                  {letter}
+                </button>
+              );
+            })}
           </div>
+          {activeLetter && (
+            <p className="text-center text-xs text-primary font-medium mt-2">
+              Currently viewing: {activeLetter}
+            </p>
+          )}
         </section>
       )}
 
@@ -122,16 +183,26 @@ const Index = () => {
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground py-8">No entries found. Try another term.</p>
         )}
-        {filtered.map((concept) => {
+        {visibleItems.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();
           const needsAnchor = !lettersRendered.has(firstLetter);
           if (needsAnchor) lettersRendered.add(firstLetter);
           return (
-            <div key={concept.english} id={needsAnchor ? `word-${firstLetter}` : undefined}>
+            <div
+              key={concept.english}
+              id={needsAnchor ? `word-${firstLetter}` : undefined}
+              data-letter={needsAnchor ? firstLetter : undefined}
+            >
               <WordCard concept={concept} />
             </div>
           );
         })}
+        {/* Sentinel for infinite scroll */}
+        {visibleCount < filtered.length && (
+          <div ref={sentinelRef} className="flex justify-center py-6">
+            <span className="text-sm text-muted-foreground animate-pulse">Loading more…</span>
+          </div>
+        )}
       </section>
     </div>
   );
