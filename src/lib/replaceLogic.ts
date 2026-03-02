@@ -35,15 +35,25 @@ function isDevanagari(s: string): boolean {
   return !!devChars && devChars.length > s.length / 3;
 }
 
+// Check if a character is a word boundary for matching purposes
+function isWordBoundary(char: string | undefined): boolean {
+  if (!char) return true; // start/end of string
+  // Spaces, punctuation, etc.
+  return /[\s.,;:!?'"()\[\]{}\-\/\\|@#$%^&*+=<>~`]/.test(char);
+}
+
 export function replaceSentence(text: string, map: ReplacementMap[]): string {
-  let result = text;
-  for (const { from, to, toRoman } of map) {
-    const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(escaped, "g");
-    const target = isDevanagari(from) ? to : toRoman;
-    result = result.replace(regex, target);
-  }
-  return result;
+  // Split into words, replace whole tokens only
+  const words = text.split(/(\s+)/);
+  return words.map(word => {
+    if (/^\s+$/.test(word)) return word;
+    for (const { from, to, toRoman } of map) {
+      if (word === from) {
+        return isDevanagari(from) ? to : toRoman;
+      }
+    }
+    return word;
+  }).join("");
 }
 
 export function replaceSentenceWithHighlights(
@@ -59,12 +69,17 @@ export function replaceSentenceWithHighlights(
 
   for (const { from, to, toRoman } of map) {
     const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Use word boundary approach: check chars before/after match
     const regex = new RegExp(escaped, "g");
     const target = isDevanagari(from) ? to : toRoman;
     let m: RegExpExecArray | null;
     while ((m = regex.exec(text)) !== null) {
       const start = m.index;
       const end = start + from.length;
+      // Only match whole words: check boundaries
+      const charBefore = start > 0 ? text[start - 1] : undefined;
+      const charAfter = end < text.length ? text[end] : undefined;
+      if (!isWordBoundary(charBefore) || !isWordBoundary(charAfter)) continue;
       const overlaps = matches.some(
         (existing) => start < existing.end && end > existing.start
       );

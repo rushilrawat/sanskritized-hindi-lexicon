@@ -16,7 +16,7 @@ function normalize(s: string): string {
 }
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-const BATCH_SIZE = 15;
+const BATCH_SIZE = 50;
 
 const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();

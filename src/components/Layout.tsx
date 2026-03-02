@@ -102,7 +102,7 @@ const DarkModeToggle = () => {
       title={darkMode ? "Light mode" : "Dark mode"}
       className={`px-2 py-1 text-xs font-medium rounded-md border transition-colors ${
         darkMode
-          ? "border-primary bg-primary/15 text-primary hover:bg-primary/25"
+          ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90"
           : "border-border text-muted-foreground hover:text-foreground hover:bg-muted"
       }`}
     >
