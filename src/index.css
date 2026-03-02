@@ -100,6 +100,8 @@
     --card-foreground: 0 0% 5%;
     --primary: 28 85% 38%;
     --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 10%;
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 30%;
     --accent: 28 30% 88%;
@@ -108,6 +110,26 @@
     --input: 0 0% 70%;
     --saffron-light: 28 50% 90%;
     --saffron-dark: 28 85% 25%;
+  }
+
+  /* High Contrast + Dark Mode */
+  .dark.high-contrast {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --primary: 28 90% 55%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 28 30% 15%;
+    --accent-foreground: 28 80% 70%;
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --saffron-light: 28 30% 15%;
+    --saffron-dark: 28 80% 70%;
   }
 }
 

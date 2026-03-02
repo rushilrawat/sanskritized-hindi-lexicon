@@ -100,7 +100,11 @@ const DarkModeToggle = () => {
       onClick={toggleDarkMode}
       aria-label="Toggle dark mode"
       title={darkMode ? "Light mode" : "Dark mode"}
-      className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+      className={`px-2 py-1 text-xs font-medium rounded-md border transition-colors ${
+        darkMode
+          ? "border-primary bg-primary/15 text-primary hover:bg-primary/25"
+          : "border-border text-muted-foreground hover:text-foreground hover:bg-muted"
+      }`}
     >
       {darkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
     </button>
