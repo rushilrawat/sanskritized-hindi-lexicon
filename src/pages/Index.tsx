@@ -163,10 +163,15 @@ const Index = () => {
         </section>
       )}
 
-      {/* A-Z Jump Navigation */}
+      {/* A-Z Jump Navigation - Sticky */}
       {!search && filtered.length > 5 && (
-        <section className="mb-6">
-          <div className="flex flex-wrap gap-1 justify-center">
+        <section className="sticky top-[7.5rem] z-10 bg-background/95 backdrop-blur-sm py-2 -mx-4 px-4 mb-4">
+          <div className="flex flex-wrap gap-1 justify-center items-center">
+            {activeLetter && (
+              <span className="text-xs text-primary font-semibold mr-2 hidden sm:inline">
+                {activeLetter}
+              </span>
+            )}
             {alphabet.map((letter) => {
               const isAvailable = availableLetters.has(letter);
               const isActive = activeLetter === letter;
@@ -175,7 +180,7 @@ const Index = () => {
                   key={letter}
                   onClick={() => handleJumpToLetter(letter)}
                   disabled={!isAvailable}
-                  className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                  className={`w-7 h-7 rounded text-xs font-medium transition-colors ${
                     isActive
                       ? "bg-primary text-primary-foreground border border-primary shadow-sm"
                       : isAvailable
@@ -188,11 +193,6 @@ const Index = () => {
               );
             })}
           </div>
-          {activeLetter && (
-            <p className="text-center text-xs text-primary font-medium mt-2">
-              Currently viewing: {activeLetter}
-            </p>
-          )}
         </section>
       )}
 
