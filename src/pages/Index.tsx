@@ -151,27 +151,11 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Search - Sticky */}
+      {/* Search + A-Z Navigation - Combined Sticky */}
       <section className="sticky top-14 z-20 bg-background border-b border-border py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
-      </section>
-
-      {/* Word of the Day */}
-      {wotd && !search && (
-        <section className="mb-10">
-          <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
-        </section>
-      )}
-
-      {/* A-Z Jump Navigation - Sticky */}
-      {!search && filtered.length > 5 && (
-        <section className="sticky top-[6.75rem] z-10 bg-background border-b border-border py-2 -mx-4 px-4 mb-4">
-          <div className="flex flex-wrap gap-1 justify-center items-center">
-            {activeLetter && (
-              <span className="text-xs text-primary font-semibold mr-2 hidden sm:inline">
-                {activeLetter}
-              </span>
-            )}
+        {!search && filtered.length > 5 && (
+          <div className="flex gap-0.5 justify-center items-center mt-2 overflow-x-auto">
             {alphabet.map((letter) => {
               const isAvailable = availableLetters.has(letter);
               const isActive = activeLetter === letter;
@@ -180,11 +164,11 @@ const Index = () => {
                   key={letter}
                   onClick={() => handleJumpToLetter(letter)}
                   disabled={!isAvailable}
-                  className={`w-7 h-7 rounded text-xs font-medium transition-colors ${
+                  className={`w-6 h-6 flex-shrink-0 rounded text-[11px] font-medium transition-colors ${
                     isActive
-                      ? "bg-primary text-primary-foreground border border-primary shadow-sm"
+                      ? "bg-primary text-primary-foreground shadow-sm"
                       : isAvailable
-                        ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
+                        ? "text-foreground hover:bg-primary hover:text-primary-foreground"
                         : "text-muted-foreground/30 cursor-default"
                   }`}
                 >
@@ -193,6 +177,13 @@ const Index = () => {
               );
             })}
           </div>
+        )}
+      </section>
+
+      {/* Word of the Day */}
+      {wotd && !search && (
+        <section className="mb-10 mt-4">
+          <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
         </section>
       )}
 
