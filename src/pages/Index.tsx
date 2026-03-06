@@ -152,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* Search - Sticky */}
-      <section className="sticky top-16 z-20 bg-background/95 backdrop-blur-sm py-3 -mx-4 px-4">
+      <section className="sticky top-16 z-20 bg-background/95 backdrop-blur-sm py-3 -mx-4 px-4 mb-5">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
       </section>
 
@@ -163,10 +163,15 @@ const Index = () => {
         </section>
       )}
 
-      {/* A-Z Jump Navigation - Sticky below search */}
+      {/* A-Z Jump Navigation - Sticky */}
       {!search && filtered.length > 5 && (
-        <section className="sticky top-[6.75rem] z-10 bg-background/95 backdrop-blur-sm py-2 -mx-4 px-4 mb-4 border-b border-border">
-          <div className="flex flex-wrap gap-[3px] justify-center">
+        <section className="sticky top-[7.5rem] z-10 bg-background/95 backdrop-blur-sm py-2 -mx-4 px-4 mb-4">
+          <div className="flex flex-wrap gap-1 justify-center items-center">
+            {activeLetter && (
+              <span className="text-xs text-primary font-semibold mr-2 hidden sm:inline">
+                {activeLetter}
+              </span>
+            )}
             {alphabet.map((letter) => {
               const isAvailable = availableLetters.has(letter);
               const isActive = activeLetter === letter;
@@ -175,12 +180,12 @@ const Index = () => {
                   key={letter}
                   onClick={() => handleJumpToLetter(letter)}
                   disabled={!isAvailable}
-                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded text-[10px] sm:text-xs font-medium transition-colors ${
+                  className={`w-7 h-7 rounded text-xs font-medium transition-colors ${
                     isActive
-                      ? "bg-primary text-primary-foreground shadow-sm"
+                      ? "bg-primary text-primary-foreground border border-primary shadow-sm"
                       : isAvailable
-                        ? "text-foreground hover:bg-accent"
-                        : "text-muted-foreground/25 cursor-default"
+                        ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
+                        : "text-muted-foreground/30 cursor-default"
                   }`}
                 >
                   {letter}
