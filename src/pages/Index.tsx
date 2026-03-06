@@ -182,8 +182,13 @@ const Index = () => {
 
       {/* Word of the Day */}
       {wotd && !search && (
-        <section className="mb-10 mt-4">
+        <section className="mb-6 mt-4">
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
+          <div className="mt-6 flex items-center gap-3">
+            <div className="h-px flex-1 bg-border" />
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">All Entries</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
         </section>
       )}
 
