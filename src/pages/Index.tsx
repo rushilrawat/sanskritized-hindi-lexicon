@@ -152,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* Search - Sticky */}
-      <section className="sticky top-16 z-20 bg-background/95 backdrop-blur-sm py-3 -mx-4 px-4 mb-5">
+      <section className="sticky top-14 z-20 bg-background border-b border-border py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
       </section>
 
@@ -165,7 +165,7 @@ const Index = () => {
 
       {/* A-Z Jump Navigation - Sticky */}
       {!search && filtered.length > 5 && (
-        <section className="sticky top-[7.5rem] z-10 bg-background/95 backdrop-blur-sm py-2 -mx-4 px-4 mb-4">
+        <section className="sticky top-[6.75rem] z-10 bg-background border-b border-border py-2 -mx-4 px-4 mb-4">
           <div className="flex flex-wrap gap-1 justify-center items-center">
             {activeLetter && (
               <span className="text-xs text-primary font-semibold mr-2 hidden sm:inline">
