@@ -31,7 +31,8 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   }
 
   return (
-    <div className="bg-card rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-5 pr-6 py-6 border-l-4 border-l-primary">
+    <div className="rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-5 pr-6 py-6 border-l-4 border-l-primary bg-gradient-to-br from-card via-card to-accent/30">
+      <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
       <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
         Word of the Day
       </p>
