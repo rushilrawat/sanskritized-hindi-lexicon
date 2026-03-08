@@ -121,15 +121,15 @@ const Layout = ({ children }: LayoutProps) => {
             <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             <span className="font-semibold text-xs sm:text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
           </NavLink>
-          <div className="flex items-center gap-2">
-            <nav className="hidden sm:flex items-center gap-0.5 md:gap-1">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <nav className="flex items-center gap-0.5 md:gap-1">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   end={item.to === "/"}
                   className={({ isActive }) =>
-                    `px-3 py-1.5 rounded-md text-sm transition-colors ${
+                    `px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-md text-[11px] sm:text-xs lg:text-sm whitespace-nowrap transition-colors ${
                       isActive
                         ? "bg-primary text-primary-foreground font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -140,40 +140,36 @@ const Layout = ({ children }: LayoutProps) => {
                 </NavLink>
               ))}
             </nav>
-            <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
+            {/* Desktop inline controls */}
+            <div className="hidden lg:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
               <TextSizeControl />
               <HighContrastToggle />
               <DarkModeToggle />
               <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
             </div>
-          </div>
-        </div>
-        {/* Mobile nav */}
-        <div className="sm:hidden border-t border-border">
-          <div className="w-full px-2 flex items-center justify-between py-1.5">
-            <nav className="flex items-center gap-0.5">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.to === "/"}
-                  className={({ isActive }) =>
-                    `px-2 py-1 rounded-md text-[11px] whitespace-nowrap transition-colors ${
-                      isActive
-                        ? "bg-primary text-primary-foreground font-medium"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </nav>
-            <div className="flex items-center gap-0.5 ml-1">
-              <TextSizeControl />
-              <HighContrastToggle />
-              <DarkModeToggle />
-              <ShareButton className="px-1.5 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center" label="Share" />
+            {/* Mobile/Tablet popover menu */}
+            <div className="lg:hidden ml-1">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button
+                    aria-label="Settings"
+                    className="p-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <Settings className="h-3.5 w-3.5" />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent align="end" className="w-auto p-3 space-y-3">
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Text Size</p>
+                    <TextSizeControl />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <HighContrastToggle />
+                    <DarkModeToggle />
+                    <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
+                  </div>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
         </div>
