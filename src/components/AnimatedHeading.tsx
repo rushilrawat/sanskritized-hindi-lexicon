@@ -25,7 +25,7 @@ const AnimatedHeading = () => {
 
   return (
     <h1
-      className={`text-3xl sm:text-4xl font-bold tracking-tight mb-2 transition-opacity duration-400 ${
+      className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 transition-opacity duration-400 ${
         fading ? "opacity-0" : "opacity-100"
       } ${current.className}`}
     >

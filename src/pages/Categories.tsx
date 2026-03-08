@@ -41,8 +41,8 @@ const Categories = () => {
 
   return (
     <div className="container-page">
-      <h1 className="text-2xl font-bold text-foreground mb-2">Browse by Category</h1>
-      <p className="text-muted-foreground mb-8">
+      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Browse by Category</h1>
+      <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
         Explore vocabulary grouped by thematic categories.
       </p>
 
@@ -64,7 +64,7 @@ const Categories = () => {
                 key={letter}
                 onClick={() => handleJumpToLetter(letter)}
                 disabled={!availableLetters.has(letter)}
-                className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded text-[10px] sm:text-xs font-medium transition-colors ${
                   availableLetters.has(letter)
                     ? "text-foreground hover:bg-primary hover:text-primary-foreground border border-border"
                     : "text-muted-foreground/30 cursor-default"
@@ -77,9 +77,9 @@ const Categories = () => {
         </section>
       )}
 
-      <div className="mt-4 space-y-4">
+      <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
         {selectedCategory && (
-          <h2 className="text-lg font-semibold text-foreground">{selectedCategory}</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-foreground">{selectedCategory}</h2>
         )}
         {filtered.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();
