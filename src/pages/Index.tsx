@@ -155,7 +155,7 @@ const Index = () => {
       <section className="sticky top-14 z-20 bg-background border-b border-border py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
         {!search && filtered.length > 5 && (
-          <div className="flex gap-0.5 justify-center items-center mt-2 overflow-x-auto">
+          <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">
             {alphabet.map((letter) => {
               const isAvailable = availableLetters.has(letter);
               const isActive = activeLetter === letter;
@@ -164,7 +164,7 @@ const Index = () => {
                   key={letter}
                   onClick={() => handleJumpToLetter(letter)}
                   disabled={!isAvailable}
-                  className={`w-6 h-6 flex-shrink-0 rounded text-[11px] font-medium transition-colors ${
+                  className={`w-[calc((100%-25px)/26)] sm:w-6 h-6 flex-shrink-0 rounded text-[10px] sm:text-[11px] font-medium transition-colors ${
                     isActive
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : isAvailable
