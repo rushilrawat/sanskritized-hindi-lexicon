@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BookOpen, Share2, Check, Moon, Sun } from "lucide-react";
+import { BookOpen, Share2, Check, Moon, Sun, Settings } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
   const [copied, setCopied] = useState(false);
