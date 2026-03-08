@@ -1,16 +1,16 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
+import { useWords } from "@/hooks/useWords";
 import { flattenWords } from "@/lib/flattenWords";
 import LearnCard from "@/components/LearnCard";
 import { Shuffle, Dices } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import DataFallback from "@/components/DataFallback";
-
-const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
+import WordsLoading from "@/components/WordsLoading";
 
 const Learn = () => {
+  const { concepts, loading } = useWords();
   const [shuffled, setShuffled] = useState(false);
   const [index, setIndex] = useState(0);
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
@@ -19,7 +19,7 @@ const Learn = () => {
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
     return Array.from(cats).sort();
-  }, []);
+  }, [concepts]);
 
   const words = useMemo(() => {
     let filtered = selectedCategory
@@ -35,7 +35,7 @@ const Learn = () => {
       return arr;
     }
     return flat;
-  }, [shuffled, selectedCategory]);
+  }, [shuffled, selectedCategory, concepts]);
 
   const handleNext = useCallback(() => {
     setIndex((prev) => (prev + 1) % words.length);
@@ -78,6 +78,8 @@ const Learn = () => {
       navigate(`/?search=${encodeURIComponent(words[index].english)}`);
     }
   }, [words, index, navigate]);
+
+  if (loading) return <WordsLoading />;
 
   if (concepts.length === 0) {
     return <DataFallback />;

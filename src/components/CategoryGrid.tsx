@@ -1,7 +1,5 @@
-import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
-
-const concepts = wordsData as Concept[];
+import { useWords } from "@/hooks/useWords";
 
 const categoryEmojis: Record<string, string> = {
   Education: "📚",
@@ -26,6 +24,8 @@ interface CategoryGridProps {
 }
 
 const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = false }: CategoryGridProps) => {
+  const { concepts } = useWords();
+
   const getCategoryCount = (cat: string) =>
     concepts.filter((c) => c.category === cat).length;
 
