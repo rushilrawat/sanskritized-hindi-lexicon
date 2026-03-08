@@ -1613,5 +1613,1166 @@
       { "dev": "मुग़न्नी", "roman": "mughanni", "ipa": "mʊɣənniː", "tags": ["formal"] }
     ],
     "antonyms": []
+  },
+  {
+    "english": "patience",
+    "category": "Emotion",
+    "description": "The capacity to accept delay or suffering without anger.",
+    "sanskrit_derived": [
+      { "dev": "धैर्य", "roman": "dhairya", "ipa": "d̪ʱɛːrjə", "tags": ["formal"] },
+      { "dev": "सहनशीलता", "roman": "sahansheelta", "ipa": "səɦənʃiːlt̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सब्र", "roman": "sabr", "ipa": "səbr", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "gratitude",
+    "category": "Emotion",
+    "description": "The quality of being thankful.",
+    "sanskrit_derived": [
+      { "dev": "कृतज्ञता", "roman": "kritagyta", "ipa": "kr̩t̪əɡjət̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शुक्रगुज़ारी", "roman": "shukrguzaari", "ipa": "ʃʊkrɡʊzaːriː", "tags": ["formal"] },
+      { "dev": "एहसान", "roman": "ehsaan", "ipa": "eːɦsaːn", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "loneliness",
+    "category": "Emotion",
+    "description": "The state of being alone and feeling sad about it.",
+    "sanskrit_derived": [
+      { "dev": "एकाकीपन", "roman": "ekaakeepan", "ipa": "eːkaːkiːpən", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तन्हाई", "roman": "tanhaai", "ipa": "t̪ənɦaːiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "trust",
+    "category": "Emotion",
+    "description": "Firm belief in the reliability of someone or something.",
+    "sanskrit_derived": [
+      { "dev": "विश्वास", "roman": "vishvaas", "ipa": "ʋɪʃʋaːs", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "भरोसा", "roman": "bharosa", "ipa": "bʱərosaː", "tags": ["colloquial"] },
+      { "dev": "ऐतबार", "roman": "aitbaar", "ipa": "ɛːt̪baːr", "tags": ["formal"] }
+    ],
+    "antonyms": ["betrayal"]
+  },
+  {
+    "english": "betrayal",
+    "category": "Emotion",
+    "description": "The act of being disloyal or treacherous.",
+    "sanskrit_derived": [
+      { "dev": "विश्वासघात", "roman": "vishvaasghaat", "ipa": "ʋɪʃʋaːsɡʱaːt̪", "tags": ["formal"] },
+      { "dev": "द्रोह", "roman": "droh", "ipa": "d̪roːɦ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "धोखा", "roman": "dhokha", "ipa": "d̪ʱoːkʰaː", "tags": ["colloquial"] },
+      { "dev": "ख़यानत", "roman": "khayaanat", "ipa": "kʰəjaːnət̪", "tags": ["formal"] }
+    ],
+    "antonyms": ["trust"]
+  },
+  {
+    "english": "surprise",
+    "category": "Emotion",
+    "description": "A feeling caused by something unexpected.",
+    "sanskrit_derived": [
+      { "dev": "आश्चर्य", "roman": "aashcharya", "ipa": "aːʃtʃərjə", "tags": ["formal"] },
+      { "dev": "विस्मय", "roman": "vismay", "ipa": "ʋɪsməj", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हैरानी", "roman": "hairaani", "ipa": "ɦɛːraːniː", "tags": ["colloquial"] },
+      { "dev": "अचम्भा", "roman": "achambha", "ipa": "ətʃəmbʱaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "enthusiasm",
+    "category": "Emotion",
+    "description": "Intense enjoyment, interest, or eagerness.",
+    "sanskrit_derived": [
+      { "dev": "उत्साह", "roman": "utsaah", "ipa": "ʊt̪saːɦ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जोश", "roman": "josh", "ipa": "dʒoːʃ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "grief",
+    "category": "Emotion",
+    "description": "Intense sorrow, especially caused by someone's death.",
+    "sanskrit_derived": [
+      { "dev": "शोक", "roman": "shok", "ipa": "ʃoːk", "tags": ["formal"] },
+      { "dev": "विलाप", "roman": "vilaap", "ipa": "ʋɪlaːp", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मातम", "roman": "maatam", "ipa": "maːt̪əm", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "curiosity",
+    "category": "Emotion",
+    "description": "A strong desire to know or learn something.",
+    "sanskrit_derived": [
+      { "dev": "जिज्ञासा", "roman": "jigyaasa", "ipa": "dʒɪɡjaːsaː", "tags": ["formal"] },
+      { "dev": "कुतूहल", "roman": "kutoohal", "ipa": "kʊt̪uːɦəl", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तजस्सुस", "roman": "tajassus", "ipa": "t̪ədʒəssʊs", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "university",
+    "category": "Education",
+    "description": "An institution of higher learning and research.",
+    "sanskrit_derived": [
+      { "dev": "विश्वविद्यालय", "roman": "vishvavidyaalaya", "ipa": "ʋɪʃʋəʋɪd̪jaːləj", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "दारुलउलूम", "roman": "daarululoom", "ipa": "d̪aːrʊlʊluːm", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "library",
+    "category": "Education",
+    "description": "A building or room containing collections of books.",
+    "sanskrit_derived": [
+      { "dev": "पुस्तकालय", "roman": "pustakaalaya", "ipa": "pʊst̪əkaːləj", "tags": ["formal"] },
+      { "dev": "ग्रन्थालय", "roman": "granthaalaya", "ipa": "ɡrənt̪ʰaːləj", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "कुतुबख़ाना", "roman": "kutubkhaana", "ipa": "kʊt̪ʊbkʰaːnaː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "science",
+    "category": "Education",
+    "description": "Systematic study of the structure and behaviour of the physical world.",
+    "sanskrit_derived": [
+      { "dev": "विज्ञान", "roman": "vigyaan", "ipa": "ʋɪɡjaːn", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "साइंस", "roman": "science", "ipa": "saːɪns", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "history",
+    "category": "Education",
+    "description": "The study of past events.",
+    "sanskrit_derived": [
+      { "dev": "इतिहास", "roman": "itihaas", "ipa": "ɪt̪ɪɦaːs", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तारीख़", "roman": "taareekh", "ipa": "t̪aːriːkʰ", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "meaning",
+    "category": "Education",
+    "description": "What is intended to be expressed or understood.",
+    "sanskrit_derived": [
+      { "dev": "अर्थ", "roman": "arth", "ipa": "ərt̪ʰ", "tags": ["formal"] },
+      { "dev": "तात्पर्य", "roman": "taatparya", "ipa": "t̪aːt̪pərjə", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मतलब", "roman": "matlab", "ipa": "mət̪ləb", "tags": ["colloquial"] },
+      { "dev": "मानी", "roman": "maani", "ipa": "maːniː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "question",
+    "category": "Education",
+    "description": "A sentence or phrase asking for information.",
+    "sanskrit_derived": [
+      { "dev": "प्रश्न", "roman": "prashn", "ipa": "prəʃn", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सवाल", "roman": "savaal", "ipa": "səʋaːl", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["answer"]
+  },
+  {
+    "english": "answer",
+    "category": "Education",
+    "description": "A response to a question.",
+    "sanskrit_derived": [
+      { "dev": "उत्तर", "roman": "uttar", "ipa": "ʊt̪t̪ər", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जवाब", "roman": "javaab", "ipa": "dʒəʋaːb", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["question"]
+  },
+  {
+    "english": "memory",
+    "category": "Education",
+    "description": "The faculty by which the mind stores and remembers information.",
+    "sanskrit_derived": [
+      { "dev": "स्मृति", "roman": "smriti", "ipa": "smr̩t̪ɪ", "tags": ["formal"] },
+      { "dev": "याद", "roman": "yaad", "ipa": "jaːd̪", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हाफ़िज़ा", "roman": "haafiza", "ipa": "ɦaːfɪzaː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "thought",
+    "category": "Education",
+    "description": "An idea or opinion produced by thinking.",
+    "sanskrit_derived": [
+      { "dev": "विचार", "roman": "vichaar", "ipa": "ʋɪtʃaːr", "tags": ["formal"] },
+      { "dev": "चिन्तन", "roman": "chintan", "ipa": "tʃɪnt̪ən", "tags": ["formal", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़याल", "roman": "khayaal", "ipa": "kʰəjaːl", "tags": ["colloquial"] },
+      { "dev": "सोच", "roman": "soch", "ipa": "soːtʃ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "minister",
+    "category": "Governance",
+    "description": "A senior member of the government responsible for a department.",
+    "sanskrit_derived": [
+      { "dev": "मन्त्री", "roman": "mantri", "ipa": "mənt̪riː", "tags": ["formal"] },
+      { "dev": "अमात्य", "roman": "amaatya", "ipa": "əmaːt̪jə", "tags": ["classical", "archaic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "वज़ीर", "roman": "vazeer", "ipa": "ʋəziːr", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "army",
+    "category": "Governance",
+    "description": "An organized military force equipped for fighting on land.",
+    "sanskrit_derived": [
+      { "dev": "सेना", "roman": "sena", "ipa": "seːnaː", "tags": ["formal"] },
+      { "dev": "सैन्य", "roman": "sainya", "ipa": "sɛːnjə", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "फ़ौज", "roman": "fauj", "ipa": "fɔːdʒ", "tags": ["colloquial"] },
+      { "dev": "लश्कर", "roman": "lashkar", "ipa": "ləʃkər", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tax",
+    "category": "Governance",
+    "description": "A compulsory financial charge imposed by a government.",
+    "sanskrit_derived": [
+      { "dev": "कर", "roman": "kar", "ipa": "kər", "tags": ["formal"] },
+      { "dev": "शुल्क", "roman": "shulk", "ipa": "ʃʊlk", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "टैक्स", "roman": "tax", "ipa": "ʈɛːks", "tags": ["colloquial"] },
+      { "dev": "लगान", "roman": "lagaan", "ipa": "ləɡaːn", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "treaty",
+    "category": "Governance",
+    "description": "A formal agreement between states.",
+    "sanskrit_derived": [
+      { "dev": "सन्धि", "roman": "sandhi", "ipa": "sənd̪ʱɪ", "tags": ["formal"] },
+      { "dev": "समझौता", "roman": "samjhauta", "ipa": "səmdʒʱɔːt̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मुआहिदा", "roman": "muaahida", "ipa": "mʊaːɦɪd̪aː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "victory",
+    "category": "Governance",
+    "description": "Success in a contest or battle.",
+    "sanskrit_derived": [
+      { "dev": "विजय", "roman": "vijay", "ipa": "ʋɪdʒəj", "tags": ["formal"] },
+      { "dev": "जय", "roman": "jay", "ipa": "dʒəj", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "फ़तह", "roman": "fateh", "ipa": "fət̪eːɦ", "tags": ["formal"] },
+      { "dev": "जीत", "roman": "jeet", "ipa": "dʒiːt̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["defeat"]
+  },
+  {
+    "english": "defeat",
+    "category": "Governance",
+    "description": "Failure to win a contest or battle.",
+    "sanskrit_derived": [
+      { "dev": "पराजय", "roman": "paraajay", "ipa": "pəraːdʒəj", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हार", "roman": "haar", "ipa": "ɦaːr", "tags": ["colloquial"] },
+      { "dev": "शिकस्त", "roman": "shikast", "ipa": "ʃɪkəst̪", "tags": ["literary"] }
+    ],
+    "antonyms": ["victory"]
+  },
+  {
+    "english": "revolution",
+    "category": "Governance",
+    "description": "A forcible overthrow of a government or social order.",
+    "sanskrit_derived": [
+      { "dev": "क्रान्ति", "roman": "kraanti", "ipa": "kraːnt̪ɪ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "इन्क़िलाब", "roman": "inqilaab", "ipa": "ɪnqɪlaːb", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "ambassador",
+    "category": "Governance",
+    "description": "A diplomatic representative sent to a foreign country.",
+    "sanskrit_derived": [
+      { "dev": "राजदूत", "roman": "raajdoot", "ipa": "raːdʒd̪uːt̪", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सफ़ीर", "roman": "safeer", "ipa": "səfiːr", "tags": ["formal"] },
+      { "dev": "एल्ची", "roman": "elchi", "ipa": "elt̪ʃiː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "lake",
+    "category": "Geography",
+    "description": "A large body of water surrounded by land.",
+    "sanskrit_derived": [
+      { "dev": "सरोवर", "roman": "sarovar", "ipa": "sərɔːʋər", "tags": ["formal"] },
+      { "dev": "ताल", "roman": "taal", "ipa": "t̪aːl", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "झील", "roman": "jheel", "ipa": "dʒʱiːl", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "desert",
+    "category": "Geography",
+    "description": "A barren area of land with little precipitation.",
+    "sanskrit_derived": [
+      { "dev": "मरुस्थल", "roman": "marusthal", "ipa": "mərʊst̪ʰəl", "tags": ["formal"] },
+      { "dev": "मरुभूमि", "roman": "marubhoomi", "ipa": "mərʊbʱuːmɪ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "रेगिस्तान", "roman": "registaan", "ipa": "reːɡɪst̪aːn", "tags": ["colloquial"] },
+      { "dev": "सहरा", "roman": "sahra", "ipa": "səɦraː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "direction",
+    "category": "Geography",
+    "description": "A course along which someone or something moves.",
+    "sanskrit_derived": [
+      { "dev": "दिशा", "roman": "disha", "ipa": "d̪ɪʃaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तरफ़", "roman": "taraf", "ipa": "t̪ərəf", "tags": ["colloquial"] },
+      { "dev": "जानिब", "roman": "jaanib", "ipa": "dʒaːnɪb", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "path",
+    "category": "Geography",
+    "description": "A way or track for walking or travelling.",
+    "sanskrit_derived": [
+      { "dev": "पथ", "roman": "path", "ipa": "pət̪ʰ", "tags": ["formal"] },
+      { "dev": "मार्ग", "roman": "maarg", "ipa": "maːrɡ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "रास्ता", "roman": "raasta", "ipa": "raːst̪aː", "tags": ["colloquial"] },
+      { "dev": "राह", "roman": "raah", "ipa": "raːɦ", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "garden",
+    "category": "Geography",
+    "description": "An area of land used for growing plants.",
+    "sanskrit_derived": [
+      { "dev": "उद्यान", "roman": "udyaan", "ipa": "ʊd̪jaːn", "tags": ["formal"] },
+      { "dev": "वाटिका", "roman": "vaatika", "ipa": "ʋaːʈɪkaː", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बाग़", "roman": "baagh", "ipa": "baːɣ", "tags": ["colloquial"] },
+      { "dev": "गुलिस्तान", "roman": "gulistaan", "ipa": "ɡʊlɪst̪aːn", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "prison",
+    "category": "Law",
+    "description": "A building where people are held as punishment for crime.",
+    "sanskrit_derived": [
+      { "dev": "कारागार", "roman": "kaaraagaar", "ipa": "kaːraːɡaːr", "tags": ["formal"] },
+      { "dev": "बन्दीगृह", "roman": "bandeegrih", "ipa": "bənd̪iːɡr̩ɦ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जेल", "roman": "jail", "ipa": "dʒeːl", "tags": ["colloquial"] },
+      { "dev": "क़ैद", "roman": "qaid", "ipa": "qɛːd̪", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "theft",
+    "category": "Law",
+    "description": "The act of stealing another person's property.",
+    "sanskrit_derived": [
+      { "dev": "चोरी", "roman": "chori", "ipa": "tʃoːriː", "tags": ["colloquial"] },
+      { "dev": "चौर्य", "roman": "chaurya", "ipa": "tʃɔːrjə", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सरक़त", "roman": "sarqat", "ipa": "sərqət̪", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "oath",
+    "category": "Law",
+    "description": "A solemn promise or declaration.",
+    "sanskrit_derived": [
+      { "dev": "शपथ", "roman": "shapath", "ipa": "ʃəpət̪ʰ", "tags": ["formal"] },
+      { "dev": "प्रतिज्ञा", "roman": "pratigya", "ipa": "prət̪ɪɡjaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "क़सम", "roman": "qasam", "ipa": "qəsəm", "tags": ["colloquial"] },
+      { "dev": "हलफ़", "roman": "halaf", "ipa": "ɦələf", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "forgiveness",
+    "category": "Law",
+    "description": "The act of pardoning an offense or overlooking a mistake.",
+    "sanskrit_derived": [
+      { "dev": "क्षमा", "roman": "kshama", "ipa": "kʂəmaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "माफ़ी", "roman": "maafi", "ipa": "maːfiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "duty",
+    "category": "Abstract Concepts",
+    "description": "A moral or legal obligation.",
+    "sanskrit_derived": [
+      { "dev": "कर्तव्य", "roman": "kartavya", "ipa": "kərt̪əʋjə", "tags": ["formal"] },
+      { "dev": "धर्म", "roman": "dharm", "ipa": "d̪ʱərm", "tags": ["formal", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "फ़र्ज़", "roman": "farz", "ipa": "fərz", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "soul",
+    "category": "Abstract Concepts",
+    "description": "The immaterial essence of a living being.",
+    "sanskrit_derived": [
+      { "dev": "आत्मा", "roman": "aatma", "ipa": "aːt̪maː", "tags": ["formal", "philosophical"] },
+      { "dev": "जीवात्मा", "roman": "jeevaatma", "ipa": "dʒiːʋaːt̪maː", "tags": ["philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "रूह", "roman": "rooh", "ipa": "ruːɦ", "tags": ["literary"] },
+      { "dev": "जान", "roman": "jaan", "ipa": "dʒaːn", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "heaven",
+    "category": "Abstract Concepts",
+    "description": "The abode of the gods or the blessed after death.",
+    "sanskrit_derived": [
+      { "dev": "स्वर्ग", "roman": "svarg", "ipa": "sʋərɡ", "tags": ["formal", "religious"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जन्नत", "roman": "jannat", "ipa": "dʒənnət̪", "tags": ["formal", "religious"] },
+      { "dev": "बहिश्त", "roman": "bahisht", "ipa": "bəɦɪʃt̪", "tags": ["literary"] }
+    ],
+    "antonyms": ["hell"]
+  },
+  {
+    "english": "hell",
+    "category": "Abstract Concepts",
+    "description": "A place of suffering and punishment in the afterlife.",
+    "sanskrit_derived": [
+      { "dev": "नरक", "roman": "narak", "ipa": "nərək", "tags": ["formal", "religious"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जहन्नम", "roman": "jahannam", "ipa": "dʒəɦənnəm", "tags": ["formal", "religious"] },
+      { "dev": "दोज़ख़", "roman": "dozakh", "ipa": "d̪oːzəkʰ", "tags": ["literary"] }
+    ],
+    "antonyms": ["heaven"]
+  },
+  {
+    "english": "sin",
+    "category": "Abstract Concepts",
+    "description": "An immoral act considered to be against divine law.",
+    "sanskrit_derived": [
+      { "dev": "पाप", "roman": "paap", "ipa": "paːp", "tags": ["formal", "religious"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "गुनाह", "roman": "gunaah", "ipa": "ɡʊnaːɦ", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["virtue"]
+  },
+  {
+    "english": "virtue",
+    "category": "Abstract Concepts",
+    "description": "Behaviour showing high moral standards.",
+    "sanskrit_derived": [
+      { "dev": "पुण्य", "roman": "punya", "ipa": "pʊɳjə", "tags": ["formal", "religious"] },
+      { "dev": "सद्गुण", "roman": "sadgun", "ipa": "səd̪ɡʊɳ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "नेकी", "roman": "neki", "ipa": "neːkiː", "tags": ["colloquial"] },
+      { "dev": "सवाब", "roman": "savaab", "ipa": "səʋaːb", "tags": ["formal", "religious"] }
+    ],
+    "antonyms": ["sin"]
+  },
+  {
+    "english": "beginning",
+    "category": "Abstract Concepts",
+    "description": "The point in time or space at which something starts.",
+    "sanskrit_derived": [
+      { "dev": "आरम्भ", "roman": "aarambh", "ipa": "aːrəmbʱ", "tags": ["formal"] },
+      { "dev": "प्रारम्भ", "roman": "praarambh", "ipa": "praːrəmbʱ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शुरूआत", "roman": "shuruaat", "ipa": "ʃʊruːaːt̪", "tags": ["colloquial"] },
+      { "dev": "इब्तिदा", "roman": "ibtida", "ipa": "ɪbt̪ɪd̪aː", "tags": ["literary"] }
+    ],
+    "antonyms": ["end"]
+  },
+  {
+    "english": "end",
+    "category": "Abstract Concepts",
+    "description": "The final part or conclusion of something.",
+    "sanskrit_derived": [
+      { "dev": "अन्त", "roman": "ant", "ipa": "ənt̪", "tags": ["formal"] },
+      { "dev": "समाप्ति", "roman": "samaapti", "ipa": "səmaːpt̪ɪ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़ात्मा", "roman": "khaatma", "ipa": "kʰaːt̪maː", "tags": ["formal"] },
+      { "dev": "अंजाम", "roman": "anjaam", "ipa": "əndʒaːm", "tags": ["literary"] }
+    ],
+    "antonyms": ["beginning"]
+  },
+  {
+    "english": "secret",
+    "category": "Abstract Concepts",
+    "description": "Something kept hidden from others.",
+    "sanskrit_derived": [
+      { "dev": "रहस्य", "roman": "rahasya", "ipa": "rəɦəsjə", "tags": ["formal"] },
+      { "dev": "गोपनीय", "roman": "gopaneeya", "ipa": "ɡoːpəniːjə", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "राज़", "roman": "raaz", "ipa": "raːz", "tags": ["colloquial"] },
+      { "dev": "भेद", "roman": "bhed", "ipa": "bʱeːd̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "shadow",
+    "category": "Abstract Concepts",
+    "description": "A dark area produced by a body blocking light.",
+    "sanskrit_derived": [
+      { "dev": "छाया", "roman": "chhaaya", "ipa": "tʃʰaːjaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "साया", "roman": "saaya", "ipa": "saːjaː", "tags": ["colloquial"] },
+      { "dev": "परछाईं", "roman": "parchhaaeen", "ipa": "pərtʃʰaːiːn", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["light"]
+  },
+  {
+    "english": "light",
+    "category": "Abstract Concepts",
+    "description": "The natural agent that makes things visible; illumination.",
+    "sanskrit_derived": [
+      { "dev": "प्रकाश", "roman": "prakaash", "ipa": "prəkaːʃ", "tags": ["formal"] },
+      { "dev": "ज्योति", "roman": "jyoti", "ipa": "dʒjoːt̪ɪ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "रोशनी", "roman": "roshni", "ipa": "roːʃniː", "tags": ["colloquial"] },
+      { "dev": "नूर", "roman": "noor", "ipa": "nuːr", "tags": ["literary"] }
+    ],
+    "antonyms": ["darkness"]
+  },
+  {
+    "english": "darkness",
+    "category": "Abstract Concepts",
+    "description": "The absence of light.",
+    "sanskrit_derived": [
+      { "dev": "अन्धकार", "roman": "andhakaar", "ipa": "ənd̪ʱəkaːr", "tags": ["formal"] },
+      { "dev": "तम", "roman": "tam", "ipa": "t̪əm", "tags": ["classical", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "अँधेरा", "roman": "andhera", "ipa": "ən̪d̪ʱeːraː", "tags": ["colloquial"] },
+      { "dev": "तारीकी", "roman": "taareeki", "ipa": "t̪aːriːkiː", "tags": ["literary"] }
+    ],
+    "antonyms": ["light"]
+  },
+  {
+    "english": "silence",
+    "category": "Abstract Concepts",
+    "description": "Complete absence of sound.",
+    "sanskrit_derived": [
+      { "dev": "मौन", "roman": "maun", "ipa": "mɔːn", "tags": ["formal"] },
+      { "dev": "नीरवता", "roman": "neeravta", "ipa": "niːrəʋt̪aː", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़ामोशी", "roman": "khaamoshi", "ipa": "kʰaːmoːʃiː", "tags": ["colloquial"] },
+      { "dev": "चुप्पी", "roman": "chuppi", "ipa": "tʃʊppiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "age",
+    "category": "Abstract Concepts",
+    "description": "The length of time a person has lived; an era.",
+    "sanskrit_derived": [
+      { "dev": "आयु", "roman": "aayu", "ipa": "aːjʊ", "tags": ["formal"] },
+      { "dev": "युग", "roman": "yug", "ipa": "jʊɡ", "tags": ["formal", "philosophical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "उम्र", "roman": "umr", "ipa": "ʊmr", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "colour",
+    "category": "Abstract Concepts",
+    "description": "The property of visual perception; hue.",
+    "sanskrit_derived": [
+      { "dev": "वर्ण", "roman": "varn", "ipa": "ʋərɳ", "tags": ["formal"] },
+      { "dev": "रंग", "roman": "rang", "ipa": "rəŋɡ", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "रंग", "roman": "rang", "ipa": "rəŋɡ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "head",
+    "category": "Body & Health",
+    "description": "The upper part of the body containing the brain.",
+    "sanskrit_derived": [
+      { "dev": "शिर", "roman": "shir", "ipa": "ʃɪr", "tags": ["formal"] },
+      { "dev": "मस्तक", "roman": "mastak", "ipa": "məst̪ək", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सर", "roman": "sar", "ipa": "sər", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "hair",
+    "category": "Body & Health",
+    "description": "Thread-like strands growing from the skin.",
+    "sanskrit_derived": [
+      { "dev": "केश", "roman": "kesh", "ipa": "keːʃ", "tags": ["formal"] },
+      { "dev": "बाल", "roman": "baal", "ipa": "baːl", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़ुल्फ़", "roman": "zulf", "ipa": "zʊlf", "tags": ["literary"] },
+      { "dev": "गेसू", "roman": "gesoo", "ipa": "ɡeːsuː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tongue",
+    "category": "Body & Health",
+    "description": "The muscular organ in the mouth used for tasting and speech.",
+    "sanskrit_derived": [
+      { "dev": "जिह्वा", "roman": "jihva", "ipa": "dʒɪɦʋaː", "tags": ["formal"] },
+      { "dev": "रसना", "roman": "rasna", "ipa": "rəsnaː", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़बान", "roman": "zabaan", "ipa": "zəbaːn", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tear",
+    "category": "Body & Health",
+    "description": "A drop of clear liquid from the eye.",
+    "sanskrit_derived": [
+      { "dev": "अश्रु", "roman": "ashru", "ipa": "əʃrʊ", "tags": ["formal"] },
+      { "dev": "नयनजल", "roman": "nayanjal", "ipa": "nəjəndʒəl", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "आँसू", "roman": "aansoo", "ipa": "aːnsuː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "breath",
+    "category": "Body & Health",
+    "description": "The air taken into or expelled from the lungs.",
+    "sanskrit_derived": [
+      { "dev": "श्वास", "roman": "shvaas", "ipa": "ʃʋaːs", "tags": ["formal"] },
+      { "dev": "प्राणवायु", "roman": "praanvaayu", "ipa": "praːɳʋaːjʊ", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "साँस", "roman": "saans", "ipa": "saːns", "tags": ["colloquial"] },
+      { "dev": "दम", "roman": "dam", "ipa": "d̪əm", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "skin",
+    "category": "Body & Health",
+    "description": "The outer covering of the body.",
+    "sanskrit_derived": [
+      { "dev": "त्वचा", "roman": "tvacha", "ipa": "t̪ʋətʃaː", "tags": ["formal"] },
+      { "dev": "चर्म", "roman": "charm", "ipa": "tʃərm", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "खाल", "roman": "khaal", "ipa": "kʰaːl", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "sleep",
+    "category": "Body & Health",
+    "description": "A natural state of rest for the body and mind.",
+    "sanskrit_derived": [
+      { "dev": "निद्रा", "roman": "nidra", "ipa": "nɪd̪raː", "tags": ["formal"] },
+      { "dev": "शयन", "roman": "shayan", "ipa": "ʃəjən", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "नींद", "roman": "neend", "ipa": "niːnd̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "hunger",
+    "category": "Body & Health",
+    "description": "A feeling of discomfort caused by lack of food.",
+    "sanskrit_derived": [
+      { "dev": "क्षुधा", "roman": "kshudha", "ipa": "kʂʊd̪ʱaː", "tags": ["formal", "classical"] },
+      { "dev": "भूख", "roman": "bhookh", "ipa": "bʱuːkʰ", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "भूक", "roman": "bhook", "ipa": "bʱuːk", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["thirst"]
+  },
+  {
+    "english": "thirst",
+    "category": "Body & Health",
+    "description": "A feeling of needing or wanting to drink.",
+    "sanskrit_derived": [
+      { "dev": "तृष्णा", "roman": "trishna", "ipa": "t̪r̩ʂɳaː", "tags": ["formal", "philosophical"] },
+      { "dev": "प्यास", "roman": "pyaas", "ipa": "pjaːs", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "प्यास", "roman": "pyaas", "ipa": "pjaːs", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["hunger"]
+  },
+  {
+    "english": "neighbour",
+    "category": "Relationships",
+    "description": "A person living next door or nearby.",
+    "sanskrit_derived": [
+      { "dev": "पड़ोसी", "roman": "padosi", "ipa": "pəɽoːsiː", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हमसाया", "roman": "hamsaaya", "ipa": "ɦəmsaːjaː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "ancestor",
+    "category": "Relationships",
+    "description": "A person from whom one is descended.",
+    "sanskrit_derived": [
+      { "dev": "पूर्वज", "roman": "poorvaj", "ipa": "puːrʋədʒ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बुज़ुर्ग", "roman": "buzurg", "ipa": "bʊzʊrɡ", "tags": ["colloquial"] },
+      { "dev": "अजदाद", "roman": "ajdaad", "ipa": "ədʒd̪aːd̪", "tags": ["formal"] }
+    ],
+    "antonyms": ["descendant"]
+  },
+  {
+    "english": "descendant",
+    "category": "Relationships",
+    "description": "A person descended from a particular ancestor.",
+    "sanskrit_derived": [
+      { "dev": "वंशज", "roman": "vanshaj", "ipa": "ʋəŋʃədʒ", "tags": ["formal"] },
+      { "dev": "सन्तान", "roman": "santaan", "ipa": "sənt̪aːn", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "औलाद", "roman": "aulaad", "ipa": "ɔːlaːd̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": ["ancestor"]
+  },
+  {
+    "english": "people",
+    "category": "Society",
+    "description": "Human beings in general or considered collectively.",
+    "sanskrit_derived": [
+      { "dev": "जनता", "roman": "janta", "ipa": "dʒənt̪aː", "tags": ["formal"] },
+      { "dev": "लोग", "roman": "log", "ipa": "loːɡ", "tags": ["colloquial"] },
+      { "dev": "प्रजा", "roman": "praja", "ipa": "prədʒaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "अवाम", "roman": "avaam", "ipa": "əʋaːm", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "market",
+    "category": "Society",
+    "description": "A place where goods are bought and sold.",
+    "sanskrit_derived": [
+      { "dev": "हाट", "roman": "haat", "ipa": "ɦaːʈ", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बाज़ार", "roman": "baazaar", "ipa": "baːzaːr", "tags": ["colloquial"] },
+      { "dev": "मंडी", "roman": "mandi", "ipa": "mənɖiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "music",
+    "category": "Society",
+    "description": "Vocal or instrumental sounds combined to produce harmony.",
+    "sanskrit_derived": [
+      { "dev": "संगीत", "roman": "sangeet", "ipa": "səŋɡiːt̪", "tags": ["formal"] },
+      { "dev": "गायन", "roman": "gaayan", "ipa": "ɡaːjən", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मूसीक़ी", "roman": "mooseeqi", "ipa": "muːsiːqiː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "art",
+    "category": "Society",
+    "description": "The expression of creative skill and imagination.",
+    "sanskrit_derived": [
+      { "dev": "कला", "roman": "kala", "ipa": "kəlaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हुनर", "roman": "hunar", "ipa": "ɦʊnər", "tags": ["colloquial"] },
+      { "dev": "फ़न", "roman": "fan", "ipa": "fən", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "wealth",
+    "category": "Society",
+    "description": "A great quantity of money or valuable possessions.",
+    "sanskrit_derived": [
+      { "dev": "ऐश्वर्य", "roman": "aishvarya", "ipa": "ɛːʃʋərjə", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "माल", "roman": "maal", "ipa": "maːl", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "news",
+    "category": "Society",
+    "description": "Newly received or noteworthy information.",
+    "sanskrit_derived": [
+      { "dev": "समाचार", "roman": "samaachaar", "ipa": "səmaːtʃaːr", "tags": ["formal"] },
+      { "dev": "वार्ता", "roman": "vaarta", "ipa": "ʋaːrt̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़बर", "roman": "khabar", "ipa": "kʰəbər", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "weapon",
+    "category": "Society",
+    "description": "A thing used for inflicting harm or damage.",
+    "sanskrit_derived": [
+      { "dev": "अस्त्र", "roman": "astr", "ipa": "əst̪r", "tags": ["formal"] },
+      { "dev": "शस्त्र", "roman": "shastr", "ipa": "ʃəst̪r", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हथियार", "roman": "hathiyaar", "ipa": "ɦət̪ʰɪjaːr", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "ship",
+    "category": "Society",
+    "description": "A large vessel for transporting people or goods by sea.",
+    "sanskrit_derived": [
+      { "dev": "पोत", "roman": "pot", "ipa": "poːt̪", "tags": ["formal"] },
+      { "dev": "नौका", "roman": "nauka", "ipa": "nɔːkaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जहाज़", "roman": "jahaaz", "ipa": "dʒəɦaːz", "tags": ["colloquial"] },
+      { "dev": "कश्ती", "roman": "kashti", "ipa": "kəʃt̪iː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "horse",
+    "category": "Nature",
+    "description": "A large domesticated animal used for riding and transport.",
+    "sanskrit_derived": [
+      { "dev": "अश्व", "roman": "ashva", "ipa": "əʃʋə", "tags": ["formal", "classical"] },
+      { "dev": "तुरंग", "roman": "turang", "ipa": "t̪ʊrəŋɡ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "घोड़ा", "roman": "ghoda", "ipa": "ɡʱoːɽaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "bird",
+    "category": "Nature",
+    "description": "A warm-blooded egg-laying vertebrate with feathers and wings.",
+    "sanskrit_derived": [
+      { "dev": "पक्षी", "roman": "pakshi", "ipa": "pəkʂiː", "tags": ["formal"] },
+      { "dev": "विहग", "roman": "vihag", "ipa": "ʋɪɦəɡ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "चिड़िया", "roman": "chidiya", "ipa": "tʃɪɽɪjaː", "tags": ["colloquial"] },
+      { "dev": "परिन्दा", "roman": "parinda", "ipa": "pərɪnd̪aː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "snake",
+    "category": "Nature",
+    "description": "A long limbless reptile.",
+    "sanskrit_derived": [
+      { "dev": "सर्प", "roman": "sarp", "ipa": "sərp", "tags": ["formal"] },
+      { "dev": "नाग", "roman": "naag", "ipa": "naːɡ", "tags": ["formal", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "साँप", "roman": "saanp", "ipa": "saːnp", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "lion",
+    "category": "Nature",
+    "description": "A large wild cat of Africa and northwest India.",
+    "sanskrit_derived": [
+      { "dev": "सिंह", "roman": "singh", "ipa": "sɪŋɦ", "tags": ["formal"] },
+      { "dev": "केसरी", "roman": "kesari", "ipa": "keːsəriː", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शेर", "roman": "sher", "ipa": "ʃeːr", "tags": ["colloquial"] },
+      { "dev": "बबर", "roman": "babar", "ipa": "bəbər", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "elephant",
+    "category": "Nature",
+    "description": "A very large herbivorous mammal with a trunk.",
+    "sanskrit_derived": [
+      { "dev": "गज", "roman": "gaj", "ipa": "ɡədʒ", "tags": ["formal"] },
+      { "dev": "हस्ती", "roman": "hasti", "ipa": "ɦəst̪iː", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हाथी", "roman": "haathi", "ipa": "ɦaːt̪ʰiː", "tags": ["colloquial"] },
+      { "dev": "फ़ील", "roman": "feel", "ipa": "fiːl", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "deer",
+    "category": "Nature",
+    "description": "A hoofed grazing animal with antlers.",
+    "sanskrit_derived": [
+      { "dev": "मृग", "roman": "mrig", "ipa": "mr̩ɡ", "tags": ["formal"] },
+      { "dev": "हरिण", "roman": "harin", "ipa": "ɦərɪɳ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हिरन", "roman": "hiran", "ipa": "ɦɪrən", "tags": ["colloquial"] },
+      { "dev": "आहू", "roman": "aahoo", "ipa": "aːɦuː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "cow",
+    "category": "Nature",
+    "description": "A domesticated bovine animal kept for milk.",
+    "sanskrit_derived": [
+      { "dev": "गौ", "roman": "gau", "ipa": "ɡɔː", "tags": ["formal", "classical"] },
+      { "dev": "धेनु", "roman": "dhenu", "ipa": "d̪ʱeːnʊ", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "गाय", "roman": "gaay", "ipa": "ɡaːj", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "lotus",
+    "category": "Nature",
+    "description": "An aquatic plant with broad floating leaves and large flowers.",
+    "sanskrit_derived": [
+      { "dev": "कमल", "roman": "kamal", "ipa": "kəməl", "tags": ["formal"] },
+      { "dev": "पद्म", "roman": "padm", "ipa": "pəd̪m", "tags": ["classical", "literary"] },
+      { "dev": "पंकज", "roman": "pankaj", "ipa": "pəŋkədʒ", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "निलोफ़र", "roman": "nilofar", "ipa": "nɪloːfər", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "spring",
+    "category": "Nature",
+    "description": "The season after winter when plants begin to grow.",
+    "sanskrit_derived": [
+      { "dev": "वसन्त", "roman": "vasant", "ipa": "ʋəsənt̪", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बहार", "roman": "bahaar", "ipa": "bəɦaːr", "tags": ["literary"] }
+    ],
+    "antonyms": ["autumn"]
+  },
+  {
+    "english": "autumn",
+    "category": "Nature",
+    "description": "The season after summer when leaves fall.",
+    "sanskrit_derived": [
+      { "dev": "शरद", "roman": "sharad", "ipa": "ʃərəd̪", "tags": ["formal"] },
+      { "dev": "पतझड़", "roman": "patjhad", "ipa": "pət̪dʒʱəɽ", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़िज़ाँ", "roman": "khizaan", "ipa": "kʰɪzaːn", "tags": ["literary"] }
+    ],
+    "antonyms": ["spring"]
+  },
+  {
+    "english": "goldsmith",
+    "category": "Occupations",
+    "description": "A person who makes articles from gold.",
+    "sanskrit_derived": [
+      { "dev": "स्वर्णकार", "roman": "svarnakaar", "ipa": "sʋərɳəkaːr", "tags": ["formal"] },
+      { "dev": "सुनार", "roman": "sunaar", "ipa": "sʊnaːr", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़रगर", "roman": "zargar", "ipa": "zərɡər", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "weaver",
+    "category": "Occupations",
+    "description": "A person who weaves cloth.",
+    "sanskrit_derived": [
+      { "dev": "तन्तुवाय", "roman": "tantuvaay", "ipa": "t̪ənt̪ʊʋaːj", "tags": ["formal", "classical"] },
+      { "dev": "जुलाहा", "roman": "julaaha", "ipa": "dʒʊlaːɦaː", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बुनकर", "roman": "bunkar", "ipa": "bʊnkər", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "carpenter",
+    "category": "Occupations",
+    "description": "A person who makes and repairs wooden structures.",
+    "sanskrit_derived": [
+      { "dev": "सूत्रधार", "roman": "sootradhar", "ipa": "suːt̪rəd̪ʱaːr", "tags": ["classical"] },
+      { "dev": "बढ़ई", "roman": "badhai", "ipa": "bəɽʱəiː", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "नज्जार", "roman": "najjaar", "ipa": "nədʒdʒaːr", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "potter",
+    "category": "Occupations",
+    "description": "A person who makes pots and vessels from clay.",
+    "sanskrit_derived": [
+      { "dev": "कुम्भकार", "roman": "kumbhakaar", "ipa": "kʊmbʱəkaːr", "tags": ["formal"] },
+      { "dev": "कुम्हार", "roman": "kumhaar", "ipa": "kʊmɦaːr", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "कुल्लाल", "roman": "kullaal", "ipa": "kʊllaːl", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "sailor",
+    "category": "Occupations",
+    "description": "A person who works on a ship.",
+    "sanskrit_derived": [
+      { "dev": "नाविक", "roman": "naavik", "ipa": "naːʋɪk", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मल्लाह", "roman": "mallaah", "ipa": "məllaːɦ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "messenger",
+    "category": "Occupations",
+    "description": "A person who carries messages.",
+    "sanskrit_derived": [
+      { "dev": "दूत", "roman": "doot", "ipa": "d̪uːt̪", "tags": ["formal"] },
+      { "dev": "सन्देशवाहक", "roman": "sandeshvaahak", "ipa": "sənd̪eːʃʋaːɦək", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "क़ासिद", "roman": "qaasid", "ipa": "qaːsɪd̪", "tags": ["formal"] },
+      { "dev": "पैग़ाम्बर", "roman": "paighaambar", "ipa": "pɛːɣaːmbər", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "scholar",
+    "category": "Occupations",
+    "description": "A specialist in a particular branch of study.",
+    "sanskrit_derived": [
+      { "dev": "विद्वान", "roman": "vidvaan", "ipa": "ʋɪd̪ʋaːn", "tags": ["formal"] },
+      { "dev": "पण्डित", "roman": "pandit", "ipa": "pəɳɖɪt̪", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "आलिम", "roman": "aalim", "ipa": "aːlɪm", "tags": ["formal"] },
+      { "dev": "मौलवी", "roman": "maulvi", "ipa": "mɔːləʋiː", "tags": ["formal"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "astronomer",
+    "category": "Occupations",
+    "description": "A person who studies celestial bodies.",
+    "sanskrit_derived": [
+      { "dev": "खगोलशास्त्री", "roman": "khagolshaastri", "ipa": "kʰəɡoːlʃaːst̪riː", "tags": ["formal", "technical"] },
+      { "dev": "ज्योतिषी", "roman": "jyotishi", "ipa": "dʒjoːt̪ɪʂiː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मुनज्जिम", "roman": "munajjim", "ipa": "mʊnədʒdʒɪm", "tags": ["formal"] }
+    ],
+    "antonyms": []
   }
 ]
