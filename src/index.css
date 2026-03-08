@@ -162,7 +162,7 @@
   }
 
   .container-page {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+    @apply max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8;
   }
 
   .tag-badge {

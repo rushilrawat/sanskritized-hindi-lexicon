@@ -46,7 +46,7 @@ const Categories = () => {
         Explore vocabulary grouped by thematic categories.
       </p>
 
-      <div className="sticky top-14 z-40 bg-background py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+      <div className="sticky top-[85px] md:top-14 z-40 bg-background py-2 sm:py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <CategoryGrid
           categories={categories}
           selectedCategory={selectedCategory}
