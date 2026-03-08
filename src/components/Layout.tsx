@@ -115,13 +115,13 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-          <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-            <BookOpen className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
+        <div className="w-full px-3 sm:px-6 lg:px-8 flex items-center justify-between h-12 sm:h-14">
+          <NavLink to="/" className="flex items-center gap-1.5 sm:gap-2 text-foreground hover:text-primary transition-colors">
+            <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+            <span className="font-semibold text-xs sm:text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
           </NavLink>
           <div className="flex items-center gap-2">
-            <nav className="hidden sm:flex items-center gap-1">
+            <nav className="hidden sm:flex items-center gap-0.5 md:gap-1">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
@@ -149,15 +149,15 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
         {/* Mobile nav */}
         <div className="sm:hidden border-t border-border">
-          <div className="w-full px-4 flex items-center justify-between py-2">
-            <nav className="flex items-center gap-1 overflow-x-auto">
+          <div className="w-full px-2 flex items-center justify-between py-1.5">
+            <nav className="flex items-center gap-0.5">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   end={item.to === "/"}
                   className={({ isActive }) =>
-                    `px-2.5 py-1 rounded-md text-xs whitespace-nowrap transition-colors ${
+                    `px-2 py-1 rounded-md text-[11px] whitespace-nowrap transition-colors ${
                       isActive
                         ? "bg-primary text-primary-foreground font-medium"
                         : "text-muted-foreground hover:text-foreground"
@@ -168,11 +168,11 @@ const Layout = ({ children }: LayoutProps) => {
                 </NavLink>
               ))}
             </nav>
-            <div className="flex items-center gap-1 ml-2">
+            <div className="flex items-center gap-0.5 ml-1">
               <TextSizeControl />
               <HighContrastToggle />
               <DarkModeToggle />
-              <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center" label="Share" />
+              <ShareButton className="px-1.5 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center" label="Share" />
             </div>
           </div>
         </div>

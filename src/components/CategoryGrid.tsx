@@ -30,29 +30,29 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
     concepts.filter((c) => c.category === cat).length;
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-1.5 sm:gap-2">
       <button
         onClick={() => onSelect(null)}
-        className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all border whitespace-nowrap ${
+        className={`px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all border whitespace-nowrap ${
           selectedCategory === null
             ? "bg-primary text-primary-foreground border-primary"
             : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
         }`}
       >
-        📋 All{showCounts && <span className="ml-1 text-xs opacity-70">({concepts.length})</span>}
+        📋 All{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({concepts.length})</span>}
       </button>
       {categories.map((cat) => (
         <button
           key={cat}
           onClick={() => onSelect(cat)}
-          className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all border whitespace-nowrap ${
+          className={`px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all border whitespace-nowrap ${
             selectedCategory === cat
               ? "bg-primary text-primary-foreground border-primary"
               : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
           }`}
         >
           {categoryEmojis[cat] || "📁"} {cat}
-          {showCounts && <span className="ml-1 text-xs opacity-70">({getCategoryCount(cat)})</span>}
+          {showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({getCategoryCount(cat)})</span>}
         </button>
       ))}
     </div>
