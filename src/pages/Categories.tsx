@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import CategoryGrid from "@/components/CategoryGrid";
@@ -7,10 +7,13 @@ import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const BATCH_SIZE = 50;
 
 const Categories = () => {
   const { concepts, loading } = useWords();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -25,13 +28,49 @@ const Categories = () => {
     return list;
   }, [selectedCategory, concepts]);
 
+  // Reset visible count when filter changes
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [selectedCategory]);
+
+  // Infinite scroll observer
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < filtered.length) {
+          setVisibleCount((c) => Math.min(c + BATCH_SIZE, filtered.length));
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [visibleCount, filtered.length]);
+
+  const visibleItems = filtered.slice(0, visibleCount);
+
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
   }, [filtered]);
 
   const handleJumpToLetter = (letter: string) => {
-    const el = document.getElementById(`cat-word-${letter}`);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const targetIndex = filtered.findIndex(
+      (c) => c.english[0].toUpperCase() === letter
+    );
+    if (targetIndex >= 0 && targetIndex >= visibleCount) {
+      setVisibleCount(Math.min(targetIndex + BATCH_SIZE, filtered.length));
+      requestAnimationFrame(() => {
+        const el = document.getElementById(`cat-word-${letter}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    } else {
+      const el = document.getElementById(`cat-word-${letter}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const lettersRendered = new Set<string>();
@@ -83,7 +122,7 @@ const Categories = () => {
         {selectedCategory && (
           <h2 className="text-base sm:text-lg font-semibold text-foreground">{selectedCategory}</h2>
         )}
-        {filtered.map((concept) => {
+        {visibleItems.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();
           const needsAnchor = !lettersRendered.has(firstLetter);
           if (needsAnchor) lettersRendered.add(firstLetter);
@@ -93,6 +132,12 @@ const Categories = () => {
             </div>
           );
         })}
+        
+        {visibleCount < filtered.length && (
+          <div ref={sentinelRef} className="py-4 text-center text-sm text-muted-foreground">
+            Loading more…
+          </div>
+        )}
       </div>
     </div>
   );
