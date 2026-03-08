@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { BookOpen, Share2, Check, Moon, Sun, Settings } from "lucide-react";
+import { BookOpen, Share2, Check, Moon, Sun, Settings, ArrowUp } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
@@ -108,6 +108,28 @@ const DarkModeToggle = () => {
       }`}
     >
       {darkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+    </button>
+  );
+};
+
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+      className="fixed bottom-5 right-5 z-50 p-2.5 rounded-full bg-primary text-primary-foreground shadow-lg hover:opacity-90 transition-all animate-fade-in"
+    >
+      <ArrowUp className="h-4 w-4 sm:h-5 sm:w-5" />
     </button>
   );
 };
@@ -227,6 +249,8 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1">
         {children}
       </main>
+
+      <ScrollToTop />
 
       <footer className="border-t border-border py-6 mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-1">
