@@ -18,9 +18,9 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
   };
 
   return (
-    <div className="card-elevated max-w-md mx-auto p-8 text-center animate-fade-in">
-      <div className="mb-6">
-        <span className="font-devanagari text-4xl font-semibold text-foreground leading-relaxed">
+    <div className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in">
+      <div className="mb-4 sm:mb-6">
+        <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
         </span>
       </div>
@@ -28,15 +28,15 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
       <button
         onClick={speak}
         aria-label="Listen to pronunciation"
-        className="mx-auto mb-6 flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-sm font-medium"
+        className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
       >
-        <Volume2 className="h-4 w-4" />
+        <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         Listen
       </button>
 
-      <div className="space-y-1 mb-4">
-        <p className="text-lg text-foreground font-medium">{word.roman}</p>
-        <p className="text-ipa">/{word.ipa}/</p>
+      <div className="space-y-1 mb-3 sm:mb-4">
+        <p className="text-base sm:text-lg text-foreground font-medium">{word.roman}</p>
+        <p className="text-ipa text-[11px] sm:text-sm">/{word.ipa}/</p>
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>

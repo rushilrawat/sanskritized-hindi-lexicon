@@ -144,15 +144,15 @@ const Index = () => {
   return (
     <div className="container-page">
       {/* Hero */}
-      <section className="text-center mb-10 pt-6">
+      <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
         <AnimatedHeading />
         <p className="text-muted-foreground max-w-lg mx-auto">
           A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.
         </p>
       </section>
 
-      {/* Search + A-Z Navigation - Combined Sticky */}
-      <section className="sticky top-14 z-20 bg-background border-b border-border py-3 -mx-4 px-4">
+      {/* Search + A-Z Navigation - Combined Sticky — top offset accounts for header height */}
+      <section className="sticky top-[85px] md:top-14 z-20 bg-background border-b border-border py-2 sm:py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
         {!search && filtered.length > 5 && (
           <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">
@@ -193,7 +193,7 @@ const Index = () => {
       )}
 
       {/* Word List */}
-      <section className="space-y-5" ref={listRef}>
+      <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground py-8">No entries found. Try another term.</p>
         )}

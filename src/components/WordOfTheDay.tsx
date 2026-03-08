@@ -31,23 +31,23 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   }
 
   return (
-    <div className="rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-5 pr-6 py-6 border-l-4 border-l-primary bg-gradient-to-br from-card via-card to-accent/30">
+    <div className="rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-3 pr-4 py-4 sm:pl-5 sm:pr-6 sm:py-6 border-l-4 border-l-primary bg-gradient-to-br from-card via-card to-accent/30">
       <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
-      <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
+      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-primary mb-2 sm:mb-3">
         Word of the Day
       </p>
-      <div className="flex items-center gap-3 mb-2">
-        <span className="font-devanagari text-3xl font-semibold text-foreground">
+      <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
+        <span className="font-devanagari text-2xl sm:text-3xl font-semibold text-foreground">
           {mainWord.dev}
         </span>
         <InlineAudio text={mainWord.dev} />
       </div>
-      <div className="flex items-baseline gap-2 mb-2">
-        <span className="text-lg text-muted-foreground">{mainWord.roman}</span>
-        <span className="text-ipa">/{mainWord.ipa}/</span>
+      <div className="flex items-baseline gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+        <span className="text-base sm:text-lg text-muted-foreground">{mainWord.roman}</span>
+        <span className="text-ipa text-[11px] sm:text-sm">/{mainWord.ipa}/</span>
       </div>
-      <p className="text-foreground font-medium capitalize">{concept.english}</p>
-      <p className="text-sm text-muted-foreground mt-1">{concept.description}</p>
+      <p className="text-sm sm:text-base text-foreground font-medium capitalize">{concept.english}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{concept.description}</p>
 
       {/* Synonyms */}
       {synonymDevs.length > 0 && (

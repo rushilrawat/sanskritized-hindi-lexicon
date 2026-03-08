@@ -116,20 +116,69 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="w-full px-3 sm:px-6 lg:px-8 flex items-center justify-between h-12 sm:h-14">
-          <NavLink to="/" className="flex items-center gap-1.5 sm:gap-2 text-foreground hover:text-primary transition-colors">
-            <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-            <span className="font-semibold text-xs sm:text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
+        {/* Mobile: two-row header */}
+        <div className="md:hidden">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-border/50">
+            <NavLink to="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors">
+              <BookOpen className="h-4 w-4 text-primary" />
+              <span className="font-semibold text-xs tracking-wide">Sanskritized Hindi Lexicon</span>
+            </NavLink>
+            <Popover>
+              <PopoverTrigger asChild>
+                <button
+                  aria-label="Settings"
+                  className="p-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                >
+                  <Settings className="h-3.5 w-3.5" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-auto p-3 space-y-3">
+                <div className="space-y-2">
+                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Text Size</p>
+                  <TextSizeControl />
+                </div>
+                <div className="flex items-center gap-2">
+                  <HighContrastToggle />
+                  <DarkModeToggle />
+                  <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+          <nav className="flex items-center justify-center gap-1 px-3 py-1.5">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  `px-2.5 py-1 rounded-md text-xs whitespace-nowrap transition-colors ${
+                    isActive
+                      ? "bg-primary text-primary-foreground font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+        {/* Tablet & Desktop: single-row header */}
+        <div className="hidden md:flex items-center justify-between px-4 lg:px-8 h-14">
+          <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+            <BookOpen className="h-5 w-5 text-primary" />
+            <span className="font-semibold text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
           </NavLink>
-          <div className="flex items-center gap-1 sm:gap-2">
-            <nav className="flex items-center gap-0.5 md:gap-1">
+          <div className="flex items-center gap-1.5 lg:gap-2">
+            <nav className="flex items-center gap-1 lg:gap-1.5">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   end={item.to === "/"}
                   className={({ isActive }) =>
-                    `px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-md text-[11px] sm:text-xs lg:text-sm whitespace-nowrap transition-colors ${
+                    `px-2.5 py-1.5 rounded-md text-xs lg:text-sm whitespace-nowrap transition-colors ${
                       isActive
                         ? "bg-primary text-primary-foreground font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -147,7 +196,7 @@ const Layout = ({ children }: LayoutProps) => {
               <DarkModeToggle />
               <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
             </div>
-            {/* Mobile/Tablet popover menu */}
+            {/* Tablet popover */}
             <div className="lg:hidden ml-1">
               <Popover>
                 <PopoverTrigger asChild>
