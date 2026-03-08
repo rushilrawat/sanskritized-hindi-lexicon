@@ -1,15 +1,14 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
-import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
+import { useWords } from "@/hooks/useWords";
 import SearchBar from "@/components/SearchBar";
 import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
-
-const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
+import WordsLoading from "@/components/WordsLoading";
 
 function normalize(s: string): string {
   return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -19,6 +18,7 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const BATCH_SIZE = 50;
 
 const Index = () => {
+  const { concepts, loading } = useWords();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
@@ -36,7 +36,7 @@ const Index = () => {
     }
   }, [searchParams, location.key]);
 
-  const wotd = useMemo(() => getWordOfTheDay(concepts), []);
+  const wotd = useMemo(() => getWordOfTheDay(concepts), [concepts]);
 
   const filtered = useMemo(() => {
     let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
@@ -53,14 +53,12 @@ const Index = () => {
     }
 
     return list;
-  }, [search]);
+  }, [search, concepts]);
 
-  // Reset visible count when filter changes
   useEffect(() => {
     setVisibleCount(BATCH_SIZE);
   }, [filtered]);
 
-  // Infinite scroll observer
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -78,7 +76,6 @@ const Index = () => {
     return () => observer.disconnect();
   }, [visibleCount, filtered.length]);
 
-  // Track current letter on scroll
   useEffect(() => {
     if (search || !listRef.current) return;
 
@@ -104,16 +101,13 @@ const Index = () => {
   }, [filtered]);
 
   const handleJumpToLetter = useCallback((letter: string) => {
-    // Find the index of the first word starting with this letter
     const idx = filtered.findIndex(
       (c) => c.english[0].toUpperCase() === letter
     );
     if (idx === -1) return;
 
-    // Ensure enough items are loaded to include this letter
     if (idx >= visibleCount) {
       setVisibleCount(Math.min(idx + BATCH_SIZE, filtered.length));
-      // Wait for render, then scroll
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           const el = document.getElementById(`word-${letter}`);
@@ -133,9 +127,10 @@ const Index = () => {
     }
   }, [wotd, setSearchParams]);
 
-  // Group words by first letter for anchors
   const lettersRendered = new Set<string>();
   const visibleItems = filtered.slice(0, visibleCount);
+
+  if (loading) return <WordsLoading />;
 
   if (concepts.length === 0) {
     return <DataFallback message="No word data found. The lexicon data file may be empty or malformed." />;
@@ -143,7 +138,6 @@ const Index = () => {
 
   return (
     <div className="container-page">
-      {/* Hero */}
       <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
         <AnimatedHeading />
         <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
@@ -151,7 +145,6 @@ const Index = () => {
         </p>
       </section>
 
-      {/* Search + A-Z Navigation - Combined Sticky — top offset accounts for header height */}
       <section className="sticky top-[85px] md:top-14 z-20 bg-background border-b border-border py-2 sm:py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
         {!search && filtered.length > 5 && (
@@ -180,7 +173,6 @@ const Index = () => {
         )}
       </section>
 
-      {/* Word of the Day */}
       {wotd && !search && (
         <section className="mb-6 mt-4">
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
@@ -192,7 +184,6 @@ const Index = () => {
         </section>
       )}
 
-      {/* Word List */}
       <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground py-8">No entries found. Try another term.</p>
@@ -211,7 +202,6 @@ const Index = () => {
             </div>
           );
         })}
-        {/* Sentinel for infinite scroll */}
         {visibleCount < filtered.length && (
           <div ref={sentinelRef} className="flex justify-center py-6">
             <span className="text-sm text-muted-foreground animate-pulse">Loading more…</span>

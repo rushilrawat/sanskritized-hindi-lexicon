@@ -1,6 +1,6 @@
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
-import wordsData from "@/data/words.json";
+import { useWords } from "@/hooks/useWords";
 
 interface WordOfTheDayProps {
   concept: Concept;
@@ -8,18 +8,16 @@ interface WordOfTheDayProps {
 }
 
 const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
+  const { concepts: allConcepts } = useWords();
   const mainWord = concept.sanskrit_derived[0];
   if (!mainWord) return null;
 
-  // Gather synonyms (other sanskrit-derived words for same concept)
   const synonymDevs = concept.sanskrit_derived
     .map((w) => w.dev)
     .filter((d) => d !== mainWord.dev);
 
-  // Resolve antonyms to Devanagari from linked english words
   const antonymDevs: string[] = [];
   if (concept.antonyms) {
-    const allConcepts = wordsData as Concept[];
     for (const ant of concept.antonyms) {
       const antConcept = allConcepts.find((c) => c.english === ant);
       if (antConcept) {
@@ -49,7 +47,6 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
       <p className="text-sm sm:text-base text-foreground font-medium capitalize">{concept.english}</p>
       <p className="text-xs sm:text-sm text-muted-foreground mt-1">{concept.description}</p>
 
-      {/* Synonyms */}
       {synonymDevs.length > 0 && (
         <div className="mt-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -63,7 +60,6 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
         </div>
       )}
 
-      {/* Antonyms */}
       {antonymDevs.length > 0 && (
         <div className="mt-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

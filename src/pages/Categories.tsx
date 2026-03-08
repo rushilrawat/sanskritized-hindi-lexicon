@@ -1,20 +1,21 @@
 import { useState, useMemo } from "react";
-import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
+import { useWords } from "@/hooks/useWords";
 import CategoryGrid from "@/components/CategoryGrid";
 import WordCard from "@/components/WordCard";
 import DataFallback from "@/components/DataFallback";
+import WordsLoading from "@/components/WordsLoading";
 
-const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Categories = () => {
+  const { concepts, loading } = useWords();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
     return Array.from(cats).sort();
-  }, []);
+  }, [concepts]);
 
   const filtered = useMemo(() => {
     let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
@@ -22,7 +23,7 @@ const Categories = () => {
       list = list.filter((c) => c.category === selectedCategory);
     }
     return list;
-  }, [selectedCategory]);
+  }, [selectedCategory, concepts]);
 
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
@@ -34,6 +35,8 @@ const Categories = () => {
   };
 
   const lettersRendered = new Set<string>();
+
+  if (loading) return <WordsLoading />;
 
   if (concepts.length === 0) {
     return <DataFallback />;
@@ -55,7 +58,6 @@ const Categories = () => {
         />
       </div>
 
-      {/* A-Z Jump Navigation */}
       {filtered.length > 5 && (
         <section className="my-6">
           <div className="flex flex-wrap gap-1 justify-center">

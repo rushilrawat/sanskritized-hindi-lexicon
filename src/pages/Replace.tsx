@@ -1,17 +1,17 @@
 import { useState, useMemo } from "react";
 import { Copy, Check } from "lucide-react";
-import wordsData from "@/data/words.json";
 import type { Concept } from "@/types/word";
+import { useWords } from "@/hooks/useWords";
 import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
 import DataFallback from "@/components/DataFallback";
-
-const concepts = Array.isArray(wordsData) ? (wordsData as Concept[]) : [];
+import WordsLoading from "@/components/WordsLoading";
 
 const Replace = () => {
+  const { concepts, loading } = useWords();
   const [input, setInput] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const map = useMemo(() => buildReplacementMap(concepts), []);
+  const map = useMemo(() => buildReplacementMap(concepts), [concepts]);
 
   const { text: output, segments } = useMemo(() => {
     if (!input.trim()) return { text: "", segments: [] };
@@ -19,6 +19,8 @@ const Replace = () => {
   }, [input, map]);
 
   const hasChanges = input.trim() !== "" && output !== input;
+
+  if (loading) return <WordsLoading />;
 
   if (concepts.length === 0) {
     return <DataFallback />;
