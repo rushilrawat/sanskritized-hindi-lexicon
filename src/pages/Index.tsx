@@ -146,7 +146,7 @@ const Index = () => {
       {/* Hero */}
       <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
         <AnimatedHeading />
-        <p className="text-muted-foreground max-w-lg mx-auto">
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
           A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.
         </p>
       </section>

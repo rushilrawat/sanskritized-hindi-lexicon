@@ -69,7 +69,6 @@ const Learn = () => {
     setIndex(Math.floor(Math.random() * words.length));
   };
 
-  // Reset index when category changes
   useEffect(() => {
     setIndex(0);
   }, [selectedCategory]);
@@ -86,7 +85,7 @@ const Learn = () => {
 
   if (words.length === 0) {
     return (
-      <div className="container-page text-center text-muted-foreground py-12">
+      <div className="container-page text-center text-muted-foreground py-8 sm:py-12">
         No words in this category.
       </div>
     );
@@ -94,30 +93,30 @@ const Learn = () => {
 
   return (
     <div className="container-page">
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-foreground mb-2">Learn Words</h1>
-        <p className="text-muted-foreground mb-4">
+      <div className="text-center mb-5 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Learn Words</h1>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
           Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.
         </p>
-        <div className="flex items-center justify-center gap-2 flex-wrap">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             onClick={handleShuffle}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           >
-            <Shuffle className="h-4 w-4" />
+            <Shuffle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {shuffled ? "Sequential" : "Shuffle"}
           </button>
           <button
             onClick={handleRandom}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           >
-            <Dices className="h-4 w-4" />
+            <Dices className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             Random
           </button>
           <select
             value={selectedCategory || ""}
             onChange={(e) => setSelectedCategory(e.target.value || null)}
-            className="px-3 py-2 rounded-lg border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg border border-border bg-card text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <option value="">All Categories</option>
             {categories.map((cat) => (
