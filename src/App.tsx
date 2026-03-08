@@ -5,16 +5,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccessibilityProvider } from "@/hooks/useAccessibility";
 import { WordsProvider } from "@/hooks/useWords";
-import { lazy, Suspense } from "react";
 import Layout from "@/components/Layout";
-import WordsLoading from "@/components/WordsLoading";
-
-const Index = lazy(() => import("./pages/Index"));
-const Categories = lazy(() => import("./pages/Categories"));
-const Learn = lazy(() => import("./pages/Learn"));
-const Replace = lazy(() => import("./pages/Replace"));
-const About = lazy(() => import("./pages/About"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import Index from "./pages/Index";
+import Categories from "./pages/Categories";
+import Learn from "./pages/Learn";
+import Replace from "./pages/Replace";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -27,16 +24,14 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Layout>
-              <Suspense fallback={<WordsLoading />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/categories" element={<Categories />} />
-                  <Route path="/learn" element={<Learn />} />
-                  <Route path="/replace" element={<Replace />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/learn" element={<Learn />} />
+                <Route path="/replace" element={<Replace />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </Layout>
           </BrowserRouter>
         </WordsProvider>

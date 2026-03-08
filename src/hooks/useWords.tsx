@@ -17,7 +17,15 @@ export const WordsProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     import("@/data/words.json").then((mod) => {
       const data = mod.default;
-      setConcepts(Array.isArray(data) ? (data as Concept[]) : []);
+      const raw = Array.isArray(data) ? (data as Concept[]) : [];
+      // Deduplicate by english key (keep first occurrence)
+      const seen = new Set<string>();
+      const unique = raw.filter((c) => {
+        if (seen.has(c.english)) return false;
+        seen.add(c.english);
+        return true;
+      });
+      setConcepts(unique);
       setLoading(false);
     });
   }, []);

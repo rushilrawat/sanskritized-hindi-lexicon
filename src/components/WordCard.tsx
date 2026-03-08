@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 
@@ -5,7 +6,7 @@ interface WordCardProps {
   concept: Concept;
 }
 
-const WordCard = ({ concept }: WordCardProps) => {
+const WordCard = memo(({ concept }: WordCardProps) => {
   return (
     <div className="card-elevated p-3 sm:p-5 animate-fade-in">
       <div className="flex items-start justify-between mb-2 sm:mb-4">
@@ -67,6 +68,8 @@ const WordCard = ({ concept }: WordCardProps) => {
       </div>
     </div>
   );
-};
+});
+
+WordCard.displayName = "WordCard";
 
 export default WordCard;
