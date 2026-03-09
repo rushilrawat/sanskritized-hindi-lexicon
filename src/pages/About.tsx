@@ -1,6 +1,8 @@
-const About = () => {
+import { forwardRef } from "react";
+
+const About = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="container-page max-w-2xl">
+    <div ref={ref} className="container-page max-w-2xl">
       <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">About This Project</h1>
 
       <div className="space-y-4 sm:space-y-6 text-foreground leading-relaxed">
@@ -121,6 +123,8 @@ const About = () => {
       </div>
     </div>
   );
-};
+});
+
+About.displayName = "About";
 
 export default About;

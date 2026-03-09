@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, forwardRef } from "react";
 import { Copy, Check } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -6,7 +6,7 @@ import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replac
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 
-const Replace = () => {
+const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
   const [input, setInput] = useState("");
   const [copied, setCopied] = useState(false);
@@ -27,7 +27,7 @@ const Replace = () => {
   }
 
   return (
-    <div className="container-page">
+    <div ref={ref} className="container-page">
       <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Sentence Replacement</h1>
       <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
         Paste a Hindi sentence below. Words from other historical sources will be replaced with their Sanskrit-derived equivalents.
@@ -90,6 +90,8 @@ const Replace = () => {
       </div>
     </div>
   );
-};
+});
+
+Replace.displayName = "Replace";
 
 export default Replace;

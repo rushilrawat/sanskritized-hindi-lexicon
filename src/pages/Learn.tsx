@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect, forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -9,7 +9,7 @@ import { useAccessibility } from "@/hooks/useAccessibility";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 
-const Learn = () => {
+const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
   const [shuffled, setShuffled] = useState(false);
   const [index, setIndex] = useState(0);
@@ -94,7 +94,7 @@ const Learn = () => {
   }
 
   return (
-    <div className="container-page">
+    <div ref={ref} className="container-page">
       <div className="text-center mb-5 sm:mb-8">
         <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Learn Words</h1>
         <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
@@ -138,6 +138,8 @@ const Learn = () => {
       />
     </div>
   );
-};
+});
+
+Learn.displayName = "Learn";
 
 export default Learn;

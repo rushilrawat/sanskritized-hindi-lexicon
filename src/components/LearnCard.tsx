@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Volume2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
 
@@ -10,7 +11,7 @@ interface LearnCardProps {
   onViewFullEntry?: () => void;
 }
 
-const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: LearnCardProps) => {
+const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(word.dev);
     utterance.lang = "hi-IN";
@@ -18,7 +19,7 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
   };
 
   return (
-    <div className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in">
+    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in">
       <div className="mb-4 sm:mb-6">
         <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
@@ -107,6 +108,8 @@ const LearnCard = ({ word, onNext, onPrev, current, total, onViewFullEntry }: Le
       </div>
     </div>
   );
-};
+});
+
+LearnCard.displayName = "LearnCard";
 
 export default LearnCard;
