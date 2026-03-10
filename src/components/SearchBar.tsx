@@ -8,7 +8,7 @@ interface SearchBarProps {
   initialValue?: string;
 }
 
-const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or Roman...", initialValue = "" }: SearchBarProps) => {
+const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or IPA...", initialValue = "" }: SearchBarProps) => {
   const [query, setQuery] = useState(initialValue);
   const inputRef = useRef<HTMLInputElement>(null);
 

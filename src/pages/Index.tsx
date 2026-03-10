@@ -46,7 +46,7 @@ const Index = () => {
       list = list.filter((c) => {
         if (normalize(c.english).includes(q)) return true;
         for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          if (w.dev.includes(search.trim()) || normalize(w.roman).includes(q)) return true;
+          if (w.dev.includes(search.trim()) || normalize(w.ipa).includes(q)) return true;
         }
         return false;
       });
