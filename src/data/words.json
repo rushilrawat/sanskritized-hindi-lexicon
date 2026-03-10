@@ -23087,5 +23087,514 @@
     ],
     "other_historical_sources": [],
     "antonyms": ["poison"]
+  },
+  {
+    "english": "separation",
+    "category": "Emotion",
+    "description": "The state of being apart from a loved one; a central theme of Hindi poetry and Bollywood songs.",
+    "sanskrit_derived": [
+      { "dev": "विरह", "roman": "virah", "ipa": "ʋɪɾəɦ", "tags": ["literary", "classical"] },
+      { "dev": "वियोग", "roman": "viyog", "ipa": "ʋɪjoːɡ", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जुदाई", "roman": "judaai", "ipa": "dʒʊd̪aːiː", "tags": ["colloquial"] },
+      { "dev": "फ़िराक़", "roman": "firaaq", "ipa": "fɪɾaːq", "tags": ["literary"] }
+    ],
+    "antonyms": ["union"]
+  },
+  {
+    "english": "union",
+    "category": "Emotion",
+    "description": "The act of joining together; reunion of lovers in poetic tradition.",
+    "sanskrit_derived": [
+      { "dev": "मिलन", "roman": "milan", "ipa": "mɪlən", "tags": ["formal", "literary"] },
+      { "dev": "संयोग", "roman": "sanyog", "ipa": "sən.joːɡ", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "वस्ल", "roman": "vasl", "ipa": "ʋəsl", "tags": ["literary"] }
+    ],
+    "antonyms": ["separation"]
+  },
+  {
+    "english": "beloved",
+    "category": "Relationships",
+    "description": "A dearly loved person; a recurring motif in Bollywood lyrics and Urdu-Hindi ghazals.",
+    "sanskrit_derived": [
+      { "dev": "प्रियतम", "roman": "priyatam", "ipa": "pɾɪjət̪əm", "tags": ["literary", "classical"] },
+      { "dev": "प्रिया", "roman": "priya", "ipa": "pɾɪjaː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "महबूब", "roman": "mehboob", "ipa": "meːɦbuːb", "tags": ["colloquial"] },
+      { "dev": "जानम", "roman": "jaanam", "ipa": "dʒaːnəm", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "intoxication",
+    "category": "Emotion",
+    "description": "A state of being inebriated; metaphor for being drunk on love in Hindi poetry.",
+    "sanskrit_derived": [
+      { "dev": "मद", "roman": "mad", "ipa": "məd̪", "tags": ["literary", "classical"] },
+      { "dev": "मादकता", "roman": "maadakta", "ipa": "maːd̪əkt̪aː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "नशा", "roman": "nasha", "ipa": "nəʃaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "moonlight",
+    "category": "Nature",
+    "description": "The light of the moon; a quintessential image in romantic Hindi songs.",
+    "sanskrit_derived": [
+      { "dev": "चाँदनी", "roman": "chaandni", "ipa": "t͡ʃaːnd̪niː", "tags": ["formal", "literary"] },
+      { "dev": "ज्योत्स्ना", "roman": "jyotsna", "ipa": "dʒjoːt̪snaː", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "महताब", "roman": "mehtaab", "ipa": "meːɦt̪aːb", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "fragrance",
+    "category": "Nature",
+    "description": "A pleasant, sweet smell; evocative imagery in Bollywood and devotional songs.",
+    "sanskrit_derived": [
+      { "dev": "सुगन्ध", "roman": "sugandh", "ipa": "sʊɡənd̪ʱ", "tags": ["formal"] },
+      { "dev": "सौरभ", "roman": "saurabh", "ipa": "sɔːɾəbʱ", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ख़ुशबू", "roman": "khushboo", "ipa": "kʰʊʃbuː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "wine",
+    "category": "Society",
+    "description": "An alcoholic drink; a metaphor for divine love in Sufi-inspired Hindi poetry.",
+    "sanskrit_derived": [
+      { "dev": "मदिरा", "roman": "madira", "ipa": "məd̪ɪɾaː", "tags": ["literary", "classical"] },
+      { "dev": "सुरा", "roman": "sura", "ipa": "sʊɾaː", "tags": ["classical", "archaic"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शराब", "roman": "sharaab", "ipa": "ʃəɾaːb", "tags": ["colloquial"] },
+      { "dev": "मय", "roman": "mai", "ipa": "məj", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tears",
+    "category": "Emotion",
+    "description": "Drops of liquid from the eyes; a universal symbol of emotion in song lyrics.",
+    "sanskrit_derived": [
+      { "dev": "अश्रु", "roman": "ashru", "ipa": "əʃɾʊ", "tags": ["literary", "classical"] },
+      { "dev": "नयनजल", "roman": "nayanjal", "ipa": "nəjəndʒəl", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "आँसू", "roman": "aansu", "ipa": "aːnsuː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "madness",
+    "category": "Emotion",
+    "description": "The state of being mentally ill; poetically, the frenzy of love.",
+    "sanskrit_derived": [
+      { "dev": "उन्माद", "roman": "unmaad", "ipa": "ʊnmaːd̪", "tags": ["formal", "literary"] },
+      { "dev": "पागलपन", "roman": "paagalpan", "ipa": "paːɡəlpən", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जुनून", "roman": "junoon", "ipa": "dʒʊnuːn", "tags": ["literary"] },
+      { "dev": "दीवानगी", "roman": "deewaangi", "ipa": "d̪iːʋaːnɡiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "wanderer",
+    "category": "Society",
+    "description": "One who travels without a fixed destination; a poetic archetype in Hindi cinema.",
+    "sanskrit_derived": [
+      { "dev": "पथिक", "roman": "pathik", "ipa": "pət̪ʰɪk", "tags": ["literary", "classical"] },
+      { "dev": "यात्री", "roman": "yaatri", "ipa": "jaːt̪ɾiː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मुसाफ़िर", "roman": "musaafir", "ipa": "mʊsaːfɪɾ", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "veil",
+    "category": "Society",
+    "description": "A piece of cloth covering the face or head; laden with cultural and poetic symbolism.",
+    "sanskrit_derived": [
+      { "dev": "आवरण", "roman": "aavaran", "ipa": "aːʋəɾəɳ", "tags": ["formal", "classical"] },
+      { "dev": "घूँघट", "roman": "ghoonghat", "ipa": "ɡʱuːŋɡʱət", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "पर्दा", "roman": "parda", "ipa": "pəɾd̪aː", "tags": ["colloquial"] },
+      { "dev": "नक़ाब", "roman": "naqaab", "ipa": "nəqaːb", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "anklet",
+    "category": "Society",
+    "description": "An ornament worn around the ankle; its jingling is a classic Bollywood sound motif.",
+    "sanskrit_derived": [
+      { "dev": "नूपुर", "roman": "noopur", "ipa": "nuːpʊɾ", "tags": ["literary", "classical"] },
+      { "dev": "पायल", "roman": "paayal", "ipa": "paːjəl", "tags": ["colloquial"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "bangle",
+    "category": "Society",
+    "description": "A rigid bracelet worn on the wrist; a symbol of feminine beauty in Hindi songs.",
+    "sanskrit_derived": [
+      { "dev": "कंगन", "roman": "kangan", "ipa": "kəŋɡən", "tags": ["formal"] },
+      { "dev": "वलय", "roman": "valay", "ipa": "ʋələj", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "चूड़ी", "roman": "choodi", "ipa": "t͡ʃuːɽiː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "flute",
+    "category": "Society",
+    "description": "A musical wind instrument; associated with Krishna in devotional and film music.",
+    "sanskrit_derived": [
+      { "dev": "वंशी", "roman": "vanshi", "ipa": "ʋənʃiː", "tags": ["literary", "classical"] },
+      { "dev": "मुरली", "roman": "murali", "ipa": "mʊɾəliː", "tags": ["literary"] },
+      { "dev": "बाँसुरी", "roman": "baansuri", "ipa": "baːnsʊɾiː", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "garland",
+    "category": "Society",
+    "description": "A wreath of flowers; symbol of welcome, honour, and love in Indian culture.",
+    "sanskrit_derived": [
+      { "dev": "माला", "roman": "maala", "ipa": "maːlaː", "tags": ["formal"] },
+      { "dev": "हार", "roman": "haar", "ipa": "ɦaːɾ", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "enchantment",
+    "category": "Emotion",
+    "description": "A feeling of great delight or charm; the spell of beauty or love.",
+    "sanskrit_derived": [
+      { "dev": "मोहिनी", "roman": "mohini", "ipa": "moːɦɪniː", "tags": ["literary", "classical"] },
+      { "dev": "सम्मोहन", "roman": "sammohan", "ipa": "səmːoːɦən", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जादू", "roman": "jaadoo", "ipa": "dʒaːd̪uː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "solitude",
+    "category": "Emotion",
+    "description": "The state of being alone; a contemplative theme in poetry and film.",
+    "sanskrit_derived": [
+      { "dev": "एकान्त", "roman": "ekaant", "ipa": "eːkaːnt̪", "tags": ["formal", "literary"] },
+      { "dev": "निर्जनता", "roman": "nirjanta", "ipa": "nɪɾdʒənt̪aː", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तन्हाई", "roman": "tanhaai", "ipa": "t̪ənɦaːiː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "radiance",
+    "category": "Abstract Concepts",
+    "description": "Brilliant light or glow; used to describe divine or feminine beauty in songs.",
+    "sanskrit_derived": [
+      { "dev": "आभा", "roman": "aabha", "ipa": "aːbʱaː", "tags": ["literary", "classical"] },
+      { "dev": "दीप्ति", "roman": "deepti", "ipa": "d̪iːpt̪ɪ", "tags": ["formal"] },
+      { "dev": "कान्ति", "roman": "kaanti", "ipa": "kaːnt̪ɪ", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "splendor",
+    "category": "Abstract Concepts",
+    "description": "Magnificent and impressive beauty or grandeur.",
+    "sanskrit_derived": [
+      { "dev": "वैभव", "roman": "vaibhav", "ipa": "ʋɛːbʱəʋ", "tags": ["formal", "literary"] },
+      { "dev": "शोभा", "roman": "shobha", "ipa": "ʃoːbʱaː", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "grace",
+    "category": "Abstract Concepts",
+    "description": "Elegance of movement or divine favour; a quality celebrated in devotional poetry.",
+    "sanskrit_derived": [
+      { "dev": "कृपा", "roman": "kripa", "ipa": "kɾɪpaː", "tags": ["formal", "religious"] },
+      { "dev": "लावण्य", "roman": "laavanya", "ipa": "laːʋəɳjə", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "passion",
+    "category": "Emotion",
+    "description": "An intense emotion or overwhelming desire; central to romantic Bollywood narratives.",
+    "sanskrit_derived": [
+      { "dev": "आवेश", "roman": "aavesh", "ipa": "aːʋeːʃ", "tags": ["formal"] },
+      { "dev": "रति", "roman": "rati", "ipa": "ɾət̪ɪ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "जज़्बा", "roman": "jazba", "ipa": "dʒəzbaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "penance",
+    "category": "Abstract Concepts",
+    "description": "Voluntary self-punishment or austerity; a recurring theme in mythological cinema.",
+    "sanskrit_derived": [
+      { "dev": "तपस्या", "roman": "tapasya", "ipa": "t̪əpəsjəː", "tags": ["formal", "religious"] },
+      { "dev": "प्रायश्चित्त", "roman": "praayashchitt", "ipa": "pɾaːjəʃt͡ʃɪt̪ː", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "तौबा", "roman": "tauba", "ipa": "t̪ɔːbaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "celestial",
+    "category": "Abstract Concepts",
+    "description": "Relating to the sky or heavens; used for divine imagery in devotional music.",
+    "sanskrit_derived": [
+      { "dev": "दिव्य", "roman": "divya", "ipa": "d̪ɪʋjə", "tags": ["formal", "classical"] },
+      { "dev": "आकाशीय", "roman": "aakaashiya", "ipa": "aːkaːʃiːjə", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "immortal",
+    "category": "Abstract Concepts",
+    "description": "Living forever; never dying; a concept central to mythological storytelling.",
+    "sanskrit_derived": [
+      { "dev": "अमर", "roman": "amar", "ipa": "əməɾ", "tags": ["formal", "literary"] },
+      { "dev": "अविनाशी", "roman": "avinaashi", "ipa": "əʋɪnaːʃiː", "tags": ["classical", "philosophical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": ["mortal"]
+  },
+  {
+    "english": "mortal",
+    "category": "Abstract Concepts",
+    "description": "Subject to death; a being that must eventually die.",
+    "sanskrit_derived": [
+      { "dev": "नश्वर", "roman": "nashvar", "ipa": "nəʃʋəɾ", "tags": ["literary", "philosophical"] },
+      { "dev": "मर्त्य", "roman": "martya", "ipa": "məɾt̪jə", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "फ़ानी", "roman": "faani", "ipa": "faːniː", "tags": ["literary"] }
+    ],
+    "antonyms": ["immortal"]
+  },
+  {
+    "english": "renunciation",
+    "category": "Abstract Concepts",
+    "description": "The act of giving up worldly pleasures; a theme in bhajan and philosophical cinema.",
+    "sanskrit_derived": [
+      { "dev": "त्याग", "roman": "tyaag", "ipa": "t̪jaːɡ", "tags": ["formal", "philosophical"] },
+      { "dev": "संन्यास", "roman": "sannyaas", "ipa": "sənːjaːs", "tags": ["classical", "religious"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "messenger",
+    "category": "Relationships",
+    "description": "One who carries a message; the go-between in classical love poetry.",
+    "sanskrit_derived": [
+      { "dev": "सन्देशवाहक", "roman": "sandeshvaahak", "ipa": "sənd̪eːʃʋaːɦək", "tags": ["formal"] },
+      { "dev": "दूत", "roman": "doot", "ipa": "d̪uːt̪", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "क़ासिद", "roman": "qaasid", "ipa": "qaːsɪd̪", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tavern",
+    "category": "Society",
+    "description": "A place where drinks are served; a metaphor for the world in Sufi poetry.",
+    "sanskrit_derived": [
+      { "dev": "मधुशाला", "roman": "madhushaala", "ipa": "məd̪ʱʊʃaːlaː", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "मयख़ाना", "roman": "maikhaana", "ipa": "məjkʰaːnaː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "candle",
+    "category": "Society",
+    "description": "A wax cylinder with a wick; a Sufi metaphor for the beloved that attracts the moth.",
+    "sanskrit_derived": [
+      { "dev": "दीपक", "roman": "deepak", "ipa": "d̪iːpək", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शमा", "roman": "shama", "ipa": "ʃəmaː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "moth",
+    "category": "Nature",
+    "description": "An insect attracted to light; the Sufi symbol of a lover consumed by passion.",
+    "sanskrit_derived": [
+      { "dev": "पतंग", "roman": "patang", "ipa": "pət̪əŋɡ", "tags": ["formal"] },
+      { "dev": "शलभ", "roman": "shalabh", "ipa": "ʃələbʱ", "tags": ["classical", "literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "परवाना", "roman": "parvaana", "ipa": "pəɾʋaːnaː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "cup-bearer",
+    "category": "Society",
+    "description": "One who serves wine; the divine dispenser in Sufi-inspired Bollywood ghazals.",
+    "sanskrit_derived": [],
+    "other_historical_sources": [
+      { "dev": "साक़ी", "roman": "saaqi", "ipa": "saːqiː", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "tresses",
+    "category": "Body & Health",
+    "description": "Long locks of hair; a classic image of beauty in Hindi film songs.",
+    "sanskrit_derived": [
+      { "dev": "केशराशि", "roman": "kesharaashi", "ipa": "keːʃɾaːʃɪ", "tags": ["literary", "classical"] },
+      { "dev": "अलक", "roman": "alak", "ipa": "ələk", "tags": ["literary"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "ज़ुल्फ़", "roman": "zulf", "ipa": "zʊlf", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "kohl",
+    "category": "Society",
+    "description": "Black cosmetic applied to the eyes; an iconic element in Hindi film aesthetics.",
+    "sanskrit_derived": [
+      { "dev": "काजल", "roman": "kaajal", "ipa": "kaːdʒəl", "tags": ["formal"] },
+      { "dev": "अञ्जन", "roman": "anjan", "ipa": "əɲdʒən", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सुरमा", "roman": "surma", "ipa": "sʊɾmaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "vermilion",
+    "category": "Society",
+    "description": "Red pigment applied in the hair parting; a symbol of marriage in Indian tradition.",
+    "sanskrit_derived": [
+      { "dev": "सिन्दूर", "roman": "sindoor", "ipa": "sɪnd̪uːɾ", "tags": ["formal"] },
+      { "dev": "कुंकुम", "roman": "kumkum", "ipa": "kʊŋkʊm", "tags": ["classical", "religious"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "swaying",
+    "category": "Abstract Concepts",
+    "description": "Rhythmic movement; the graceful motion evoked in dance songs.",
+    "sanskrit_derived": [
+      { "dev": "झूमना", "roman": "jhoomna", "ipa": "dʒʱuːmnaː", "tags": ["colloquial"] },
+      { "dev": "दोलन", "roman": "dolan", "ipa": "d̪oːlən", "tags": ["formal", "literary"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "heartbeat",
+    "category": "Body & Health",
+    "description": "The rhythmic pulsation of the heart; a metaphor for excitement and love.",
+    "sanskrit_derived": [
+      { "dev": "धड़कन", "roman": "dhadkan", "ipa": "d̪ʱəɽkən", "tags": ["formal"] },
+      { "dev": "हृदयस्पन्दन", "roman": "hridayspandan", "ipa": "ɦɾɪd̪əjspənd̪ən", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
+  },
+  {
+    "english": "breeze",
+    "category": "Nature",
+    "description": "A gentle wind; a romantic element in outdoor Bollywood song sequences.",
+    "sanskrit_derived": [
+      { "dev": "समीर", "roman": "sameer", "ipa": "səmiːɾ", "tags": ["literary", "classical"] },
+      { "dev": "मन्द वायु", "roman": "mand vaayu", "ipa": "mənd̪ ʋaːjʊ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "हवा", "roman": "hawa", "ipa": "ɦəʋaː", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "raindrop",
+    "category": "Nature",
+    "description": "A single drop of rain; evocative imagery in monsoon-themed songs.",
+    "sanskrit_derived": [
+      { "dev": "वर्षाबिन्दु", "roman": "varsha-bindu", "ipa": "ʋəɾʂaːbɪnd̪ʊ", "tags": ["literary"] },
+      { "dev": "जलकण", "roman": "jalkan", "ipa": "dʒəlkəɳ", "tags": ["formal"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "बूँद", "roman": "boond", "ipa": "buːnd̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "monsoon",
+    "category": "Nature",
+    "description": "The seasonal rains; perhaps the most iconic season in Hindi cinema and poetry.",
+    "sanskrit_derived": [
+      { "dev": "वर्षा ऋतु", "roman": "varsha ritu", "ipa": "ʋəɾʂaː ɾɪt̪ʊ", "tags": ["formal"] },
+      { "dev": "पावस", "roman": "paavas", "ipa": "paːʋəs", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "सावन", "roman": "saavan", "ipa": "saːʋən", "tags": ["colloquial"] },
+      { "dev": "बरसात", "roman": "barsaat", "ipa": "bəɾsaːt̪", "tags": ["colloquial"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "couplet",
+    "category": "Education",
+    "description": "A pair of rhyming lines; the fundamental unit of the ghazal and Bollywood lyric.",
+    "sanskrit_derived": [
+      { "dev": "दोहा", "roman": "doha", "ipa": "d̪oːɦaː", "tags": ["literary", "classical"] }
+    ],
+    "other_historical_sources": [
+      { "dev": "शेर", "roman": "sher", "ipa": "ʃeːɾ", "tags": ["literary"] }
+    ],
+    "antonyms": []
+  },
+  {
+    "english": "lullaby",
+    "category": "Relationships",
+    "description": "A soothing song sung to children; a tender genre in Hindi film music.",
+    "sanskrit_derived": [
+      { "dev": "लोरी", "roman": "lori", "ipa": "loːɾiː", "tags": ["formal"] },
+      { "dev": "हालरा", "roman": "haalra", "ipa": "ɦaːləɾaː", "tags": ["classical"] }
+    ],
+    "other_historical_sources": [],
+    "antonyms": []
   }
 ]
