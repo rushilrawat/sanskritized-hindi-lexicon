@@ -1,5 +1,5 @@
 import { useState, useMemo, forwardRef, useCallback } from "react";
-import { Copy, Check, ArrowRight, X } from "lucide-react";
+import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
