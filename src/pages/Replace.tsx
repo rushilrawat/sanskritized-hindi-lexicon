@@ -10,7 +10,7 @@ import WordCard from "@/components/WordCard";
 
 const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(() => localStorage.getItem("replace-input") || "");
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
 
@@ -48,7 +48,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           </label>
           <textarea
             value={input}
-            onChange={(e) => { setInput(e.target.value); setSelectedConcept(null); }}
+            onChange={(e) => { const v = e.target.value; setInput(v); localStorage.setItem("replace-input", v); setSelectedConcept(null); }}
             rows={4}
             placeholder="यहाँ अपना वाक्य लिखें..."
             className="w-full rounded-lg border border-border bg-card p-3 sm:p-4 text-sm sm:text-base text-foreground font-devanagari placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 resize-y"
