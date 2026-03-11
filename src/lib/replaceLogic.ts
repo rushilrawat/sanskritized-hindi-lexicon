@@ -31,6 +31,9 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
       if (other.roman) {
         map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
       }
+      if (other.ipa) {
+        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+      }
     }
   }
   map.sort((a, b) => b.from.length - a.from.length);
