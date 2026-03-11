@@ -7,19 +7,6 @@ export interface ReplacementMap {
   conceptEnglish: string;
 }
 
-export interface TextSegment {
-  text: string;
-  replaced: boolean;
-  original?: string;
-  conceptEnglish?: string;
-}
-
-export interface ReplacementDetail {
-  original: string;
-  replacement: string;
-  conceptEnglish: string;
-}
-
 export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
   const map: ReplacementMap[] = [];
   for (const concept of concepts) {
@@ -30,6 +17,9 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
       map.push({ from: other.dev, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
       if (other.roman) {
         map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+      }
+      if (other.ipa) {
+        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
       }
     }
   }
