@@ -1,5 +1,5 @@
 import { useState, useMemo, forwardRef, useCallback } from "react";
-import { Copy, Check, ArrowRight, X } from "lucide-react";
+import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
@@ -43,9 +43,20 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
 
       <div className="space-y-4 sm:space-y-6">
         <div>
-          <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">
-            Input Text
-          </label>
+          <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+            <label className="block text-xs sm:text-sm font-medium text-foreground">
+              Input Text
+            </label>
+            {input.trim() && (
+              <button
+                onClick={() => { setInput(""); localStorage.removeItem("replace-input"); setSelectedConcept(null); }}
+                className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-border hover:border-foreground/20"
+              >
+                <Eraser className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                Clear
+              </button>
+            )}
+          </div>
           <textarea
             value={input}
             onChange={(e) => { const v = e.target.value; setInput(v); localStorage.setItem("replace-input", v); setSelectedConcept(null); }}
