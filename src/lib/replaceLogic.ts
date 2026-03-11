@@ -7,6 +7,19 @@ export interface ReplacementMap {
   conceptEnglish: string;
 }
 
+export interface TextSegment {
+  text: string;
+  replaced: boolean;
+  original?: string;
+  conceptEnglish?: string;
+}
+
+export interface ReplacementDetail {
+  original: string;
+  replacement: string;
+  conceptEnglish: string;
+}
+
 export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
   const map: ReplacementMap[] = [];
   for (const concept of concepts) {
