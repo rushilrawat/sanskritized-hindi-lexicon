@@ -10,7 +10,7 @@ import WordCard from "@/components/WordCard";
 
 const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(() => localStorage.getItem("replace-input") || "");
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
 
