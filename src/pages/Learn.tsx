@@ -96,10 +96,15 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     localStorage.setItem("learn-index", "0");
   };
 
+  const prevCategoryRef = useState(() => selectedCategory)[0];
+  const [lastCategory, setLastCategory] = useState(prevCategoryRef);
   useEffect(() => {
-    setIndex(0);
-    localStorage.setItem("learn-index", "0");
-  }, [selectedCategory]);
+    if (selectedCategory !== lastCategory) {
+      setIndex(0);
+      localStorage.setItem("learn-index", "0");
+      setLastCategory(selectedCategory);
+    }
+  }, [selectedCategory, lastCategory]);
 
   const handleViewFullEntry = useCallback(() => {
     if (words[index]) {
