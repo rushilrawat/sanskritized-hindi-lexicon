@@ -135,6 +135,7 @@ export function replaceSentenceWithHighlights(
         original: match.original,
         replacement: match.to,
         conceptEnglish: match.conceptEnglish,
+        synonyms: match.synonyms,
       });
     }
   }
