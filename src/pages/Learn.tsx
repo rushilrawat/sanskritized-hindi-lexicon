@@ -135,6 +135,17 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
             <Dices className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             Random
           </button>
+          {index > 0 && (
+            <button
+              onClick={handleStartOver}
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            >
+              <RotateCcw className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              Start Over
+            </button>
+          )}
+            Random
+          </button>
           <select
             value={selectedCategory || ""}
             onChange={(e) => setSelectedCategory(e.target.value || null)}
