@@ -144,8 +144,6 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
               Start Over
             </button>
           )}
-            Random
-          </button>
           <select
             value={selectedCategory || ""}
             onChange={(e) => setSelectedCategory(e.target.value || null)}
