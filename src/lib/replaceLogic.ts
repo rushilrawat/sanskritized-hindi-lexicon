@@ -88,6 +88,7 @@ export function replaceSentenceWithHighlights(
     to: string;
     original: string;
     conceptEnglish: string;
+    synonyms: string[];
   }
   const matches: Match[] = [];
 
