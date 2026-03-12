@@ -11,6 +11,8 @@ interface AccessibilityState {
   toggleDarkMode: () => void;
   learnCategory: string | null;
   setLearnCategory: (cat: string | null) => void;
+  hindiMode: boolean;
+  toggleHindiMode: () => void;
 }
 
 const AccessibilityContext = createContext<AccessibilityState | null>(null);
@@ -42,6 +44,7 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
   const [highContrast, setHighContrast] = useState(() => loadPref("pref-high-contrast", false));
   const [darkMode, setDarkMode] = useState(() => loadPref("pref-dark-mode", false));
   const [learnCategory, setLearnCategoryState] = useState<string | null>(() => loadPref("pref-learn-category", null));
+  const [hindiMode, setHindiMode] = useState(() => loadPref("pref-hindi-mode", false));
 
   const setTextSize = (size: TextSize) => {
     setTextSizeState(size);
@@ -79,6 +82,13 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
     });
   };
 
+  const toggleHindiMode = () => {
+    setHindiMode((v) => {
+      savePref("pref-hindi-mode", !v);
+      return !v;
+    });
+  };
+
   return (
     <AccessibilityContext.Provider
       value={{
@@ -90,6 +100,8 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
         toggleDarkMode,
         learnCategory,
         setLearnCategory,
+        hindiMode,
+        toggleHindiMode,
       }}
     >
       {children}
