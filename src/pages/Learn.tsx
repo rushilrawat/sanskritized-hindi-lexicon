@@ -4,7 +4,7 @@ import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { flattenWords } from "@/lib/flattenWords";
 import LearnCard from "@/components/LearnCard";
-import { Shuffle, Dices } from "lucide-react";
+import { Shuffle, Dices, RotateCcw } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
@@ -12,7 +12,10 @@ import WordsLoading from "@/components/WordsLoading";
 const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
   const [shuffled, setShuffled] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(() => {
+    const saved = localStorage.getItem("learn-index");
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
   const navigate = useNavigate();
 
