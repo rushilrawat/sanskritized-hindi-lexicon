@@ -30,13 +30,23 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
     if (concept.sanskrit_derived.length === 0) continue;
     const targetDev = concept.sanskrit_derived[0].dev;
     const targetRoman = concept.sanskrit_derived[0].roman;
+    const targetIpa = concept.sanskrit_derived[0].ipa;
+    const synonyms = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.dev)
+      : [];
+    const synonymsRoman = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.roman)
+      : [];
+    const synonymsIpa = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.ipa)
+      : [];
     for (const other of concept.other_historical_sources) {
-      map.push({ from: other.dev, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+      map.push({ from: other.dev, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: false, conceptEnglish: concept.english, synonyms });
       if (other.roman) {
-        map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+        map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: false, conceptEnglish: concept.english, synonyms: synonymsRoman });
       }
       if (other.ipa) {
-        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: true, conceptEnglish: concept.english, synonyms: synonymsIpa });
       }
     }
   }
