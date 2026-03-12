@@ -118,7 +118,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                   </span>
                   <ArrowRight className="h-3 w-3 text-muted-foreground/60" />
                   <span className="font-devanagari font-medium text-primary">
-                    {r.replacement}
+                    {r.replacement}{r.synonyms.length > 0 && `/${r.synonyms.join("/")}`}
                   </span>
                   <span className="text-[10px] text-muted-foreground/50 ml-0.5 group-hover:text-primary/60 transition-colors">
                     ↗

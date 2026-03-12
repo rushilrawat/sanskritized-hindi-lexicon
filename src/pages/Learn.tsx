@@ -90,6 +90,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
 
   useEffect(() => {
     setIndex(0);
+    localStorage.setItem("learn-index", "0");
   }, [selectedCategory]);
 
   const handleViewFullEntry = useCallback(() => {
