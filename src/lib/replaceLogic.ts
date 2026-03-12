@@ -92,10 +92,10 @@ export function replaceSentenceWithHighlights(
   }
   const matches: Match[] = [];
 
-  for (const { from, to, toRoman, conceptEnglish } of map) {
+  for (const { from, to, toRoman, toIpa, fromIsIpa, conceptEnglish, synonyms } of map) {
     const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(escaped, "g");
-    const target = isDevanagari(from) ? to : toRoman;
+    const target = fromIsIpa ? toIpa : (isDevanagari(from) ? to : toRoman);
     let m: RegExpExecArray | null;
     while ((m = regex.exec(text)) !== null) {
       const start = m.index;
@@ -107,7 +107,7 @@ export function replaceSentenceWithHighlights(
         (existing) => start < existing.end && end > existing.start
       );
       if (!overlaps) {
-        matches.push({ start, end, to: target, original: from, conceptEnglish });
+        matches.push({ start, end, to: target, original: from, conceptEnglish, synonyms });
       }
     }
   }
