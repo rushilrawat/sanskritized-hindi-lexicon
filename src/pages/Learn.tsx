@@ -40,6 +40,14 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     return flat;
   }, [shuffled, selectedCategory, concepts]);
 
+  // Clamp index when words list changes
+  useEffect(() => {
+    if (words.length > 0 && index >= words.length) {
+      setIndex(words.length - 1);
+      localStorage.setItem("learn-index", String(words.length - 1));
+    }
+  }, [words.length, index]);
+
   const handleNext = useCallback(() => {
     setIndex((prev) => {
       const next = (prev + 1) % words.length;
