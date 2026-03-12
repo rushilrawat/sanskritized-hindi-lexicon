@@ -5,6 +5,7 @@ import CategoryGrid from "@/components/CategoryGrid";
 import WordCard from "@/components/WordCard";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const BATCH_SIZE = 50;
@@ -14,6 +15,7 @@ const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -28,12 +30,10 @@ const Categories = () => {
     return list;
   }, [selectedCategory, concepts]);
 
-  // Reset visible count when filter changes
   useEffect(() => {
     setVisibleCount(BATCH_SIZE);
   }, [selectedCategory]);
 
-  // Infinite scroll observer
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -83,9 +83,11 @@ const Categories = () => {
 
   return (
     <div className="container-page">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Browse by Category</h1>
+      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">
+        {t("categories.title", "Browse by Category")}
+      </h1>
       <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
-        Explore vocabulary grouped by thematic categories.
+        {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}
       </p>
 
       <div className="mb-4 sm:mb-6">
@@ -135,7 +137,7 @@ const Categories = () => {
         
         {visibleCount < filtered.length && (
           <div ref={sentinelRef} className="py-4 text-center text-sm text-muted-foreground">
-            Loading more…
+            {t("index.loadingMore", "Loading more…")}
           </div>
         )}
       </div>

@@ -1,5 +1,6 @@
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const categoryEmojis: Record<string, string> = {
   Education: "📚",
@@ -25,6 +26,7 @@ interface CategoryGridProps {
 
 const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = false }: CategoryGridProps) => {
   const { concepts } = useWords();
+  const { t } = useTranslation();
 
   const getCategoryCount = (cat: string) =>
     concepts.filter((c) => c.category === cat).length;
@@ -39,7 +41,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
             : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
         }`}
       >
-        📋 All{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({concepts.length})</span>}
+        📋 {t("categories.all", "All")}{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({concepts.length})</span>}
       </button>
       {categories.map((cat) => (
         <button

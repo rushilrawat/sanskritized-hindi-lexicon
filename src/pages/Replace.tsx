@@ -7,12 +7,14 @@ import type { ReplacementDetail } from "@/lib/replaceLogic";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import WordCard from "@/components/WordCard";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
   const [input, setInput] = useState(() => localStorage.getItem("replace-input") || "");
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
+  const { t } = useTranslation();
 
   const map = useMemo(() => buildReplacementMap(concepts), [concepts]);
 
@@ -36,16 +38,18 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <div ref={ref} className="container-page">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">Sentence Replacement</h1>
+      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">
+        {t("replace.title", "Sentence Replacement")}
+      </h1>
       <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
-        Paste a Hindi sentence below. Words from other historical sources will be replaced with their Sanskrit-derived equivalents.
+        {t("replace.subtitle", "Paste a Hindi sentence below. Words from other historical sources will be replaced with their Sanskrit-derived equivalents.")}
       </p>
 
       <div className="space-y-4 sm:space-y-6">
         <div>
           <div className="flex items-center justify-between mb-1.5 sm:mb-2">
             <label className="block text-xs sm:text-sm font-medium text-foreground">
-              Input Text
+              {t("replace.inputLabel", "Input Text")}
             </label>
             {input.trim() && (
               <button
@@ -53,7 +57,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-border hover:border-foreground/20"
               >
                 <Eraser className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                Clear
+                {t("replace.clear", "Clear")}
               </button>
             )}
           </div>
@@ -61,7 +65,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
             value={input}
             onChange={(e) => { const v = e.target.value; setInput(v); localStorage.setItem("replace-input", v); setSelectedConcept(null); }}
             rows={4}
-            placeholder="यहाँ अपना वाक्य लिखें..."
+            placeholder={t("replace.placeholder", "यहाँ अपना वाक्य लिखें...")}
             className="w-full rounded-lg border border-border bg-card p-3 sm:p-4 text-sm sm:text-base text-foreground font-devanagari placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 resize-y"
           />
         </div>
@@ -70,9 +74,11 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           <div>
             <div className="flex items-center justify-between mb-1.5 sm:mb-2">
               <label className="block text-xs sm:text-sm font-medium text-foreground">
-                Transformed Text
+                {t("replace.outputLabel", "Transformed Text")}
                 {hasChanges && (
-                  <span className="ml-1.5 sm:ml-2 text-[10px] sm:text-xs text-primary font-normal">· replacements applied</span>
+                  <span className="ml-1.5 sm:ml-2 text-[10px] sm:text-xs text-primary font-normal">
+                    {t("replace.replacementsApplied", "· replacements applied")}
+                  </span>
                 )}
               </label>
               <button
@@ -84,7 +90,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-border hover:border-foreground/20"
               >
                 {copied ? <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> : <Copy className="h-3 w-3 sm:h-3.5 sm:w-3.5" />}
-                {copied ? "Copied!" : "Copy"}
+                {copied ? t("replace.copied", "Copied!") : t("replace.copy", "Copy")}
               </button>
             </div>
             <div className="w-full rounded-lg border border-primary/30 bg-saffron-light p-3 sm:p-4 font-devanagari text-sm sm:text-base text-foreground min-h-[60px] sm:min-h-[80px] whitespace-pre-wrap">
@@ -104,7 +110,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
         {hasChanges && replacements.length > 0 && (
           <div>
             <h2 className="text-xs sm:text-sm font-semibold text-foreground mb-2 sm:mb-3">
-              Replacements Made ({replacements.length})
+              {t("replace.replacementsMade", "Replacements Made")} ({replacements.length})
             </h2>
             <div className="flex flex-wrap gap-2">
               {replacements.map((r, i) => (
@@ -144,7 +150,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
 
         {input.trim() && !hasChanges && (
           <p className="text-xs sm:text-sm text-muted-foreground">
-            No replacements found in the input text.
+            {t("replace.noReplacements", "No replacements found in the input text.")}
           </p>
         )}
       </div>

@@ -9,6 +9,7 @@ import AnimatedHeading from "@/components/AnimatedHeading";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
+import { useTranslation } from "@/hooks/useTranslation";
 
 function normalize(s: string): string {
   return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -26,6 +27,7 @@ const Index = () => {
   const listRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const q = searchParams.get("search");
@@ -133,7 +135,7 @@ const Index = () => {
   if (loading) return <WordsLoading />;
 
   if (concepts.length === 0) {
-    return <DataFallback message="No word data found. The lexicon data file may be empty or malformed." />;
+    return <DataFallback message={t("index.noData", "No word data found. The lexicon data file may be empty or malformed.")} />;
   }
 
   return (
@@ -141,7 +143,7 @@ const Index = () => {
       <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
         <AnimatedHeading />
         <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
-          A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.
+          {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
         </p>
       </section>
 
@@ -178,7 +180,9 @@ const Index = () => {
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
           <div className="mt-6 flex items-center gap-3">
             <div className="h-px flex-1 bg-border" />
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">All Entries</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              {t("index.allEntries", "All Entries")}
+            </span>
             <div className="h-px flex-1 bg-border" />
           </div>
         </section>
@@ -186,7 +190,9 @@ const Index = () => {
 
       <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
-          <p className="text-center text-muted-foreground py-8">No entries found. Try another term.</p>
+          <p className="text-center text-muted-foreground py-8">
+            {t("index.noEntries", "No entries found. Try another term.")}
+          </p>
         )}
         {visibleItems.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();
@@ -204,7 +210,9 @@ const Index = () => {
         })}
         {visibleCount < filtered.length && (
           <div ref={sentinelRef} className="flex justify-center py-6">
-            <span className="text-sm text-muted-foreground animate-pulse">Loading more…</span>
+            <span className="text-sm text-muted-foreground animate-pulse">
+              {t("index.loadingMore", "Loading more…")}
+            </span>
           </div>
         )}
       </section>
