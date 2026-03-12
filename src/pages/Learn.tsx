@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, forwardRef } from "react";
+import { useState, useMemo, useCallback, useEffect, forwardRef, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
