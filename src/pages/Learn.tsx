@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, forwardRef } from "react";
+import { useState, useMemo, useCallback, useEffect, forwardRef, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -96,7 +96,12 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     localStorage.setItem("learn-index", "0");
   };
 
+  const isFirstRender = useRef(true);
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     setIndex(0);
     localStorage.setItem("learn-index", "0");
   }, [selectedCategory]);
