@@ -21,6 +21,7 @@ export interface ReplacementDetail {
   original: string;
   replacement: string;
   conceptEnglish: string;
+  synonyms: string[];
 }
 
 export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
