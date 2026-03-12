@@ -41,11 +41,19 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   }, [shuffled, selectedCategory, concepts]);
 
   const handleNext = useCallback(() => {
-    setIndex((prev) => (prev + 1) % words.length);
+    setIndex((prev) => {
+      const next = (prev + 1) % words.length;
+      localStorage.setItem("learn-index", String(next));
+      return next;
+    });
   }, [words.length]);
 
   const handlePrev = useCallback(() => {
-    setIndex((prev) => (prev - 1 + words.length) % words.length);
+    setIndex((prev) => {
+      const next = (prev - 1 + words.length) % words.length;
+      localStorage.setItem("learn-index", String(next));
+      return next;
+    });
   }, [words.length]);
 
   useEffect(() => {
