@@ -74,10 +74,18 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const handleShuffle = () => {
     setShuffled((s) => !s);
     setIndex(0);
+    localStorage.setItem("learn-index", "0");
   };
 
   const handleRandom = () => {
-    setIndex(Math.floor(Math.random() * words.length));
+    const next = Math.floor(Math.random() * words.length);
+    setIndex(next);
+    localStorage.setItem("learn-index", String(next));
+  };
+
+  const handleStartOver = () => {
+    setIndex(0);
+    localStorage.setItem("learn-index", "0");
   };
 
   useEffect(() => {
