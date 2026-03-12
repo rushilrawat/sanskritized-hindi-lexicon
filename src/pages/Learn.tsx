@@ -4,7 +4,7 @@ import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { flattenWords } from "@/lib/flattenWords";
 import LearnCard from "@/components/LearnCard";
-import { Shuffle, Dices } from "lucide-react";
+import { Shuffle, Dices, RotateCcw } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
@@ -12,7 +12,10 @@ import WordsLoading from "@/components/WordsLoading";
 const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
   const [shuffled, setShuffled] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(() => {
+    const saved = localStorage.getItem("learn-index");
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
   const navigate = useNavigate();
 
@@ -37,12 +40,28 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     return flat;
   }, [shuffled, selectedCategory, concepts]);
 
+  // Clamp index when words list changes
+  useEffect(() => {
+    if (words.length > 0 && index >= words.length) {
+      setIndex(words.length - 1);
+      localStorage.setItem("learn-index", String(words.length - 1));
+    }
+  }, [words.length, index]);
+
   const handleNext = useCallback(() => {
-    setIndex((prev) => (prev + 1) % words.length);
+    setIndex((prev) => {
+      const next = (prev + 1) % words.length;
+      localStorage.setItem("learn-index", String(next));
+      return next;
+    });
   }, [words.length]);
 
   const handlePrev = useCallback(() => {
-    setIndex((prev) => (prev - 1 + words.length) % words.length);
+    setIndex((prev) => {
+      const next = (prev - 1 + words.length) % words.length;
+      localStorage.setItem("learn-index", String(next));
+      return next;
+    });
   }, [words.length]);
 
   useEffect(() => {
@@ -63,14 +82,23 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const handleShuffle = () => {
     setShuffled((s) => !s);
     setIndex(0);
+    localStorage.setItem("learn-index", "0");
   };
 
   const handleRandom = () => {
-    setIndex(Math.floor(Math.random() * words.length));
+    const next = Math.floor(Math.random() * words.length);
+    setIndex(next);
+    localStorage.setItem("learn-index", String(next));
+  };
+
+  const handleStartOver = () => {
+    setIndex(0);
+    localStorage.setItem("learn-index", "0");
   };
 
   useEffect(() => {
     setIndex(0);
+    localStorage.setItem("learn-index", "0");
   }, [selectedCategory]);
 
   const handleViewFullEntry = useCallback(() => {
@@ -115,6 +143,15 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
             <Dices className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             Random
           </button>
+          {index > 0 && (
+            <button
+              onClick={handleStartOver}
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            >
+              <RotateCcw className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              Start Over
+            </button>
+          )}
           <select
             value={selectedCategory || ""}
             onChange={(e) => setSelectedCategory(e.target.value || null)}

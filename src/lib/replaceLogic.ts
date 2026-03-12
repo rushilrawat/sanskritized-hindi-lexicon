@@ -4,7 +4,10 @@ export interface ReplacementMap {
   from: string;
   to: string;
   toRoman: string;
+  toIpa: string;
+  fromIsIpa: boolean;
   conceptEnglish: string;
+  synonyms: string[];
 }
 
 export interface TextSegment {
@@ -18,6 +21,7 @@ export interface ReplacementDetail {
   original: string;
   replacement: string;
   conceptEnglish: string;
+  synonyms: string[];
 }
 
 export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
@@ -26,13 +30,23 @@ export function buildReplacementMap(concepts: Concept[]): ReplacementMap[] {
     if (concept.sanskrit_derived.length === 0) continue;
     const targetDev = concept.sanskrit_derived[0].dev;
     const targetRoman = concept.sanskrit_derived[0].roman;
+    const targetIpa = concept.sanskrit_derived[0].ipa;
+    const synonyms = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.dev)
+      : [];
+    const synonymsRoman = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.roman)
+      : [];
+    const synonymsIpa = concept.sanskrit_derived.length > 1
+      ? concept.sanskrit_derived.slice(1).map(s => s.ipa)
+      : [];
     for (const other of concept.other_historical_sources) {
-      map.push({ from: other.dev, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+      map.push({ from: other.dev, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: false, conceptEnglish: concept.english, synonyms });
       if (other.roman) {
-        map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+        map.push({ from: other.roman, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: false, conceptEnglish: concept.english, synonyms: synonymsRoman });
       }
       if (other.ipa) {
-        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, conceptEnglish: concept.english });
+        map.push({ from: other.ipa, to: targetDev, toRoman: targetRoman, toIpa: targetIpa, fromIsIpa: true, conceptEnglish: concept.english, synonyms: synonymsIpa });
       }
     }
   }
@@ -54,8 +68,9 @@ export function replaceSentence(text: string, map: ReplacementMap[]): string {
   const words = text.split(/(\s+)/);
   return words.map(word => {
     if (/^\s+$/.test(word)) return word;
-    for (const { from, to, toRoman } of map) {
+    for (const { from, to, toRoman, toIpa, fromIsIpa } of map) {
       if (word === from) {
+        if (fromIsIpa) return toIpa;
         return isDevanagari(from) ? to : toRoman;
       }
     }
@@ -73,13 +88,14 @@ export function replaceSentenceWithHighlights(
     to: string;
     original: string;
     conceptEnglish: string;
+    synonyms: string[];
   }
   const matches: Match[] = [];
 
-  for (const { from, to, toRoman, conceptEnglish } of map) {
+  for (const { from, to, toRoman, toIpa, fromIsIpa, conceptEnglish, synonyms } of map) {
     const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(escaped, "g");
-    const target = isDevanagari(from) ? to : toRoman;
+    const target = fromIsIpa ? toIpa : (isDevanagari(from) ? to : toRoman);
     let m: RegExpExecArray | null;
     while ((m = regex.exec(text)) !== null) {
       const start = m.index;
@@ -91,7 +107,7 @@ export function replaceSentenceWithHighlights(
         (existing) => start < existing.end && end > existing.start
       );
       if (!overlaps) {
-        matches.push({ start, end, to: target, original: from, conceptEnglish });
+        matches.push({ start, end, to: target, original: from, conceptEnglish, synonyms });
       }
     }
   }
@@ -119,6 +135,7 @@ export function replaceSentenceWithHighlights(
         original: match.original,
         replacement: match.to,
         conceptEnglish: match.conceptEnglish,
+        synonyms: match.synonyms,
       });
     }
   }
