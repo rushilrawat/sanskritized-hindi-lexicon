@@ -4,7 +4,10 @@ export interface ReplacementMap {
   from: string;
   to: string;
   toRoman: string;
+  toIpa: string;
+  fromIsIpa: boolean;
   conceptEnglish: string;
+  synonyms: string[];
 }
 
 export interface TextSegment {
