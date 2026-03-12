@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { Volume2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface LearnCardProps {
   word: FlatWord;
@@ -12,6 +13,8 @@ interface LearnCardProps {
 }
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
+  const { t } = useTranslation();
+
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(word.dev);
     utterance.lang = "hi-IN";
@@ -32,7 +35,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
       >
         <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-        Listen
+        {t("learn.listen", "Listen")}
       </button>
 
       <div className="space-y-1 mb-3 sm:mb-4">
@@ -52,7 +55,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {word.synonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-            पर्यायवाची · Synonyms
+            पर्यायवाची · {t("learn.synonyms", "Synonyms")}
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
             {word.synonyms.map((syn) => (
@@ -68,7 +71,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {word.antonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-            विलोम · Antonyms
+            विलोम · {t("learn.antonyms", "Antonyms")}
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
             {word.antonyms.map((ant) => (
@@ -85,7 +88,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
           onClick={onViewFullEntry}
           className="text-sm text-primary hover:underline transition-colors mb-3"
         >
-          View Full Entry →
+          {t("learn.viewFullEntry", "View Full Entry →")}
         </button>
       )}
 
@@ -94,7 +97,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
           onClick={onPrev}
           className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          ← Previous
+          {t("learn.previous", "← Previous")}
         </button>
         <span className="text-xs text-muted-foreground">
           {current + 1} / {total}
@@ -103,7 +106,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
           onClick={onNext}
           className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          Next →
+          {t("learn.next", "Next →")}
         </button>
       </div>
     </div>

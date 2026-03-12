@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Search } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -8,9 +9,12 @@ interface SearchBarProps {
   initialValue?: string;
 }
 
-const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by English, Devanagari, or IPA...", initialValue = "" }: SearchBarProps) => {
+const SearchBar = ({ onSearch, autoFocus = false, placeholder, initialValue = "" }: SearchBarProps) => {
   const [query, setQuery] = useState(initialValue);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
+
+  const resolvedPlaceholder = placeholder || t("search.placeholder", "Search by English, Devanagari, or IPA...");
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
@@ -36,7 +40,7 @@ const SearchBar = ({ onSearch, autoFocus = false, placeholder = "Search by Engli
         type="text"
         value={query}
         onChange={handleChange}
-        placeholder={placeholder}
+        placeholder={resolvedPlaceholder}
         className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all font-body text-xs sm:text-sm"
       />
     </div>

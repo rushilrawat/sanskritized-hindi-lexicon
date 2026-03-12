@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { BookOpen, Share2, Check, Moon, Sun, Settings, ArrowUp } from "lucide-react";
+import { BookOpen, Share2, Check, Moon, Sun, Settings, ArrowUp, Languages } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
   const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
   const handleShare = async () => {
     const url = window.location.origin;
@@ -25,22 +27,14 @@ const ShareButton = ({ className, label }: { className?: string; label?: string 
     <button
       onClick={handleShare}
       aria-label={label || "Share this website"}
-      title={copied ? "Copied!" : "Share"}
+      title={copied ? t("settings.copied", "Copied!") : t("settings.share", "Share")}
       className={className}
     >
       {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
-      {copied && <span className="ml-1 text-xs">Copied!</span>}
+      {copied && <span className="ml-1 text-xs">{t("settings.copied", "Copied!")}</span>}
     </button>
   );
 };
-
-const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/categories", label: "Categories" },
-  { to: "/learn", label: "Learn" },
-  { to: "/replace", label: "Replace" },
-  { to: "/about", label: "About" },
-];
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -112,6 +106,28 @@ const DarkModeToggle = () => {
   );
 };
 
+const HindiModeToggle = () => {
+  const { hindiMode, toggleHindiMode } = useAccessibility();
+
+  return (
+    <button
+      onClick={toggleHindiMode}
+      aria-label="Toggle Hindi mode"
+      title={hindiMode ? "English UI" : "हिन्दी UI"}
+      className={`px-2 py-1 text-xs font-medium rounded-md border transition-colors ${
+        hindiMode
+          ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90"
+          : "border-border text-muted-foreground hover:text-foreground hover:bg-muted"
+      }`}
+    >
+      <span className="flex items-center gap-1">
+        <Languages className="h-3.5 w-3.5" />
+        <span className="font-devanagari text-[11px]">अ</span>
+      </span>
+    </button>
+  );
+};
+
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
 
@@ -135,6 +151,16 @@ const ScrollToTop = () => {
 };
 
 const Layout = ({ children }: LayoutProps) => {
+  const { t, hindiMode } = useTranslation();
+
+  const navItems = [
+    { to: "/", label: t("nav.home", "Home") },
+    { to: "/categories", label: t("nav.categories", "Categories") },
+    { to: "/learn", label: t("nav.learn", "Learn") },
+    { to: "/replace", label: t("nav.replace", "Replace") },
+    { to: "/about", label: t("nav.about", "About") },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
@@ -143,7 +169,9 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="flex items-center justify-between px-3 py-2 border-b border-border/50">
             <NavLink to="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors">
               <BookOpen className="h-4 w-4 text-primary" />
-              <span className="font-semibold text-xs tracking-wide">Sanskritized Hindi Lexicon</span>
+              <span className={`font-semibold text-xs tracking-wide ${hindiMode ? "font-devanagari" : ""}`}>
+                {t("site.title", "Sanskritized Hindi Lexicon")}
+              </span>
             </NavLink>
             <Popover>
               <PopoverTrigger asChild>
@@ -156,10 +184,13 @@ const Layout = ({ children }: LayoutProps) => {
               </PopoverTrigger>
               <PopoverContent align="end" className="w-auto p-3 space-y-3">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Text Size</p>
+                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                    {t("settings.textSize", "Text Size")}
+                  </p>
                   <TextSizeControl />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <HindiModeToggle />
                   <HighContrastToggle />
                   <DarkModeToggle />
                   <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
@@ -174,7 +205,7 @@ const Layout = ({ children }: LayoutProps) => {
                 to={item.to}
                 end={item.to === "/"}
                 className={({ isActive }) =>
-                  `px-2.5 py-1 rounded-md text-xs whitespace-nowrap transition-colors ${
+                  `px-2.5 py-1 rounded-md text-xs whitespace-nowrap transition-colors ${hindiMode ? "font-devanagari" : ""} ${
                     isActive
                       ? "bg-primary text-primary-foreground font-medium"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -190,7 +221,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="hidden md:flex items-center justify-between px-4 lg:px-8 h-14">
           <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
             <BookOpen className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-sm tracking-wide">Sanskritized Hindi Lexicon</span>
+            <span className={`font-semibold text-sm tracking-wide ${hindiMode ? "font-devanagari" : ""}`}>
+              {t("site.title", "Sanskritized Hindi Lexicon")}
+            </span>
           </NavLink>
           <div className="flex items-center gap-1.5 lg:gap-2">
             <nav className="flex items-center gap-1 lg:gap-1.5">
@@ -200,7 +233,7 @@ const Layout = ({ children }: LayoutProps) => {
                   to={item.to}
                   end={item.to === "/"}
                   className={({ isActive }) =>
-                    `px-2.5 py-1.5 rounded-md text-xs lg:text-sm whitespace-nowrap transition-colors ${
+                    `px-2.5 py-1.5 rounded-md text-xs lg:text-sm whitespace-nowrap transition-colors ${hindiMode ? "font-devanagari" : ""} ${
                       isActive
                         ? "bg-primary text-primary-foreground font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -213,6 +246,7 @@ const Layout = ({ children }: LayoutProps) => {
             </nav>
             {/* Desktop inline controls */}
             <div className="hidden lg:flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
+              <HindiModeToggle />
               <TextSizeControl />
               <HighContrastToggle />
               <DarkModeToggle />
@@ -231,10 +265,13 @@ const Layout = ({ children }: LayoutProps) => {
                 </PopoverTrigger>
                 <PopoverContent align="end" className="w-auto p-3 space-y-3">
                   <div className="space-y-2">
-                    <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Text Size</p>
+                    <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                      {t("settings.textSize", "Text Size")}
+                    </p>
                     <TextSizeControl />
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <HindiModeToggle />
                     <HighContrastToggle />
                     <DarkModeToggle />
                     <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
@@ -254,8 +291,8 @@ const Layout = ({ children }: LayoutProps) => {
 
       <footer className="border-t border-border py-6 mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-1">
-          <p className="text-xs text-muted-foreground">
-            Sanskritized Hindi Lexicon · v1.0 · A neutral, open-source linguistic archive
+          <p className={`text-xs text-muted-foreground ${hindiMode ? "font-devanagari" : ""}`}>
+            {t("footer.tagline", "Sanskritized Hindi Lexicon · v1.0 · A neutral, open-source linguistic archive")}
           </p>
           <a
             href="https://github.com"
@@ -263,7 +300,7 @@ const Layout = ({ children }: LayoutProps) => {
             rel="noopener noreferrer"
             className="inline-block text-xs text-primary hover:underline"
           >
-            GitHub
+            {t("footer.github", "GitHub")}
           </a>
         </div>
       </footer>

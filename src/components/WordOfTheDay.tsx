@@ -1,6 +1,7 @@
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useWords } from "@/hooks/useWords";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface WordOfTheDayProps {
   concept: Concept;
@@ -9,6 +10,7 @@ interface WordOfTheDayProps {
 
 const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   const { concepts: allConcepts } = useWords();
+  const { t } = useTranslation();
   const mainWord = concept.sanskrit_derived[0];
   if (!mainWord) return null;
 
@@ -32,7 +34,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
     <div className="rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-3 pr-4 py-4 sm:pl-5 sm:pr-6 sm:py-6 border-l-4 border-l-primary bg-gradient-to-br from-card via-card to-accent/30">
       <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-primary mb-2 sm:mb-3">
-        Word of the Day
+        {t("wotd.title", "Word of the Day")}
       </p>
       <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
         <span className="font-devanagari text-2xl sm:text-3xl font-semibold text-foreground">
@@ -50,7 +52,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
       {synonymDevs.length > 0 && (
         <div className="mt-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            पर्यायवाची · Synonyms:{" "}
+            पर्यायवाची · {t("learn.synonyms", "Synonyms")}:{" "}
           </span>
           {synonymDevs.map((s) => (
             <span key={s} className="font-devanagari text-sm text-foreground bg-saffron-light px-2 py-0.5 rounded mr-1.5">
@@ -63,7 +65,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
       {antonymDevs.length > 0 && (
         <div className="mt-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            विलोम · Antonyms:{" "}
+            विलोम · {t("learn.antonyms", "Antonyms")}:{" "}
           </span>
           {antonymDevs.map((a) => (
             <span key={a} className="font-devanagari text-sm text-foreground bg-secondary px-2 py-0.5 rounded mr-1.5">
@@ -78,7 +80,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
           onClick={onViewEntry}
           className="mt-3 text-sm text-primary hover:underline transition-colors"
         >
-          View Full Entry →
+          {t("wotd.viewEntry", "View Full Entry →")}
         </button>
       )}
     </div>

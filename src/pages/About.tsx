@@ -1,37 +1,40 @@
 import { forwardRef } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const About = forwardRef<HTMLDivElement>((_, ref) => {
+  const { t } = useTranslation();
+
   return (
     <div ref={ref} className="container-page max-w-2xl">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">About This Project</h1>
+      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
+        {t("about.title", "About This Project")}
+      </h1>
 
       <div className="space-y-4 sm:space-y-6 text-foreground leading-relaxed">
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">Purpose</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.purpose.title", "Purpose")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            The Sanskritized Hindi Lexicon is a structured, open-source linguistic reference.
-            It provides an etymology-based comparison of Sanskrit-derived Hindi vocabulary alongside
-            vocabulary from other historical sources — including Persian, Arabic, Turkic, and English.
+            {t("about.purpose.text", "The Sanskritized Hindi Lexicon is a structured, open-source linguistic reference. It provides an etymology-based comparison of Sanskrit-derived Hindi vocabulary alongside vocabulary from other historical sources — including Persian, Arabic, Turkic, and English.")}
           </p>
         </section>
 
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">Neutrality Statement</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.neutrality.title", "Neutrality Statement")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            This project does not advocate for any linguistic purism. It does not assign value
-            hierarchies to words based on their origins. Every word in every language carries
-            historical weight and cultural significance. This lexicon exists purely as an
-            educational and archival resource.
+            {t("about.neutrality.text", "This project does not advocate for any linguistic purism. It does not assign value hierarchies to words based on their origins. Every word in every language carries historical weight and cultural significance. This lexicon exists purely as an educational and archival resource.")}
           </p>
         </section>
 
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">About Hindi · हिन्दी</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.hindi.title", "About Hindi · हिन्दी")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Hindi is a modern Indo-Aryan language, part of the broader Indo-European language family.
-            It is primarily spoken in northern and central India, and serves as one of the two official
-            languages of the Indian Union. Written in the Devanagari script, Hindi has evolved over
-            centuries through contact with numerous languages and cultures across the subcontinent.
+            {t("about.hindi.text", "Hindi is a modern Indo-Aryan language, part of the broader Indo-European language family. It is primarily spoken in northern and central India, and serves as one of the two official languages of the Indian Union. Written in the Devanagari script, Hindi has evolved over centuries through contact with numerous languages and cultures across the subcontinent.")}
           </p>
           <a
             href="https://en.wikipedia.org/wiki/Hindi"
@@ -39,20 +42,16 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             rel="noopener noreferrer"
             className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
           >
-            Learn more about Hindi on Wikipedia →
+            {t("about.hindi.link", "Learn more about Hindi on Wikipedia →")}
           </a>
         </section>
 
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">Sanskrit's Historical Influence · संस्कृतम्</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.sanskrit.title", "Sanskrit's Historical Influence · संस्कृतम्")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Sanskrit, one of the oldest documented languages of the Indo-European family, has served
-            as a foundational source of vocabulary for Hindi and many other South Asian languages.
-            Its influence extends through two primary channels: <em>tatsama</em> words (direct
-            borrowings that retain their original Sanskrit form) and <em>tadbhava</em> words
-            (forms that have naturally evolved through centuries of spoken usage). This lexicon
-            documents both categories alongside words that entered Hindi through other historical
-            routes of cultural and linguistic exchange.
+            {t("about.sanskrit.text", "Sanskrit, one of the oldest documented languages of the Indo-European family, has served as a foundational source of vocabulary for Hindi and many other South Asian languages. Its influence extends through two primary channels: tatsama words (direct borrowings that retain their original Sanskrit form) and tadbhava words (forms that have naturally evolved through centuries of spoken usage). This lexicon documents both categories alongside words that entered Hindi through other historical routes of cultural and linguistic exchange.")}
           </p>
           <a
             href="https://en.wikipedia.org/wiki/Sanskrit"
@@ -60,18 +59,16 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             rel="noopener noreferrer"
             className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
           >
-            Learn more about Sanskrit on Wikipedia →
+            {t("about.sanskrit.link", "Learn more about Sanskrit on Wikipedia →")}
           </a>
         </section>
 
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">Devanagari Script · देवनागरी</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.devanagari.title", "Devanagari Script · देवनागरी")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Devanagari is an abugida writing system used to write Hindi, Sanskrit, Marathi, Nepali,
-            and several other South Asian languages. Derived from the ancient Brahmi script, it is
-            written from left to right and is recognized for its distinctive horizontal headline
-            (शिरोरेखा) connecting the letters. Each character represents a consonant-vowel combination,
-            making it a highly phonetic script where pronunciation closely follows written form.
+            {t("about.devanagari.text", "Devanagari is an abugida writing system used to write Hindi, Sanskrit, Marathi, Nepali, and several other South Asian languages. Derived from the ancient Brahmi script, it is written from left to right and is recognized for its distinctive horizontal headline (शिरोरेखा) connecting the letters. Each character represents a consonant-vowel combination, making it a highly phonetic script where pronunciation closely follows written form.")}
           </p>
           <a
             href="https://en.wikipedia.org/wiki/Devanagari"
@@ -79,16 +76,16 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             rel="noopener noreferrer"
             className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
           >
-            Learn more about Devanagari on Wikipedia →
+            {t("about.devanagari.link", "Learn more about Devanagari on Wikipedia →")}
           </a>
         </section>
 
         <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">Open Source</h2>
+          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
+            {t("about.openSource.title", "Open Source")}
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            This project is open-source and welcomes contributions. The data is maintained in a
-            single JSON file, making it easy to add, correct, or expand entries. Contributions
-            should maintain the neutral, academic tone of the project.
+            {t("about.openSource.text", "This project is open-source and welcomes contributions. The data is maintained in a single JSON file, making it easy to add, correct, or expand entries. Contributions should maintain the neutral, academic tone of the project.")}
           </p>
           <a
             href="https://github.com"
@@ -96,13 +93,13 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             rel="noopener noreferrer"
             className="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-primary hover:underline"
           >
-            View on GitHub →
+            {t("about.openSource.link", "View on GitHub →")}
           </a>
         </section>
 
         <section className="border-t border-border pt-4 sm:pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <p className="text-xs sm:text-sm text-muted-foreground italic">
-            This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.
+            {t("about.disclaimer", "This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.")}
           </p>
           <button
             onClick={async () => {
@@ -117,7 +114,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             }}
             className="inline-flex items-center gap-2 text-xs sm:text-sm text-primary hover:underline font-medium"
           >
-            Liked our project? Share it →
+            {t("about.share", "Liked our project? Share it →")}
           </button>
         </section>
       </div>
