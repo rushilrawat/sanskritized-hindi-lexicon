@@ -2,20 +2,23 @@ import { memo } from "react";
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useTranslation } from "@/hooks/useTranslation";
+import descriptionsHi from "@/data/descriptions_hi";
 
 interface WordCardProps {
   concept: Concept;
 }
 
 const WordCard = memo(({ concept }: WordCardProps) => {
-  const { t } = useTranslation();
-
+  const { t, hindiMode } = useTranslation();
+  const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
+    ? descriptionsHi[concept.english.toLowerCase()]
+    : concept.description;
   return (
     <div className="card-elevated p-3 sm:p-5 animate-fade-in">
       <div className="flex items-start justify-between mb-2 sm:mb-4">
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{concept.description}</p>
+          <p className={`text-xs sm:text-sm text-muted-foreground mt-0.5 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
         </div>
         <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{concept.category}</span>
       </div>

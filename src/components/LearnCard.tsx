@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import { Volume2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
+import descriptionsHi from "@/data/descriptions_hi";
 
 interface LearnCardProps {
   word: FlatWord;
@@ -13,7 +14,8 @@ interface LearnCardProps {
 }
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
-  const { t } = useTranslation();
+  const { t, hindiMode } = useTranslation();
+  const hiDesc = descriptionsHi[word.english.toLowerCase()];
 
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(word.dev);
@@ -44,6 +46,9 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>
+        {hindiMode && hiDesc && (
+          <p className="text-sm text-muted-foreground mt-1 font-devanagari">{hiDesc}</p>
+        )}
         <div className="flex gap-1 justify-center mt-2">
           {word.tags.slice(0, 2).map((tag) => (
             <span key={tag} className="tag-badge">{tag}</span>

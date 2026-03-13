@@ -2,6 +2,7 @@ import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useWords } from "@/hooks/useWords";
 import { useTranslation } from "@/hooks/useTranslation";
+import descriptionsHi from "@/data/descriptions_hi";
 
 interface WordOfTheDayProps {
   concept: Concept;
@@ -10,7 +11,10 @@ interface WordOfTheDayProps {
 
 const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   const { concepts: allConcepts } = useWords();
-  const { t } = useTranslation();
+  const { t, hindiMode } = useTranslation();
+  const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
+    ? descriptionsHi[concept.english.toLowerCase()]
+    : concept.description;
   const mainWord = concept.sanskrit_derived[0];
   if (!mainWord) return null;
 
@@ -47,7 +51,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
         <span className="text-ipa text-[11px] sm:text-sm">/{mainWord.ipa}/</span>
       </div>
       <p className="text-sm sm:text-base text-foreground font-medium capitalize">{concept.english}</p>
-      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{concept.description}</p>
+      <p className={`text-xs sm:text-sm text-muted-foreground mt-1 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
 
       {synonymDevs.length > 0 && (
         <div className="mt-3">
