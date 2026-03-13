@@ -183,17 +183,22 @@ const Layout = ({ children }: LayoutProps) => {
                 </button>
               </PopoverTrigger>
               <PopoverContent align="end" className="w-auto p-3 space-y-3">
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
                     {t("settings.textSize", "Text Size")}
                   </p>
                   <TextSizeControl />
                 </div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <HindiModeToggle />
-                  <HighContrastToggle />
-                  <DarkModeToggle />
-                  <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center" />
+                <div className="space-y-1.5">
+                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                    {t("settings.display", "Display")}
+                  </p>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    <HindiModeToggle />
+                    <HighContrastToggle />
+                    <DarkModeToggle />
+                    <ShareButton className="px-2 py-1 text-xs font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center justify-center" />
+                  </div>
                 </div>
               </PopoverContent>
             </Popover>
