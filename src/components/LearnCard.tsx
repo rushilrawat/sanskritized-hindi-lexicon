@@ -14,7 +14,8 @@ interface LearnCardProps {
 }
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
-  const { t } = useTranslation();
+  const { t, hindiMode } = useTranslation();
+  const hiDesc = descriptionsHi[word.english.toLowerCase()];
 
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(word.dev);
