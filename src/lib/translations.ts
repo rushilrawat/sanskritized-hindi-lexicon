@@ -7,6 +7,7 @@ const translations = {
   "nav.replace": "प्रतिस्थापन",
   "nav.about": "परिचय",
   "settings.textSize": "अक्षर आकार",
+  "settings.display": "प्रदर्शन",
   "settings.share": "साझा करें",
   "settings.copied": "प्रतिलिपित!",
   "footer.tagline": "संस्कृतनिष्ठ हिन्दी शब्दकोश · संस्करण १.० · एक तटस्थ, मुक्त-स्रोत भाषाई संग्रह",
