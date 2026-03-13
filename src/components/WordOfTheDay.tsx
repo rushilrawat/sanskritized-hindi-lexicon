@@ -11,7 +11,10 @@ interface WordOfTheDayProps {
 
 const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
   const { concepts: allConcepts } = useWords();
-  const { t } = useTranslation();
+  const { t, hindiMode } = useTranslation();
+  const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
+    ? descriptionsHi[concept.english.toLowerCase()]
+    : concept.description;
   const mainWord = concept.sanskrit_derived[0];
   if (!mainWord) return null;
 
