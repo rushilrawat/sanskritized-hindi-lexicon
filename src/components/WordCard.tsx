@@ -9,8 +9,10 @@ interface WordCardProps {
 }
 
 const WordCard = memo(({ concept }: WordCardProps) => {
-  const { t } = useTranslation();
-
+  const { t, hindiMode } = useTranslation();
+  const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
+    ? descriptionsHi[concept.english.toLowerCase()]
+    : concept.description;
   return (
     <div className="card-elevated p-3 sm:p-5 animate-fade-in">
       <div className="flex items-start justify-between mb-2 sm:mb-4">
