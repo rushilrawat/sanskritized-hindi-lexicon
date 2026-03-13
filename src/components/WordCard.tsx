@@ -18,7 +18,7 @@ const WordCard = memo(({ concept }: WordCardProps) => {
       <div className="flex items-start justify-between mb-2 sm:mb-4">
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{concept.description}</p>
+          <p className={`text-xs sm:text-sm text-muted-foreground mt-0.5 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
         </div>
         <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{concept.category}</span>
       </div>

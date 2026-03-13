@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import { Volume2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
+import descriptionsHi from "@/data/descriptions_hi";
 
 interface LearnCardProps {
   word: FlatWord;

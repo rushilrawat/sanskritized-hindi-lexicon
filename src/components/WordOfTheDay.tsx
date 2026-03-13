@@ -51,7 +51,7 @@ const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
         <span className="text-ipa text-[11px] sm:text-sm">/{mainWord.ipa}/</span>
       </div>
       <p className="text-sm sm:text-base text-foreground font-medium capitalize">{concept.english}</p>
-      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{concept.description}</p>
+      <p className={`text-xs sm:text-sm text-muted-foreground mt-1 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
 
       {synonymDevs.length > 0 && (
         <div className="mt-3">
