@@ -2,6 +2,7 @@ import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useWords } from "@/hooks/useWords";
 import { useTranslation } from "@/hooks/useTranslation";
+import descriptionsHi from "@/data/descriptions_hi";
 
 interface WordOfTheDayProps {
   concept: Concept;
