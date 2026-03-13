@@ -46,6 +46,9 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>
+        {hindiMode && hiDesc && (
+          <p className="text-sm text-muted-foreground mt-1 font-devanagari">{hiDesc}</p>
+        )}
         <div className="flex gap-1 justify-center mt-2">
           {word.tags.slice(0, 2).map((tag) => (
             <span key={tag} className="tag-badge">{tag}</span>
