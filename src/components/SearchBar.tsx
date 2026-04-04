@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, forwardRef } from "react";
 import { Search } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -9,7 +9,7 @@ interface SearchBarProps {
   initialValue?: string;
 }
 
-const SearchBar = ({ onSearch, autoFocus = false, placeholder, initialValue = "" }: SearchBarProps) => {
+const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFocus = false, placeholder, initialValue = "" }, ref) => {
   const [query, setQuery] = useState(initialValue);
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
