@@ -45,6 +45,8 @@ const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFo
       />
     </div>
   );
-};
+});
+
+SearchBar.displayName = "SearchBar";
 
 export default SearchBar;

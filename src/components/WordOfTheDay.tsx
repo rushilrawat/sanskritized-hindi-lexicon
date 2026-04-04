@@ -90,6 +90,8 @@ const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, o
       )}
     </div>
   );
-};
+});
+
+WordOfTheDay.displayName = "WordOfTheDay";
 
 export default WordOfTheDay;
