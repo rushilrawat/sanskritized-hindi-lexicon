@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import type { Concept } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useWords } from "@/hooks/useWords";
@@ -9,7 +10,7 @@ interface WordOfTheDayProps {
   onViewEntry?: () => void;
 }
 
-const WordOfTheDay = ({ concept, onViewEntry }: WordOfTheDayProps) => {
+const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, onViewEntry }, ref) => {
   const { concepts: allConcepts } = useWords();
   const { t, hindiMode } = useTranslation();
   const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
