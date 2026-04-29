@@ -77,11 +77,22 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <textarea
             value={input}
-            onChange={(e) => { const v = e.target.value; setInput(v); localStorage.setItem("replace-input", v); setSelectedConcept(null); }}
+            onChange={(e) => {
+              const v = e.target.value.slice(0, MAX_INPUT_LENGTH);
+              setInput(v);
+              try { localStorage.setItem("replace-input", v); } catch { /* quota */ }
+              setSelectedConcept(null);
+            }}
+            maxLength={MAX_INPUT_LENGTH}
             rows={4}
             placeholder={t("replace.placeholder", "यहाँ अपना वाक्य लिखें...")}
             className="w-full rounded-lg border border-border bg-card p-3 sm:p-4 text-sm sm:text-base text-foreground font-devanagari placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 resize-y"
           />
+          <div className="mt-1 flex justify-end">
+            <span className={`text-[10px] sm:text-xs tabular-nums ${input.length >= MAX_INPUT_LENGTH ? "text-destructive" : "text-muted-foreground/60"}`}>
+              {input.length} / {MAX_INPUT_LENGTH}
+            </span>
+          </div>
         </div>
 
         {output && (
