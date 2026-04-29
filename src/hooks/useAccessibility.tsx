@@ -23,15 +23,23 @@ const sizeMap: Record<TextSize, string> = {
   xl: "125%",
 };
 
-function loadPref<T>(key: string, fallback: T): T {
+function loadPref<T>(key: string, fallback: T, validate?: (v: unknown) => v is T): T {
   try {
     const v = localStorage.getItem(key);
     if (v === null) return fallback;
-    return JSON.parse(v) as T;
+    const parsed = JSON.parse(v);
+    if (validate && !validate(parsed)) return fallback;
+    return parsed as T;
   } catch {
     return fallback;
   }
 }
+
+const isTextSize = (v: unknown): v is TextSize =>
+  v === "default" || v === "large" || v === "xl";
+const isBool = (v: unknown): v is boolean => typeof v === "boolean";
+const isStringOrNull = (v: unknown): v is string | null =>
+  v === null || typeof v === "string";
 
 function savePref(key: string, value: unknown) {
   try {
