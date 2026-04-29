@@ -181,6 +181,31 @@
     ]
   },
   {
+    "english": "acquaintance",
+    "category": "Relationships",
+    "description": "A person one knows slightly.",
+    "sanskrit_derived": [
+      {
+        "dev": "परिचित",
+        "roman": "parichit",
+        "ipa": "pərɪt͡ʃɪt̪",
+        "tags": [
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "जानकार",
+        "roman": "jaankar",
+        "ipa": "d͡ʒaːn̪kaːr",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "acquittal",
     "category": "Law",
     "description": "A judgement that a person is not guilty of the crime charged.",
@@ -2055,6 +2080,23 @@
     ]
   },
   {
+    "english": "autonomy",
+    "category": "Governance",
+    "description": "The right of self-governance.",
+    "sanskrit_derived": [
+      {
+        "dev": "स्वायत्तता",
+        "roman": "swayattata",
+        "ipa": "sʋaːjət̪ːət̪aː",
+        "tags": [
+          "formal",
+          "administrative"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "autumn",
     "category": "Nature",
     "description": "The season after summer when leaves fall.",
@@ -2779,6 +2821,32 @@
       }
     ],
     "other_historical_sources": []
+  },
+  {
+    "english": "bee-hive",
+    "category": "Nature",
+    "description": "Structure where bees live.",
+    "sanskrit_derived": [
+      {
+        "dev": "मधुकोष",
+        "roman": "madhukosh",
+        "ipa": "məd̪ʱʊkoːʂ",
+        "tags": [
+          "literary",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "मधुमक्खी का छत्ता",
+        "roman": "madhumakkhi ka chhatta",
+        "ipa": "məd̪ʱʊməkːʰiː kaː t͡ʃʰət̪ːaː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
   },
   {
     "english": "beginning",
@@ -4710,6 +4778,33 @@
     ]
   },
   {
+    "english": "calendar",
+    "category": "Society",
+    "description": "A system for organizing days.",
+    "sanskrit_derived": [
+      {
+        "dev": "पञ्चाङ्ग",
+        "roman": "panchang",
+        "ipa": "pən̪t͡ʃaːŋɡ",
+        "tags": [
+          "formal",
+          "religious",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "कैलेण्डर",
+        "roman": "calendar",
+        "ipa": "kɛːleːɳɖər",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "call",
     "category": "Society",
     "description": "To cry out or summon someone.",
@@ -5578,6 +5673,33 @@
     ],
     "antonyms": [
       "order"
+    ]
+  },
+  {
+    "english": "chapter",
+    "category": "Education",
+    "description": "A main division of a book.",
+    "sanskrit_derived": [
+      {
+        "dev": "अध्याय",
+        "roman": "adhyaya",
+        "ipa": "əd̪ʱjaːj",
+        "tags": [
+          "formal",
+          "academic"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "बाब",
+        "roman": "baab",
+        "ipa": "baːb",
+        "tags": [
+          "literary",
+          "archaic"
+        ]
+      }
     ]
   },
   {
@@ -6586,6 +6708,22 @@
     ]
   },
   {
+    "english": "colleague",
+    "category": "Relationships",
+    "description": "A person one works with.",
+    "sanskrit_derived": [
+      {
+        "dev": "सहकर्मी",
+        "roman": "sahakarmi",
+        "ipa": "səɦəkərmiː",
+        "tags": [
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "color",
     "category": "Abstract Concepts",
     "description": "The property of objects perceived as hues.",
@@ -7221,6 +7359,23 @@
         ]
       }
     ]
+  },
+  {
+    "english": "conference",
+    "category": "Society",
+    "description": "A formal meeting for discussion.",
+    "sanskrit_derived": [
+      {
+        "dev": "सम्मेलन",
+        "roman": "sammelan",
+        "ipa": "səmːeːlən̪",
+        "tags": [
+          "formal",
+          "administrative"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "confession",
@@ -8416,6 +8571,30 @@
         ]
       }
     ]
+  },
+  {
+    "english": "crowd",
+    "category": "Society",
+    "description": "A large gathering of people.",
+    "sanskrit_derived": [
+      {
+        "dev": "भीड़",
+        "roman": "bheed",
+        "ipa": "bʱiːɽ",
+        "tags": [
+          "colloquial"
+        ]
+      },
+      {
+        "dev": "जनसमूह",
+        "roman": "jansamuh",
+        "ipa": "d͡ʒən̪səmuːɦ",
+        "tags": [
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "crown",
@@ -11039,6 +11218,23 @@
     ]
   },
   {
+    "english": "diversity",
+    "category": "Abstract Concepts",
+    "description": "Variety; the state of being varied.",
+    "sanskrit_derived": [
+      {
+        "dev": "विविधता",
+        "roman": "vividhata",
+        "ipa": "ʋiʋid̪ʱət̪aː",
+        "tags": [
+          "formal",
+          "academic"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "divorce",
     "category": "Law",
     "description": "The legal dissolution of a marriage.",
@@ -12898,6 +13094,22 @@
     ]
   },
   {
+    "english": "equanimity",
+    "category": "Abstract Concepts",
+    "description": "Mental calmness in difficulty.",
+    "sanskrit_derived": [
+      {
+        "dev": "समता",
+        "roman": "samata",
+        "ipa": "səmət̪aː",
+        "tags": [
+          "philosophical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "equity",
     "category": "Law",
     "description": "Fairness and justice in legal proceedings.",
@@ -14348,6 +14560,23 @@
     ]
   },
   {
+    "english": "federation",
+    "category": "Governance",
+    "description": "A union of partially self-governing states.",
+    "sanskrit_derived": [
+      {
+        "dev": "संघ",
+        "roman": "sangh",
+        "ipa": "səŋɡʱ",
+        "tags": [
+          "formal",
+          "administrative"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "felony",
     "category": "Law",
     "description": "A serious criminal offense punishable by imprisonment.",
@@ -15401,6 +15630,23 @@
         ]
       }
     ]
+  },
+  {
+    "english": "footnote",
+    "category": "Education",
+    "description": "An ancillary note at the foot of a page.",
+    "sanskrit_derived": [
+      {
+        "dev": "पादटिप्पणी",
+        "roman": "paadtippani",
+        "ipa": "paːd̪ʈɪpːəɳiː",
+        "tags": [
+          "academic",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "forehead",
@@ -18715,6 +18961,31 @@
     ]
   },
   {
+    "english": "hill",
+    "category": "Geography",
+    "description": "A naturally raised area of land, smaller than a mountain.",
+    "sanskrit_derived": [
+      {
+        "dev": "पहाड़ी",
+        "roman": "pahadi",
+        "ipa": "pəɦaːɽiː",
+        "tags": [
+          "formal"
+        ]
+      },
+      {
+        "dev": "गिरि",
+        "roman": "giri",
+        "ipa": "ɡɪrɪ",
+        "tags": [
+          "classical",
+          "literary"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "historian",
     "category": "Occupations",
     "description": "An expert in or student of history.",
@@ -21181,6 +21452,32 @@
     ]
   },
   {
+    "english": "jungle",
+    "category": "Nature",
+    "description": "Dense tropical forest.",
+    "sanskrit_derived": [
+      {
+        "dev": "वन",
+        "roman": "van",
+        "ipa": "ʋən̪",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "जंगल",
+        "roman": "jungle",
+        "ipa": "d͡ʒəŋɡəl",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "jurisdiction",
     "category": "Law",
     "description": "The official power to make legal decisions.",
@@ -22677,6 +22974,23 @@
         ]
       }
     ]
+  },
+  {
+    "english": "library-public",
+    "category": "Society",
+    "description": "A public collection of books for community use.",
+    "sanskrit_derived": [
+      {
+        "dev": "सार्वजनिक पुस्तकालय",
+        "roman": "sarvajanik pustakalaya",
+        "ipa": "saːrʋəd͡ʒən̪ɪk pʊst̪əkaːləj",
+        "tags": [
+          "formal",
+          "academic"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "lie",
@@ -24352,6 +24666,32 @@
     ]
   },
   {
+    "english": "mentor",
+    "category": "Relationships",
+    "description": "An experienced and trusted advisor.",
+    "sanskrit_derived": [
+      {
+        "dev": "मार्गदर्शक",
+        "roman": "margdarshak",
+        "ipa": "maːrɡd̪ərʃək",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "उस्ताद",
+        "roman": "ustaad",
+        "ipa": "ʊst̪aːd̪",
+        "tags": [
+          "literary"
+        ]
+      }
+    ]
+  },
+  {
     "english": "merchant",
     "category": "Occupations",
     "description": "A person involved in trade or commerce.",
@@ -25672,6 +26012,23 @@
     ]
   },
   {
+    "english": "musician",
+    "category": "Occupations",
+    "description": "One who plays or composes music.",
+    "sanskrit_derived": [
+      {
+        "dev": "संगीतकार",
+        "roman": "sangeetkar",
+        "ipa": "səŋɡiːt̪kaːr",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "myth",
     "category": "Education",
     "description": "A traditional story explaining natural or social phenomena.",
@@ -26252,6 +26609,32 @@
         "dev": "ख़बर",
         "roman": "khabar",
         "ipa": "kʰəbər",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
+    "english": "newspaper",
+    "category": "Society",
+    "description": "A printed publication of news.",
+    "sanskrit_derived": [
+      {
+        "dev": "समाचारपत्र",
+        "roman": "samacharpatra",
+        "ipa": "səmaːt͡ʃaːrpət̪rə",
+        "tags": [
+          "formal",
+          "administrative"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "अख़बार",
+        "roman": "akhbaar",
+        "ipa": "əxbaːr",
         "tags": [
           "colloquial"
         ]
@@ -27395,6 +27778,32 @@
     ],
     "antonyms": [
       "inside"
+    ]
+  },
+  {
+    "english": "owl",
+    "category": "Nature",
+    "description": "A nocturnal bird of prey.",
+    "sanskrit_derived": [
+      {
+        "dev": "उलूक",
+        "roman": "uluuk",
+        "ipa": "ʊluːk",
+        "tags": [
+          "classical",
+          "literary"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "उल्लू",
+        "roman": "ullu",
+        "ipa": "ʊlːuː",
+        "tags": [
+          "colloquial"
+        ]
+      }
     ]
   },
   {
@@ -29996,6 +30405,32 @@
     ]
   },
   {
+    "english": "procession",
+    "category": "Society",
+    "description": "A line of people moving forward in ceremony.",
+    "sanskrit_derived": [
+      {
+        "dev": "शोभायात्रा",
+        "roman": "shobhayatra",
+        "ipa": "ʃoːbʱaːjaːt̪raː",
+        "tags": [
+          "formal",
+          "religious"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "जुलूस",
+        "roman": "juloos",
+        "ipa": "d͡ʒʊluːs",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "proclamation",
     "category": "Governance",
     "description": "An official public announcement.",
@@ -31118,6 +31553,23 @@
         ]
       }
     ]
+  },
+  {
+    "english": "referendum",
+    "category": "Governance",
+    "description": "A general vote on a single political question.",
+    "sanskrit_derived": [
+      {
+        "dev": "जनमतसंग्रह",
+        "roman": "janmatsangraha",
+        "ipa": "d͡ʒən̪mət̪səŋɡrəɦ",
+        "tags": [
+          "administrative",
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "reflection",
@@ -32983,6 +33435,32 @@
     "other_historical_sources": []
   },
   {
+    "english": "sapling",
+    "category": "Nature",
+    "description": "A young tree.",
+    "sanskrit_derived": [
+      {
+        "dev": "पादप",
+        "roman": "paadap",
+        "ipa": "paːd̪əp",
+        "tags": [
+          "literary",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "पौधा",
+        "roman": "paudha",
+        "ipa": "pɔːd̪ʱaː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "sapphire",
     "category": "Nature",
     "description": "A precious stone of deep blue color.",
@@ -34306,6 +34784,32 @@
         "ipa": "kəʃt̪iː",
         "tags": [
           "literary"
+        ]
+      }
+    ]
+  },
+  {
+    "english": "shiver",
+    "category": "Body & Health",
+    "description": "To tremble due to cold or fear.",
+    "sanskrit_derived": [
+      {
+        "dev": "कम्पन",
+        "roman": "kampan",
+        "ipa": "kəmpən̪",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "कँपकँपी",
+        "roman": "kanpkanpi",
+        "ipa": "kə̃pkə̃piː",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -36165,6 +36669,32 @@
     "other_historical_sources": []
   },
   {
+    "english": "sparrow",
+    "category": "Nature",
+    "description": "A small common bird.",
+    "sanskrit_derived": [
+      {
+        "dev": "चटक",
+        "roman": "chatak",
+        "ipa": "t͡ʃəʈək",
+        "tags": [
+          "classical",
+          "literary"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "गौरैया",
+        "roman": "gauraiya",
+        "ipa": "ɡɔːrɛːjaː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "speak",
     "category": "Society",
     "description": "To say words to convey information.",
@@ -37416,6 +37946,33 @@
     ]
   },
   {
+    "english": "summon",
+    "category": "Law",
+    "description": "An official order to appear in court.",
+    "sanskrit_derived": [
+      {
+        "dev": "आह्वान",
+        "roman": "aahvaan",
+        "ipa": "aːɦʋaːn̪",
+        "tags": [
+          "formal",
+          "legal"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "सम्मन",
+        "roman": "samman",
+        "ipa": "səmːən̪",
+        "tags": [
+          "legal",
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "summons",
     "category": "Law",
     "description": "An order to appear before a judge or magistrate.",
@@ -37910,6 +38467,32 @@
       }
     ],
     "other_historical_sources": []
+  },
+  {
+    "english": "syllabus",
+    "category": "Education",
+    "description": "A summary outline of a course.",
+    "sanskrit_derived": [
+      {
+        "dev": "पाठ्यक्रम",
+        "roman": "paathyakram",
+        "ipa": "paːʈʰjəkrəm",
+        "tags": [
+          "academic",
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "निसाब",
+        "roman": "nisaab",
+        "ipa": "n̪ɪsaːb",
+        "tags": [
+          "literary"
+        ]
+      }
+    ]
   },
   {
     "english": "sympathy",
@@ -38793,6 +39376,23 @@
     "antonyms": [
       "here"
     ]
+  },
+  {
+    "english": "thesis",
+    "category": "Education",
+    "description": "A long academic essay presenting research.",
+    "sanskrit_derived": [
+      {
+        "dev": "शोधप्रबन्ध",
+        "roman": "shodhprabandha",
+        "ipa": "ʃoːd̪ʱprəbən̪d̪ʱ",
+        "tags": [
+          "academic",
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "thick",
@@ -40496,6 +41096,32 @@
     ]
   },
   {
+    "english": "truthfulness",
+    "category": "Abstract Concepts",
+    "description": "Adherence to truth as a moral principle.",
+    "sanskrit_derived": [
+      {
+        "dev": "सत्यनिष्ठा",
+        "roman": "satyanishtha",
+        "ipa": "sət̪jən̪iʂʈʰaː",
+        "tags": [
+          "formal",
+          "philosophical"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "सच्चाई",
+        "roman": "sacchai",
+        "ipa": "sət͡ʃːaːiː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
+  },
+  {
     "english": "turmeric",
     "category": "Society",
     "description": "A bright yellow spice used in cooking.",
@@ -40734,6 +41360,31 @@
     ],
     "antonyms": [
       "separation"
+    ]
+  },
+  {
+    "english": "unity",
+    "category": "Abstract Concepts",
+    "description": "State of being united or whole.",
+    "sanskrit_derived": [
+      {
+        "dev": "एकता",
+        "roman": "ekta",
+        "ipa": "eːkt̪aː",
+        "tags": [
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "इत्तेहाद",
+        "roman": "ittehaad",
+        "ipa": "ɪt̪ːeːɦaːd̪",
+        "tags": [
+          "literary"
+        ]
+      }
     ]
   },
   {
@@ -43267,6 +43918,23 @@
     ]
   },
   {
+    "english": "wisdom-discrimination",
+    "category": "Abstract Concepts",
+    "description": "Discernment between the real and unreal.",
+    "sanskrit_derived": [
+      {
+        "dev": "विवेक",
+        "roman": "vivek",
+        "ipa": "ʋiʋeːk",
+        "tags": [
+          "philosophical",
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "wise",
     "category": "Education",
     "description": "Having experience, knowledge, and good judgment.",
@@ -43795,6 +44463,32 @@
     ],
     "antonyms": [
       "read"
+    ]
+  },
+  {
+    "english": "writer",
+    "category": "Occupations",
+    "description": "One who writes professionally.",
+    "sanskrit_derived": [
+      {
+        "dev": "लेखक",
+        "roman": "lekhak",
+        "ipa": "leːkʰək",
+        "tags": [
+          "formal"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "मुसन्निफ़",
+        "roman": "musannif",
+        "ipa": "mʊsənːɪf",
+        "tags": [
+          "literary",
+          "archaic"
+        ]
+      }
     ]
   },
   {
