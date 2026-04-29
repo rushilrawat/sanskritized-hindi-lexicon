@@ -1,4 +1,4 @@
-import { useState, useMemo, forwardRef, useCallback } from "react";
+import { useState, useMemo, forwardRef, useCallback, useEffect } from "react";
 import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -8,22 +8,36 @@ import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import WordCard from "@/components/WordCard";
 import { useTranslation } from "@/hooks/useTranslation";
+import { toast } from "sonner";
+
+const MAX_INPUT_LENGTH = 5000;
+const DEBOUNCE_MS = 150;
 
 const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
-  const [input, setInput] = useState(() => localStorage.getItem("replace-input") || "");
+  const [input, setInput] = useState(() => {
+    const stored = localStorage.getItem("replace-input") || "";
+    return stored.slice(0, MAX_INPUT_LENGTH);
+  });
+  const [debouncedInput, setDebouncedInput] = useState(input);
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const { t } = useTranslation();
 
+  // Debounce expensive replacement computation
+  useEffect(() => {
+    const id = setTimeout(() => setDebouncedInput(input), DEBOUNCE_MS);
+    return () => clearTimeout(id);
+  }, [input]);
+
   const map = useMemo(() => buildReplacementMap(concepts), [concepts]);
 
   const { text: output, segments, replacements } = useMemo(() => {
-    if (!input.trim()) return { text: "", segments: [], replacements: [] };
-    return replaceSentenceWithHighlights(input, map);
-  }, [input, map]);
+    if (!debouncedInput.trim()) return { text: "", segments: [], replacements: [] };
+    return replaceSentenceWithHighlights(debouncedInput, map);
+  }, [debouncedInput, map]);
 
-  const hasChanges = input.trim() !== "" && output !== input;
+  const hasChanges = debouncedInput.trim() !== "" && output !== debouncedInput;
 
   const handleReplacementClick = useCallback((detail: ReplacementDetail) => {
     const concept = concepts.find((c) => c.english === detail.conceptEnglish);
