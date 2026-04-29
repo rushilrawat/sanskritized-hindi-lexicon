@@ -48,11 +48,11 @@ function savePref(key: string, value: unknown) {
 }
 
 export const AccessibilityProvider = ({ children }: { children: ReactNode }) => {
-  const [textSize, setTextSizeState] = useState<TextSize>(() => loadPref("pref-text-size", "default"));
-  const [highContrast, setHighContrast] = useState(() => loadPref("pref-high-contrast", false));
-  const [darkMode, setDarkMode] = useState(() => loadPref("pref-dark-mode", false));
-  const [learnCategory, setLearnCategoryState] = useState<string | null>(() => loadPref("pref-learn-category", null));
-  const [hindiMode, setHindiMode] = useState(() => loadPref("pref-hindi-mode", false));
+  const [textSize, setTextSizeState] = useState<TextSize>(() => loadPref("pref-text-size", "default", isTextSize));
+  const [highContrast, setHighContrast] = useState(() => loadPref("pref-high-contrast", false, isBool));
+  const [darkMode, setDarkMode] = useState(() => loadPref("pref-dark-mode", false, isBool));
+  const [learnCategory, setLearnCategoryState] = useState<string | null>(() => loadPref("pref-learn-category", null, isStringOrNull));
+  const [hindiMode, setHindiMode] = useState(() => loadPref("pref-hindi-mode", false, isBool));
 
   const setTextSize = (size: TextSize) => {
     setTextSizeState(size);
