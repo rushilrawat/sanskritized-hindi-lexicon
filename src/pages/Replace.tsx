@@ -1,4 +1,4 @@
-import { useState, useMemo, forwardRef, useCallback } from "react";
+import { useState, useMemo, forwardRef, useCallback, useEffect } from "react";
 import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -8,22 +8,36 @@ import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import WordCard from "@/components/WordCard";
 import { useTranslation } from "@/hooks/useTranslation";
+import { toast } from "sonner";
+
+const MAX_INPUT_LENGTH = 5000;
+const DEBOUNCE_MS = 150;
 
 const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
-  const [input, setInput] = useState(() => localStorage.getItem("replace-input") || "");
+  const [input, setInput] = useState(() => {
+    const stored = localStorage.getItem("replace-input") || "";
+    return stored.slice(0, MAX_INPUT_LENGTH);
+  });
+  const [debouncedInput, setDebouncedInput] = useState(input);
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const { t } = useTranslation();
 
+  // Debounce expensive replacement computation
+  useEffect(() => {
+    const id = setTimeout(() => setDebouncedInput(input), DEBOUNCE_MS);
+    return () => clearTimeout(id);
+  }, [input]);
+
   const map = useMemo(() => buildReplacementMap(concepts), [concepts]);
 
   const { text: output, segments, replacements } = useMemo(() => {
-    if (!input.trim()) return { text: "", segments: [], replacements: [] };
-    return replaceSentenceWithHighlights(input, map);
-  }, [input, map]);
+    if (!debouncedInput.trim()) return { text: "", segments: [], replacements: [] };
+    return replaceSentenceWithHighlights(debouncedInput, map);
+  }, [debouncedInput, map]);
 
-  const hasChanges = input.trim() !== "" && output !== input;
+  const hasChanges = debouncedInput.trim() !== "" && output !== debouncedInput;
 
   const handleReplacementClick = useCallback((detail: ReplacementDetail) => {
     const concept = concepts.find((c) => c.english === detail.conceptEnglish);
@@ -63,11 +77,22 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <textarea
             value={input}
-            onChange={(e) => { const v = e.target.value; setInput(v); localStorage.setItem("replace-input", v); setSelectedConcept(null); }}
+            onChange={(e) => {
+              const v = e.target.value.slice(0, MAX_INPUT_LENGTH);
+              setInput(v);
+              try { localStorage.setItem("replace-input", v); } catch { /* quota */ }
+              setSelectedConcept(null);
+            }}
+            maxLength={MAX_INPUT_LENGTH}
             rows={4}
             placeholder={t("replace.placeholder", "यहाँ अपना वाक्य लिखें...")}
             className="w-full rounded-lg border border-border bg-card p-3 sm:p-4 text-sm sm:text-base text-foreground font-devanagari placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 resize-y"
           />
+          <div className="mt-1 flex justify-end">
+            <span className={`text-[10px] sm:text-xs tabular-nums ${input.length >= MAX_INPUT_LENGTH ? "text-destructive" : "text-muted-foreground/60"}`}>
+              {input.length} / {MAX_INPUT_LENGTH}
+            </span>
+          </div>
         </div>
 
         {output && (
@@ -82,10 +107,26 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 )}
               </label>
               <button
-                onClick={() => {
-                  navigator.clipboard.writeText(output);
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
+                onClick={async () => {
+                  try {
+                    if (navigator.clipboard?.writeText) {
+                      await navigator.clipboard.writeText(output);
+                    } else {
+                      // Fallback for insecure contexts / older browsers
+                      const ta = document.createElement("textarea");
+                      ta.value = output;
+                      ta.style.position = "fixed";
+                      ta.style.opacity = "0";
+                      document.body.appendChild(ta);
+                      ta.select();
+                      document.execCommand("copy");
+                      document.body.removeChild(ta);
+                    }
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  } catch {
+                    toast.error(t("replace.copyFailed", "Could not copy. Please copy manually."));
+                  }
                 }}
                 className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-border hover:border-foreground/20"
               >

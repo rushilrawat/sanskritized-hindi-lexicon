@@ -9,6 +9,9 @@ interface SearchBarProps {
   initialValue?: string;
 }
 
+const MAX_SEARCH_LENGTH = 200;
+const DEBOUNCE_MS = 120;
+
 const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFocus = false, placeholder, initialValue = "" }, ref) => {
   const [query, setQuery] = useState(initialValue);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,10 +29,14 @@ const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFo
     setQuery(initialValue);
   }, [initialValue]);
 
+  // Debounce search callback to avoid filtering on every keystroke
+  useEffect(() => {
+    const id = setTimeout(() => onSearch(query), DEBOUNCE_MS);
+    return () => clearTimeout(id);
+  }, [query, onSearch]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-    onSearch(value);
+    setQuery(e.target.value.slice(0, MAX_SEARCH_LENGTH));
   };
 
   return (
@@ -40,6 +47,10 @@ const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFo
         type="text"
         value={query}
         onChange={handleChange}
+        maxLength={MAX_SEARCH_LENGTH}
+        autoComplete="off"
+        spellCheck={false}
+        aria-label={resolvedPlaceholder}
         placeholder={resolvedPlaceholder}
         className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all font-body text-xs sm:text-sm"
       />

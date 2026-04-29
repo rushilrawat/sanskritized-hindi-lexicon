@@ -23,15 +23,23 @@ const sizeMap: Record<TextSize, string> = {
   xl: "125%",
 };
 
-function loadPref<T>(key: string, fallback: T): T {
+function loadPref<T>(key: string, fallback: T, validate?: (v: unknown) => v is T): T {
   try {
     const v = localStorage.getItem(key);
     if (v === null) return fallback;
-    return JSON.parse(v) as T;
+    const parsed = JSON.parse(v);
+    if (validate && !validate(parsed)) return fallback;
+    return parsed as T;
   } catch {
     return fallback;
   }
 }
+
+const isTextSize = (v: unknown): v is TextSize =>
+  v === "default" || v === "large" || v === "xl";
+const isBool = (v: unknown): v is boolean => typeof v === "boolean";
+const isStringOrNull = (v: unknown): v is string | null =>
+  v === null || typeof v === "string";
 
 function savePref(key: string, value: unknown) {
   try {
@@ -40,11 +48,11 @@ function savePref(key: string, value: unknown) {
 }
 
 export const AccessibilityProvider = ({ children }: { children: ReactNode }) => {
-  const [textSize, setTextSizeState] = useState<TextSize>(() => loadPref("pref-text-size", "default"));
-  const [highContrast, setHighContrast] = useState(() => loadPref("pref-high-contrast", false));
-  const [darkMode, setDarkMode] = useState(() => loadPref("pref-dark-mode", false));
-  const [learnCategory, setLearnCategoryState] = useState<string | null>(() => loadPref("pref-learn-category", null));
-  const [hindiMode, setHindiMode] = useState(() => loadPref("pref-hindi-mode", false));
+  const [textSize, setTextSizeState] = useState<TextSize>(() => loadPref("pref-text-size", "default", isTextSize));
+  const [highContrast, setHighContrast] = useState(() => loadPref("pref-high-contrast", false, isBool));
+  const [darkMode, setDarkMode] = useState(() => loadPref("pref-dark-mode", false, isBool));
+  const [learnCategory, setLearnCategoryState] = useState<string | null>(() => loadPref("pref-learn-category", null, isStringOrNull));
+  const [hindiMode, setHindiMode] = useState(() => loadPref("pref-hindi-mode", false, isBool));
 
   const setTextSize = (size: TextSize) => {
     setTextSizeState(size);
