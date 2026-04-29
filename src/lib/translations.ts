@@ -64,6 +64,7 @@ const translations = {
   "replace.placeholder": "यहाँ अपना वाक्य लिखें...",
   "replace.replacementsMade": "किए गए प्रतिस्थापन",
   "replace.noReplacements": "आगत पाठ में कोई प्रतिस्थापन नहीं मिला।",
+  "replace.copyFailed": "प्रतिलिपि नहीं हो सकी। कृपया स्वयं प्रतिलिपि करें।",
 
   // About
   "about.title": "इस परियोजना के विषय में",
