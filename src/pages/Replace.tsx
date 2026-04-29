@@ -107,10 +107,26 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 )}
               </label>
               <button
-                onClick={() => {
-                  navigator.clipboard.writeText(output);
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
+                onClick={async () => {
+                  try {
+                    if (navigator.clipboard?.writeText) {
+                      await navigator.clipboard.writeText(output);
+                    } else {
+                      // Fallback for insecure contexts / older browsers
+                      const ta = document.createElement("textarea");
+                      ta.value = output;
+                      ta.style.position = "fixed";
+                      ta.style.opacity = "0";
+                      document.body.appendChild(ta);
+                      ta.select();
+                      document.execCommand("copy");
+                      document.body.removeChild(ta);
+                    }
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  } catch {
+                    toast.error(t("replace.copyFailed", "Could not copy. Please copy manually."));
+                  }
                 }}
                 className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-border hover:border-foreground/20"
               >
