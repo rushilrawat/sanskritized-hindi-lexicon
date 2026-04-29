@@ -15,6 +15,7 @@ interface LearnCardProps {
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
   const { t, hindiMode } = useTranslation();
+  if (!word) return null;
   const hiDesc = descriptionsHi[word.english.toLowerCase()];
 
   const speak = () => {
