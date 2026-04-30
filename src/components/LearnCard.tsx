@@ -52,7 +52,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         )}
         <div className="flex gap-1 justify-center mt-2">
           {word.tags.slice(0, 2).map((tag) => (
-            <span key={tag} className="tag-badge">{tag}</span>
+            <span key={tag} className="tag-badge">{t(`tag.${tag}` as never, tag)}</span>
           ))}
         </div>
       </div>
