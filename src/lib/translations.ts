@@ -35,6 +35,18 @@ const translations = {
   "categories.title": "श्रेणी के अनुसार खोजें",
   "categories.subtitle": "विषयगत श्रेणियों में शब्दावली का अन्वेषण करें।",
   "categories.all": "सभी",
+  "category.Education": "शिक्षा",
+  "category.Emotion": "भावना",
+  "category.Geography": "भूगोल",
+  "category.Governance": "शासन",
+  "category.Law": "विधि",
+  "category.Nature": "प्रकृति",
+  "category.Relationships": "सम्बन्ध",
+  "category.Relationship": "सम्बन्ध",
+  "category.Abstract Concepts": "अमूर्त विचार",
+  "category.Body & Health": "शरीर एवं स्वास्थ्य",
+  "category.Society": "समाज",
+  "category.Occupations": "व्यवसाय",
 
   // Learn
   "learn.title": "शब्द अध्ययन",
