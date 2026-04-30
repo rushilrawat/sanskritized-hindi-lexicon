@@ -168,7 +168,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           >
             <option value="">{t("learn.allCategories", "All Categories")}</option>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
+              <option key={cat} value={cat}>{t(`category.${cat}` as never, cat)}</option>
             ))}
           </select>
         </div>

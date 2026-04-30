@@ -20,7 +20,7 @@ const WordCard = memo(({ concept }: WordCardProps) => {
           <h3 className="text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
           <p className={`text-xs sm:text-sm text-muted-foreground mt-0.5 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
         </div>
-        <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{concept.category}</span>
+        <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{t(`category.${concept.category}` as never, concept.category)}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
