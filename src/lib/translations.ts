@@ -48,6 +48,19 @@ const translations = {
   "category.Society": "समाज",
   "category.Occupations": "व्यवसाय",
 
+  // Registry tags
+  "tag.formal": "औपचारिक",
+  "tag.colloquial": "बोलचाल",
+  "tag.classical": "शास्त्रीय",
+  "tag.literary": "साहित्यिक",
+  "tag.legal": "विधिक",
+  "tag.administrative": "प्रशासनिक",
+  "tag.philosophical": "दार्शनिक",
+  "tag.religious": "धार्मिक",
+  "tag.technical": "तकनीकी",
+  "tag.archaic": "प्राचीन",
+  "tag.academic": "शैक्षणिक",
+
   // Learn
   "learn.title": "शब्द अध्ययन",
   "learn.subtitle": "एक-एक करके संस्कृतोद्भव शब्द सीखें। ← → कुञ्जियों से चलें, Space से सुनें।",

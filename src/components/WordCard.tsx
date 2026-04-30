@@ -40,7 +40,7 @@ const WordCard = memo(({ concept }: WordCardProps) => {
                 </div>
                 <div className="flex gap-1 mt-1 sm:mt-1.5 flex-wrap">
                   {w.tags.slice(0, 2).map((tag) => (
-                    <span key={tag} className="tag-pill">{tag}</span>
+                    <span key={tag} className="tag-pill">{t(`tag.${tag}` as never, tag)}</span>
                   ))}
                 </div>
               </li>
@@ -64,7 +64,7 @@ const WordCard = memo(({ concept }: WordCardProps) => {
                 </div>
                 <div className="flex gap-1 mt-1 sm:mt-1.5 flex-wrap">
                   {w.tags.slice(0, 2).map((tag) => (
-                    <span key={tag} className="tag-pill">{tag}</span>
+                    <span key={tag} className="tag-pill">{t(`tag.${tag}` as never, tag)}</span>
                   ))}
                 </div>
               </li>
