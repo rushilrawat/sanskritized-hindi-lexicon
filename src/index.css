@@ -152,6 +152,33 @@
   }
 }
 
+/* Saffron-themed scrollbar */
+@layer base {
+  html {
+    scrollbar-color: hsl(var(--saffron)) hsl(var(--muted));
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--saffron));
+    border-radius: 8px;
+    border: 2px solid hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--saffron-dark));
+  }
+}
+
 @layer utilities {
   .text-ipa {
     @apply text-sm text-muted-foreground font-mono;
