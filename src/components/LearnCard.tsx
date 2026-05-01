@@ -47,6 +47,11 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>
+        {word.description && (
+          <p className="text-xs sm:text-sm text-muted-foreground italic mt-1 px-2">
+            {word.description}
+          </p>
+        )}
         {hindiMode && hiDesc && (
           <p className="text-sm text-muted-foreground mt-1 font-devanagari">{hiDesc}</p>
         )}
@@ -61,7 +66,8 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {word.synonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-            पर्यायवाची · {t("learn.synonyms", "Synonyms")}
+            <span className="font-devanagari">पर्यायवाची</span>
+            {!hindiMode && <> · Synonyms</>}
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
             {word.synonyms.map((syn) => (
@@ -77,7 +83,8 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {word.antonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-            विलोम · {t("learn.antonyms", "Antonyms")}
+            <span className="font-devanagari">विलोम</span>
+            {!hindiMode && <> · Antonyms</>}
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
             {word.antonyms.map((ant) => (

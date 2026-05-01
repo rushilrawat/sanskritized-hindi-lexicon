@@ -3,6 +3,7 @@ import type { Concept, WordEntry } from "@/types/word";
 export interface FlatWord extends WordEntry {
   english: string;
   category: string;
+  description: string;
   source: "sanskrit_derived" | "other_historical_sources";
   synonyms: string[];
   antonyms: string[];
@@ -32,6 +33,7 @@ export function flattenWords(
           ...w,
           english: concept.english,
           category: concept.category,
+          description: concept.description,
           source: "sanskrit_derived",
           synonyms: sanskritDevs.filter((d) => d !== w.dev),
           antonyms: antonymDevs,
@@ -44,6 +46,7 @@ export function flattenWords(
           ...w,
           english: concept.english,
           category: concept.category,
+          description: concept.description,
           source: "other_historical_sources",
           synonyms: [],
           antonyms: antonymDevs,
