@@ -79,24 +79,36 @@ const Index = () => {
   }, [visibleCount, filtered.length]);
 
   useEffect(() => {
-    if (search || !listRef.current) return;
+    if (search) {
+      setActiveLetter(null);
+      return;
+    }
 
     const handleScroll = () => {
-      const letters = listRef.current?.querySelectorAll("[data-letter]");
-      if (!letters) return;
+      const letters = document.querySelectorAll("[data-letter]");
+      if (!letters.length) return;
+      // Threshold = bottom of sticky search/alphabet bar (approx)
+      const threshold = 240;
       let current: string | null = null;
       for (const el of letters) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 140) {
+        const rect = (el as HTMLElement).getBoundingClientRect();
+        if (rect.top <= threshold) {
           current = (el as HTMLElement).dataset.letter || null;
+        } else {
+          break;
         }
       }
       setActiveLetter(current);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [search]);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [search, visibleCount, filtered.length]);
 
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
