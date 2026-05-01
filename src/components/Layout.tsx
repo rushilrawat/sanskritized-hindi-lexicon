@@ -11,16 +11,19 @@ const ShareButton = ({ className, label }: { className?: string; label?: string 
 
   const handleShare = async () => {
     const url = window.location.origin;
-    const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
+    const text = "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
+    const shareMessage = `${text}\n\n${url}`;
     if (navigator.share) {
       try {
         await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
+        return;
       } catch {}
-    } else {
-      await navigator.clipboard.writeText(url);
+    }
+    try {
+      await navigator.clipboard.writeText(shareMessage);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    }
+    } catch {}
   };
 
   return (
