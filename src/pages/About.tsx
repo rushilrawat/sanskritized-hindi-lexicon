@@ -104,13 +104,15 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
           <button
             onClick={async () => {
               const url = window.location.origin;
-              const text = "Sanskritized Hindi Lexicon — A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.";
+              const text = "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
+              const shareMessage = `${text}\n\n${url}`;
               if (navigator.share) {
-                try { await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url }); } catch {}
-              } else {
-                await navigator.clipboard.writeText(url);
-                alert("Link copied to clipboard!");
+                try { await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url }); return; } catch {}
               }
+              try {
+                await navigator.clipboard.writeText(shareMessage);
+                alert("Link copied to clipboard!");
+              } catch {}
             }}
             className="inline-flex items-center gap-2 text-xs sm:text-sm text-primary hover:underline font-medium"
           >
