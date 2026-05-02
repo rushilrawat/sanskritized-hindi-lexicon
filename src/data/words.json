@@ -58,16 +58,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "ऊपर",
-        "roman": "oopar",
-        "ipa": "uːpəɾ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "below"
     ]
@@ -546,14 +537,6 @@
         "ipa": "ɪt̪t̪ɪfaːq",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "समझौता",
-        "roman": "samjhauta",
-        "ipa": "səmdʒʱɔːt̪aː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -1169,14 +1152,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "चींटी",
-        "roman": "cheenti",
-        "ipa": "tʃiːɳʈiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -1370,14 +1345,6 @@
         "ipa": "saːlɪsiː",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "पंचायत",
-        "roman": "panchayat",
-        "ipa": "pəɲt͡ʃaːjət̪",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -1755,14 +1722,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "राख",
-        "roman": "raakh",
-        "ipa": "ɾaːkʰ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -2135,14 +2094,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "पतझड़",
-        "roman": "patjhad",
-        "ipa": "pət̪dʒʱəɽ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "antonyms": [
@@ -2288,14 +2239,6 @@
         "dev": "कमर",
         "roman": "kamar",
         "ipa": "kəmər",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "पीठ",
-        "roman": "peeth",
-        "ipa": "piːʈʰ",
         "tags": [
           "colloquial"
         ]
@@ -2778,14 +2721,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "पलंग",
-        "roman": "palang",
-        "ipa": "pələŋɡ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -3052,16 +2987,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "नीचे",
-        "roman": "neeche",
-        "ipa": "niːt͡ʃeː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "above"
     ]
@@ -3111,14 +3037,6 @@
         "ipa": "d̪roːɦ",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "धोखा",
-        "roman": "dhokha",
-        "ipa": "d̪ʱoːkʰaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -3579,14 +3497,6 @@
     ],
     "other_historical_sources": [
       {
-        "dev": "नाव",
-        "roman": "naav",
-        "ipa": "naːʋ",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "किश्ती",
         "roman": "kishti",
         "ipa": "kɪʃt̪iː",
@@ -3765,16 +3675,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "हड्डी",
-        "roman": "haddi",
-        "ipa": "ɦəɖɖiː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "book",
@@ -4360,16 +4261,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "पुल",
-        "roman": "pul",
-        "ipa": "pʊl",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "broom",
@@ -4436,14 +4328,6 @@
         "ipa": "bɪraːd̪ər",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "भाई",
-        "roman": "bhai",
-        "ipa": "bʱaːiː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -4944,11 +4828,21 @@
     "description": "An artificial waterway for irrigation or navigation.",
     "sanskrit_derived": [
       {
-        "dev": "नहर",
-        "roman": "nahar",
-        "ipa": "nəɦər",
+        "dev": "कुल्या",
+        "roman": "kulyaa",
+        "ipa": "kʊljaː",
         "tags": [
-          "colloquial"
+          "classical",
+          "formal"
+        ]
+      },
+      {
+        "dev": "प्रणाली",
+        "roman": "pranaali",
+        "ipa": "prəɳaːliː",
+        "tags": [
+          "formal",
+          "classical"
         ]
       }
     ],
@@ -5204,14 +5098,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "बिल्ली",
-        "roman": "billi",
-        "ipa": "bɪlːiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -5388,14 +5274,6 @@
         "ipa": "səmaːroːɦ",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "जश्न",
-        "roman": "jashn",
-        "ipa": "dʒəʃn",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -5911,14 +5789,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "छाती",
-        "roman": "chhaati",
-        "ipa": "tʃʰaːt̪iː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -6280,16 +6150,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "चट्टान",
-        "roman": "chattaan",
-        "ipa": "tʃəʈʈaːn",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "clock",
@@ -6428,14 +6289,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "कपड़ा",
-        "roman": "kapda",
-        "ipa": "kəpɽaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -6519,14 +6372,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "बादल",
-        "roman": "baadal",
-        "ipa": "baːd̪əl",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -6568,14 +6413,6 @@
         "ipa": "saːɦɪl",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "समुद्रतट",
-        "roman": "samudratat",
-        "ipa": "səmʊd̪ɾət̪əʈ",
-        "tags": [
-          "formal"
         ]
       }
     ]
@@ -6626,14 +6463,6 @@
           "formal",
           "classical"
         ]
-      },
-      {
-        "dev": "सिक्का",
-        "roman": "sikka",
-        "ipa": "sɪkːaː",
-        "tags": [
-          "formal"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -6683,14 +6512,6 @@
         "dev": "सर्दी",
         "roman": "sardi",
         "ipa": "sərd̪iː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "ठंड",
-        "roman": "thand",
-        "ipa": "ʈʰəɳɖ",
         "tags": [
           "colloquial"
         ]
@@ -6747,16 +6568,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "रंग",
-        "roman": "rang",
-        "ipa": "ɾəŋɡ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "color black",
@@ -7702,14 +7514,6 @@
     ],
     "other_historical_sources": [
       {
-        "dev": "ठेका",
-        "roman": "theka",
-        "ipa": "ʈʰeːkaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "मुआहिदा",
         "roman": "muaahida",
         "ipa": "mʊaːɦɪd̪aː",
@@ -7888,16 +7692,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "ताँबा",
-        "roman": "taamba",
-        "ipa": "t̪aːmbaː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "copyright",
@@ -8556,14 +8351,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "कौआ",
-        "roman": "kaua",
-        "ipa": "kɔːaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -8998,14 +8785,6 @@
     "description": "The protective care or guardianship of someone.",
     "sanskrit_derived": [
       {
-        "dev": "हिरासत",
-        "roman": "hiraasat",
-        "ipa": "ɦɪraːsət̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "संरक्षा",
         "roman": "sanrakshaa",
         "ipa": "sənrəkʂaː",
@@ -9162,14 +8941,6 @@
         "ipa": "rəqs",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "नाच",
-        "roman": "naach",
-        "ipa": "naːtʃ",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -9334,14 +9105,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "बेटी",
-        "roman": "beti",
-        "ipa": "beːʈiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "antonyms": [
@@ -9437,14 +9200,6 @@
         "dev": "रोज़",
         "roman": "roz",
         "ipa": "roːz",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "दिन",
-        "roman": "din",
-        "ipa": "d̪ɪn",
         "tags": [
           "colloquial"
         ]
@@ -9838,14 +9593,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "हार",
-        "roman": "haar",
-        "ipa": "ɦaːr",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "शिकस्त",
         "roman": "shikast",
@@ -11339,14 +11086,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "कुत्ता",
-        "roman": "kutta",
-        "ipa": "kʊt̪ːaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -11549,14 +11288,6 @@
         "dev": "ख़्वाब",
         "roman": "khwaab",
         "ipa": "kʰʋaːb",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "सपना",
-        "roman": "sapna",
-        "ipa": "səpnaː",
         "tags": [
           "colloquial"
         ]
@@ -11884,14 +11615,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "मिट्टी",
-        "roman": "mitti",
-        "ipa": "mɪʈʈiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -12008,14 +11731,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "चील",
-        "roman": "cheel",
-        "ipa": "tʃiːl",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -12056,14 +11771,6 @@
         "ipa": "ɡoːʃ",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "कान",
-        "roman": "kaan",
-        "ipa": "kaːn",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -12461,14 +12168,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "चुनाव",
-        "roman": "chunaav",
-        "ipa": "t͡ʃʊnaːʋ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -12503,14 +12202,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "हाथी",
-        "roman": "haathi",
-        "ipa": "ɦaːt̪ʰiː",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "फ़ील",
         "roman": "feel",
@@ -14616,14 +14307,6 @@
     ],
     "other_historical_sources": [
       {
-        "dev": "त्योहार",
-        "roman": "tyohaar",
-        "ipa": "t̪joːɦaːr",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "ईद",
         "roman": "eid",
         "ipa": "iːd̪",
@@ -14740,14 +14423,6 @@
         "ipa": "məzraː",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "खेत",
-        "roman": "khet",
-        "ipa": "kʰeːt̪",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -14918,16 +14593,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "उँगली",
-        "roman": "ungli",
-        "ipa": "ʊŋɡliː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "fire",
@@ -15008,14 +14674,6 @@
         "ipa": "maːɦiː",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "मछली",
-        "roman": "machhli",
-        "ipa": "mətʃʰliː",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -15997,14 +15655,6 @@
     "description": "Wrongful or criminal deception for personal gain.",
     "sanskrit_derived": [
       {
-        "dev": "धोखाधड़ी",
-        "roman": "dhokhaadhadi",
-        "ipa": "d̪ʰoːkʰaːd̪ʰəɖiː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "कपट",
         "roman": "kapat",
         "ipa": "kəpəʈ",
@@ -16185,14 +15835,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "मेंढक",
-        "roman": "mendhak",
-        "ipa": "meːɳɖʱək",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -16218,16 +15860,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "सामने",
-        "roman": "saamne",
-        "ipa": "saːmneː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "behind",
       "back"
@@ -17076,14 +16709,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "सोना",
-        "roman": "sona",
-        "ipa": "soːnaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -17312,14 +16937,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "पोती",
-        "roman": "poti",
-        "ipa": "poːt̪iː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -17410,14 +17027,6 @@
         "dev": "नवासा",
         "roman": "navaasa",
         "ipa": "nəʋaːsaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "पोता",
-        "roman": "pota",
-        "ipa": "poːt̪aː",
         "tags": [
           "colloquial"
         ]
@@ -17948,14 +17557,6 @@
         "ipa": "ɡeːsuː",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "बाल",
-        "roman": "baal",
-        "ipa": "baːl",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -18596,16 +18197,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "भारी",
-        "roman": "bhaari",
-        "ipa": "bʱaːɾiː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "light"
     ]
@@ -18841,16 +18433,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "यहाँ",
-        "roman": "yahaan",
-        "ipa": "jəhaːɲ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "there"
     ]
@@ -19100,14 +18683,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "घर",
-        "roman": "ghar",
-        "ipa": "ɡʱəɾ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -19198,14 +18773,6 @@
     "category": "Nature",
     "description": "A sweet viscous substance made by bees.",
     "sanskrit_derived": [
-      {
-        "dev": "शहद",
-        "roman": "shahad",
-        "ipa": "ʃəɦəd̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "मधु",
         "roman": "madhu",
@@ -19431,16 +18998,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "घोड़ा",
-        "roman": "ghoda",
-        "ipa": "ɡʱoːɽaː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "hospital",
@@ -19646,14 +19204,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "घर",
-        "roman": "ghar",
-        "ipa": "ɡʱər",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -19771,14 +19321,6 @@
         "dev": "भूक",
         "roman": "bhook",
         "ipa": "bʱuːk",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "भूख",
-        "roman": "bhookh",
-        "ipa": "bʱuːkʰ",
         "tags": [
           "colloquial"
         ]
@@ -20400,14 +19942,6 @@
     "description": "Property received from a deceased person.",
     "sanskrit_derived": [
       {
-        "dev": "विरासत",
-        "roman": "viraasat",
-        "ipa": "ʋɪraːsət̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "उत्तराधिकार",
         "roman": "uttaraadhikaar",
         "ipa": "ʊt̪t̪əraːd̪ʱɪkaːr",
@@ -20520,14 +20054,6 @@
     "description": "A coloured fluid used for writing or printing.",
     "sanskrit_derived": [
       {
-        "dev": "स्याही",
-        "roman": "syaahi",
-        "ipa": "sjaːɦiː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "मसि",
         "roman": "masi",
         "ipa": "məsɪ",
@@ -20588,14 +20114,6 @@
     "category": "Abstract Concepts",
     "description": "The interior part.",
     "sanskrit_derived": [
-      {
-        "dev": "अन्दर",
-        "roman": "andar",
-        "ipa": "ənd̪ər",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "अन्तर्",
         "roman": "antar",
@@ -20987,14 +20505,6 @@
         "ipa": "aːɦən",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "लोहा",
-        "roman": "loha",
-        "ipa": "loːhaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -21864,14 +21374,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "घुटना",
-        "roman": "ghutna",
-        "ipa": "ɡʱʊʈnaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -22496,14 +21998,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "पत्ता",
-        "roman": "patta",
-        "ipa": "pət̪t̪aː",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "बर्ग",
         "roman": "barg",
@@ -23149,14 +22643,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "बिजली",
-        "roman": "bijli",
-        "ipa": "bɪd͡ʒliː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -23427,16 +22913,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "ताला",
-        "roman": "taala",
-        "ipa": "t̪aːlaː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "key"
     ]
@@ -24932,14 +24409,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "दूध",
-        "roman": "doodh",
-        "ipa": "d̪uːd̪ʱ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -25871,14 +25340,6 @@
         ]
       },
       {
-        "dev": "कीचड़",
-        "roman": "keechad",
-        "ipa": "kiːtʃəɽ",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "मिट्टी",
         "roman": "mitti",
         "ipa": "mɪʈːiː",
@@ -26174,14 +25635,6 @@
         "ipa": "ɡriːʋaː",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "गर्दन",
-        "roman": "gardan",
-        "ipa": "ɡərd̪ən",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -26483,16 +25936,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "कभी नहीं",
-        "roman": "kabhi nahin",
-        "ipa": "kəbʱiː nəhiːɲ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "always"
     ]
@@ -26811,14 +26255,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "नाक",
-        "roman": "naak",
-        "ipa": "naːk",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -27019,14 +26455,6 @@
         "ipa": "ɦələf",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "सौगन्ध",
-        "roman": "saugandh",
-        "ipa": "sɔːɡənd̪ʰ",
-        "tags": [
-          "literary"
         ]
       }
     ]
@@ -27230,14 +26658,6 @@
         "ipa": "roːɣən",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "तेल",
-        "roman": "tel",
-        "ipa": "t̪eːl",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -27717,16 +27137,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "बाहर",
-        "roman": "baahar",
-        "ipa": "baːhəɾ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "inside"
     ]
@@ -28132,14 +27543,6 @@
           "formal",
           "classical"
         ]
-      },
-      {
-        "dev": "तोता",
-        "roman": "tota",
-        "ipa": "t̪oːt̪aː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -28466,14 +27869,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "मोर",
-        "roman": "mor",
-        "ipa": "moːr",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -28581,14 +27976,6 @@
         "ipa": "d̪əɳɖ",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "जुर्माना",
-        "roman": "jurmaanaa",
-        "ipa": "dʒʊrmaːnaː",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -28728,14 +28115,6 @@
         "ipa": "əʋaːm",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "लोग",
-        "roman": "log",
-        "ipa": "loːɡ",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -29231,16 +28610,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "थाली",
-        "roman": "thaali",
-        "ipa": "t̪ʰaːliː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "plateau",
@@ -29563,14 +28933,6 @@
     "description": "A small body of still water.",
     "sanskrit_derived": [
       {
-        "dev": "तालाब",
-        "roman": "taalaab",
-        "ipa": "t̪aːlaːb",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "सरोवर",
         "roman": "sarovar",
         "ipa": "sərouʋər",
@@ -29736,14 +29098,6 @@
         "ipa": "kʊllaːl",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "कुम्हार",
-        "roman": "kumhaar",
-        "ipa": "kʊmɦaːɾ",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -30099,14 +29453,6 @@
         "dev": "क़ीमत",
         "roman": "qeemat",
         "ipa": "qiːmət̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "दाम",
-        "roman": "daam",
-        "ipa": "d̪aːm",
         "tags": [
           "colloquial"
         ]
@@ -32250,14 +31596,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "चावल",
-        "roman": "chaaval",
-        "ipa": "tʃaːʋəl",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -32617,14 +31955,6 @@
     "description": "A wide way leading from one place to another.",
     "sanskrit_derived": [
       {
-        "dev": "सड़क",
-        "roman": "sadak",
-        "ipa": "səɽək",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "पथ",
         "roman": "path",
         "ipa": "pət̪ʰ",
@@ -32750,14 +32080,6 @@
         "dev": "बुनियाद",
         "roman": "buniyaad",
         "ipa": "bʊnɪjaːd̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "जड़",
-        "roman": "jad",
-        "ipa": "dʒəɽ",
         "tags": [
           "colloquial"
         ]
@@ -33156,14 +32478,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "मल्लाह",
-        "roman": "mallaah",
-        "ipa": "məlːaːɦ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -33328,24 +32642,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "रेत",
-        "roman": "ret",
-        "ipa": "reːt̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
-        "dev": "बालू",
-        "roman": "baaloo",
-        "ipa": "baːluː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "sandalwood",
@@ -34904,14 +34201,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "कंधा",
-        "roman": "kandha",
-        "ipa": "kənd̪ʱaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -35244,14 +34533,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "चाँदी",
-        "roman": "chaandi",
-        "ipa": "t͡ʃaːnd̪iː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -35365,14 +34646,6 @@
         "ipa": "ɦəmʃiːraː",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "बहन",
-        "roman": "bahan",
-        "ipa": "bəhən",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -35820,14 +35093,6 @@
         ]
       },
       {
-        "dev": "महक",
-        "roman": "mahak",
-        "ipa": "məɦək",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "बदबू",
         "roman": "badboo",
         "ipa": "bəd̪buː",
@@ -35902,14 +35167,6 @@
         "ipa": "d̪uːd̪",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "धुआँ",
-        "roman": "dhuaan",
-        "ipa": "d̪ʱʊaːn",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -36291,14 +35548,6 @@
         "ipa": "fərzənd̪",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "बेटा",
-        "roman": "beta",
-        "ipa": "beːʈaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -37319,14 +36568,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "पेट",
-        "roman": "pet",
-        "ipa": "peːʈ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -37367,14 +36608,6 @@
         "ipa": "səŋɡ",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "पत्थर",
-        "roman": "patthar",
-        "ipa": "pət̪ːʰər",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -37563,14 +36796,6 @@
         "ipa": "əpərɪtʃɪt̪",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "अजनबी",
-        "roman": "ajnabi",
-        "ipa": "ədʒnəbiː",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -37820,14 +37045,6 @@
         "tags": [
           "colloquial"
         ]
-      },
-      {
-        "dev": "चीनी",
-        "roman": "cheeni",
-        "ipa": "tʃiːniː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -37853,16 +37070,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "गर्मी",
-        "roman": "garmi",
-        "ipa": "ɡərmiː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "winter"
     ]
@@ -38142,16 +37350,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "दलदल",
-        "roman": "daldal",
-        "ipa": "d̪əld̪əl",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "swan",
@@ -38233,16 +37432,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "पसीना",
-        "roman": "paseena",
-        "ipa": "pəsiːnaː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "sweet",
@@ -38356,14 +37546,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "तलवार",
-        "roman": "talvaar",
-        "ipa": "t̪ələʋaːr",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "शमशेर",
         "roman": "shamsher",
@@ -39033,16 +38215,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "आँसू",
-        "roman": "aansoo",
-        "ipa": "aːnsuː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ]
+    "other_historical_sources": []
   },
   {
     "english": "tear (drop)",
@@ -39169,14 +38342,6 @@
     "description": "A formal statement given under oath.",
     "sanskrit_derived": [
       {
-        "dev": "गवाही",
-        "roman": "gavaahi",
-        "ipa": "ɡəʋaːɦiː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "साक्ष्य",
         "roman": "saakshya",
         "ipa": "saːkʂjə",
@@ -39295,16 +38460,7 @@
         ]
       }
     ],
-    "other_historical_sources": [
-      {
-        "dev": "वहाँ",
-        "roman": "vahaan",
-        "ipa": "ʋəhaːɲ",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "other_historical_sources": [],
     "antonyms": [
       "here"
     ]
@@ -39517,14 +38673,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "प्यास",
-        "roman": "pyaas",
-        "ipa": "pjaːs",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "तिशना",
         "roman": "tishnaa",
@@ -40167,14 +39315,6 @@
         "ipa": "d̪ənd̪aːn",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "दाँत",
-        "roman": "daant",
-        "ipa": "d̪aːnt̪",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -40943,14 +40083,6 @@
     ],
     "other_historical_sources": [
       {
-        "dev": "भरोसा",
-        "roman": "bharosa",
-        "ipa": "bʱərosaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "ऐतबार",
         "roman": "aitbaar",
         "ipa": "ɛːt̪baːr",
@@ -41433,14 +40565,6 @@
         "ipa": "ʋaːd̪iː",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "घाटी",
-        "roman": "ghaati",
-        "ipa": "ɡʱaːʈiː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -42484,14 +41608,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "पानी",
-        "roman": "paani",
-        "ipa": "paːniː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "antonyms": [
@@ -42528,14 +41644,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "झरना",
-        "roman": "jharna",
-        "ipa": "d͡ʒʱəɾnaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -42568,14 +41676,6 @@
         "ipa": "mɔːdʒ",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "लहर",
-        "roman": "lahar",
-        "ipa": "ləhəɾ",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -42754,14 +41854,6 @@
         ]
       },
       {
-        "dev": "जुलाहा",
-        "roman": "julaaha",
-        "ipa": "dʒʊlaːɦaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "बुनकर",
         "roman": "bunkar",
         "ipa": "bʊnkəɾ",
@@ -42771,14 +41863,6 @@
       }
     ],
     "other_historical_sources": [
-      {
-        "dev": "बुनकर",
-        "roman": "bunkar",
-        "ipa": "bʊnkər",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "जुलाहा",
         "roman": "julaaha",
@@ -42913,14 +41997,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "कुआँ",
-        "roman": "kuaan",
-        "ipa": "kʊaːn",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -43044,14 +42120,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "गेहूँ",
-        "roman": "gehoon",
-        "ipa": "ɡeːɦuːn",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -43084,14 +42152,6 @@
         "ipa": "ɡərd̪ɪʃ",
         "tags": [
           "literary"
-        ]
-      },
-      {
-        "dev": "पहिया",
-        "roman": "pahiya",
-        "ipa": "pəɦɪjaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ]
@@ -43588,14 +42648,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "खिड़की",
-        "roman": "khidki",
-        "ipa": "kʰɪɽkiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ]
   },
@@ -43722,14 +42774,6 @@
         "ipa": "ʃiːt̪",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "सर्दी",
-        "roman": "sardi",
-        "ipa": "sərd̪iː",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -43924,14 +42968,6 @@
         "tags": [
           "formal",
           "legal"
-        ]
-      },
-      {
-        "dev": "गवाह",
-        "roman": "gavaah",
-        "ipa": "ɡəʋaːɦ",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
