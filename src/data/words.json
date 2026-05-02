@@ -4826,7 +4826,26 @@
     "english": "canal",
     "category": "Geography",
     "description": "An artificial waterway for irrigation or navigation.",
-    "sanskrit_derived": [],
+    "sanskrit_derived": [
+      {
+        "dev": "कुल्या",
+        "roman": "kulyaa",
+        "ipa": "kʊljaː",
+        "tags": [
+          "classical",
+          "formal"
+        ]
+      },
+      {
+        "dev": "प्रणाली",
+        "roman": "pranaali",
+        "ipa": "prəɳaːliː",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
     "other_historical_sources": [
       {
         "dev": "नहर",
