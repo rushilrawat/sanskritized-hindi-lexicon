@@ -47,19 +47,19 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         <p className="text-sm text-muted-foreground mt-2 capitalize">
           {word.english}
         </p>
-        {word.description && (
+        {!hindiMode && word.description && (
           <p className="text-xs sm:text-sm text-muted-foreground italic mt-1 px-2">
             {word.description}
           </p>
         )}
         {hindiMode && hiDesc && (
-          <p className="text-sm text-muted-foreground mt-1 font-devanagari">{hiDesc}</p>
+          <p className="text-sm text-muted-foreground mt-1 font-devanagari px-2">{hiDesc}</p>
         )}
-        <div className="flex gap-1 justify-center mt-2">
-          {word.tags.slice(0, 2).map((tag) => (
-            <span key={tag} className="tag-badge">{t(`tag.${tag}` as never, tag)}</span>
-          ))}
-        </div>
+        {word.tags.length > 0 && (
+          <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-2 tracking-wide">
+            {word.tags.slice(0, 2).map((tag) => t(`tag.${tag}` as never, tag)).join(" · ")}
+          </p>
+        )}
       </div>
 
       {/* Synonyms (Paryayvachi) */}
