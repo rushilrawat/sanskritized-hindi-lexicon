@@ -4564,7 +4564,26 @@
     "english": "burial",
     "category": "Society",
     "description": "The act of placing a dead body in the ground.",
-    "sanskrit_derived": [],
+    "sanskrit_derived": [
+      {
+        "dev": "समाधि",
+        "roman": "samaadhi",
+        "ipa": "səmaːd̪ʱi",
+        "tags": [
+          "classical",
+          "religious"
+        ]
+      },
+      {
+        "dev": "अन्त्येष्टि",
+        "roman": "antyeshti",
+        "ipa": "ən̪t̪jeːʂʈi",
+        "tags": [
+          "religious",
+          "formal"
+        ]
+      }
+    ],
     "other_historical_sources": [
       {
         "dev": "तदफ़ीन",
@@ -8805,7 +8824,17 @@
     "english": "cup-bearer",
     "category": "Society",
     "description": "One who serves wine; the divine dispenser in Sufi-inspired Bollywood ghazals.",
-    "sanskrit_derived": [],
+    "sanskrit_derived": [
+      {
+        "dev": "पानपात्रवाहक",
+        "roman": "paanpaatravaahak",
+        "ipa": "paːnpaːt̪rəʋaːɦək",
+        "tags": [
+          "classical",
+          "literary"
+        ]
+      }
+    ],
     "other_historical_sources": [
       {
         "dev": "साक़ी",
@@ -32765,7 +32794,25 @@
     "english": "rose",
     "category": "Nature",
     "description": "A prickly bush bearing fragrant flowers.",
-    "sanskrit_derived": [],
+    "sanskrit_derived": [
+      {
+        "dev": "पाटल",
+        "roman": "paatal",
+        "ipa": "paːʈəl",
+        "tags": [
+          "classical",
+          "literary"
+        ]
+      },
+      {
+        "dev": "जपा",
+        "roman": "japaa",
+        "ipa": "d͡ʒəpaː",
+        "tags": [
+          "classical"
+        ]
+      }
+    ],
     "other_historical_sources": [
       {
         "dev": "गुल",
@@ -38406,7 +38453,17 @@
     "english": "table",
     "category": "Society",
     "description": "A flat-topped piece of furniture with legs.",
-    "sanskrit_derived": [],
+    "sanskrit_derived": [
+      {
+        "dev": "फलक",
+        "roman": "phalak",
+        "ipa": "pʰələk",
+        "tags": [
+          "formal",
+          "classical"
+        ]
+      }
+    ],
     "other_historical_sources": [
       {
         "dev": "मेज़",
