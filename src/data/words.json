@@ -1040,14 +1040,6 @@
     "description": "The joint connecting the foot to the leg.",
     "sanskrit_derived": [
       {
-        "dev": "टख़ना",
-        "roman": "takhnaa",
-        "ipa": "ʈəkʰnaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "गुल्फ",
         "roman": "gulph",
         "ipa": "ɡʊlpʰ",
@@ -1056,7 +1048,16 @@
         ]
       }
     ],
-    "other_historical_sources": []
+    "other_historical_sources": [
+      {
+        "dev": "टख़ना",
+        "roman": "takhnaa",
+        "ipa": "ʈəkʰnaː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
   },
   {
     "english": "anklet",
@@ -2379,28 +2380,11 @@
     "description": "The temporary release of an accused person awaiting trial.",
     "sanskrit_derived": [
       {
-        "dev": "जमानत",
-        "roman": "jamaanat",
-        "ipa": "dʒəmaːnət̪",
-        "tags": [
-          "formal"
-        ]
-      },
-      {
         "dev": "प्रतिभूति",
         "roman": "pratibhooti",
         "ipa": "pɾət̪ɪbʱuːt̪ɪ",
         "tags": [
           "formal",
-          "legal"
-        ]
-      },
-      {
-        "dev": "ज़मानत",
-        "roman": "zamaanat",
-        "ipa": "zəmaːnət̪",
-        "tags": [
-          "colloquial",
           "legal"
         ]
       }
@@ -2412,6 +2396,14 @@
         "ipa": "zəmaːnət̪",
         "tags": [
           "colloquial"
+        ]
+      },
+      {
+        "dev": "जमानत",
+        "roman": "jamaanat",
+        "ipa": "dʒəmaːnət̪",
+        "tags": [
+          "formal"
         ]
       }
     ],
@@ -4034,14 +4026,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "दिमाग़",
-        "roman": "dimaagh",
-        "ipa": "d̪ɪmaːɣ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -4580,16 +4564,7 @@
     "english": "burial",
     "category": "Society",
     "description": "The act of placing a dead body in the ground.",
-    "sanskrit_derived": [
-      {
-        "dev": "दफ़नाना",
-        "roman": "dafnaanaa",
-        "ipa": "d̪əfnaːnaː",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "sanskrit_derived": [],
     "other_historical_sources": [
       {
         "dev": "तदफ़ीन",
@@ -4597,6 +4572,14 @@
         "ipa": "t̪əd̪fiːn",
         "tags": [
           "religious"
+        ]
+      },
+      {
+        "dev": "दफ़नाना",
+        "roman": "dafnaanaa",
+        "ipa": "d̪əfnaːnaː",
+        "tags": [
+          "colloquial"
         ]
       }
     ],
@@ -5264,14 +5247,6 @@
         ]
       },
       {
-        "dev": "गुफ़ा",
-        "roman": "gufa",
-        "ipa": "ɡʊfaː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "गुहा",
         "roman": "guhaa",
         "ipa": "ɡʊɦaː",
@@ -5288,6 +5263,14 @@
         "ipa": "ɣaːr",
         "tags": [
           "literary"
+        ]
+      },
+      {
+        "dev": "गुफ़ा",
+        "roman": "gufa",
+        "ipa": "ɡʊfaː",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -7015,7 +6998,9 @@
         "tags": [
           "formal"
         ]
-      },
+      }
+    ],
+    "other_historical_sources": [
       {
         "dev": "आराम",
         "roman": "aaraam",
@@ -7025,7 +7010,6 @@
         ]
       }
     ],
-    "other_historical_sources": [],
     "antonyms": [
       "pain"
     ]
@@ -7388,14 +7372,6 @@
         "ipa": "sʋiːkaːroːkt̪ɪ",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "इक़बाल",
-        "roman": "iqbaal",
-        "ipa": "ɪqbaːl",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -9638,14 +9614,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "क़र्ज़",
-        "roman": "qarz",
-        "ipa": "qərz",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -11121,14 +11089,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "नाराज़गी",
-        "roman": "naaraazgi",
-        "ipa": "naːraːzɡiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -11136,6 +11096,14 @@
         "dev": "नाख़ुशी",
         "roman": "naakhushi",
         "ipa": "naːkʰʊʃiː",
+        "tags": [
+          "colloquial"
+        ]
+      },
+      {
+        "dev": "नाराज़गी",
+        "roman": "naaraazgi",
+        "ipa": "naːraːzɡiː",
         "tags": [
           "colloquial"
         ]
@@ -11397,14 +11365,6 @@
         "ipa": "d̪ʋaːr",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "दरवाज़ा",
-        "roman": "darvaaza",
-        "ipa": "d̪ərʋaːzaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -11946,14 +11906,6 @@
     "description": "A person who colours textiles.",
     "sanskrit_derived": [
       {
-        "dev": "रंगरेज़",
-        "roman": "rangrez",
-        "ipa": "rəŋɡreːz",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "रंजक",
         "roman": "ranjak",
         "ipa": "rəndʒək",
@@ -11977,6 +11929,14 @@
         "ipa": "səbbaːɣ",
         "tags": [
           "formal"
+        ]
+      },
+      {
+        "dev": "रंगरेज़",
+        "roman": "rangrez",
+        "ipa": "rəŋɡreːz",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -12854,7 +12814,9 @@
         "tags": [
           "formal"
         ]
-      },
+      }
+    ],
+    "other_historical_sources": [
       {
         "dev": "नक़्क़ाश",
         "roman": "naqqaash",
@@ -12863,8 +12825,7 @@
           "colloquial"
         ]
       }
-    ],
-    "other_historical_sources": []
+    ]
   },
   {
     "english": "enough",
@@ -12903,14 +12864,6 @@
         "ipa": "ʊt̪saːɦ",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "जोश",
-        "roman": "josh",
-        "ipa": "dʒoːʃ",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -13787,7 +13740,7 @@
     "sanskrit_derived": [
       {
         "dev": "असफलता",
-        "roman": "asafaltaa",
+        "roman": "asaphaltaa",
         "ipa": "əsəfəlt̪aː",
         "tags": [
           "formal"
@@ -13795,7 +13748,7 @@
       },
       {
         "dev": "विफलता",
-        "roman": "vifaltaa",
+        "roman": "viphaltaa",
         "ipa": "ʋɪfəlt̪aː",
         "tags": [
           "formal"
@@ -14664,14 +14617,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "बुख़ार",
-        "roman": "bukhaar",
-        "ipa": "bʊkʰaːr",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -14689,6 +14634,14 @@
         "ipa": "t̪aːp",
         "tags": [
           "formal"
+        ]
+      },
+      {
+        "dev": "बुख़ार",
+        "roman": "bukhaar",
+        "ipa": "bʊkʰaːr",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -17219,14 +17172,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "सरकार",
-        "roman": "sarkaar",
-        "ipa": "sərkaːr",
-        "tags": [
-          "formal"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -17236,6 +17181,14 @@
         "ipa": "ɦʊkuːmət̪",
         "tags": [
           "colloquial"
+        ]
+      },
+      {
+        "dev": "सरकार",
+        "roman": "sarkaar",
+        "ipa": "sərkaːr",
+        "tags": [
+          "formal"
         ]
       }
     ]
@@ -17540,14 +17493,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "लालच",
-        "roman": "laalach",
-        "ipa": "laːlətʃ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -17557,6 +17502,14 @@
         "ipa": "ɦɪrs",
         "tags": [
           "formal"
+        ]
+      },
+      {
+        "dev": "लालच",
+        "roman": "laalach",
+        "ipa": "laːlətʃ",
+        "tags": [
+          "colloquial"
         ]
       }
     ],
@@ -18237,14 +18190,6 @@
     "category": "Society",
     "description": "The process of gathering crops.",
     "sanskrit_derived": [
-      {
-        "dev": "फ़सल",
-        "roman": "fasal",
-        "ipa": "fəsəl",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "कटाई",
         "roman": "kataai",
@@ -19942,14 +19887,6 @@
         "ipa": "ɦɪm",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "बर्फ़",
-        "roman": "barf",
-        "ipa": "bərf",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -23853,7 +23790,9 @@
         "tags": [
           "formal"
         ]
-      },
+      }
+    ],
+    "other_historical_sources": [
       {
         "dev": "वफ़ादारी",
         "roman": "vafaadaari",
@@ -23863,7 +23802,6 @@
         ]
       }
     ],
-    "other_historical_sources": [],
     "antonyms": [
       "betrayal"
     ]
@@ -24483,14 +24421,6 @@
           "formal",
           "technical"
         ]
-      },
-      {
-        "dev": "दवा",
-        "roman": "davaa",
-        "ipa": "d̪əʋaː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -24632,14 +24562,6 @@
         "ipa": "smr̩t̪ɪ",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "याद",
-        "roman": "yaad",
-        "ipa": "jaːd̪",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -27879,14 +27801,6 @@
         ]
       },
       {
-        "dev": "दर्द",
-        "roman": "dard",
-        "ipa": "d̪ərd̪",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "वेदना",
         "roman": "vedna",
         "ipa": "ʋeːd̪naː",
@@ -28095,14 +28009,6 @@
         "ipa": "kʂəmaː",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "माफ़ी",
-        "roman": "maafi",
-        "ipa": "maːfiː",
-        "tags": [
-          "colloquial"
         ]
       },
       {
@@ -29547,14 +29453,6 @@
         "tags": [
           "literary"
         ]
-      },
-      {
-        "dev": "ज़हर",
-        "roman": "zahar",
-        "ipa": "zəɦər",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -30664,7 +30562,9 @@
         "tags": [
           "formal"
         ]
-      },
+      }
+    ],
+    "other_historical_sources": [
       {
         "dev": "मुक़दमा",
         "roman": "muqadma",
@@ -30674,7 +30574,6 @@
         ]
       }
     ],
-    "other_historical_sources": [],
     "antonyms": [
       "defense"
     ]
@@ -32075,14 +31974,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "बदला",
-        "roman": "badla",
-        "ipa": "bəd̪laː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -32874,16 +32765,7 @@
     "english": "rose",
     "category": "Nature",
     "description": "A prickly bush bearing fragrant flowers.",
-    "sanskrit_derived": [
-      {
-        "dev": "गुलाब",
-        "roman": "gulaab",
-        "ipa": "ɡʊlaːb",
-        "tags": [
-          "colloquial"
-        ]
-      }
-    ],
+    "sanskrit_derived": [],
     "other_historical_sources": [
       {
         "dev": "गुल",
@@ -32891,6 +32773,14 @@
         "ipa": "ɡʊl",
         "tags": [
           "literary"
+        ]
+      },
+      {
+        "dev": "गुलाब",
+        "roman": "gulaab",
+        "ipa": "ɡʊlaːb",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -33285,14 +33175,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "नमक",
-        "roman": "namak",
-        "ipa": "nəmək",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -33580,14 +33462,6 @@
     "description": "An instrument for weighing.",
     "sanskrit_derived": [
       {
-        "dev": "तराज़ू",
-        "roman": "taraazoo",
-        "ipa": "t̪əɾaːzuː",
-        "tags": [
-          "formal"
-        ]
-      },
-      {
         "dev": "तुला",
         "roman": "tula",
         "ipa": "t̪ʊlaː",
@@ -33596,7 +33470,16 @@
         ]
       }
     ],
-    "other_historical_sources": []
+    "other_historical_sources": [
+      {
+        "dev": "तराज़ू",
+        "roman": "taraazoo",
+        "ipa": "t̪əɾaːzuː",
+        "tags": [
+          "formal"
+        ]
+      }
+    ]
   },
   {
     "english": "scar",
@@ -35122,14 +35005,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "नज़र",
-        "roman": "nazar",
-        "ipa": "nəzər",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -35139,6 +35014,14 @@
         "ipa": "biːnaːiː",
         "tags": [
           "formal"
+        ]
+      },
+      {
+        "dev": "नज़र",
+        "roman": "nazar",
+        "ipa": "nəzər",
+        "tags": [
+          "colloquial"
         ]
       }
     ],
@@ -36080,14 +35963,6 @@
         ]
       },
       {
-        "dev": "बर्फ़बारी",
-        "roman": "barfbaari",
-        "ipa": "bərfbaːriː",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "हिम",
         "roman": "him",
         "ipa": "ɦɪm",
@@ -36112,6 +35987,14 @@
         "tags": [
           "colloquial"
         ]
+      },
+      {
+        "dev": "बर्फ़बारी",
+        "roman": "barfbaari",
+        "ipa": "bərfbaːriː",
+        "tags": [
+          "colloquial"
+        ]
       }
     ]
   },
@@ -36120,14 +36003,6 @@
     "category": "Society",
     "description": "A substance used with water for washing.",
     "sanskrit_derived": [
-      {
-        "dev": "साबुन",
-        "roman": "saabun",
-        "ipa": "saːbʊn",
-        "tags": [
-          "colloquial"
-        ]
-      },
       {
         "dev": "फेनक",
         "roman": "phenak",
@@ -37463,14 +37338,6 @@
     "description": "A violent disturbance of the atmosphere with wind, rain, or snow.",
     "sanskrit_derived": [
       {
-        "dev": "तूफ़ान",
-        "roman": "toofaan",
-        "ipa": "t̪uːfaːn",
-        "tags": [
-          "colloquial"
-        ]
-      },
-      {
         "dev": "झंझावात",
         "roman": "jhanjhaavaat",
         "ipa": "dʒʱəndʒʱaːʋaːt̪",
@@ -37493,6 +37360,14 @@
         "dev": "आँधी",
         "roman": "aandhi",
         "ipa": "aːnd̪ʱiː",
+        "tags": [
+          "colloquial"
+        ]
+      },
+      {
+        "dev": "तूफ़ान",
+        "roman": "toofaan",
+        "ipa": "t̪uːfaːn",
         "tags": [
           "colloquial"
         ]
@@ -37838,7 +37713,7 @@
     "sanskrit_derived": [
       {
         "dev": "सफलता",
-        "roman": "safaltaa",
+        "roman": "saphaltaa",
         "ipa": "səfəlt̪aː",
         "tags": [
           "formal"
@@ -38531,7 +38406,8 @@
     "english": "table",
     "category": "Society",
     "description": "A flat-topped piece of furniture with legs.",
-    "sanskrit_derived": [
+    "sanskrit_derived": [],
+    "other_historical_sources": [
       {
         "dev": "मेज़",
         "roman": "mez",
@@ -38540,8 +38416,7 @@
           "colloquial"
         ]
       }
-    ],
-    "other_historical_sources": []
+    ]
   },
   {
     "english": "tail",
@@ -38588,14 +38463,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "दर्ज़ी",
-        "roman": "darzi",
-        "ipa": "d̪ərziː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -38605,6 +38472,14 @@
         "ipa": "kʰəjjaːʈ",
         "tags": [
           "formal"
+        ]
+      },
+      {
+        "dev": "दर्ज़ी",
+        "roman": "darzi",
+        "ipa": "d̪ərziː",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -39811,14 +39686,6 @@
           "formal",
           "classical"
         ]
-      },
-      {
-        "dev": "दहलीज़",
-        "roman": "dahleez",
-        "ipa": "d̪əɦliːz",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -39828,6 +39695,14 @@
         "ipa": "aːst̪aːnaː",
         "tags": [
           "literary"
+        ]
+      },
+      {
+        "dev": "दहलीज़",
+        "roman": "dahleez",
+        "ipa": "d̪əɦliːz",
+        "tags": [
+          "colloquial"
         ]
       }
     ]
@@ -40646,14 +40521,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "खज़ांची",
-        "roman": "khazaanchi",
-        "ipa": "kʰəzaːɲtʃiː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -40661,6 +40528,14 @@
         "dev": "ख़ज़ांची",
         "roman": "khazaanchi",
         "ipa": "kʰəzaːntʃiː",
+        "tags": [
+          "colloquial"
+        ]
+      },
+      {
+        "dev": "खज़ांची",
+        "roman": "khazaanchi",
+        "ipa": "kʰəzaːɲtʃiː",
         "tags": [
           "colloquial"
         ]
@@ -41656,14 +41531,6 @@
         "ipa": "nɪrɳəj",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "फ़ैसला",
-        "roman": "faislaa",
-        "ipa": "fɛːslaː",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -42676,14 +42543,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "कमज़ोरी",
-        "roman": "kamzori",
-        "ipa": "kəmzoːriː",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -42952,14 +42811,6 @@
         "ipa": "bʱaːr",
         "tags": [
           "formal"
-        ]
-      },
-      {
-        "dev": "वज़न",
-        "roman": "vazan",
-        "ipa": "ʋəzən",
-        "tags": [
-          "colloquial"
         ]
       }
     ],
@@ -43302,7 +43153,7 @@
     "sanskrit_derived": [
       {
         "dev": "फुसफुसाहट",
-        "roman": "phusfusaahat",
+        "roman": "phusphusaahat",
         "ipa": "pʰʊspʰʊsaːɦəʈ",
         "tags": [
           "colloquial"
@@ -44989,14 +44840,6 @@
         "tags": [
           "formal"
         ]
-      },
-      {
-        "dev": "जोश",
-        "roman": "josh",
-        "ipa": "dʒoːʃ",
-        "tags": [
-          "colloquial"
-        ]
       }
     ],
     "other_historical_sources": [
@@ -45004,6 +44847,14 @@
         "dev": "ज़ज़्बा",
         "roman": "jazba",
         "ipa": "dʒəzbaː",
+        "tags": [
+          "colloquial"
+        ]
+      },
+      {
+        "dev": "जोश",
+        "roman": "josh",
+        "ipa": "dʒoːʃ",
         "tags": [
           "colloquial"
         ]
