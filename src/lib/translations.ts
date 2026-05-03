@@ -30,6 +30,7 @@ const translations = {
   // Word Card
   "wordCard.sanskritDerived": "संस्कृतोद्भव",
   "wordCard.otherSources": "अन्य ऐतिहासिक स्रोत",
+  "wordCard.normalized": "मानकीकृत",
 
   // Categories
   "categories.title": "श्रेणी के अनुसार खोजें",
