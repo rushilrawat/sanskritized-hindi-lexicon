@@ -2,7 +2,7 @@ import { useState, useMemo, forwardRef, useCallback, useEffect } from "react";
 import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
-import { buildReplacementMap, replaceSentenceWithHighlights } from "@/lib/replaceLogic";
+import { buildReplacementMap, replaceSentenceWithHighlights, normalizeFullStops } from "@/lib/replaceLogic";
 import type { ReplacementDetail } from "@/lib/replaceLogic";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
@@ -34,7 +34,8 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
 
   const { text: output, segments, replacements } = useMemo(() => {
     if (!debouncedInput.trim()) return { text: "", segments: [], replacements: [] };
-    return replaceSentenceWithHighlights(debouncedInput, map);
+    const punctNormalized = normalizeFullStops(debouncedInput);
+    return replaceSentenceWithHighlights(punctNormalized, map);
   }, [debouncedInput, map]);
 
   const hasChanges = debouncedInput.trim() !== "" && output !== debouncedInput;
