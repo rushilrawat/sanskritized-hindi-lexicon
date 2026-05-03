@@ -6547,6 +6547,23 @@
     "other_historical_sources": []
   },
   {
+    "english": "colon",
+    "category": "Abstract Concepts",
+    "description": "A punctuation mark introducing a list or explanation.",
+    "sanskrit_derived": [
+      {
+        "dev": "उपविराम",
+        "roman": "upaviraam",
+        "ipa": "ʊpəʋɪraːm",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "color",
     "category": "Abstract Concepts",
     "description": "The property of objects perceived as hues.",
@@ -6872,6 +6889,23 @@
     "antonyms": [
       "going"
     ]
+  },
+  {
+    "english": "comma",
+    "category": "Abstract Concepts",
+    "description": "A short pause mark used within a sentence.",
+    "sanskrit_derived": [
+      {
+        "dev": "अल्पविराम",
+        "roman": "alpaviraam",
+        "ipa": "əlpəʋɪraːm",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "commander",
@@ -13124,6 +13158,23 @@
     ]
   },
   {
+    "english": "exclamation mark",
+    "category": "Abstract Concepts",
+    "description": "A mark indicating an exclamation or strong emotion.",
+    "sanskrit_derived": [
+      {
+        "dev": "विस्मयादिबोधक चिह्न",
+        "roman": "vismayaadibodhak chinh",
+        "ipa": "ʋɪsməjaːd̪ɪboːd̪ʱək t͡ʃɪɦn̪",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "exile",
     "category": "Governance",
     "description": "The state of being barred from one's native country.",
@@ -15975,6 +16026,31 @@
     "antonyms": [
       "empty"
     ]
+  },
+  {
+    "english": "full stop",
+    "category": "Abstract Concepts",
+    "description": "The mark used to end a sentence in Devanagari script.",
+    "sanskrit_derived": [
+      {
+        "dev": "पूर्णविराम",
+        "roman": "poornaviraam",
+        "ipa": "puːrɳəʋɪraːm",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      },
+      {
+        "dev": "दण्ड",
+        "roman": "dand",
+        "ipa": "d̪əɳɖ",
+        "tags": [
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "funeral",
@@ -19446,6 +19522,23 @@
     "antonyms": [
       "wife"
     ]
+  },
+  {
+    "english": "hyphen",
+    "category": "Abstract Concepts",
+    "description": "A short mark joining words or syllables.",
+    "sanskrit_derived": [
+      {
+        "dev": "योजक चिह्न",
+        "roman": "yojak chinh",
+        "ipa": "joːd͡ʒək t͡ʃɪɦn̪",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "ice",
@@ -27477,6 +27570,23 @@
     ]
   },
   {
+    "english": "parenthesis",
+    "category": "Abstract Concepts",
+    "description": "A mark enclosing additional information within a sentence.",
+    "sanskrit_derived": [
+      {
+        "dev": "कोष्ठक",
+        "roman": "koshthak",
+        "ipa": "koːʂʈʰək",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "parliament",
     "category": "Governance",
     "description": "The legislative body of a country.",
@@ -30122,6 +30232,23 @@
     ]
   },
   {
+    "english": "punctuation",
+    "category": "Abstract Concepts",
+    "description": "Marks used to clarify meaning in written text.",
+    "sanskrit_derived": [
+      {
+        "dev": "विराम चिह्न",
+        "roman": "viraam chinh",
+        "ipa": "ʋɪraːm t͡ʃɪɦn̪",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "punishment",
     "category": "Law",
     "description": "A penalty imposed for breaking a law or rule.",
@@ -30284,6 +30411,23 @@
     ]
   },
   {
+    "english": "question mark",
+    "category": "Abstract Concepts",
+    "description": "A mark indicating an interrogative sentence.",
+    "sanskrit_derived": [
+      {
+        "dev": "प्रश्नवाचक चिह्न",
+        "roman": "prashnavaachak chinh",
+        "ipa": "prəʃn̪əʋaːt͡ʃək t͡ʃɪɦn̪",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
     "english": "quorum",
     "category": "Law",
     "description": "The minimum number of members needed for valid proceedings.",
@@ -30308,6 +30452,23 @@
         ]
       }
     ]
+  },
+  {
+    "english": "quotation mark",
+    "category": "Abstract Concepts",
+    "description": "A mark used to enclose direct speech or quoted text.",
+    "sanskrit_derived": [
+      {
+        "dev": "उद्धरण चिह्न",
+        "roman": "uddharan chinh",
+        "ipa": "ʊd̪d̪ʱərəɳ t͡ʃɪɦn̪",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "rabbit",
@@ -33473,6 +33634,23 @@
     "antonyms": [
       "buying"
     ]
+  },
+  {
+    "english": "semicolon",
+    "category": "Abstract Concepts",
+    "description": "A pause longer than a comma but shorter than a full stop.",
+    "sanskrit_derived": [
+      {
+        "dev": "अर्धविराम",
+        "roman": "ardhaviraam",
+        "ipa": "ərd̪ʱəʋɪraːm",
+        "tags": [
+          "formal",
+          "technical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   },
   {
     "english": "send",

@@ -64,6 +64,27 @@ function isWordBoundary(char: string | undefined): boolean {
   return /[\s.,;:!?'"()\[\]{}\-\/\\|@#$%^&*+=<>~`]/.test(char);
 }
 
+/**
+ * Replace single ASCII full stops adjacent to Devanagari with the Hindi
+ * danda (।). Preserves ellipses ("..", "...", etc.) and stops next to
+ * non-Devanagari text. Operates on the raw input string.
+ */
+export function normalizeFullStops(text: string): string {
+  // Match a single "." that is NOT preceded or followed by another "."
+  // and where at least one neighbour (ignoring whitespace) is Devanagari.
+  return text.replace(/(?<!\.)\.(?!\.)/g, (_match, offset: number) => {
+    const before = text.slice(0, offset);
+    const after = text.slice(offset + 1);
+    const prevChar = before.replace(/\s+$/, "").slice(-1);
+    const nextChar = after.replace(/^\s+/, "").slice(0, 1);
+    const devRe = /[\u0900-\u097F]/;
+    if (devRe.test(prevChar) || devRe.test(nextChar)) {
+      return "।";
+    }
+    return ".";
+  });
+}
+
 export function replaceSentence(text: string, map: ReplacementMap[]): string {
   const words = text.split(/(\s+)/);
   return words.map(word => {
