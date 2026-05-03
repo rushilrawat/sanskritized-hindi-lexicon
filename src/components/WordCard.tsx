@@ -1,8 +1,9 @@
 import { memo } from "react";
-import type { Concept } from "@/types/word";
+import type { Concept, WordEntry } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
+import { normalizeRoman, normalizeIpa, hasNormalization } from "@/lib/normalize";
 
 interface WordCardProps {
   concept: Concept;
