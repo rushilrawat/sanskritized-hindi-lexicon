@@ -174,6 +174,23 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
       </div>
 
+      {/* Manuscript-inspired progress bar */}
+      <div
+        className="max-w-md mx-auto mb-3 sm:mb-4"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={words.length}
+        aria-valuenow={index + 1}
+        aria-label={t("learn.progress" as never, "Progress")}
+      >
+        <div className="h-2 rounded-full border border-saffron-dark/30 bg-saffron-light overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-[hsl(var(--saffron))] to-[hsl(var(--saffron-dark))] transition-[width] duration-500 ease-out"
+            style={{ width: `${((index + 1) / words.length) * 100}%` }}
+          />
+        </div>
+      </div>
+
       <LearnCard
         word={words[index]}
         onNext={handleNext}

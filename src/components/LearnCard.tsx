@@ -105,19 +105,19 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         </button>
       )}
 
-      <div className="flex items-center justify-between pt-4 border-t border-border">
+      <div className="grid grid-cols-3 items-center pt-4 border-t border-border">
         <button
           onClick={onPrev}
-          className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="justify-self-start px-2 sm:px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           {t("learn.previous", "← Previous")}
         </button>
-        <span className="text-xs text-muted-foreground">
+        <span className="justify-self-center text-xs text-muted-foreground tabular-nums">
           {current + 1} / {total}
         </span>
         <button
           onClick={onNext}
-          className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="justify-self-end px-2 sm:px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           {t("learn.next", "Next →")}
         </button>

@@ -3,16 +3,14 @@ import type { Concept, WordEntry } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
-import { normalizeRoman, normalizeIpa, hasNormalization } from "@/lib/normalize";
+import { normalizeIpa } from "@/lib/normalize";
 
 interface WordCardProps {
   concept: Concept;
 }
 
 function WordRow({ w, t }: { w: WordEntry; t: (k: string, fb: string) => string }) {
-  const romanNorm = normalizeRoman(w.roman);
   const ipaNorm = normalizeIpa(w.ipa);
-  const showRomanNorm = hasNormalization(w.roman, romanNorm);
   return (
     <>
       <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
@@ -21,11 +19,6 @@ function WordRow({ w, t }: { w: WordEntry; t: (k: string, fb: string) => string 
         <span className="text-ipa text-[11px] sm:text-sm">/{ipaNorm}/</span>
         <InlineAudio text={w.dev} />
       </div>
-      {showRomanNorm && (
-        <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-0.5 italic">
-          {t("wordCard.normalized", "normalized")}: <span className="not-italic">{romanNorm}</span>
-        </p>
-      )}
       <div className="flex gap-1 mt-1 sm:mt-1.5 flex-wrap">
         {w.tags.slice(0, 2).map((tag) => (
           <span key={tag} className="tag-pill">{t(`tag.${tag}`, tag)}</span>
