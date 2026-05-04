@@ -44229,5 +44229,245 @@
         ]
       }
     ]
+  },
+  {
+    "english": "six",
+    "category": "Education",
+    "description": "The number 6.",
+    "sanskrit_derived": [
+      {
+        "dev": "षट्",
+        "roman": "shat",
+        "ipa": "ʃəʈ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "छह",
+        "roman": "chhah",
+        "ipa": "tʃʰəh",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "seven",
+    "category": "Education",
+    "description": "The number 7.",
+    "sanskrit_derived": [
+      {
+        "dev": "सप्त",
+        "roman": "sapt",
+        "ipa": "səpt̪",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "सात",
+        "roman": "saat",
+        "ipa": "saːt̪",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "eight",
+    "category": "Education",
+    "description": "The number 8.",
+    "sanskrit_derived": [
+      {
+        "dev": "अष्ट",
+        "roman": "asht",
+        "ipa": "əʃʈ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "आठ",
+        "roman": "aath",
+        "ipa": "aːʈʰ",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "nine",
+    "category": "Education",
+    "description": "The number 9.",
+    "sanskrit_derived": [
+      {
+        "dev": "नव",
+        "roman": "nav",
+        "ipa": "nəʋ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "नौ",
+        "roman": "nau",
+        "ipa": "nɔː",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "eleven",
+    "category": "Education",
+    "description": "The number 11.",
+    "sanskrit_derived": [
+      {
+        "dev": "एकादश",
+        "roman": "ekaadash",
+        "ipa": "eːkaːd̪əʃ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "ग्यारह",
+        "roman": "gyaarah",
+        "ipa": "ɡjaːrəh",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "twelve",
+    "category": "Education",
+    "description": "The number 12.",
+    "sanskrit_derived": [
+      {
+        "dev": "द्वादश",
+        "roman": "dvaadash",
+        "ipa": "d̪ʋaːd̪əʃ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "बारह",
+        "roman": "baarah",
+        "ipa": "baːrəh",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "twenty",
+    "category": "Education",
+    "description": "The number 20.",
+    "sanskrit_derived": [
+      {
+        "dev": "विंशति",
+        "roman": "vimshati",
+        "ipa": "ʋɪnʃət̪ɪ",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "बीस",
+        "roman": "bees",
+        "ipa": "biːs",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "fifty",
+    "category": "Education",
+    "description": "The number 50.",
+    "sanskrit_derived": [
+      {
+        "dev": "पञ्चाशत्",
+        "roman": "panchaashat",
+        "ipa": "pəɲtʃaːʃət̪",
+        "tags": [
+          "classical"
+        ]
+      },
+      {
+        "dev": "पचास",
+        "roman": "pachaas",
+        "ipa": "pətʃaːs",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "lakh",
+    "category": "Education",
+    "description": "One hundred thousand (100,000).",
+    "sanskrit_derived": [
+      {
+        "dev": "लक्ष",
+        "roman": "laksh",
+        "ipa": "ləkʂ",
+        "tags": [
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "crore",
+    "category": "Education",
+    "description": "Ten million (10,000,000).",
+    "sanskrit_derived": [
+      {
+        "dev": "कोटि",
+        "roman": "koti",
+        "ipa": "koːʈɪ",
+        "tags": [
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
+  },
+  {
+    "english": "million",
+    "category": "Education",
+    "description": "One million (1,000,000).",
+    "sanskrit_derived": [
+      {
+        "dev": "नियुत",
+        "roman": "niyut",
+        "ipa": "nɪjʊt̪",
+        "tags": [
+          "classical"
+        ]
+      }
+    ],
+    "other_historical_sources": []
   }
 ]
