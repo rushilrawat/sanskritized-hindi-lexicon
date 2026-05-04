@@ -44,11 +44,15 @@ const Index = () => {
     let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
 
     if (search.trim()) {
-      const q = normalize(search);
+      const raw = search.trim();
+      const q = normalize(raw);
       list = list.filter((c) => {
         if (normalize(c.english).includes(q)) return true;
         for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          if (w.dev.includes(search.trim()) || normalize(w.ipa).includes(q)) return true;
+          // Match across any input script: Devanagari, romanization, or IPA
+          if (w.dev.includes(raw)) return true;
+          if (normalize(w.roman).includes(q)) return true;
+          if (normalize(w.ipa).includes(q)) return true;
         }
         return false;
       });
