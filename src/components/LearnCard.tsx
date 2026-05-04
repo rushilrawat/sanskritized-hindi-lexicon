@@ -3,6 +3,7 @@ import { Volume2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
+import { getPunctuationSymbol } from "@/lib/punctuationSymbols";
 
 interface LearnCardProps {
   word: FlatWord;
@@ -26,10 +27,18 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
 
   return (
     <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in">
-      <div className="mb-4 sm:mb-6">
+      <div className="mb-4 sm:mb-6 flex items-center justify-center gap-3">
         <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
         </span>
+        {getPunctuationSymbol(word.english) && (
+          <span
+            aria-label="Symbol"
+            className="font-mono text-2xl sm:text-3xl text-primary bg-saffron-light px-2 py-1 rounded"
+          >
+            {getPunctuationSymbol(word.english)}
+          </span>
+        )}
       </div>
 
       <button
