@@ -181,7 +181,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
         aria-valuemin={0}
         aria-valuemax={words.length}
         aria-valuenow={index + 1}
-        aria-label={t("learn.progress", "Progress")}
+        aria-label={t("learn.progress" as never, "Progress")}
       >
         <div className="h-2 rounded-full border border-saffron-dark/30 bg-saffron-light overflow-hidden">
           <div
