@@ -88,9 +88,11 @@ export function normalizeFullStops(text: string): string {
 }
 
 export function replaceSentence(text: string, map: ReplacementMap[]): string {
-  const words = text.split(/(\s+)/);
+  // Split on whitespace AND Devanagari dandas so punctuation-attached words
+  // still match (e.g. "दस्तबरदारी।" → "दस्तबरदारी" + "।").
+  const words = text.split(/(\s+|[।॥])/);
   return words.map(word => {
-    if (/^\s+$/.test(word)) return word;
+    if (/^\s+$/.test(word) || /^[।॥]$/.test(word)) return word;
     for (const { from, to, toRoman, toIpa, fromIsIpa } of map) {
       if (word === from) {
         if (fromIsIpa) return toIpa;
