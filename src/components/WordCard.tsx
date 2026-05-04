@@ -4,6 +4,7 @@ import InlineAudio from "@/components/InlineAudio";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
 import { normalizeIpa } from "@/lib/normalize";
+import { getPunctuationSymbol } from "@/lib/punctuationSymbols";
 
 interface WordCardProps {
   concept: Concept;
@@ -36,12 +37,20 @@ const WordCard = memo(({ concept }: WordCardProps) => {
   return (
     <div className="card-elevated p-3 sm:p-5 animate-fade-in">
       <div className="flex items-start justify-between mb-2 sm:mb-4">
-        <div>
+        <div className="flex items-center gap-2">
           <h3 className="text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
-          <p className={`text-xs sm:text-sm text-muted-foreground mt-0.5 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
+          {getPunctuationSymbol(concept.english) && (
+            <span
+              aria-label="Symbol"
+              className="font-mono text-base sm:text-lg text-primary bg-saffron-light px-1.5 py-0.5 rounded leading-none"
+            >
+              {getPunctuationSymbol(concept.english)}
+            </span>
+          )}
         </div>
         <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{t(`category.${concept.category}` as never, concept.category)}</span>
       </div>
+      <p className={`text-xs sm:text-sm text-muted-foreground -mt-1 mb-2 sm:mb-3 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
         {/* Sanskrit-derived */}
