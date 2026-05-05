@@ -110,6 +110,14 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     localStorage.setItem("learn-index", "0");
   }, [selectedCategory]);
 
+  // Push progress up to the navbar
+  useEffect(() => {
+    if (words.length > 0) {
+      setProgress(((index + 1) / words.length) * 100);
+    }
+    return () => setProgress(null);
+  }, [index, words.length, setProgress]);
+
   const handleViewFullEntry = useCallback(() => {
     if (words[index]) {
       navigate(`/?search=${encodeURIComponent(words[index].english)}`);
