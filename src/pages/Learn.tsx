@@ -9,6 +9,7 @@ import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
+import { useLearnProgress } from "@/hooks/useLearnProgress";
 
 const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
@@ -20,6 +21,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { setProgress } = useLearnProgress();
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -108,6 +110,14 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     localStorage.setItem("learn-index", "0");
   }, [selectedCategory]);
 
+  // Push progress up to the navbar
+  useEffect(() => {
+    if (words.length > 0) {
+      setProgress(((index + 1) / words.length) * 100);
+    }
+    return () => setProgress(null);
+  }, [index, words.length, setProgress]);
+
   const handleViewFullEntry = useCallback(() => {
     if (words[index]) {
       navigate(`/?search=${encodeURIComponent(words[index].english)}`);
@@ -174,22 +184,6 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
       </div>
 
-      {/* Manuscript-inspired progress bar — flush against the navbar */}
-      <div
-        className="sticky top-[44px] md:top-14 z-40 -mx-4 sm:-mx-6 lg:-mx-8 -mt-4 sm:-mt-6 lg:-mt-8 mb-4 sm:mb-6"
-        role="progressbar"
-        aria-valuemin={0}
-        aria-valuemax={words.length}
-        aria-valuenow={index + 1}
-        aria-label={t("learn.progress" as never, "Progress")}
-      >
-        <div className="h-1.5 bg-saffron-light/60 backdrop-blur-sm border-b border-border overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[hsl(var(--saffron))] to-[hsl(var(--saffron-dark))] transition-[width] duration-500 ease-out"
-            style={{ width: `${((index + 1) / words.length) * 100}%` }}
-          />
-        </div>
-      </div>
 
       <LearnCard
         word={words[index]}
