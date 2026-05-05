@@ -326,7 +326,7 @@ const Layout = ({ children }: LayoutProps) => {
             {t("footer.tagline", "Sanskritized Hindi Lexicon · v1.0 · A neutral, open-source linguistic archive")}
           </p>
           <p className="text-[11px] text-muted-foreground/70">
-            {t("footer.lastUpdated", "Last updated")}: {new Date(import.meta.env.VITE_BUILD_DATE || Date.now()).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
+            {t("footer.lastUpdated" as never, "Last updated")}: {new Date(import.meta.env.VITE_BUILD_DATE || Date.now()).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
           </p>
           <a
             href="https://github.com"
