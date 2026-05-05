@@ -9,6 +9,7 @@ import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
+import { useLearnProgress } from "@/hooks/useLearnProgress";
 
 const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
@@ -20,6 +21,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { setProgress } = useLearnProgress();
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
