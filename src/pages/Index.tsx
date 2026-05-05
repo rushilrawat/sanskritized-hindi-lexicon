@@ -46,16 +46,32 @@ const Index = () => {
     if (search.trim()) {
       const raw = search.trim();
       const q = normalize(raw);
-      list = list.filter((c) => {
-        if (normalize(c.english).includes(q)) return true;
+
+      const scoreString = (s: string, isDev = false): number => {
+        const hay = isDev ? s : normalize(s);
+        const needle = isDev ? raw : q;
+        if (!hay || !needle) return 0;
+        if (hay === needle) return 1000;
+        if (hay.startsWith(needle)) return 500 - (hay.length - needle.length);
+        const idx = hay.indexOf(needle);
+        if (idx === -1) return 0;
+        const prev = hay[idx - 1];
+        const boundary = idx === 0 || /\s|[-_/]/.test(prev || "");
+        return (boundary ? 200 : 100) - idx - (hay.length - needle.length) * 0.1;
+      };
+
+      const scored: { c: Concept; score: number }[] = [];
+      for (const c of list) {
+        let best = scoreString(c.english);
         for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          // Match across any input script: Devanagari, romanization, or IPA
-          if (w.dev.includes(raw)) return true;
-          if (normalize(w.roman).includes(q)) return true;
-          if (normalize(w.ipa).includes(q)) return true;
+          best = Math.max(best, scoreString(w.dev, true));
+          best = Math.max(best, scoreString(w.roman));
+          best = Math.max(best, scoreString(w.ipa));
         }
-        return false;
-      });
+        if (best > 0) scored.push({ c, score: best });
+      }
+      scored.sort((a, b) => b.score - a.score || a.c.english.localeCompare(b.c.english));
+      list = scored.map((s) => s.c);
     }
 
     return list;
