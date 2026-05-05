@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { BookOpen, Share2, Check, Moon, Sun, Settings, ArrowUp, Languages } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useLearnProgress } from "@/hooks/useLearnProgress";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
@@ -155,6 +156,7 @@ const ScrollToTop = () => {
 
 const Layout = ({ children }: LayoutProps) => {
   const { t, hindiMode } = useTranslation();
+  const { progress } = useLearnProgress();
 
   const navItems = [
     { to: "/", label: t("nav.home", "Home") },
@@ -294,6 +296,22 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
           </div>
         </div>
+        {/* Learn-mode progress bar — flush with the navbar */}
+        {progress !== null && (
+          <div
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(progress)}
+            aria-label="Learn progress"
+            className="h-[3px] w-full bg-transparent overflow-hidden"
+          >
+            <div
+              className="h-full bg-gradient-to-r from-[hsl(var(--saffron))] to-[hsl(var(--saffron-dark))] transition-[width] duration-500 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
       </header>
 
       <main className="flex-1">
@@ -306,6 +324,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-1">
           <p className={`text-xs text-muted-foreground ${hindiMode ? "font-devanagari" : ""}`}>
             {t("footer.tagline", "Sanskritized Hindi Lexicon · v1.0 · A neutral, open-source linguistic archive")}
+          </p>
+          <p className="text-[11px] text-muted-foreground/70">
+            {t("footer.lastUpdated", "Last updated")}: {new Date(import.meta.env.VITE_BUILD_DATE || Date.now()).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
           </p>
           <a
             href="https://github.com"
