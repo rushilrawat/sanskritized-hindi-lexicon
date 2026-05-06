@@ -145,7 +145,8 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           {t("learn.title", "Learn Words")}
         </h1>
         <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-          {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}
+          {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}{" "}
+          <span className="text-foreground/70 font-medium">({words.length} {t("learn.wordsAvailable", "words")})</span>
         </p>
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
