@@ -44,7 +44,7 @@ const Categories = () => {
           setVisibleCount((c) => Math.min(c + BATCH_SIZE, filtered.length));
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "75%" }
     );
 
     observer.observe(sentinel);

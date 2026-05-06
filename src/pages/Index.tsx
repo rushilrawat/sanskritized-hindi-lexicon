@@ -142,7 +142,7 @@ const Index = () => {
           setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, filtered.length));
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "75%" }
     );
 
     observer.observe(sentinel);
