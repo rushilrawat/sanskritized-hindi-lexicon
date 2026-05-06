@@ -50,58 +50,36 @@ const Index = () => {
 
     if (search.trim()) {
       const raw = search.trim();
-      const q = normalize(raw);
+      const queryScript: Script = detectScript(raw);
+      const q = normalizeQuery(raw);
+      // Also try a "spaces removed" needle so "pre m" matches "premium",
+      // but only when the query actually contains internal spaces — this
+      // prevents confusing two distinct words.
+      const qNoSpace = q.replace(/\s+/g, "");
+      const useConcat = /\s/.test(q) && qNoSpace.length >= 3;
+      const rawNoSpace = raw.replace(/\s+/g, "");
 
-      // Bounded Levenshtein distance (early-exit when exceeding maxDist).
-      const editDistance = (a: string, b: string, maxDist: number): number => {
-        if (Math.abs(a.length - b.length) > maxDist) return maxDist + 1;
-        const m = a.length, n = b.length;
-        if (!m) return n;
-        if (!n) return m;
-        let prev = new Array(n + 1);
-        let curr = new Array(n + 1);
-        for (let j = 0; j <= n; j++) prev[j] = j;
-        for (let i = 1; i <= m; i++) {
-          curr[0] = i;
-          let rowMin = curr[0];
-          for (let j = 1; j <= n; j++) {
-            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-            curr[j] = Math.min(
-              prev[j] + 1,
-              curr[j - 1] + 1,
-              prev[j - 1] + cost
-            );
-            if (curr[j] < rowMin) rowMin = curr[j];
-          }
-          if (rowMin > maxDist) return maxDist + 1;
-          [prev, curr] = [curr, prev];
-        }
-        return prev[n];
-      };
+      const W = SEARCH_WEIGHTS;
 
-      // Allow 1 edit for queries length 4-6, 2 edits for 7+. Shorter queries: exact only.
-      const fuzzyBudget = (len: number) => (len >= 7 ? 2 : len >= 4 ? 1 : 0);
-
-      const scoreString = (s: string, isDev = false): number => {
-        const hay = isDev ? s : normalize(s);
-        const needle = isDev ? raw : q;
+      const scoreOnce = (hay: string, needle: string, concatPenalty = 1): number => {
         if (!hay || !needle) return 0;
-        if (hay === needle) return 1000;
-        if (hay.startsWith(needle)) return 500 - (hay.length - needle.length);
+        if (hay === needle) return W.exact * concatPenalty;
+        if (hay.startsWith(needle))
+          return (W.prefix - (hay.length - needle.length) * W.prefixLenPenalty) * concatPenalty;
         const idx = hay.indexOf(needle);
         if (idx !== -1) {
           const prev = hay[idx - 1];
           const boundary = idx === 0 || /\s|[-_/]/.test(prev || "");
-          return (boundary ? 200 : 100) - idx - (hay.length - needle.length) * 0.1;
+          const base = boundary ? W.wordBoundary : W.substring;
+          return (base - idx * W.substringIdxPenalty - (hay.length - needle.length) * W.substringLenPenalty) * concatPenalty;
         }
-        // Fuzzy: small typo tolerance against the whole haystack or its
-        // best-matching window. Skip for Devanagari (different char set logic).
-        if (isDev) return 0;
+        return 0;
+      };
+
+      const scoreFuzzy = (hay: string, needle: string): number => {
         const budget = fuzzyBudget(needle.length);
         if (budget === 0) return 0;
-        // Whole-string distance
         let bestDist = editDistance(hay, needle, budget);
-        // Sliding-window over hay for substring-like fuzzy matches
         if (bestDist > budget && hay.length > needle.length) {
           const winLen = needle.length;
           for (let i = 0; i + winLen <= hay.length; i++) {
@@ -111,17 +89,35 @@ const Index = () => {
           }
         }
         if (bestDist > budget) return 0;
-        // Lower than substring (100) so exact/substring matches still win.
-        return 80 - bestDist * 25;
+        return W.fuzzyBase - bestDist * W.fuzzyEditPenalty;
+      };
+
+      const scoreString = (s: string, fieldScript: Script): number => {
+        if (!s) return 0;
+        const isDev = fieldScript === "dev";
+        const hay = isDev ? s : normalizeQuery(s);
+        const needle = isDev ? raw : q;
+        let best = scoreOnce(hay, needle);
+        if (useConcat) {
+          const altNeedle = isDev ? rawNoSpace : qNoSpace;
+          best = Math.max(best, scoreOnce(hay, altNeedle, W.concatPenalty));
+        }
+        if (best === 0 && !isDev) {
+          best = scoreFuzzy(hay, needle);
+          if (useConcat) best = Math.max(best, scoreFuzzy(hay, qNoSpace) * W.concatPenalty);
+        }
+        // Boost matches that share script with the query.
+        if (best > 0 && fieldScript === queryScript) best *= W.scriptBoost;
+        return best;
       };
 
       const scored: { c: Concept; score: number }[] = [];
       for (const c of list) {
-        let best = scoreString(c.english);
+        let best = scoreString(c.english, "roman");
         for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          best = Math.max(best, scoreString(w.dev, true));
-          best = Math.max(best, scoreString(w.roman));
-          best = Math.max(best, scoreString(w.ipa));
+          best = Math.max(best, scoreString(w.dev, "dev"));
+          best = Math.max(best, scoreString(w.roman, "roman"));
+          best = Math.max(best, scoreString(w.ipa, "ipa"));
         }
         if (best > 0) scored.push({ c, score: best });
       }
