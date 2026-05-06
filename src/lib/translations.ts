@@ -35,6 +35,7 @@ const translations = {
   // Categories
   "categories.title": "श्रेणी के अनुसार खोजें",
   "categories.subtitle": "विषयगत श्रेणियों में शब्दावली का अन्वेषण करें।",
+  "categories.entries": "प्रविष्टियाँ",
   "categories.all": "सभी",
   "category.Education": "शिक्षा",
   "category.Emotion": "भावना",
@@ -71,7 +72,9 @@ const translations = {
   "learn.startOver": "पुनः आरम्भ",
   "learn.allCategories": "सभी श्रेणियाँ",
   "learn.noWords": "इस श्रेणी में कोई शब्द नहीं।",
+  "learn.wordsAvailable": "शब्द",
   "learn.listen": "सुनें",
+  "learn.playing": "बज रहा है…",
   "learn.synonyms": "पर्यायवाची",
   "learn.antonyms": "विलोम",
   "learn.viewFullEntry": "सम्पूर्ण प्रविष्टि देखें →",

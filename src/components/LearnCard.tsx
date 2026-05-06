@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
-import { Volume2 } from "lucide-react";
+import { forwardRef, useEffect, useRef, useState } from "react";
+import { Volume2, Loader2 } from "lucide-react";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
@@ -16,17 +16,34 @@ interface LearnCardProps {
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
   const { t, hindiMode } = useTranslation();
+  const [playing, setPlaying] = useState(false);
+  const lastClickRef = useRef(0);
+
+  // Stop any in-flight speech when the word changes
+  useEffect(() => {
+    window.speechSynthesis.cancel();
+    setPlaying(false);
+  }, [word?.dev]);
+
   if (!word) return null;
   const hiDesc = descriptionsHi[word.english.toLowerCase()];
 
   const speak = () => {
+    const now = Date.now();
+    if (now - lastClickRef.current < 600) return;
+    lastClickRef.current = now;
+    if (playing) return;
+    window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(word.dev);
     utterance.lang = "hi-IN";
+    utterance.onstart = () => setPlaying(true);
+    utterance.onend = () => setPlaying(false);
+    utterance.onerror = () => setPlaying(false);
     window.speechSynthesis.speak(utterance);
   };
 
   return (
-    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in">
+    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in transition-all duration-300">
       <div className="mb-4 sm:mb-6 flex items-center justify-center gap-3">
         <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
@@ -43,11 +60,13 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
 
       <button
         onClick={speak}
-        aria-label="Listen to pronunciation"
-        className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
+        disabled={playing}
+        aria-busy={playing}
+        aria-label={playing ? "Playing pronunciation" : "Listen to pronunciation"}
+        className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
       >
-        <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-        {t("learn.listen", "Listen")}
+        {playing ? <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin" /> : <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+        {playing ? t("learn.playing", "Playing…") : t("learn.listen", "Listen")}
       </button>
 
       <div className="space-y-1 mb-3 sm:mb-4">
