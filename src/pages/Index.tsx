@@ -47,6 +47,36 @@ const Index = () => {
       const raw = search.trim();
       const q = normalize(raw);
 
+      // Bounded Levenshtein distance (early-exit when exceeding maxDist).
+      const editDistance = (a: string, b: string, maxDist: number): number => {
+        if (Math.abs(a.length - b.length) > maxDist) return maxDist + 1;
+        const m = a.length, n = b.length;
+        if (!m) return n;
+        if (!n) return m;
+        let prev = new Array(n + 1);
+        let curr = new Array(n + 1);
+        for (let j = 0; j <= n; j++) prev[j] = j;
+        for (let i = 1; i <= m; i++) {
+          curr[0] = i;
+          let rowMin = curr[0];
+          for (let j = 1; j <= n; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+            curr[j] = Math.min(
+              prev[j] + 1,
+              curr[j - 1] + 1,
+              prev[j - 1] + cost
+            );
+            if (curr[j] < rowMin) rowMin = curr[j];
+          }
+          if (rowMin > maxDist) return maxDist + 1;
+          [prev, curr] = [curr, prev];
+        }
+        return prev[n];
+      };
+
+      // Allow 1 edit for queries length 4-6, 2 edits for 7+. Shorter queries: exact only.
+      const fuzzyBudget = (len: number) => (len >= 7 ? 2 : len >= 4 ? 1 : 0);
+
       const scoreString = (s: string, isDev = false): number => {
         const hay = isDev ? s : normalize(s);
         const needle = isDev ? raw : q;
@@ -54,10 +84,30 @@ const Index = () => {
         if (hay === needle) return 1000;
         if (hay.startsWith(needle)) return 500 - (hay.length - needle.length);
         const idx = hay.indexOf(needle);
-        if (idx === -1) return 0;
-        const prev = hay[idx - 1];
-        const boundary = idx === 0 || /\s|[-_/]/.test(prev || "");
-        return (boundary ? 200 : 100) - idx - (hay.length - needle.length) * 0.1;
+        if (idx !== -1) {
+          const prev = hay[idx - 1];
+          const boundary = idx === 0 || /\s|[-_/]/.test(prev || "");
+          return (boundary ? 200 : 100) - idx - (hay.length - needle.length) * 0.1;
+        }
+        // Fuzzy: small typo tolerance against the whole haystack or its
+        // best-matching window. Skip for Devanagari (different char set logic).
+        if (isDev) return 0;
+        const budget = fuzzyBudget(needle.length);
+        if (budget === 0) return 0;
+        // Whole-string distance
+        let bestDist = editDistance(hay, needle, budget);
+        // Sliding-window over hay for substring-like fuzzy matches
+        if (bestDist > budget && hay.length > needle.length) {
+          const winLen = needle.length;
+          for (let i = 0; i + winLen <= hay.length; i++) {
+            const d = editDistance(hay.slice(i, i + winLen), needle, budget);
+            if (d < bestDist) bestDist = d;
+            if (bestDist === 0) break;
+          }
+        }
+        if (bestDist > budget) return 0;
+        // Lower than substring (100) so exact/substring matches still win.
+        return 80 - bestDist * 25;
       };
 
       const scored: { c: Concept; score: number }[] = [];
