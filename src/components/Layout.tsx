@@ -329,7 +329,7 @@ const Layout = ({ children }: LayoutProps) => {
             {t("footer.lastUpdated" as never, "Last updated")}: {new Date(import.meta.env.VITE_BUILD_DATE || Date.now()).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/rushilrawat/sanskritized-hindi-lexicon"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-xs text-primary hover:underline"

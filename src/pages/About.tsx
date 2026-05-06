@@ -123,7 +123,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             {t("about.code.text", "The source code for this project is publicly available for viewing and learning purposes.")}
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/rushilrawat/sanskritized-hindi-lexicon"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-primary hover:underline"
