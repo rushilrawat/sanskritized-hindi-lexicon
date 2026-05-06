@@ -10,10 +10,15 @@ import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useTranslation } from "@/hooks/useTranslation";
+import {
+  SEARCH_WEIGHTS,
+  detectScript,
+  normalizeQuery,
+  editDistance,
+  fuzzyBudget,
+  type Script,
+} from "@/lib/searchScoring";
 
-function normalize(s: string): string {
-  return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const BATCH_SIZE = 50;
