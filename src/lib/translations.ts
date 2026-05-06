@@ -72,6 +72,7 @@ const translations = {
   "learn.startOver": "पुनः आरम्भ",
   "learn.allCategories": "सभी श्रेणियाँ",
   "learn.noWords": "इस श्रेणी में कोई शब्द नहीं।",
+  "learn.wordsAvailable": "शब्द",
   "learn.listen": "सुनें",
   "learn.synonyms": "पर्यायवाची",
   "learn.antonyms": "विलोम",
