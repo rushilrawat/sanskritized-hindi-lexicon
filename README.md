@@ -1,126 +1,166 @@
-# Sanskritized Hindi Lexicon
+# 📚 Sanskritized Hindi Lexicon
 
-An open-source, etymology-based linguistic reference comparing Sanskrit-derived Hindi vocabulary with words from other historical sources (Persian, Arabic, Turkic, English).
+![Vite](https://img.shields.io/badge/Build-Vite-purple?logo=vite)
+![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript)
+![Tailwind](https://img.shields.io/badge/Styling-TailwindCSS-38BDF8?logo=tailwindcss)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+An open-source, etymology-driven linguistic reference comparing **Sanskrit-derived Hindi vocabulary** with words from other historical sources (Persian, Arabic, Turkic, English).
 
 This project is a structured archive — **not** a purity tool, correction tool, or political tool. It exists purely as an educational and academic resource.
 
 ---
 
+## 🌐 Overview
+
+The Sanskritized Hindi Lexicon is designed to explore how vocabulary in modern Hindi evolves across linguistic histories. It provides structured comparisons, phonetic representations, and contextual usage — all within a clean, modern web interface.
+
+The goal is **clarity, accessibility, and linguistic transparency**, not prescription.
+
+---
+
 ## ✨ Features
 
-### Content & Language
-- **500+ curated concepts** with Sanskrit-derived and other historical equivalents
-- **Devanagari, Romanization, and IPA** for every entry
-- **Registry tags** (formal, colloquial, classical, literary, religious, philosophical, administrative, legal, academic, technical, archaic)
+### 🧠 Content & Language
+- **500+ curated concepts** with Sanskrit-derived and alternate historical equivalents
+- Full **Devanagari, Romanization, and IPA** for each word
+- **Registry tags** (formal, colloquial, classical, literary, legal, technical, etc.)
 - **11 thematic categories** (Nature, Governance, Abstract Concepts, etc.)
-- **Full Hindi mode** — entire UI, definitions, categories, and tags translated into shuddha (Sanskritized) Hindi
-- **Antonyms** support for relevant entries
+- **Antonyms support** where applicable
+- **100% Hindi (Sanskritized) translation parity**
 
-### Pages
-- **Home** — searchable browsable lexicon with infinite scroll
-- **Categories** — thematic grouping of all words
-- **Learn** — flashcard mode with keyboard navigation, shuffle, audio, and category filtering
-- **Replace** — text tool that swaps non-Sanskrit words for Sanskrit equivalents (script-preserving)
-- **Word of the Day** — date-seeded, no-repeat selection
-- **About** — project philosophy, neutrality statement, language background
+---
 
-### UX
-- **Animated header** cycling between English / Devanagari / IPA (4s cycle)
-- **Audio pronunciation** via Web Speech Synthesis API
-- **Search** with NFD normalization (diacritic-insensitive)
-- **Infinite scroll** + scroll-to-top
-- **Persistent preferences** in localStorage (text size, contrast, dark mode, Hindi mode, learn category)
-- **Dark mode** + **high contrast** mode
-- **Text scaling** (default / large / xl)
-- **Mobile-first responsive** layout
-- **Custom Sanskrit-themed favicon**
+### 📄 Core Pages
 
-### Engineering
-- **Lazy loading** of pages and word data
-- **Input hardening** — debouncing, max-length limits, XSS prevention
-- **Runtime guards** against undefined word states
-- **Validated JSON schema** with strict registry tags (max 2 per word)
-- **Deduplicated dataset** with 100% Hindi translation parity
-- **Static build** — no SSR, no dynamic routes
+- **Home** — searchable lexicon with infinite scroll
+- **Categories** — structured thematic exploration
+- **Learn** — flashcard system with:
+  - keyboard navigation
+  - shuffle mode
+  - audio pronunciation
+  - category filtering
+- **Replace Tool** — transforms text using Sanskrit-derived equivalents (script-preserving)
+- **Word of the Day** — deterministic, non-repeating selection
+- **About** — philosophy, neutrality, and linguistic context
+
+---
+
+### 🎨 UX & Accessibility
+
+- **Animated multilingual header** (English / Devanagari / IPA cycling)
+- **Audio pronunciation** via Web Speech API
+- **Fuzzy search with NFD normalization** (diacritic-insensitive)
+- **Infinite scroll + scroll-to-top**
+- **Persistent preferences** (localStorage):
+  - dark mode
+  - high contrast mode
+  - text scaling
+  - Hindi mode
+- **Mobile-first responsive design**
+- **Accessible color system** (contrast-safe, no color-only signals)
+
+---
+
+### ⚙️ Engineering Highlights
+
+- **Lazy-loaded pages and datasets** for performance
+- **Debounced search input + input constraints**
+- **XSS-safe rendering and runtime guards**
+- **Strict JSON schema validation**
+- **Controlled vocabulary system (max 2 tags per word)**
+- **Deduplicated dataset with enforced consistency**
+- **Fully static build (no SSR, no dynamic routing)**
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Vite 5** + **React 18** + **TypeScript 5**
-- **Tailwind CSS v3** with semantic design tokens (HSL)
-- **shadcn/ui** components
-- **React Router** for client-side routing
-- **Vitest** for testing
+| Layer        | Technology |
+|-------------|-----------|
+| Frontend     | React 18 + TypeScript 5 |
+| Build Tool   | Vite 5 |
+| Styling      | Tailwind CSS v3 |
+| UI System    | shadcn/ui |
+| Routing      | React Router |
+| Testing      | Vitest |
+| State        | LocalStorage + React state |
 
 ---
 
-## 🎨 Design
+## 🎨 Design Philosophy
 
 Minimalist, academic aesthetic:
-- Off-white background (`#FAFAF9`)
+
+- Off-white base (`#FAFAF9`)
 - Muted saffron accents
-- No gradients (single exception: Word of the Day card)
-- High contrast, color is never the only signifier
+- No visual noise or gradients *(except Word of the Day)*
+- High readability and contrast-first design
+- Language-first interface prioritization
 
 ---
 
 ## 🚀 Getting Started
 
-```sh
-# Install
-npm i
+```bash
+# Install dependencies
+npm install
 
-# Develop
+# Run development server
 npm run dev
 
-# Build
+# Build production bundle
 npm run build
 
-# Test
+# Run tests
 npx vitest run
 ```
 
+## 📁 Project Structure
+
+```
+src/
+├── components/        # UI components
+├── pages/             # Application views
+├── data/              # Core dataset
+│   ├── words.json
+│   ├── descriptions_hi.ts
+├── lib/               # Utilities and translations
+│   ├── translations.ts
+├── hooks/             # Custom hooks
+└── main.tsx           # Entry point
+```
 ---
+## 📊 Data Model
 
-## 📁 Data
-
-All vocabulary lives in a single source of truth:
+All vocabulary is maintained in a structured schema:
 
 ```
-src/data/words.json          # Concepts, words, tags
-src/data/descriptions_hi.ts  # Hindi (Sanskritized) definitions
-src/lib/translations.ts      # UI string translations
-```
-
-Schema (per concept):
-```ts
 {
   english: string;
-  category: string;          // one of 11 allowed categories
+  category: string;
   description: string;
   sanskrit_derived: WordEntry[];
   other_historical_sources: WordEntry[];
   antonyms?: string[];
 }
 ```
+Each `WordEntry` includes:
 
-Each `WordEntry` contains `dev`, `roman`, `ipa`, and up to 2 `tags`.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome. Please maintain:
-- A **neutral, academic tone** — no purist or political framing
-- The **fixed JSON schema** and **allowed registry tags**
-- **Hindi translation parity** when adding new English entries
-- High contrast and accessibility standards
+- `dev` (Devanagari)
+- `roman`
+- `ipa`
+- `tags` (max 2, from controlled vocabulary)
 
 ---
 
-## 📜 License
+## 🎯 What This Project Demonstrates
 
-Open source. See repository for license details.
+Large-scale structured dataset design
+Thoughtful UX for linguistic tools
+Strong frontend architecture (React + TS)
+Performance-focused static web engineering
+Real-world search + normalization systems
 
-> *This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.*
+> This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.
