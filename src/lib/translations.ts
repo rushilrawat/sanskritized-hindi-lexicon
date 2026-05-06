@@ -74,6 +74,7 @@ const translations = {
   "learn.noWords": "इस श्रेणी में कोई शब्द नहीं।",
   "learn.wordsAvailable": "शब्द",
   "learn.listen": "सुनें",
+  "learn.playing": "बज रहा है…",
   "learn.synonyms": "पर्यायवाची",
   "learn.antonyms": "विलोम",
   "learn.viewFullEntry": "सम्पूर्ण प्रविष्टि देखें →",
