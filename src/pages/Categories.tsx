@@ -87,7 +87,8 @@ const Categories = () => {
         {t("categories.title", "Browse by Category")}
       </h1>
       <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
-        {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}
+        {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}{" "}
+        <span className="text-foreground/70 font-medium">({concepts.length} {t("categories.entries", "entries")})</span>
       </p>
 
       <div className="mb-4 sm:mb-6">
