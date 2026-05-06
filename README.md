@@ -4,7 +4,6 @@
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript)
 ![Tailwind](https://img.shields.io/badge/Styling-TailwindCSS-38BDF8?logo=tailwindcss)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 An open-source, etymology-driven linguistic reference comparing **Sanskrit-derived Hindi vocabulary** with words from other historical sources (Persian, Arabic, Turkic, English).
 
