@@ -35,6 +35,7 @@ const translations = {
   // Categories
   "categories.title": "श्रेणी के अनुसार खोजें",
   "categories.subtitle": "विषयगत श्रेणियों में शब्दावली का अन्वेषण करें।",
+  "categories.entries": "प्रविष्टियाँ",
   "categories.all": "सभी",
   "category.Education": "शिक्षा",
   "category.Emotion": "भावना",
