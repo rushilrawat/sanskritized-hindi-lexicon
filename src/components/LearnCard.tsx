@@ -66,7 +66,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         aria-label={playing ? "Playing pronunciation" : "Listen to pronunciation"}
         className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
       >
-        {playing ? <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin" /> : <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+        {playing ? <SoundWave className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
         {playing ? t("learn.playing", "Playing…") : t("learn.listen", "Listen")}
       </button>
 
