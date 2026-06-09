@@ -161,8 +161,12 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    background-color: hsl(var(--background));
+    background-image: var(--gradient-page);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   .font-devanagari {
