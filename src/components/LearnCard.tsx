@@ -85,9 +85,12 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         {hindiMode && hiDesc && (
           <p className="text-sm text-muted-foreground mt-1 font-devanagari px-2">{hiDesc}</p>
         )}
-        {word.tags.length > 0 && (
+        {(word.category || word.tags.length > 0) && (
           <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-2 tracking-wide">
-            {word.tags.slice(0, 2).map((tag) => t(`tag.${tag}` as never, tag)).join(" · ")}
+            {[
+              word.category ? t(`category.${word.category}` as never, word.category) : null,
+              ...word.tags.slice(0, 2).map((tag) => t(`tag.${tag}` as never, tag)),
+            ].filter(Boolean).join(" · ")}
           </p>
         )}
       </div>
