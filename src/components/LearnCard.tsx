@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { Volume2, Loader2 } from "lucide-react";
+import { Volume2 } from "lucide-react";
+import SoundWave from "@/components/SoundWave";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
 import descriptionsHi from "@/data/descriptions_hi";
@@ -65,7 +66,8 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         aria-label={playing ? "Playing pronunciation" : "Listen to pronunciation"}
         className="mx-auto mb-4 sm:mb-6 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
       >
-        {playing ? <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin" /> : <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+        <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+        {playing && <SoundWave className="h-3 w-3 sm:h-3.5 sm:w-3.5" />}
         {playing ? t("learn.playing", "Playing…") : t("learn.listen", "Listen")}
       </button>
 
@@ -83,9 +85,12 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
         {hindiMode && hiDesc && (
           <p className="text-sm text-muted-foreground mt-1 font-devanagari px-2">{hiDesc}</p>
         )}
-        {word.tags.length > 0 && (
+        {(word.category || word.tags.length > 0) && (
           <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-2 tracking-wide">
-            {word.tags.slice(0, 2).map((tag) => t(`tag.${tag}` as never, tag)).join(" · ")}
+            {[
+              word.category ? t(`category.${word.category}` as never, word.category) : null,
+              ...word.tags.slice(0, 2).map((tag) => t(`tag.${tag}` as never, tag)),
+            ].filter(Boolean).join(" · ")}
           </p>
         )}
       </div>

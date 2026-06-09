@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { Volume2, Loader2 } from "lucide-react";
+import { Volume2 } from "lucide-react";
+import SoundWave from "@/components/SoundWave";
 
 interface InlineAudioProps {
   text: string;
@@ -12,7 +13,6 @@ const InlineAudio = forwardRef<HTMLButtonElement, InlineAudioProps>(({ text }, r
   const lastClickRef = useRef(0);
 
   useEffect(() => () => {
-    // best-effort cleanup if unmounted mid-utterance
     if (playing) window.speechSynthesis.cancel();
   }, [playing]);
 
@@ -38,13 +38,10 @@ const InlineAudio = forwardRef<HTMLButtonElement, InlineAudioProps>(({ text }, r
       disabled={playing}
       aria-label={playing ? `Playing ${text}` : `Listen to ${text}`}
       aria-busy={playing}
-      className="inline-flex items-center justify-center p-1 rounded text-muted-foreground hover:text-primary disabled:opacity-100 disabled:text-primary transition-colors"
+      className="inline-flex items-center gap-1 p-1 rounded text-muted-foreground hover:text-primary disabled:opacity-100 disabled:text-primary transition-colors"
     >
-      {playing ? (
-        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-      ) : (
-        <Volume2 className="h-3.5 w-3.5" />
-      )}
+      <Volume2 className="h-3.5 w-3.5" />
+      {playing && <SoundWave className="h-3 w-3" />}
     </button>
   );
 });
