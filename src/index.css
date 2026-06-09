@@ -6,91 +6,113 @@
 
 @layer base {
   :root {
-    --background: 38 35% 94%;
-    --foreground: 25 30% 15%;
+    --background: 36 45% 92%;
+    --foreground: 22 40% 14%;
 
-    --card: 40 40% 97%;
-    --card-foreground: 25 30% 15%;
+    --card: 38 50% 96%;
+    --card-foreground: 22 40% 14%;
 
-    --popover: 40 40% 97%;
-    --popover-foreground: 25 30% 15%;
+    --popover: 38 50% 96%;
+    --popover-foreground: 22 40% 14%;
 
-    --primary: 22 75% 42%;
-    --primary-foreground: 40 40% 97%;
+    --primary: 18 78% 40%;
+    --primary-foreground: 40 50% 97%;
 
-    --secondary: 36 25% 89%;
-    --secondary-foreground: 25 30% 15%;
+    --secondary: 34 35% 86%;
+    --secondary-foreground: 22 40% 14%;
 
-    --muted: 38 20% 90%;
-    --muted-foreground: 25 15% 38%;
+    --muted: 36 28% 88%;
+    --muted-foreground: 22 20% 36%;
 
-    --accent: 30 35% 88%;
-    --accent-foreground: 22 75% 30%;
+    --accent: 28 55% 84%;
+    --accent-foreground: 18 78% 28%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 40 50% 97%;
 
-    --border: 32 22% 82%;
-    --input: 32 22% 82%;
-    --ring: 22 75% 42%;
+    --border: 30 30% 78%;
+    --input: 30 30% 78%;
+    --ring: 18 78% 40%;
 
     --radius: 0.625rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 36 45% 94%;
+    --sidebar-foreground: 22 40% 18%;
+    --sidebar-primary: 18 78% 40%;
+    --sidebar-primary-foreground: 40 50% 97%;
+    --sidebar-accent: 28 55% 86%;
+    --sidebar-accent-foreground: 18 78% 28%;
+    --sidebar-border: 30 30% 78%;
+    --sidebar-ring: 18 78% 40%;
 
-    /* Custom tokens */
-    --saffron: 28 72% 48%;
-    --saffron-light: 28 60% 94%;
-    --saffron-dark: 28 72% 32%;
-    --warm-white: 40 20% 99%;
-    --parchment: 40 30% 96%;
-    --ink: 215 28% 17%;
-    --ink-light: 215 14% 50%;
+    /* Custom tokens — Vedic manuscript palette */
+    --saffron: 22 82% 48%;
+    --saffron-light: 32 70% 90%;
+    --saffron-dark: 16 78% 32%;
+    --warm-white: 40 50% 98%;
+    --parchment: 36 55% 92%;
+    --parchment-deep: 30 45% 84%;
+    --vermillion: 8 75% 45%;
+    --turmeric: 42 85% 55%;
+    --indigo-ink: 230 35% 22%;
+    --ink: 22 40% 14%;
+    --ink-light: 22 20% 38%;
+
+    /* Manuscript gradients */
+    --gradient-parchment: linear-gradient(135deg, hsl(38 55% 95%) 0%, hsl(34 48% 90%) 50%, hsl(30 42% 86%) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(32 80% 60%) 0%, hsl(22 82% 48%) 50%, hsl(14 75% 38%) 100%);
+    --gradient-manuscript: linear-gradient(180deg, hsl(36 50% 94%) 0%, hsl(32 45% 88%) 100%);
+    --gradient-vermillion: linear-gradient(135deg, hsl(22 82% 50%) 0%, hsl(8 75% 42%) 100%);
+    --gradient-page: radial-gradient(ellipse at top, hsl(38 55% 95%) 0%, hsl(34 40% 88%) 70%, hsl(30 35% 82%) 100%);
+    --shadow-manuscript: 0 4px 24px -8px hsl(22 60% 25% / 0.18);
+    --shadow-warm: 0 8px 32px -12px hsl(18 78% 40% / 0.25);
   }
 
-  /* Dark Mode */
+  /* Dark Mode — aged manuscript at night */
   .dark {
-    --background: 220 15% 10%;
-    --foreground: 40 10% 90%;
+    --background: 24 22% 9%;
+    --foreground: 38 35% 88%;
 
-    --card: 220 14% 13%;
-    --card-foreground: 40 10% 90%;
+    --card: 22 20% 12%;
+    --card-foreground: 38 35% 88%;
 
-    --popover: 220 14% 13%;
-    --popover-foreground: 40 10% 90%;
+    --popover: 22 20% 12%;
+    --popover-foreground: 38 35% 88%;
 
-    --primary: 28 72% 52%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 22 78% 55%;
+    --primary-foreground: 24 22% 9%;
 
-    --secondary: 220 12% 18%;
-    --secondary-foreground: 40 10% 85%;
+    --secondary: 22 15% 18%;
+    --secondary-foreground: 38 30% 85%;
 
-    --muted: 220 10% 18%;
-    --muted-foreground: 215 10% 55%;
+    --muted: 22 12% 16%;
+    --muted-foreground: 36 18% 60%;
 
-    --accent: 28 20% 18%;
-    --accent-foreground: 28 60% 70%;
+    --accent: 18 35% 22%;
+    --accent-foreground: 32 70% 72%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 8 65% 50%;
+    --destructive-foreground: 40 50% 97%;
 
-    --border: 220 12% 20%;
-    --input: 220 12% 20%;
-    --ring: 28 72% 52%;
+    --border: 22 18% 22%;
+    --input: 22 18% 22%;
+    --ring: 22 78% 55%;
 
-    --saffron: 28 72% 52%;
-    --saffron-light: 28 30% 18%;
-    --saffron-dark: 28 60% 70%;
-    --ink: 40 10% 90%;
-    --ink-light: 215 10% 55%;
+    --saffron: 22 78% 55%;
+    --saffron-light: 22 35% 20%;
+    --saffron-dark: 32 70% 72%;
+    --vermillion: 8 70% 55%;
+    --turmeric: 42 80% 60%;
+    --ink: 38 35% 88%;
+    --ink-light: 36 18% 60%;
+
+    --gradient-parchment: linear-gradient(135deg, hsl(24 22% 11%) 0%, hsl(22 18% 14%) 50%, hsl(20 16% 10%) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(32 75% 58%) 0%, hsl(22 78% 50%) 50%, hsl(14 72% 42%) 100%);
+    --gradient-manuscript: linear-gradient(180deg, hsl(24 22% 12%) 0%, hsl(22 18% 9%) 100%);
+    --gradient-vermillion: linear-gradient(135deg, hsl(22 78% 55%) 0%, hsl(8 70% 48%) 100%);
+    --gradient-page: radial-gradient(ellipse at top, hsl(24 22% 13%) 0%, hsl(22 18% 10%) 70%, hsl(20 16% 7%) 100%);
   }
+
 
   /* High Contrast Mode */
   .high-contrast {
@@ -139,8 +161,12 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    background-color: hsl(var(--background));
+    background-image: var(--gradient-page);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   .font-devanagari {
@@ -185,7 +211,29 @@
   }
 
   .card-elevated {
-    @apply bg-card rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden;
+    @apply rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden;
+    background-image: var(--gradient-manuscript);
+    box-shadow: var(--shadow-manuscript);
+  }
+
+  .bg-gradient-saffron {
+    background-image: var(--gradient-saffron);
+  }
+
+  .bg-gradient-parchment {
+    background-image: var(--gradient-parchment);
+  }
+
+  .bg-gradient-vermillion {
+    background-image: var(--gradient-vermillion);
+  }
+
+  /* Subtle manuscript page texture using layered gradients */
+  .manuscript-texture {
+    background-image:
+      radial-gradient(circle at 20% 30%, hsl(var(--saffron) / 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(var(--vermillion) / 0.05) 0%, transparent 45%),
+      var(--gradient-parchment);
   }
 
   .container-page {
