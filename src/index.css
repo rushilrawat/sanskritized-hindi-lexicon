@@ -59,39 +59,40 @@
 
   /* Dark Mode */
   .dark {
-    --background: 220 15% 10%;
-    --foreground: 40 10% 90%;
+    /* Warm manuscript-at-night: deep sepia-indigo with sindoor & gold accents */
+    --background: 24 18% 9%;
+    --foreground: 38 30% 88%;
 
-    --card: 220 14% 13%;
-    --card-foreground: 40 10% 90%;
+    --card: 24 16% 12%;
+    --card-foreground: 38 30% 88%;
 
-    --popover: 220 14% 13%;
-    --popover-foreground: 40 10% 90%;
+    --popover: 24 16% 12%;
+    --popover-foreground: 38 30% 88%;
 
-    --primary: 28 72% 52%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 14 78% 56%;
+    --primary-foreground: 24 30% 8%;
 
-    --secondary: 220 12% 18%;
-    --secondary-foreground: 40 10% 85%;
+    --secondary: 24 14% 17%;
+    --secondary-foreground: 38 25% 82%;
 
-    --muted: 220 10% 18%;
-    --muted-foreground: 215 10% 55%;
+    --muted: 24 12% 17%;
+    --muted-foreground: 32 14% 58%;
 
-    --accent: 28 20% 18%;
-    --accent-foreground: 28 60% 70%;
+    --accent: 18 35% 20%;
+    --accent-foreground: 36 70% 72%;
 
     --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 38 30% 95%;
 
-    --border: 220 12% 20%;
-    --input: 220 12% 20%;
-    --ring: 28 72% 52%;
+    --border: 24 14% 20%;
+    --input: 24 14% 20%;
+    --ring: 14 78% 56%;
 
-    --saffron: 28 72% 52%;
-    --saffron-light: 28 30% 18%;
-    --saffron-dark: 28 60% 70%;
-    --ink: 40 10% 90%;
-    --ink-light: 215 10% 55%;
+    --saffron: 18 80% 58%;
+    --saffron-light: 18 30% 18%;
+    --saffron-dark: 36 70% 72%;
+    --ink: 38 30% 88%;
+    --ink-light: 32 14% 58%;
   }
 
   /* High Contrast Mode */
