@@ -211,7 +211,29 @@
   }
 
   .card-elevated {
-    @apply bg-card rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden;
+    @apply rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden;
+    background-image: var(--gradient-manuscript);
+    box-shadow: var(--shadow-manuscript);
+  }
+
+  .bg-gradient-saffron {
+    background-image: var(--gradient-saffron);
+  }
+
+  .bg-gradient-parchment {
+    background-image: var(--gradient-parchment);
+  }
+
+  .bg-gradient-vermillion {
+    background-image: var(--gradient-vermillion);
+  }
+
+  /* Subtle manuscript page texture using layered gradients */
+  .manuscript-texture {
+    background-image:
+      radial-gradient(circle at 20% 30%, hsl(var(--saffron) / 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(var(--vermillion) / 0.05) 0%, transparent 45%),
+      var(--gradient-parchment);
   }
 
   .container-page {
