@@ -7,6 +7,7 @@ import LearnCard from "@/components/LearnCard";
 import { Shuffle, Dices, RotateCcw } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
+import { PageHeader } from "@/components/ManuscriptOrnaments";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
