@@ -272,13 +272,16 @@ const Index = () => {
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
           <div className="mt-6 flex items-center gap-3">
             <div className="h-px flex-1 bg-border" />
+            <span className="font-devanagari text-saffron-dark text-sm tracking-widest" aria-hidden="true">॥</span>
             <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
               {t("index.allEntries", "All Entries")}
             </span>
+            <span className="font-devanagari text-saffron-dark text-sm tracking-widest" aria-hidden="true">॥</span>
             <div className="h-px flex-1 bg-border" />
           </div>
         </section>
       )}
+
 
       <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
