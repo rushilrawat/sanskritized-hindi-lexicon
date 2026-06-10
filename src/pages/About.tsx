@@ -1,159 +1,231 @@
 import { forwardRef } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 
+const devNumerals = ["१", "२", "३", "४", "५", "६", "७", "८", "९"];
+
+const Ornament = ({ glyph = "❀" }: { glyph?: string }) => (
+  <div className="manuscript-divider my-5 sm:my-6" aria-hidden="true">
+    <span className="manuscript-divider-glyph">॥</span>
+    <span className="manuscript-divider-glyph text-base">{glyph}</span>
+    <span className="manuscript-divider-glyph">॥</span>
+  </div>
+);
+
+const Section = ({
+  n,
+  title,
+  children,
+}: {
+  n: number;
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <section className="manuscript-section">
+    <span className="manuscript-number">
+      <span>{devNumerals[n - 1]}</span>
+      <span className="text-[10px] opacity-70">·</span>
+      <span className="text-[10px] opacity-70">{n}</span>
+    </span>
+    <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
+      {title}
+    </h2>
+    <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
+      {children}
+    </div>
+  </section>
+);
+
 const About = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
 
   return (
-    <div ref={ref} className="container-page max-w-2xl">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
-        {t("about.title", "About This Project")}
-      </h1>
+    <div ref={ref} className="container-page max-w-3xl">
+      <div className="manuscript-panel p-5 sm:p-8 md:p-10">
+        <span className="manuscript-corner tl" aria-hidden="true" />
+        <span className="manuscript-corner tr" aria-hidden="true" />
+        <span className="manuscript-corner bl" aria-hidden="true" />
+        <span className="manuscript-corner br" aria-hidden="true" />
 
-      <div className="space-y-4 sm:space-y-6 text-foreground leading-relaxed">
-        {/* 1. Purpose */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.purpose.title", "Purpose")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.purpose.text", "The Sanskritized Hindi Lexicon is a structured linguistic reference that presents Hindi vocabulary through its historical roots. It allows users to explore Sanskrit-derived words alongside words that entered Hindi through other languages such as Persian, Arabic, Turkic, and English.")}
+        {/* Frontispiece */}
+        <header className="text-center pt-3 pb-2">
+          <div className="font-devanagari text-primary text-xl sm:text-2xl tracking-widest mb-2">
+            ॥ ॐ ॥
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+            {t("about.title", "About This Project")}
+          </h1>
+          <p className="font-devanagari text-sm sm:text-base text-saffron-dark mt-1">
+            परिचय
           </p>
-        </section>
+        </header>
 
-        {/* 2. How to Use */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.howToUse.title", "How to Use This Lexicon")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.howToUse.intro", "Each entry is based on an English concept. For every concept, you will find:")}
-          </p>
-          <ul className="mt-2 space-y-1 text-sm sm:text-base text-muted-foreground list-disc list-inside marker:text-primary/60">
-            <li>{t("about.howToUse.item1", "Sanskrit-derived words")}</li>
-            <li>{t("about.howToUse.item2", "Words from other historical sources")}</li>
-            <li>{t("about.howToUse.item3", "Roman transliteration and pronunciation")}</li>
-            <li>{t("about.howToUse.item4", "Optional synonyms (पर्यायवाची) and antonyms (विलोम)")}</li>
-          </ul>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground">
-            {t("about.howToUse.outro", "This makes it easy to compare how different words express similar ideas across linguistic traditions.")}
-          </p>
-        </section>
+        <Ornament glyph="✦" />
 
-        {/* 3. Neutrality */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.neutrality.title", "Neutrality")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.neutrality.text", "This project does not promote linguistic purism or assign value to words based on their origin. Every word carries its own historical and cultural significance. This lexicon exists purely as an educational and exploratory resource.")}
-          </p>
-        </section>
+        <div className="grid gap-6 sm:gap-7">
+          <Section n={1} title={t("about.purpose.title", "Purpose")}>
+            <p className="manuscript-dropcap">
+              {t(
+                "about.purpose.text",
+                "The Sanskritized Hindi Lexicon is a structured linguistic reference that presents Hindi vocabulary through its historical roots. It allows users to explore Sanskrit-derived words alongside words that entered Hindi through other languages such as Persian, Arabic, Turkic, and English."
+              )}
+            </p>
+          </Section>
 
-        {/* 4. About Hindi */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.hindi.title", "About Hindi · हिन्दी")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.hindi.text", "Hindi is a modern Indo-Aryan language, part of the Indo-European language family. It is spoken widely across northern and central India and is one of the official languages of the Indian Union. It is written in the Devanagari script and has evolved over centuries through interaction with multiple languages and cultures.")}
-          </p>
-          <a
-            href="https://en.wikipedia.org/wiki/Hindi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
-          >
-            {t("about.hindi.link", "Learn more about Hindi on Wikipedia →")}
-          </a>
-        </section>
+          <Section n={2} title={t("about.howToUse.title", "How to Use This Lexicon")}>
+            <p>
+              {t(
+                "about.howToUse.intro",
+                "Each entry is based on an English concept. For every concept, you will find:"
+              )}
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5 mt-2 list-none">
+              {[
+                t("about.howToUse.item1", "Sanskrit-derived words"),
+                t("about.howToUse.item2", "Words from other historical sources"),
+                t("about.howToUse.item3", "Roman transliteration and pronunciation"),
+                t("about.howToUse.item4", "Optional synonyms and antonyms"),
+              ].map((item, i) => (
+                <li key={i} className="flex gap-2 items-start">
+                  <span className="font-devanagari text-saffron-dark text-sm mt-0.5 select-none">
+                    {devNumerals[i]}
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2">
+              {t(
+                "about.howToUse.outro",
+                "This makes it easy to compare how different words express similar ideas across linguistic traditions."
+              )}
+            </p>
+          </Section>
 
-        {/* 5. Sanskrit */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.sanskrit.title", "Sanskrit's Influence · संस्कृतम्")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.sanskrit.text", "Sanskrit is one of the oldest documented Indo-European languages and has deeply influenced Hindi vocabulary. This influence appears mainly through Tatsama (direct borrowings from Sanskrit) and Tadbhava (words that evolved naturally over time). This lexicon documents both, along with words from other historical sources.")}
-          </p>
-          <a
-            href="https://en.wikipedia.org/wiki/Sanskrit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
-          >
-            {t("about.sanskrit.link", "Learn more about Sanskrit on Wikipedia →")}
-          </a>
-        </section>
+          <Section n={3} title={t("about.neutrality.title", "Neutrality")}>
+            <p>
+              {t(
+                "about.neutrality.text",
+                "This project does not promote linguistic purism or assign value to words based on their origin. Every word carries its own historical and cultural significance. This lexicon exists purely as an educational and exploratory resource."
+              )}
+            </p>
+          </Section>
 
-        {/* 6. Devanagari */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.devanagari.title", "Devanagari Script · देवनागरी")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.devanagari.text", "Devanagari is the script used for Hindi and several other South Asian languages. It is written from left to right and is known for its horizontal line (शिरोरेखा) connecting letters. The script is largely phonetic, meaning pronunciation closely follows how words are written.")}
-          </p>
-          <a
-            href="https://en.wikipedia.org/wiki/Devanagari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-1.5 sm:mt-2 text-xs sm:text-sm text-primary hover:underline"
-          >
-            {t("about.devanagari.link", "Learn more about Devanagari on Wikipedia →")}
-          </a>
-        </section>
+          <Ornament glyph="❁" />
 
-        {/* 7. Notes */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.notes.title", "Notes")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.notes.text", "This lexicon is not exhaustive. Word meanings and usage may vary depending on context, region, and speaker.")}
-          </p>
-        </section>
+          <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
+            <Section n={4} title={t("about.hindi.title", "About Hindi · हिन्दी")}>
+              <p>
+                {t(
+                  "about.hindi.text",
+                  "Hindi is a modern Indo-Aryan language, part of the Indo-European language family. It is spoken widely across northern and central India and is one of the official languages of the Indian Union."
+                )}
+              </p>
+              <a
+                href="https://en.wikipedia.org/wiki/Hindi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-1 text-xs sm:text-sm text-primary hover:underline"
+              >
+                {t("about.hindi.link", "Learn more on Wikipedia →")}
+              </a>
+            </Section>
 
-        {/* 8. Code Availability */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.code.title", "Code Availability")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.code.text", "The source code for this project is publicly available for viewing and learning purposes.")}
-          </p>
-          <a
-            href="https://github.com/rushilrawat/sanskritized-hindi-lexicon"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-primary hover:underline"
-          >
-            {t("about.code.link", "View on GitHub →")}
-          </a>
-        </section>
+            <Section n={5} title={t("about.sanskrit.title", "Sanskrit's Influence · संस्कृतम्")}>
+              <p>
+                {t(
+                  "about.sanskrit.text",
+                  "Sanskrit is one of the oldest documented Indo-European languages and has deeply influenced Hindi vocabulary through Tatsama and Tadbhava words."
+                )}
+              </p>
+              <a
+                href="https://en.wikipedia.org/wiki/Sanskrit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-1 text-xs sm:text-sm text-primary hover:underline"
+              >
+                {t("about.sanskrit.link", "Learn more on Wikipedia →")}
+              </a>
+            </Section>
+          </div>
 
-        {/* 9. Version */}
-        <section>
-          <h2 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">
-            {t("about.version.title", "Version")}
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            {t("about.version.text", "Version 1.0 · May 2025. This project will continue to grow with additional entries and refinements over time.")}
-          </p>
-        </section>
+          <Section n={6} title={t("about.devanagari.title", "Devanagari Script · देवनागरी")}>
+            <p>
+              {t(
+                "about.devanagari.text",
+                "Devanagari is the script used for Hindi and several other South Asian languages. It is written from left to right and is known for its horizontal line (शिरोरेखा) connecting letters."
+              )}
+            </p>
+            <a
+              href="https://en.wikipedia.org/wiki/Devanagari"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-1 text-xs sm:text-sm text-primary hover:underline"
+            >
+              {t("about.devanagari.link", "Learn more on Wikipedia →")}
+            </a>
+          </Section>
 
-        {/* Footer: disclaimer + share */}
-        <section className="border-t border-border pt-4 sm:pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-          <p className="text-xs sm:text-sm text-muted-foreground italic">
-            {t("about.disclaimer", "This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.")}
+          <Ornament glyph="✺" />
+
+          <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
+            <Section n={7} title={t("about.notes.title", "Notes")}>
+              <p>
+                {t(
+                  "about.notes.text",
+                  "This lexicon is not exhaustive. Word meanings and usage may vary depending on context, region, and speaker."
+                )}
+              </p>
+            </Section>
+
+            <Section n={8} title={t("about.code.title", "Code Availability")}>
+              <p>
+                {t(
+                  "about.code.text",
+                  "The source code for this project is publicly available for viewing and learning purposes."
+                )}
+              </p>
+              <a
+                href="https://github.com/rushilrawat/sanskritized-hindi-lexicon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-1 text-xs sm:text-sm text-primary hover:underline"
+              >
+                {t("about.code.link", "View on GitHub →")}
+              </a>
+            </Section>
+          </div>
+
+          <Section n={9} title={t("about.version.title", "Version")}>
+            <p>
+              {t(
+                "about.version.text",
+                "Version 1.0 · May 2025. This project will continue to grow with additional entries and refinements over time."
+              )}
+            </p>
+          </Section>
+        </div>
+
+        <Ornament glyph="॥" />
+
+        {/* Colophon */}
+        <footer className="text-center space-y-3 pb-2">
+          <p className="text-xs sm:text-sm text-muted-foreground italic max-w-xl mx-auto">
+            {t(
+              "about.disclaimer",
+              "This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool."
+            )}
           </p>
           <button
             onClick={async () => {
               const url = window.location.origin;
-              const text = "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
+              const text =
+                "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
               const shareMessage = `${text}\n\n${url}`;
               if (navigator.share) {
-                try { await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url }); return; } catch {}
+                try {
+                  await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
+                  return;
+                } catch {}
               }
               try {
                 await navigator.clipboard.writeText(shareMessage);
@@ -164,7 +236,10 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
           >
             {t("about.share", "Liked our project? Share it →")}
           </button>
-        </section>
+          <div className="font-devanagari text-primary text-base tracking-widest pt-2">
+            ॥ इति ॥
+          </div>
+        </footer>
       </div>
     </div>
   );
