@@ -54,12 +54,13 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <div ref={ref} className="container-page">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">
-        {t("replace.title", "Sentence Replacement")}
-      </h1>
-      <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
-        {t("replace.subtitle", "Paste a Hindi sentence below. Words from other historical sources will be replaced with their Sanskrit-derived equivalents.")}
-      </p>
+      <PageHeader
+        title={t("replace.title", "Sentence Replacement")}
+        devanagari="प्रतिस्थापन"
+        glyph="❀"
+        subtitle={t("replace.subtitle", "Paste a Hindi sentence below. Words from other historical sources will be replaced with their Sanskrit-derived equivalents.")}
+      />
+
 
       <div className="space-y-4 sm:space-y-6">
         <div>
