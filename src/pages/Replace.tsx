@@ -8,6 +8,7 @@ import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import WordCard from "@/components/WordCard";
 import { useTranslation } from "@/hooks/useTranslation";
+import { PageHeader } from "@/components/ManuscriptOrnaments";
 import { toast } from "sonner";
 
 const MAX_INPUT_LENGTH = 5000;
