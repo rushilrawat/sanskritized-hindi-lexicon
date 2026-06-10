@@ -10,6 +10,7 @@ import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useTranslation } from "@/hooks/useTranslation";
+import { Ornament } from "@/components/ManuscriptOrnaments";
 import {
   SEARCH_WEIGHTS,
   detectScript,
