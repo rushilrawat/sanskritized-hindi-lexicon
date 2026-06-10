@@ -7,6 +7,7 @@ import LearnCard from "@/components/LearnCard";
 import { Shuffle, Dices, RotateCcw } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
+import { PageHeader } from "@/components/ManuscriptOrnaments";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
@@ -140,14 +141,19 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <div ref={ref} className="container-page">
-      <div className="text-center mb-5 sm:mb-8">
-        <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">
-          {t("learn.title", "Learn Words")}
-        </h1>
-        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-          {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}{" "}
-          <span className="text-foreground/70 font-medium">({words.length} {t("learn.wordsAvailable", "words")})</span>
-        </p>
+      <PageHeader
+        title={t("learn.title", "Learn Words")}
+        devanagari="अध्ययन"
+        glyph="✺"
+        subtitle={
+          <>
+            {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}{" "}
+            <span className="text-foreground/70 font-medium">
+              ({words.length} {t("learn.wordsAvailable", "words")})
+            </span>
+          </>
+        }
+      >
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             onClick={handleShuffle}
@@ -183,7 +189,8 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
             ))}
           </select>
         </div>
-      </div>
+      </PageHeader>
+
 
 
       <LearnCard

@@ -10,6 +10,7 @@ import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useTranslation } from "@/hooks/useTranslation";
+import { Ornament } from "@/components/ManuscriptOrnaments";
 import {
   SEARCH_WEIGHTS,
   detectScript,
@@ -224,11 +225,19 @@ const Index = () => {
   return (
     <div className="container-page">
       <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
+        <div
+          className="font-devanagari text-primary text-base sm:text-lg tracking-[0.35em] mb-2 opacity-80"
+          aria-hidden="true"
+        >
+          ॥ ॐ ॥
+        </div>
         <AnimatedHeading />
         <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
           {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
         </p>
+        <Ornament glyph="✦" className="mt-5 max-w-xs mx-auto" />
       </section>
+
 
       <section className="sticky top-[85px] md:top-14 z-20 bg-background border-b border-border py-2 sm:py-3 -mx-4 px-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
@@ -263,13 +272,16 @@ const Index = () => {
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
           <div className="mt-6 flex items-center gap-3">
             <div className="h-px flex-1 bg-border" />
+            <span className="font-devanagari text-saffron-dark text-sm tracking-widest" aria-hidden="true">॥</span>
             <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
               {t("index.allEntries", "All Entries")}
             </span>
+            <span className="font-devanagari text-saffron-dark text-sm tracking-widest" aria-hidden="true">॥</span>
             <div className="h-px flex-1 bg-border" />
           </div>
         </section>
       )}
+
 
       <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
