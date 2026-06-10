@@ -6,6 +6,7 @@ import WordCard from "@/components/WordCard";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useTranslation } from "@/hooks/useTranslation";
+import { PageHeader } from "@/components/ManuscriptOrnaments";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const BATCH_SIZE = 50;
