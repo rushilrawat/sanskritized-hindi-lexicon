@@ -84,13 +84,20 @@ const Categories = () => {
 
   return (
     <div className="container-page">
-      <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1.5 sm:mb-2">
-        {t("categories.title", "Browse by Category")}
-      </h1>
-      <p className="text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-8">
-        {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}{" "}
-        <span className="text-foreground/70 font-medium">({concepts.length} {t("categories.entries", "entries")})</span>
-      </p>
+      <PageHeader
+        title={t("categories.title", "Browse by Category")}
+        devanagari="श्रेणियाँ"
+        glyph="❁"
+        subtitle={
+          <>
+            {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}{" "}
+            <span className="text-foreground/70 font-medium">
+              ({concepts.length} {t("categories.entries", "entries")})
+            </span>
+          </>
+        }
+      />
+
 
       <div className="mb-4 sm:mb-6">
         <CategoryGrid
