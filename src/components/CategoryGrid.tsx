@@ -54,7 +54,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
           }`}
         >
           {categoryEmojis[cat] || "📁"} {t(`category.${cat}` as never, cat)}
-          {showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({getCategoryCount(cat)})</span>}
+          {showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({n(getCategoryCount(cat))})</span>}
         </button>
       ))}
     </div>
