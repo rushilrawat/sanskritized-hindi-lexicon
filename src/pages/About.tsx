@@ -36,7 +36,7 @@ const Section = ({
 };
 
 const About = forwardRef<HTMLDivElement>((_, ref) => {
-  const { t } = useTranslation();
+  const { t, n: num } = useTranslation();
 
   return (
     <div ref={ref} className="container-page max-w-3xl">
