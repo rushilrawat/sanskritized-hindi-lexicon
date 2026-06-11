@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import translations, { type TranslationKey } from "@/lib/translations";
+import { formatNumber } from "@/lib/numerals";
 
 export const useTranslation = () => {
   const { hindiMode } = useAccessibility();
@@ -15,5 +16,10 @@ export const useTranslation = () => {
     [hindiMode]
   );
 
-  return { t, hindiMode };
+  const n = useCallback(
+    (value: string | number): string => formatNumber(value, hindiMode),
+    [hindiMode]
+  );
+
+  return { t, n, hindiMode };
 };

@@ -20,7 +20,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     return saved ? parseInt(saved, 10) : 0;
   });
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
   const navigate = useNavigate();
   const { setProgress } = useLearnProgress();
 
@@ -148,7 +148,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           <>
             {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}{" "}
             <span className="text-foreground/70 font-medium">
-              ({words.length} {t("learn.wordsAvailable", "words")})
+              ({n(words.length)} {t("learn.wordsAvailable", "words")})
             </span>
           </>
         }

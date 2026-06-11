@@ -23,7 +23,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const [debouncedInput, setDebouncedInput] = useState(input);
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
 
   // Debounce expensive replacement computation
   useEffect(() => {
@@ -92,7 +92,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           />
           <div className="mt-1 flex justify-end">
             <span className={`text-[10px] sm:text-xs tabular-nums ${input.length >= MAX_INPUT_LENGTH ? "text-destructive" : "text-muted-foreground/60"}`}>
-              {input.length} / {MAX_INPUT_LENGTH}
+              {n(input.length)} / {n(MAX_INPUT_LENGTH)}
             </span>
           </div>
         </div>
@@ -153,7 +153,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
         {hasChanges && replacements.length > 0 && (
           <div>
             <h2 className="text-xs sm:text-sm font-semibold text-foreground mb-2 sm:mb-3">
-              {t("replace.replacementsMade", "Replacements Made")} ({replacements.length})
+              {t("replace.replacementsMade", "Replacements Made")} ({n(replacements.length)})
             </h2>
             <div className="flex flex-wrap gap-2">
               {replacements.map((r, i) => (

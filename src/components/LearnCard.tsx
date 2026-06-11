@@ -16,7 +16,7 @@ interface LearnCardProps {
 }
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
-  const { t, hindiMode } = useTranslation();
+  const { t, n, hindiMode } = useTranslation();
   const [playing, setPlaying] = useState(false);
   const lastClickRef = useRef(0);
 
@@ -146,7 +146,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
           {t("learn.previous", "← Previous")}
         </button>
         <span className="justify-self-center text-xs text-muted-foreground tabular-nums">
-          {current + 1} / {total}
+          {n(current + 1)} / {n(total)}
         </span>
         <button
           onClick={onNext}

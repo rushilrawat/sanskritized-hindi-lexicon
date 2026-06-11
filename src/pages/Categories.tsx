@@ -16,7 +16,7 @@ const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
 
   const categories = useMemo(() => {
     const cats = new Set(concepts.map((c) => c.category));
@@ -91,7 +91,7 @@ const Categories = () => {
           <>
             {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}{" "}
             <span className="text-foreground/70 font-medium">
-              ({concepts.length} {t("categories.entries", "entries")})
+              ({n(concepts.length)} {t("categories.entries", "entries")})
             </span>
           </>
         }

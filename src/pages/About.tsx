@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
+import { formatNumber } from "@/lib/numerals";
 
 const Ornament = ({ glyph = "❀" }: { glyph?: string }) => (
   <div className="manuscript-divider my-5 sm:my-6" aria-hidden="true">
@@ -17,22 +18,25 @@ const Section = ({
   n: number;
   title: string;
   children: React.ReactNode;
-}) => (
-  <section className="manuscript-section">
-    <span className="manuscript-number">
-      <span>{n}</span>
-    </span>
-    <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
-      {title}
-    </h2>
-    <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
-      {children}
-    </div>
-  </section>
-);
+}) => {
+  const { hindiMode } = useTranslation();
+  return (
+    <section className="manuscript-section">
+      <span className="manuscript-number">
+        <span>{formatNumber(n, hindiMode)}</span>
+      </span>
+      <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
+        {title}
+      </h2>
+      <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
+        {children}
+      </div>
+    </section>
+  );
+};
 
 const About = forwardRef<HTMLDivElement>((_, ref) => {
-  const { t } = useTranslation();
+  const { t, n: num } = useTranslation();
 
   return (
     <div ref={ref} className="container-page max-w-3xl">
@@ -77,7 +81,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start">
                   <span className="font-devanagari text-saffron-dark text-sm mt-0.5 select-none">
-                    {i + 1}
+                    {num(i + 1)}
                   </span>
                   <span>{item}</span>
                 </li>
