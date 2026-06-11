@@ -86,7 +86,6 @@ const Categories = () => {
     <div className="container-page">
       <PageHeader
         title={t("categories.title", "Browse by Category")}
-        devanagari="श्रेणियाँ"
         glyph="❁"
         subtitle={
           <>

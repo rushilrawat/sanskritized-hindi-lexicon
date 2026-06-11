@@ -143,7 +143,6 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     <div ref={ref} className="container-page">
       <PageHeader
         title={t("learn.title", "Learn Words")}
-        devanagari="अध्ययन"
         glyph="✺"
         subtitle={
           <>

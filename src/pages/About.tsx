@@ -1,8 +1,6 @@
 import { forwardRef } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 
-const devNumerals = ["१", "२", "३", "४", "५", "६", "७", "८", "९"];
-
 const Ornament = ({ glyph = "❀" }: { glyph?: string }) => (
   <div className="manuscript-divider my-5 sm:my-6" aria-hidden="true">
     <span className="manuscript-divider-glyph">॥</span>
@@ -22,9 +20,7 @@ const Section = ({
 }) => (
   <section className="manuscript-section">
     <span className="manuscript-number">
-      <span>{devNumerals[n - 1]}</span>
-      <span className="text-[10px] opacity-70">·</span>
-      <span className="text-[10px] opacity-70">{n}</span>
+      <span>{n}</span>
     </span>
     <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
       {title}
@@ -48,15 +44,9 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
 
         {/* Frontispiece */}
         <header className="text-center pt-3 pb-2">
-          <div className="font-devanagari text-primary text-xl sm:text-2xl tracking-widest mb-2">
-            ॥ ॐ ॥
-          </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
             {t("about.title", "About This Project")}
           </h1>
-          <p className="font-devanagari text-sm sm:text-base text-saffron-dark mt-1">
-            परिचय
-          </p>
         </header>
 
         <Ornament glyph="✦" />
@@ -87,7 +77,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start">
                   <span className="font-devanagari text-saffron-dark text-sm mt-0.5 select-none">
-                    {devNumerals[i]}
+                    {i + 1}
                   </span>
                   <span>{item}</span>
                 </li>
@@ -236,9 +226,6 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
           >
             {t("about.share", "Liked our project? Share it →")}
           </button>
-          <div className="font-devanagari text-primary text-base tracking-widest pt-2">
-            ॥ इति ॥
-          </div>
         </footer>
       </div>
     </div>
