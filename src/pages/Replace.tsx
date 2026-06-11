@@ -153,7 +153,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
         {hasChanges && replacements.length > 0 && (
           <div>
             <h2 className="text-xs sm:text-sm font-semibold text-foreground mb-2 sm:mb-3">
-              {t("replace.replacementsMade", "Replacements Made")} ({replacements.length})
+              {t("replace.replacementsMade", "Replacements Made")} ({n(replacements.length)})
             </h2>
             <div className="flex flex-wrap gap-2">
               {replacements.map((r, i) => (
