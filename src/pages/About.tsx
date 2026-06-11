@@ -18,19 +18,22 @@ const Section = ({
   n: number;
   title: string;
   children: React.ReactNode;
-}) => (
-  <section className="manuscript-section">
-    <span className="manuscript-number">
-      <span>{n}</span>
-    </span>
-    <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
-      {title}
-    </h2>
-    <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
-      {children}
-    </div>
-  </section>
-);
+}) => {
+  const { hindiMode } = useTranslation();
+  return (
+    <section className="manuscript-section">
+      <span className="manuscript-number">
+        <span>{formatNumber(n, hindiMode)}</span>
+      </span>
+      <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
+        {title}
+      </h2>
+      <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
+        {children}
+      </div>
+    </section>
+  );
+};
 
 const About = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
