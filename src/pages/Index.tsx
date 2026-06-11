@@ -225,17 +225,10 @@ const Index = () => {
   return (
     <div className="container-page">
       <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
-        <div
-          className="font-devanagari text-primary text-base sm:text-lg tracking-[0.35em] mb-2 opacity-80"
-          aria-hidden="true"
-        >
-          ॥ ॐ ॥
-        </div>
         <AnimatedHeading />
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto mt-3">
           {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
         </p>
-        <Ornament glyph="✦" className="mt-5 max-w-xs mx-auto" />
       </section>
 
 
