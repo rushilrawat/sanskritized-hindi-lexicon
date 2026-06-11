@@ -146,7 +146,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
           {t("learn.previous", "← Previous")}
         </button>
         <span className="justify-self-center text-xs text-muted-foreground tabular-nums">
-          {current + 1} / {total}
+          {n(current + 1)} / {n(total)}
         </span>
         <button
           onClick={onNext}
