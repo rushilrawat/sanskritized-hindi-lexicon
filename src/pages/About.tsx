@@ -81,7 +81,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start">
                   <span className="font-devanagari text-saffron-dark text-sm mt-0.5 select-none">
-                    {i + 1}
+                    {num(i + 1)}
                   </span>
                   <span>{item}</span>
                 </li>
