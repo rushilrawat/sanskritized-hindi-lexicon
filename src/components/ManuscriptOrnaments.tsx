@@ -25,13 +25,11 @@ export const Ornament = ({
  */
 export const PageHeader = ({
   title,
-  devanagari,
   subtitle,
   glyph = "✦",
   children,
 }: {
   title: ReactNode;
-  devanagari?: string;
   subtitle?: ReactNode;
   glyph?: string;
   children?: ReactNode;
@@ -43,14 +41,9 @@ export const PageHeader = ({
     >
       ॥ {glyph} ॥
     </div>
-    <h1 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+    <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
       {title}
     </h1>
-    {devanagari && (
-      <p className="font-devanagari text-sm sm:text-base text-saffron-dark mt-1">
-        {devanagari}
-      </p>
-    )}
     {subtitle && (
       <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto mt-2">
         {subtitle}
