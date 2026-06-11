@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
+import { formatNumber } from "@/lib/numerals";
 
 const Ornament = ({ glyph = "❀" }: { glyph?: string }) => (
   <div className="manuscript-divider my-5 sm:my-6" aria-hidden="true">
