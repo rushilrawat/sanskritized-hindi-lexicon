@@ -91,7 +91,7 @@ const Categories = () => {
           <>
             {t("categories.subtitle", "Explore vocabulary grouped by thematic categories.")}{" "}
             <span className="text-foreground/70 font-medium">
-              ({concepts.length} {t("categories.entries", "entries")})
+              ({n(concepts.length)} {t("categories.entries", "entries")})
             </span>
           </>
         }
