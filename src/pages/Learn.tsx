@@ -148,7 +148,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           <>
             {t("learn.subtitle", "Study Sanskrit-derived words one at a time. Use ← → keys to navigate, Space to listen.")}{" "}
             <span className="text-foreground/70 font-medium">
-              ({words.length} {t("learn.wordsAvailable", "words")})
+              ({n(words.length)} {t("learn.wordsAvailable", "words")})
             </span>
           </>
         }
