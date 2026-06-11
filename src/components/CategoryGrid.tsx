@@ -26,7 +26,7 @@ interface CategoryGridProps {
 
 const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = false }: CategoryGridProps) => {
   const { concepts } = useWords();
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
 
   const getCategoryCount = (cat: string) =>
     concepts.filter((c) => c.category === cat).length;
