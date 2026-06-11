@@ -41,7 +41,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
             : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
         }`}
       >
-        📋 {t("categories.all", "All")}{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({concepts.length})</span>}
+        📋 {t("categories.all", "All")}{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({n(concepts.length)})</span>}
       </button>
       {categories.map((cat) => (
         <button
