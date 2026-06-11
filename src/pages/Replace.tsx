@@ -23,7 +23,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   const [debouncedInput, setDebouncedInput] = useState(input);
   const [copied, setCopied] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
 
   // Debounce expensive replacement computation
   useEffect(() => {
