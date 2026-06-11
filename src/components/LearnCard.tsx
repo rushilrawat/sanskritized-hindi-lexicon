@@ -16,7 +16,7 @@ interface LearnCardProps {
 }
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
-  const { t, hindiMode } = useTranslation();
+  const { t, n, hindiMode } = useTranslation();
   const [playing, setPlaying] = useState(false);
   const lastClickRef = useRef(0);
 
