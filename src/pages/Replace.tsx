@@ -92,7 +92,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           />
           <div className="mt-1 flex justify-end">
             <span className={`text-[10px] sm:text-xs tabular-nums ${input.length >= MAX_INPUT_LENGTH ? "text-destructive" : "text-muted-foreground/60"}`}>
-              {input.length} / {MAX_INPUT_LENGTH}
+              {n(input.length)} / {n(MAX_INPUT_LENGTH)}
             </span>
           </div>
         </div>
