@@ -20,7 +20,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     return saved ? parseInt(saved, 10) : 0;
   });
   const { learnCategory: selectedCategory, setLearnCategory: setSelectedCategory } = useAccessibility();
-  const { t } = useTranslation();
+  const { t, n } = useTranslation();
   const navigate = useNavigate();
   const { setProgress } = useLearnProgress();
 
