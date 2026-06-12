@@ -45,8 +45,19 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
     window.speechSynthesis.speak(utterance);
   };
 
+  const bId = bookmarkId(word.english, word.dev);
+  const bookmarked = isBookmarked(bId);
+
   return (
-    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in transition-all duration-300">
+    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in transition-all duration-300 relative">
+      <button
+        onClick={() => toggleBookmark(bId)}
+        aria-label={bookmarked ? t("learn.unbookmark", "Remove bookmark") : t("learn.bookmark", "Bookmark this word")}
+        aria-pressed={bookmarked}
+        className="absolute top-3 right-3 p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+      >
+        <Bookmark className={`h-4 w-4 sm:h-5 sm:w-5 ${bookmarked ? "fill-primary text-primary" : ""}`} />
+      </button>
       <div className="mb-4 sm:mb-6 flex items-center justify-center gap-3">
         <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
