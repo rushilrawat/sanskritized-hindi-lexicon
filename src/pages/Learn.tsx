@@ -16,6 +16,7 @@ import { useLearnProgress } from "@/hooks/useLearnProgress";
 
 const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   const { concepts, loading } = useWords();
+  const { bookmarks, removeBookmark } = useBookmarks();
   const [shuffled, setShuffled] = useState(false);
   const [index, setIndex] = useState(() => {
     const saved = localStorage.getItem("learn-index");
