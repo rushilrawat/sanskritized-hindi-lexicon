@@ -173,6 +173,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="md:hidden">
           <div className="flex items-center justify-between px-3 py-2 border-b border-border/50">
             <NavLink to="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors">
+              <span className="text-[hsl(var(--saffron))] text-sm leading-none select-none">॥</span>
               <BookOpen className="h-4 w-4 text-primary" />
               <span className={`font-semibold text-xs tracking-wide ${hindiMode ? "font-devanagari" : ""}`}>
                 {t("site.title", "Sanskritized Hindi Lexicon")}
