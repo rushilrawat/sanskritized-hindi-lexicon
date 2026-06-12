@@ -173,6 +173,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="md:hidden">
           <div className="flex items-center justify-between px-3 py-2 border-b border-border/50">
             <NavLink to="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors">
+              <span className="text-[hsl(var(--saffron))] text-sm leading-none select-none">॥</span>
               <BookOpen className="h-4 w-4 text-primary" />
               <span className={`font-semibold text-xs tracking-wide ${hindiMode ? "font-devanagari" : ""}`}>
                 {t("site.title", "Sanskritized Hindi Lexicon")}
@@ -229,29 +230,34 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
         {/* Tablet & Desktop: single-row header */}
         <div className="hidden md:flex items-center justify-between px-4 lg:px-8 h-14">
-          <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+          <NavLink to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group">
+            <span className="text-[hsl(var(--saffron))] text-lg leading-none select-none">॥</span>
             <BookOpen className="h-5 w-5 text-primary" />
             <span className={`font-semibold text-sm tracking-wide ${hindiMode ? "font-devanagari" : ""}`}>
               {t("site.title", "Sanskritized Hindi Lexicon")}
             </span>
           </NavLink>
           <div className="flex items-center gap-1.5 lg:gap-2">
-            <nav className="flex items-center gap-1 lg:gap-1.5">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.to === "/"}
-                  className={({ isActive }) =>
-                    `px-2.5 py-1.5 rounded-md text-xs lg:text-sm whitespace-nowrap transition-colors ${hindiMode ? "font-devanagari" : ""} ${
-                      isActive
-                        ? "bg-primary text-primary-foreground font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
+            <nav className="flex items-center">
+              {navItems.map((item, i) => (
+                <div key={item.to} className="flex items-center">
+                  {i > 0 && (
+                    <span className="text-muted-foreground/25 text-[10px] select-none mx-0.5">·</span>
+                  )}
+                  <NavLink
+                    to={item.to}
+                    end={item.to === "/"}
+                    className={({ isActive }) =>
+                      `relative px-2.5 py-1.5 rounded-md text-xs lg:text-sm whitespace-nowrap transition-colors ${hindiMode ? "font-devanagari" : ""} ${
+                        isActive
+                          ? "bg-primary text-primary-foreground font-medium"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      } ${isActive ? "after:content-[''] after:absolute after:bottom-0.5 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-primary-foreground/80" : ""}`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </div>
               ))}
             </nav>
             {/* Desktop inline controls */}
