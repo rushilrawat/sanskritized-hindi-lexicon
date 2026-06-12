@@ -74,6 +74,7 @@ const translations = {
   "learn.noWords": "इस श्रेणी में कोई शब्द नहीं।",
   "learn.wordsAvailable": "शब्द",
   "learn.listen": "सुनें",
+  "learn.playing": "बज रहा है…",
   "learn.bookmark": "पुस्तकचिह्न लगाएँ",
   "learn.unbookmark": "पुस्तकचिह्न हटाएँ",
   "learn.bookmarks": "पुस्तकचिह्न",
