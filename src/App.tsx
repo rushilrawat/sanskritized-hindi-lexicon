@@ -25,20 +25,22 @@ const App = () => (
         <AccessibilityProvider>
           <WordsProvider>
             <LearnProgressProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
-                <Layout>
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/categories" element={<Categories />} />
-                    <Route path="/learn" element={<Learn />} />
-                    <Route path="/replace" element={<Replace />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Layout>
-              </BrowserRouter>
+              <BookmarksProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                  <Layout>
+                    <Routes>
+                      <Route path="/" element={<Index />} />
+                      <Route path="/categories" element={<Categories />} />
+                      <Route path="/learn" element={<Learn />} />
+                      <Route path="/replace" element={<Replace />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Layout>
+                </BrowserRouter>
+              </BookmarksProvider>
             </LearnProgressProvider>
           </WordsProvider>
         </AccessibilityProvider>
