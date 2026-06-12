@@ -48,6 +48,31 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
     return flat;
   }, [shuffled, selectedCategory, concepts]);
 
+  const allWords = useMemo(() => flattenWords(concepts, "sanskrit_derived"), [concepts]);
+  const bookmarkedWords = useMemo(
+    () => allWords.filter((w) => bookmarks.includes(bookmarkId(w.english, w.dev))),
+    [allWords, bookmarks]
+  );
+
+  const jumpToBookmark = useCallback(
+    (english: string, dev: string) => {
+      const concept = concepts.find((c) => c.english === english);
+      if (concept && selectedCategory && concept.category !== selectedCategory) {
+        setSelectedCategory(null);
+      }
+      // find in current words (after potential category reset, recompute next tick)
+      setTimeout(() => {
+        const list = selectedCategory && concept?.category !== selectedCategory ? allWords : words;
+        const idx = list.findIndex((w) => w.english === english && w.dev === dev);
+        if (idx >= 0) {
+          setIndex(idx);
+          localStorage.setItem("learn-index", String(idx));
+        }
+      }, 0);
+    },
+    [concepts, selectedCategory, setSelectedCategory, allWords, words]
+  );
+
   // Clamp index when words list changes
   useEffect(() => {
     if (words.length > 0 && index >= words.length) {
