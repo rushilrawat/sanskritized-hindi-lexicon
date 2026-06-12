@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccessibilityProvider } from "@/hooks/useAccessibility";
 import { WordsProvider } from "@/hooks/useWords";
 import { LearnProgressProvider } from "@/hooks/useLearnProgress";
+import { BookmarksProvider } from "@/hooks/useBookmarks";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
