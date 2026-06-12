@@ -211,6 +211,57 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
               <option key={cat} value={cat}>{t(`category.${cat}` as never, cat)}</option>
             ))}
           </select>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              >
+                <Bookmark className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                {t("learn.bookmarks" as never, "Bookmarks")}
+                {bookmarkedWords.length > 0 && (
+                  <span className="ml-0.5 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-primary text-primary-foreground text-[10px] font-medium tabular-nums">
+                    {n(bookmarkedWords.length)}
+                  </span>
+                )}
+              </button>
+            </SheetTrigger>
+            <SheetContent className="w-full sm:max-w-md overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>{t("learn.bookmarks" as never, "Bookmarks")}</SheetTitle>
+              </SheetHeader>
+              <div className="mt-6 space-y-2">
+                {bookmarkedWords.length === 0 ? (
+                  <p className="text-sm text-muted-foreground text-center py-8">
+                    {t("learn.noBookmarks" as never, "No bookmarks yet. Tap the bookmark icon on a card to save it.")}
+                  </p>
+                ) : (
+                  bookmarkedWords.map((w) => (
+                    <div
+                      key={bookmarkId(w.english, w.dev)}
+                      className="group flex items-center gap-2 p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors"
+                    >
+                      <button
+                        onClick={() => jumpToBookmark(w.english, w.dev)}
+                        className="flex-1 text-left"
+                      >
+                        <div className="font-devanagari text-lg text-foreground">{w.dev}</div>
+                        <div className="text-xs text-muted-foreground capitalize">
+                          {w.roman} · {w.english}
+                        </div>
+                      </button>
+                      <button
+                        onClick={() => removeBookmark(bookmarkId(w.english, w.dev))}
+                        aria-label="Remove bookmark"
+                        className="p-1.5 rounded-md text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors opacity-0 group-hover:opacity-100"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </PageHeader>
 
