@@ -56,21 +56,17 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
 
   const jumpToBookmark = useCallback(
     (english: string, dev: string) => {
-      const concept = concepts.find((c) => c.english === english);
-      if (concept && selectedCategory && concept.category !== selectedCategory) {
-        setSelectedCategory(null);
-      }
-      // find in current words (after potential category reset, recompute next tick)
+      setShuffled(false);
+      setSelectedCategory(null);
       setTimeout(() => {
-        const list = selectedCategory && concept?.category !== selectedCategory ? allWords : words;
-        const idx = list.findIndex((w) => w.english === english && w.dev === dev);
+        const idx = allWords.findIndex((w) => w.english === english && w.dev === dev);
         if (idx >= 0) {
           setIndex(idx);
           localStorage.setItem("learn-index", String(idx));
         }
       }, 0);
     },
-    [concepts, selectedCategory, setSelectedCategory, allWords, words]
+    [setSelectedCategory, allWords]
   );
 
   // Clamp index when words list changes
