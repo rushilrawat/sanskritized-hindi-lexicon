@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { Volume2 } from "lucide-react";
+import { Volume2, Bookmark } from "lucide-react";
+import { useBookmarks, bookmarkId } from "@/hooks/useBookmarks";
 import SoundWave from "@/components/SoundWave";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
