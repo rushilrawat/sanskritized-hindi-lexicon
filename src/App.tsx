@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccessibilityProvider } from "@/hooks/useAccessibility";
 import { WordsProvider } from "@/hooks/useWords";
 import { LearnProgressProvider } from "@/hooks/useLearnProgress";
+import { BookmarksProvider } from "@/hooks/useBookmarks";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
@@ -24,20 +25,22 @@ const App = () => (
         <AccessibilityProvider>
           <WordsProvider>
             <LearnProgressProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
-                <Layout>
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/categories" element={<Categories />} />
-                    <Route path="/learn" element={<Learn />} />
-                    <Route path="/replace" element={<Replace />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Layout>
-              </BrowserRouter>
+              <BookmarksProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                  <Layout>
+                    <Routes>
+                      <Route path="/" element={<Index />} />
+                      <Route path="/categories" element={<Categories />} />
+                      <Route path="/learn" element={<Learn />} />
+                      <Route path="/replace" element={<Replace />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Layout>
+                </BrowserRouter>
+              </BookmarksProvider>
             </LearnProgressProvider>
           </WordsProvider>
         </AccessibilityProvider>

@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { Volume2 } from "lucide-react";
+import { Volume2, Bookmark } from "lucide-react";
+import { useBookmarks, bookmarkId } from "@/hooks/useBookmarks";
 import SoundWave from "@/components/SoundWave";
 import type { FlatWord } from "@/lib/flattenWords";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -17,6 +18,7 @@ interface LearnCardProps {
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
   const { t, n, hindiMode } = useTranslation();
+  const { isBookmarked, toggleBookmark } = useBookmarks();
   const [playing, setPlaying] = useState(false);
   const lastClickRef = useRef(0);
 
@@ -43,8 +45,19 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
     window.speechSynthesis.speak(utterance);
   };
 
+  const bId = bookmarkId(word.english, word.dev);
+  const bookmarked = isBookmarked(bId);
+
   return (
-    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in transition-all duration-300">
+    <div ref={ref} className="card-elevated max-w-md mx-auto p-5 sm:p-8 text-center animate-fade-in transition-all duration-300 relative">
+      <button
+        onClick={() => toggleBookmark(bId)}
+        aria-label={bookmarked ? t("learn.unbookmark" as never, "Remove bookmark") : t("learn.bookmark" as never, "Bookmark this word")}
+        aria-pressed={bookmarked}
+        className="absolute top-3 right-3 p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+      >
+        <Bookmark className={`h-4 w-4 sm:h-5 sm:w-5 ${bookmarked ? "fill-primary text-primary" : ""}`} />
+      </button>
       <div className="mb-4 sm:mb-6 flex items-center justify-center gap-3">
         <span className="font-devanagari text-3xl sm:text-4xl font-semibold text-foreground leading-relaxed">
           {word.dev}
