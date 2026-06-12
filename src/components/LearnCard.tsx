@@ -18,6 +18,7 @@ interface LearnCardProps {
 
 const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, onPrev, current, total, onViewFullEntry }, ref) => {
   const { t, n, hindiMode } = useTranslation();
+  const { isBookmarked, toggleBookmark } = useBookmarks();
   const [playing, setPlaying] = useState(false);
   const lastClickRef = useRef(0);
 
