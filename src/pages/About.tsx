@@ -48,9 +48,12 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
 
         {/* Frontispiece */}
         <header className="text-center pt-3 pb-2">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
             {t("about.title", "About This Project")}
           </h1>
+          <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
+            {t("about.disclaimer", "This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.")}
+          </p>
         </header>
 
         <Ornament glyph="✦" />

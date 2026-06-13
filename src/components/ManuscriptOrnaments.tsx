@@ -20,8 +20,9 @@ export const Ornament = ({
 );
 
 /**
- * A page header framed by faint saffron rules and a small Devanagari
- * subtitle. Used by Categories / Learn / Replace.
+ * A consistent page header: large title, optional subtitle, and an
+ * ornament rule beneath — mirroring the Home page layout so every
+ * page sits on the same visual baseline.
  */
 export const PageHeader = ({
   title,
@@ -34,21 +35,16 @@ export const PageHeader = ({
   glyph?: string;
   children?: ReactNode;
 }) => (
-  <header className="text-center mb-6 sm:mb-8 pt-2">
-    <div
-      className="font-devanagari text-primary text-base sm:text-lg tracking-[0.35em] mb-2 opacity-80"
-      aria-hidden="true"
-    >
-      ॥ {glyph} ॥
-    </div>
-    <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+  <header className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
       {title}
     </h1>
     {subtitle && (
-      <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto mt-2">
+      <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
         {subtitle}
       </p>
     )}
+    <Ornament glyph={glyph} className="mt-5 max-w-xs mx-auto" />
     {children && <div className="mt-4">{children}</div>}
   </header>
 );
