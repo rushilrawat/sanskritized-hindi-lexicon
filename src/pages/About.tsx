@@ -52,7 +52,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             {t("about.title", "About This Project")}
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
-            {t("about.subtitle", "Background, scope, and intent behind this lexicon.")}
+            {t("about.disclaimer", "This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.")}
           </p>
         </header>
 
