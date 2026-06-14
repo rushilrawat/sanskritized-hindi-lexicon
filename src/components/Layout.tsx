@@ -168,7 +168,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background relative">
-      <DevanagariBackdrop />
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
         {/* Mobile: two-row header */}
         <div className="md:hidden">
