@@ -5,6 +5,7 @@ import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import DevanagariBackdrop from "@/components/DevanagariBackdrop";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
   const [copied, setCopied] = useState(false);
@@ -167,7 +168,8 @@ const Layout = ({ children }: LayoutProps) => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background relative">
+      <DevanagariBackdrop />
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
         {/* Mobile: two-row header */}
         <div className="md:hidden">
