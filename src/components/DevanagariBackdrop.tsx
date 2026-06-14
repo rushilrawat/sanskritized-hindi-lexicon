@@ -1,5 +1,5 @@
 /**
- * Subtle, decorative Devanagari glyphs scattered across the viewport.
+ * Subtle, decorative Devanagari glyphs for manuscript background texture.
  * Purely ornamental — non-interactive, hidden from assistive tech.
  */
 const GLYPHS = [
@@ -10,15 +10,14 @@ const GLYPHS = [
 ];
 
 // Deterministic pseudo-random scatter so glyphs don't reshuffle on every render.
-const ITEMS = Array.from({ length: 28 }, (_, i) => {
-  // Hash-ish deterministic numbers
+const ITEMS = Array.from({ length: 18 }, (_, i) => {
   const seed = (n: number, m: number) => ((i + 1) * 9301 + n * 49297) % m;
   return {
     char: GLYPHS[seed(7, GLYPHS.length)],
-    top: seed(3, 95) + 2,            // %
-    left: seed(11, 95) + 2,          // %
-    size: 2.5 + (seed(5, 60) / 10),  // rem
-    rotate: seed(17, 30) - 15,       // deg
+    top: seed(3, 90) + 5,            // %
+    left: seed(11, 90) + 5,          // %
+    size: 1.4 + (seed(5, 20) / 10),  // rem
+    rotate: seed(17, 20) - 10,       // deg
   };
 });
 
@@ -26,12 +25,12 @@ const DevanagariBackdrop = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none"
+      className="pointer-events-none absolute inset-0 overflow-hidden select-none"
     >
       {ITEMS.map((it, idx) => (
         <span
           key={idx}
-          className="font-devanagari absolute text-foreground/[0.035] dark:text-foreground/[0.045] leading-none"
+          className="font-devanagari absolute text-foreground/[0.025] dark:text-foreground/[0.03] leading-none"
           style={{
             top: `${it.top}%`,
             left: `${it.left}%`,
