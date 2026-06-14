@@ -227,12 +227,12 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
             </SheetTrigger>
             <SheetContent className="w-full sm:max-w-md overflow-y-auto">
               <SheetHeader>
-                <SheetTitle>{t("learn.bookmarks" as never, "Bookmarks")}</SheetTitle>
+                <SheetTitle>{t("learn.bookmarks", "Bookmarks")}</SheetTitle>
               </SheetHeader>
               <div className="mt-6 space-y-2">
                 {bookmarkedWords.length === 0 ? (
                   <p className="text-sm text-muted-foreground text-center py-8">
-                    {t("learn.noBookmarks" as never, "No bookmarks yet. Tap the bookmark icon on a card to save it.")}
+                    {t("learn.noBookmarks", "No bookmarks yet. Tap the bookmark icon on a card to save it.")}
                   </p>
                 ) : (
                   bookmarkedWords.map((w) => (
