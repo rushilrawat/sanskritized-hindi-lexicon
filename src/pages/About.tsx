@@ -41,7 +41,8 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <div ref={ref} className="container-page max-w-3xl">
-      <div className="manuscript-panel p-5 sm:p-8 md:p-10">
+      <div className="manuscript-panel relative p-5 sm:p-8 md:p-10">
+        <DevanagariBackdrop />
         <span className="manuscript-corner tl" aria-hidden="true" />
         <span className="manuscript-corner tr" aria-hidden="true" />
         <span className="manuscript-corner bl" aria-hidden="true" />
