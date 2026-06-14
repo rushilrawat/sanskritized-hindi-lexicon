@@ -217,7 +217,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
                 className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               >
                 <Bookmark className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                {t("learn.bookmarks" as never, "Bookmarks")}
+                {t("learn.bookmarks", "Bookmarks")}
                 {bookmarkedWords.length > 0 && (
                   <span className="ml-0.5 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-primary text-primary-foreground text-[10px] font-medium tabular-nums">
                     {n(bookmarkedWords.length)}
@@ -227,12 +227,12 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
             </SheetTrigger>
             <SheetContent className="w-full sm:max-w-md overflow-y-auto">
               <SheetHeader>
-                <SheetTitle>{t("learn.bookmarks" as never, "Bookmarks")}</SheetTitle>
+                <SheetTitle>{t("learn.bookmarks", "Bookmarks")}</SheetTitle>
               </SheetHeader>
               <div className="mt-6 space-y-2">
                 {bookmarkedWords.length === 0 ? (
                   <p className="text-sm text-muted-foreground text-center py-8">
-                    {t("learn.noBookmarks" as never, "No bookmarks yet. Tap the bookmark icon on a card to save it.")}
+                    {t("learn.noBookmarks", "No bookmarks yet. Tap the bookmark icon on a card to save it.")}
                   </p>
                 ) : (
                   bookmarkedWords.map((w) => (

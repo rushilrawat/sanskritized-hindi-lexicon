@@ -80,6 +80,10 @@ const translations = {
   "learn.viewFullEntry": "सम्पूर्ण प्रविष्टि देखें →",
   "learn.previous": "← पिछला",
   "learn.next": "अगला →",
+  "learn.bookmarks": "पुस्तकचिह्न",
+  "learn.bookmark": "पुस्तकचिह्न बनाएँ",
+  "learn.unbookmark": "पुस्तकचिह्न हटाएँ",
+  "learn.noBookmarks": "अभी तक कोई पुस्तकचिह्न नहीं। कार्ड पर पुस्तकचिह्न चिह्न दबाकर सहेजें।",
 
   // Replace
   "replace.title": "वाक्य प्रतिस्थापन",
