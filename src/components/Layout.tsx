@@ -5,7 +5,6 @@ import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import DevanagariBackdrop from "@/components/DevanagariBackdrop";
 
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
   const [copied, setCopied] = useState(false);
