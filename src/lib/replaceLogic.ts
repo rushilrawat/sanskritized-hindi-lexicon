@@ -59,11 +59,13 @@ function isDevanagari(s: string): boolean {
   return !!devChars && devChars.length > s.length / 3;
 }
 
+const WORD_BOUNDARY_CHARS = new Set(".,;:!? '\"()[]{}-/\\|@#$%^&*+=<>~`।॥".split(""));
+
 function isWordBoundary(char: string | undefined): boolean {
   if (!char) return true;
   // Includes Devanagari danda (।) and double danda (॥) so replacements
   // work when adjacent punctuation has been normalized to Hindi marks.
-  return /[\s.,;:!?'"()\[\]{}\-\/\\|@#$%^&*+=<>~`।॥]/.test(char);
+  return /\s/.test(char) || WORD_BOUNDARY_CHARS.has(char);
 }
 
 /**

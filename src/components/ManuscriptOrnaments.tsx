@@ -35,12 +35,13 @@ export const PageHeader = ({
   glyph?: string;
   children?: ReactNode;
 }) => (
-  <header className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
+  <header className="archive-page-header">
+    <p className="archive-eyebrow" aria-hidden="true">॥ अभिलेख ॥</p>
+    <h1 className="archive-title">
       {title}
     </h1>
     {subtitle && (
-      <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
+      <p className="archive-subtitle">
         {subtitle}
       </p>
     )}

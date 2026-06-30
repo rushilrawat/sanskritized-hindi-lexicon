@@ -22,7 +22,7 @@ The goal is **clarity, accessibility, and linguistic transparency**, not prescri
 ## ✨ Features
 
 ### 🧠 Content & Language
-- **500+ curated concepts** with Sanskrit-derived and alternate historical equivalents
+- **1,400+ curated concepts** with Sanskrit-derived and alternate historical equivalents
 - Full **Devanagari, Romanization, and IPA** for each word
 - **Registry tags** (formal, colloquial, classical, literary, legal, technical, etc.)
 - **11 thematic categories** (Nature, Governance, Abstract Concepts, etc.)
@@ -64,10 +64,10 @@ The goal is **clarity, accessibility, and linguistic transparency**, not prescri
 
 ### ⚙️ Engineering Highlights
 
-- **Lazy-loaded pages and datasets** for performance
+- **Lazy-loaded routes and dataset chunk** for performance
 - **Debounced search input + input constraints**
 - **XSS-safe rendering and runtime guards**
-- **Strict JSON schema validation**
+- **Dataset validation utilities**
 - **Controlled vocabulary system (max 2 tags per word)**
 - **Deduplicated dataset with enforced consistency**
 - **Fully static build (no SSR, no dynamic routing)**
@@ -81,7 +81,7 @@ The goal is **clarity, accessibility, and linguistic transparency**, not prescri
 | Frontend     | React 18 + TypeScript 5 |
 | Build Tool   | Vite 5 |
 | Styling      | Tailwind CSS v3 |
-| UI System    | shadcn/ui |
+| UI System    | Focused Radix primitives + custom archive components |
 | Routing      | React Router |
 | Testing      | Vitest |
 | State        | LocalStorage + React state |

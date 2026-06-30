@@ -1,7 +1,6 @@
-import { Toaster } from "@/components/ui/toaster";
+import { Suspense, lazy } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccessibilityProvider } from "@/hooks/useAccessibility";
 import { WordsProvider } from "@/hooks/useWords";
@@ -9,27 +8,26 @@ import { LearnProgressProvider } from "@/hooks/useLearnProgress";
 import { BookmarksProvider } from "@/hooks/useBookmarks";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Layout from "@/components/Layout";
-import Index from "./pages/Index";
-import Categories from "./pages/Categories";
-import Learn from "./pages/Learn";
-import Replace from "./pages/Replace";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
+import WordsLoading from "@/components/WordsLoading";
 
-const queryClient = new QueryClient();
+const Index = lazy(() => import("./pages/Index"));
+const Categories = lazy(() => import("./pages/Categories"));
+const Learn = lazy(() => import("./pages/Learn"));
+const Replace = lazy(() => import("./pages/Replace"));
+const About = lazy(() => import("./pages/About"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
   <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <AccessibilityProvider>
-          <WordsProvider>
-            <LearnProgressProvider>
-              <BookmarksProvider>
-                <Toaster />
-                <Sonner />
-                <BrowserRouter>
-                  <Layout>
+    <TooltipProvider>
+      <AccessibilityProvider>
+        <WordsProvider>
+          <LearnProgressProvider>
+            <BookmarksProvider>
+              <Sonner />
+              <BrowserRouter>
+                <Layout>
+                  <Suspense fallback={<WordsLoading />}>
                     <Routes>
                       <Route path="/" element={<Index />} />
                       <Route path="/categories" element={<Categories />} />
@@ -38,14 +36,14 @@ const App = () => (
                       <Route path="/about" element={<About />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
-                  </Layout>
-                </BrowserRouter>
-              </BookmarksProvider>
-            </LearnProgressProvider>
-          </WordsProvider>
-        </AccessibilityProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+                  </Suspense>
+                </Layout>
+              </BrowserRouter>
+            </BookmarksProvider>
+          </LearnProgressProvider>
+        </WordsProvider>
+      </AccessibilityProvider>
+    </TooltipProvider>
   </ErrorBoundary>
 );
 

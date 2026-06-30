@@ -6,6 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
 import AnimatedHeading from "@/components/AnimatedHeading";
+import HomeScriptBackdrop from "@/components/HomeScriptBackdrop";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
@@ -223,17 +224,18 @@ const Index = () => {
   }
 
   return (
-    <div className="container-page">
-      <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
+    <div className="container-page home-page">
+      {!search && <HomeScriptBackdrop />}
+      <section className="archive-page-header">
         <AnimatedHeading />
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
+        <p className="archive-subtitle">
           {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
         </p>
         <Ornament glyph="✦" className="mt-5 max-w-xs mx-auto" />
       </section>
 
 
-      <section className="sticky top-[85px] md:top-14 z-20 bg-background border-b border-border py-2 sm:py-3 -mx-4 px-4">
+      <section className="archive-sticky-panel -mx-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
         {!search && filtered.length > 5 && (
           <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">

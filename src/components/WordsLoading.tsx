@@ -14,7 +14,7 @@ const WordsLoading = () => (
     </div>
     <div className="space-y-3 mt-8">
       {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className="card-elevated p-4 space-y-3">
+        <div key={i} className="folio-card p-4 space-y-3">
           <div className="flex items-center justify-between">
             <Skeleton className="h-5 w-40" />
             <Skeleton className="h-5 w-20" />

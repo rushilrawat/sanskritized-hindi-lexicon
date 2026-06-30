@@ -130,7 +130,7 @@ const Categories = () => {
 
       <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
         {selectedCategory && (
-          <h2 className="text-base sm:text-lg font-semibold text-foreground">{t(`category.${selectedCategory}` as never, selectedCategory)}</h2>
+          <h2 className="font-archive text-base sm:text-lg font-semibold text-foreground">{t(`category.${selectedCategory}`, selectedCategory)}</h2>
         )}
         {visibleItems.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const headings = [
-  { text: "Sanskritized Hindi Lexicon", className: "font-body text-foreground" },
-  { text: "संस्कृतनिष्ठ हिंदी कोश", className: "font-devanagari text-primary" },
+  { text: "Sanskritized Hindi Lexicon", className: "font-archive text-foreground" },
+  { text: "संस्कृतनिष्ठ हिन्दी शब्दकोश", className: "font-devanagari-serif text-primary" },
   { text: "/səns.kɾɪ.t̪aɪzd ˈhɪndi ˈlɛksɪkən/", className: "font-mono text-muted-foreground" },
 ];
 
@@ -24,13 +24,16 @@ const AnimatedHeading = () => {
   const current = headings[index];
 
   return (
-    <h1
-      className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 transition-opacity duration-400 ${
-        fading ? "opacity-0" : "opacity-100"
-      } ${current.className}`}
-    >
-      {current.text}
-    </h1>
+    <div className="space-y-1">
+      <p className="archive-eyebrow" aria-hidden="true">॥ शब्दानुशासनम् ॥</p>
+      <h1
+        className={`archive-title transition-opacity duration-400 ${
+          fading ? "opacity-0" : "opacity-100"
+        } ${current.className}`}
+      >
+        {current.text}
+      </h1>
+    </div>
   );
 };
 

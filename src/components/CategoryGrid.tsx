@@ -1,21 +1,6 @@
-import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { useTranslation } from "@/hooks/useTranslation";
-
-const categoryEmojis: Record<string, string> = {
-  Education: "📚",
-  Emotion: "💖",
-  Geography: "🌍",
-  Governance: "🏛️",
-  Law: "⚖️",
-  Nature: "🌿",
-  Relationships: "🤝",
-  Relationship: "🤝",
-  "Abstract Concepts": "💭",
-  "Body & Health": "🏥",
-  Society: "👥",
-  Occupations: "💼",
-};
+import { CATEGORY_META } from "@/lib/constants";
 
 interface CategoryGridProps {
   categories: string[];
@@ -28,33 +13,30 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
   const { concepts } = useWords();
   const { t, n } = useTranslation();
 
-  const getCategoryCount = (cat: string) =>
-    concepts.filter((c) => c.category === cat).length;
+  const counts = concepts.reduce<Record<string, number>>((acc, concept) => {
+    acc[concept.category] = (acc[concept.category] || 0) + 1;
+    return acc;
+  }, {});
 
   return (
     <div className="flex flex-wrap gap-1.5 sm:gap-2">
       <button
         onClick={() => onSelect(null)}
-        className={`px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all border whitespace-nowrap ${
-          selectedCategory === null
-            ? "bg-primary text-primary-foreground border-primary"
-            : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
-        }`}
+        className={`archive-chip ${selectedCategory === null ? "archive-chip-active" : ""}`}
       >
-        📋 {t("categories.all", "All")}{showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({n(concepts.length)})</span>}
+        <span className="archive-chip-glyph" aria-hidden="true">सर्व</span>
+        <span>{t("categories.all", "All")}</span>
+        {showCounts && <span className="archive-chip-count">({n(concepts.length)})</span>}
       </button>
       {categories.map((cat) => (
         <button
           key={cat}
           onClick={() => onSelect(cat)}
-          className={`px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all border whitespace-nowrap ${
-            selectedCategory === cat
-              ? "bg-primary text-primary-foreground border-primary"
-              : "bg-card text-foreground border-border hover:bg-muted hover:border-muted-foreground/30"
-          }`}
+          className={`archive-chip ${selectedCategory === cat ? "archive-chip-active" : ""}`}
         >
-          {categoryEmojis[cat] || "📁"} {t(`category.${cat}` as never, cat)}
-          {showCounts && <span className="ml-1 text-[10px] sm:text-xs opacity-70">({n(getCategoryCount(cat))})</span>}
+          <span className="archive-chip-glyph" aria-hidden="true">{CATEGORY_META[cat]?.glyph || "पद"}</span>
+          <span>{t(`category.${cat}`, cat)}</span>
+          {showCounts && <span className="archive-chip-count">({n(counts[cat] || 0)})</span>}
         </button>
       ))}
     </div>

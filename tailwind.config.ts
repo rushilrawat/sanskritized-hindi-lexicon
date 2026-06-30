@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -70,6 +71,8 @@ export default {
       },
       fontFamily: {
         devanagari: ["'Noto Sans Devanagari'", "sans-serif"],
+        devanagariSerif: ["'Noto Serif Devanagari'", "serif"],
+        archive: ["'Libre Baskerville'", "Georgia", "serif"],
         body: ["'Inter'", "system-ui", "sans-serif"],
       },
       borderRadius: {
@@ -98,5 +101,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

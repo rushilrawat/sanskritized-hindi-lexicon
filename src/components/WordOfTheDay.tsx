@@ -36,8 +36,8 @@ const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, o
   }
 
   return (
-    <div ref={ref} className="rounded-lg border-2 border-primary/30 shadow-md relative overflow-hidden pl-3 pr-4 py-4 sm:pl-5 sm:pr-6 sm:py-6 border-l-4 border-l-primary bg-gradient-to-br from-card via-card to-accent/30">
-      <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
+    <div ref={ref} className="scripture-feature">
+      <img src="/archive-seal.svg" alt="" aria-hidden="true" className="absolute right-4 bottom-4 h-16 w-16 opacity-[0.08]" />
       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-primary mb-2 sm:mb-3">
         {t("wotd.title", "Word of the Day")}
       </p>
@@ -60,7 +60,7 @@ const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, o
             पर्यायवाची · {t("learn.synonyms", "Synonyms")}:{" "}
           </span>
           {synonymDevs.map((s) => (
-            <span key={s} className="font-devanagari text-sm text-foreground bg-saffron-light px-2 py-0.5 rounded mr-1.5">
+            <span key={s} className="tag-badge font-devanagari mr-1.5">
               {s}
             </span>
           ))}
@@ -73,7 +73,7 @@ const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, o
             विलोम · {t("learn.antonyms", "Antonyms")}:{" "}
           </span>
           {antonymDevs.map((a) => (
-            <span key={a} className="font-devanagari text-sm text-foreground bg-secondary px-2 py-0.5 rounded mr-1.5">
+            <span key={a} className="tag-pill font-devanagari mr-1.5">
               {a}
             </span>
           ))}

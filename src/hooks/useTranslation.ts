@@ -7,9 +7,9 @@ export const useTranslation = () => {
   const { hindiMode } = useAccessibility();
 
   const t = useCallback(
-    (key: TranslationKey, englishFallback: string): string => {
+    (key: string, englishFallback: string): string => {
       if (hindiMode) {
-        return translations[key] || englishFallback;
+        return translations[key as TranslationKey] || englishFallback;
       }
       return englishFallback;
     },
