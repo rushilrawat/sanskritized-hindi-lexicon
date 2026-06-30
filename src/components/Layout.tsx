@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ArrowUp, Check, Languages, Moon, Settings, Share2, Sun } from "lucide-react";
+import { ArrowUp, BookOpen, Check, Languages, Moon, Settings, Share2, Sun } from "lucide-react";
 import { useAccessibility } from "@/hooks/useAccessibility";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
@@ -181,13 +181,10 @@ const Brand = () => {
 
   return (
     <NavLink to="/" className="archive-brand">
-      <img src="/archive-seal.svg" alt="" className="h-8 w-8 shrink-0" aria-hidden="true" />
+      <BookOpen className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
       <span className="min-w-0">
         <span className={`block truncate text-sm font-semibold ${hindiMode ? "font-devanagari" : "font-archive"}`}>
           {t("site.title", "Sanskritized Hindi Lexicon")}
-        </span>
-        <span className="hidden sm:block text-[10px] text-muted-foreground font-devanagari">
-          अभिलेख · व्युत्पत्ति · शब्द
         </span>
       </span>
     </NavLink>
@@ -208,7 +205,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="archive-shell min-h-screen flex flex-col bg-background relative overflow-x-hidden">
-      <header className="archive-header sticky top-0 z-50">
+      <header className="archive-header sticky top-0 z-[1000]">
         <div className="md:hidden">
           <div className="flex items-center justify-between gap-3 px-3 py-2 border-b border-border/70">
             <Brand />

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const headings = [
-  { text: "Sanskritized Hindi Lexicon", className: "font-archive archive-heading-latin" },
   { text: "संस्कृतनिष्ठ हिन्दी शब्दकोश", className: "font-devanagari-serif archive-heading-devanagari" },
+  { text: "Sanskritized Hindi Lexicon", className: "font-archive archive-heading-latin" },
   { text: "/səns.kɾɪ.t̪aɪzd ˈhɪndi ˈlɛksɪkən/", className: "font-mono archive-heading-ipa" },
 ];
 

@@ -37,7 +37,6 @@ const WordOfTheDay = forwardRef<HTMLDivElement, WordOfTheDayProps>(({ concept, o
 
   return (
     <div ref={ref} className="scripture-feature">
-      <img src="/archive-seal.svg" alt="" aria-hidden="true" className="absolute right-4 bottom-4 h-16 w-16 opacity-[0.08]" />
       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-primary mb-2 sm:mb-3">
         {t("wotd.title", "Word of the Day")}
       </p>
