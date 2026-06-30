@@ -24,7 +24,7 @@ const CategoryGrid = ({ categories, selectedCategory, onSelect, showCounts = fal
         onClick={() => onSelect(null)}
         className={`archive-chip ${selectedCategory === null ? "archive-chip-active" : ""}`}
       >
-        <span className="archive-chip-glyph" aria-hidden="true">सर्व</span>
+        <span className="archive-chip-glyph" aria-hidden="true">📋</span>
         <span>{t("categories.all", "All")}</span>
         {showCounts && <span className="archive-chip-count">({n(concepts.length)})</span>}
       </button>

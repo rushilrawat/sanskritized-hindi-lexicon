@@ -198,7 +198,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             <p>
               {t(
                 "about.version.text",
-                "Version 1.0 · May 2025. This project will continue to grow with additional entries and refinements over time."
+                "Version 2.0 · June 2026. This project will continue to grow with additional entries and refinements over time."
               )}
             </p>
           </Section>

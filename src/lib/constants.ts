@@ -35,15 +35,15 @@ export type RegistryTag = typeof REGISTRY_TAGS[number];
 export const MAX_TAGS_PER_WORD = 2;
 
 export const CATEGORY_META: Record<string, { glyph: string; label: string }> = {
-  "Abstract Concepts": { glyph: "तत्त्व", label: "Principles" },
-  "Body & Health": { glyph: "देह", label: "Body" },
-  Education: { glyph: "विद्या", label: "Learning" },
-  Emotion: { glyph: "भाव", label: "Feeling" },
-  Geography: { glyph: "भू", label: "Earth" },
-  Governance: { glyph: "राज", label: "Statecraft" },
-  Law: { glyph: "न्याय", label: "Justice" },
-  Nature: { glyph: "प्रकृति", label: "Nature" },
-  Occupations: { glyph: "कर्म", label: "Work" },
-  Relationships: { glyph: "सम्बन्ध", label: "Relation" },
-  Society: { glyph: "लोक", label: "People" },
+  "Abstract Concepts": { glyph: "💭", label: "Principles" },
+  "Body & Health": { glyph: "🏥", label: "Body" },
+  Education: { glyph: "📚", label: "Learning" },
+  Emotion: { glyph: "💖", label: "Feeling" },
+  Geography: { glyph: "🌍", label: "Earth" },
+  Governance: { glyph: "🏛️", label: "Statecraft" },
+  Law: { glyph: "⚖️", label: "Justice" },
+  Nature: { glyph: "🌿", label: "Nature" },
+  Occupations: { glyph: "💼", label: "Work" },
+  Relationships: { glyph: "🤝", label: "Relation" },
+  Society: { glyph: "👥", label: "People" },
 };

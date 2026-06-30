@@ -257,18 +257,18 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
 
-        {progress !== null && (
-          <div
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(progress)}
-            aria-label="Learn progress"
-            className="h-[3px] w-full bg-transparent overflow-hidden"
-          >
+        <div
+          role={progress !== null ? "progressbar" : undefined}
+          aria-valuemin={progress !== null ? 0 : undefined}
+          aria-valuemax={progress !== null ? 100 : undefined}
+          aria-valuenow={progress !== null ? Math.round(progress) : undefined}
+          aria-label={progress !== null ? "Learn progress" : undefined}
+          className="h-[3px] w-full bg-transparent overflow-hidden"
+        >
+          {progress !== null && (
             <div className="h-full archive-progress-bar transition-[width] duration-500 ease-out" style={{ width: `${progress}%` }} />
-          </div>
-        )}
+          )}
+        </div>
       </header>
 
       <main className="relative z-10 flex-1">{children}</main>
@@ -278,7 +278,7 @@ const Layout = ({ children }: LayoutProps) => {
       <footer className="relative z-10 archive-footer mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
           <p className={`text-xs text-muted-foreground ${hindiMode ? "font-devanagari" : ""}`}>
-            {t("footer.tagline", "Sanskritized Hindi Lexicon · v1.0 · A neutral, open-source linguistic archive")}
+            {t("footer.tagline", "Sanskritized Hindi Lexicon · v2.0 · A neutral, open-source linguistic archive")}
           </p>
           <p className="text-[11px] text-muted-foreground/75">
             {t("footer.lastUpdated", "Last updated")}:{" "}
