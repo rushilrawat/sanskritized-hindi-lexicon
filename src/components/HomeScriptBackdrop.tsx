@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const GLYPHS = [
   "अ", "आ", "इ", "ई", "उ", "ऋ", "क", "ख", "ग", "च", "ज्ञ", "त्र",
@@ -18,33 +18,44 @@ const ITEMS = Array.from({ length: 26 }, (_, i) => {
 });
 
 const HomeScriptBackdrop = () => {
-  const [progress, setProgress] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let frame = 0;
-    const update = () => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        setProgress(Math.min(window.scrollY / 280, 1));
-      });
+
+    const sync = () => {
+      const progress = Math.min(window.scrollY / 280, 1);
+      const el = ref.current;
+      if (!el) return;
+      el.style.opacity = String(Math.max(0, 1 - progress * 1.35));
+      el.style.transform = `translateX(-50%) translateY(${-progress * 72}px) scale(${1 + progress * 0.035})`;
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
+    const requestSync = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(sync);
+    };
+
+    const interval = window.setInterval(sync, 120);
+    sync();
+    window.addEventListener("scroll", requestSync, { passive: true });
+    window.addEventListener("resize", requestSync, { passive: true });
+    document.addEventListener("scroll", requestSync, { passive: true, capture: true });
+
     return () => {
       window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
+      window.clearInterval(interval);
+      window.removeEventListener("scroll", requestSync);
+      window.removeEventListener("resize", requestSync);
+      document.removeEventListener("scroll", requestSync, { capture: true });
     };
   }, []);
 
   return (
     <div
+      ref={ref}
       aria-hidden="true"
       className="home-script-backdrop"
-      style={{
-        opacity: Math.max(0, 1 - progress * 1.35),
-        transform: `translateY(${-progress * 72}px) scale(${1 + progress * 0.035})`,
-      }}
     >
       {ITEMS.map((item, index) => (
         <span

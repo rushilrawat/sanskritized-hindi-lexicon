@@ -235,7 +235,7 @@ const Index = () => {
       </section>
 
 
-      <section className="archive-sticky-panel -mx-4">
+      <section className="archive-sticky-panel -mx-4 mb-24 sm:mb-4">
         <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
         {!search && filtered.length > 5 && (
           <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">

@@ -213,28 +213,21 @@
 
   .archive-shell {
     background:
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--parchment)) 38%, hsl(var(--background)));
+      radial-gradient(circle at 50% -10%, hsl(var(--saffron-light) / 0.72), transparent 34rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--parchment)) 45%, hsl(var(--background)));
   }
 
-  .archive-shell::before,
-  .archive-shell::after {
+  .archive-shell::before {
     content: "";
     position: fixed;
     left: 0;
     right: 0;
-    height: 3px;
+    top: 0;
+    height: 2px;
     z-index: 60;
     pointer-events: none;
     background:
-      linear-gradient(90deg, transparent, hsl(var(--copper) / 0.65), hsl(var(--indigo) / 0.55), hsl(var(--leaf) / 0.6), transparent);
-  }
-
-  .archive-shell::before { top: 0; }
-  .archive-shell::after { bottom: 0; }
-
-  .archive-glyph-field {
-    @apply pointer-events-none fixed inset-0 z-0 overflow-hidden;
-    opacity: 0.72;
+      linear-gradient(90deg, transparent, hsl(var(--copper) / 0.55), hsl(var(--indigo) / 0.45), hsl(var(--leaf) / 0.5), transparent);
   }
 
   .archive-header {
@@ -306,8 +299,7 @@
   .archive-footer {
     @apply border-t border-border py-7;
     background:
-      linear-gradient(180deg, transparent, hsl(var(--card) / 0.72)),
-      repeating-linear-gradient(90deg, transparent 0 16px, hsl(var(--copper) / 0.04) 16px 17px);
+      linear-gradient(180deg, transparent, hsl(var(--card) / 0.82));
   }
 
   .archive-page-header {
@@ -329,12 +321,42 @@
     text-wrap: pretty;
   }
 
+  .home-page {
+    @apply relative;
+  }
+
+  .home-page > section,
+  .home-page > div:not(.home-script-backdrop) {
+    @apply relative z-10;
+  }
+
+  .home-script-backdrop {
+    @apply pointer-events-none absolute left-1/2 top-0 z-0 h-[25rem] w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden select-none;
+    transition: opacity 180ms ease-out, transform 180ms ease-out;
+    mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 100%);
+  }
+
+  .home-script-backdrop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 16%, hsl(var(--card) / 0.75), transparent 34%),
+      radial-gradient(circle at 20% 30%, hsl(var(--saffron-light) / 0.55), transparent 32%),
+      radial-gradient(circle at 82% 26%, hsl(var(--secondary) / 0.44), transparent 32%);
+  }
+
+  .home-script-glyph {
+    @apply absolute font-devanagari-serif leading-none text-primary/10;
+    animation: home-script-float 8s ease-in-out infinite alternate;
+  }
+
   .archive-search {
     @apply w-full rounded-md border border-border bg-card px-3 py-2.5 pl-9 text-xs text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 sm:pl-10 sm:pr-4 sm:py-3 sm:text-sm;
-    background-image:
-      linear-gradient(90deg, hsl(var(--copper) / 0.08) 0 1px, transparent 1px),
-      linear-gradient(180deg, hsl(var(--card)), hsl(var(--parchment) / 0.72));
-    background-size: 18px 100%, 100% 100%;
+    background: hsl(var(--card) / 0.96);
+    box-shadow:
+      0 1px 0 hsl(var(--card)) inset,
+      0 14px 34px -30px hsl(var(--ink) / 0.45);
   }
 
   textarea.archive-search {
@@ -349,8 +371,8 @@
   .card-elevated {
     @apply relative overflow-hidden rounded-md border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
     box-shadow:
-      inset 4px 0 0 hsl(var(--copper) / 0.42),
-      0 12px 30px -26px hsl(var(--ink) / 0.7);
+      0 1px 0 hsl(var(--card)) inset,
+      0 16px 40px -34px hsl(var(--ink) / 0.55);
   }
 
   .folio-card::before,
@@ -360,21 +382,18 @@
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(90deg, hsl(var(--copper) / 0.065) 0 1px, transparent 1px),
-      linear-gradient(180deg, transparent, hsl(var(--saffron-light) / 0.28));
-    background-size: 24px 100%, 100% 100%;
-    opacity: 0.75;
+      radial-gradient(circle at top right, hsl(var(--saffron-light) / 0.55), transparent 44%),
+      linear-gradient(180deg, hsl(var(--card) / 0.55), transparent);
+    opacity: 0.52;
   }
 
   .entry-strip {
     @apply relative rounded-md border border-border/80 px-2 py-1.5 sm:px-3 sm:py-2;
-    background:
-      linear-gradient(180deg, hsl(var(--saffron-light) / 0.82), hsl(var(--card) / 0.92));
+    background: hsl(var(--saffron-light) / 0.54);
   }
 
   .entry-strip-muted {
-    background:
-      linear-gradient(180deg, hsl(var(--secondary) / 0.86), hsl(var(--card) / 0.88));
+    background: hsl(var(--secondary) / 0.74);
   }
 
   .tag-badge {
@@ -408,9 +427,8 @@
   .scripture-feature {
     @apply relative overflow-hidden rounded-md border border-primary/35 bg-card p-4 shadow-md sm:p-6;
     box-shadow:
-      inset 0 0 0 1px hsl(var(--saffron-light) / 0.75),
-      inset 5px 0 0 hsl(var(--primary)),
-      0 16px 38px -30px hsl(var(--ink) / 0.8);
+      0 1px 0 hsl(var(--card)) inset,
+      0 18px 42px -34px hsl(var(--ink) / 0.55);
   }
 
   .scripture-feature::after {
@@ -452,8 +470,8 @@
     position: relative;
     background-color: hsl(var(--parchment));
     background-image:
-      repeating-linear-gradient(0deg, transparent 0 31px, hsl(var(--ink) / 0.045) 31px 32px),
-      linear-gradient(90deg, hsl(var(--copper) / 0.08), transparent 20%, transparent 80%, hsl(var(--indigo) / 0.07));
+      radial-gradient(circle at top left, hsl(var(--saffron-light) / 0.55), transparent 35%),
+      radial-gradient(circle at bottom right, hsl(var(--secondary) / 0.5), transparent 38%);
     border: 1px solid hsl(var(--copper) / 0.38);
     border-radius: 0.5rem;
     box-shadow:
@@ -469,7 +487,7 @@
     left: 1rem;
     right: 1rem;
     height: 1px;
-    background: linear-gradient(to right, transparent, hsl(var(--copper) / 0.55), transparent);
+    background: linear-gradient(to right, transparent, hsl(var(--copper) / 0.38), transparent);
   }
 
   .manuscript-panel::before { top: 0.5rem; }
@@ -536,6 +554,11 @@
     50% { transform: scaleY(1); }
   }
 
+  @keyframes home-script-float {
+    from { margin-top: 0; }
+    to { margin-top: -0.65rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -544,6 +567,10 @@
       animation-iteration-count: 1 !important;
       scroll-behavior: auto !important;
       transition-duration: 0.001ms !important;
+    }
+
+    .home-script-glyph {
+      animation: none;
     }
   }
 }
