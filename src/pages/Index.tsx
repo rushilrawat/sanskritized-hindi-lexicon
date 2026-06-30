@@ -31,8 +31,11 @@ const Index = () => {
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const [activeLetter, setActiveLetter] = useState<string | null>(null);
+  const [searchPinned, setSearchPinned] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const searchAnchorRef = useRef<HTMLElement>(null);
+  const searchClusterRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -160,8 +163,10 @@ const Index = () => {
     const handleScroll = () => {
       const letters = document.querySelectorAll("[data-letter]");
       if (!letters.length) return;
-      // Threshold = bottom of sticky search/alphabet bar (approx)
-      const threshold = 240;
+      const searchCluster = searchClusterRef.current;
+      const threshold = searchCluster
+        ? searchCluster.getBoundingClientRect().bottom + 24
+        : 240;
       let current: string | null = null;
       for (const el of letters) {
         const rect = (el as HTMLElement).getBoundingClientRect();
@@ -182,6 +187,30 @@ const Index = () => {
       window.removeEventListener("resize", handleScroll);
     };
   }, [search, visibleCount, filtered.length]);
+
+  useEffect(() => {
+    const syncPinnedSearch = () => {
+      const anchor = searchAnchorRef.current;
+      const cluster = searchClusterRef.current;
+      if (!anchor || !cluster) return;
+
+      const header = document.querySelector(".archive-header") as HTMLElement | null;
+      const stickyTop = (header?.getBoundingClientRect().height || 0) + 8;
+      anchor.style.setProperty("--home-search-height", `${cluster.offsetHeight}px`);
+      anchor.style.setProperty("--home-sticky-top", `${stickyTop}px`);
+
+      const shouldPin = anchor.getBoundingClientRect().top <= stickyTop && window.scrollY > 80;
+      setSearchPinned(shouldPin);
+    };
+
+    syncPinnedSearch();
+    window.addEventListener("scroll", syncPinnedSearch, { passive: true });
+    window.addEventListener("resize", syncPinnedSearch, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", syncPinnedSearch);
+      window.removeEventListener("resize", syncPinnedSearch);
+    };
+  }, [search, filtered.length]);
 
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
@@ -235,36 +264,45 @@ const Index = () => {
       </section>
 
 
-      <section className="archive-sticky-panel -mx-4 mb-24 sm:mb-4">
-        <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
-        {!search && filtered.length > 5 && (
-          <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">
-            {alphabet.map((letter) => {
-              const isAvailable = availableLetters.has(letter);
-              const isActive = activeLetter === letter;
-              return (
-                <button
-                  key={letter}
-                  onClick={() => handleJumpToLetter(letter)}
-                  disabled={!isAvailable}
-                  className={`w-[calc((100%-25px)/26)] sm:w-6 h-6 flex-shrink-0 rounded text-[10px] sm:text-[11px] font-medium transition-colors ${
-                    isActive
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : isAvailable
-                        ? "text-foreground hover:bg-primary hover:text-primary-foreground"
-                        : "text-muted-foreground/30 cursor-default"
-                  }`}
-                >
-                  {letter}
-                </button>
-              );
-            })}
-          </div>
-        )}
+      <section
+        ref={searchAnchorRef}
+        className="home-search-anchor"
+        aria-label={t("search.placeholder", "Search by English, Devanagari, or IPA...")}
+      >
+        <div
+          ref={searchClusterRef}
+          className={`home-search-cluster ${searchPinned ? "home-search-cluster-pinned" : ""}`}
+        >
+          <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
+          {!search && (
+            <div className="home-alphabet-nav" aria-label={t("index.browseByLetter", "Browse entries by letter")}>
+              {alphabet.map((letter) => {
+                const isAvailable = availableLetters.has(letter);
+                const isActive = activeLetter === letter;
+                return (
+                  <button
+                    key={letter}
+                    onClick={() => handleJumpToLetter(letter)}
+                    disabled={!isAvailable}
+                    className={`home-letter-button ${
+                      isActive
+                        ? "home-letter-button-active"
+                        : isAvailable
+                          ? "text-foreground hover:bg-primary hover:text-primary-foreground"
+                          : "text-muted-foreground/30 cursor-default"
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </section>
 
       {wotd && !search && (
-        <section className="mb-6 mt-4">
+        <section className="home-wotd-section">
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
           <div className="mt-6 flex items-center gap-3">
             <div className="h-px flex-1 bg-border" />
@@ -294,6 +332,7 @@ const Index = () => {
               key={concept.english}
               id={needsAnchor ? `word-${firstLetter}` : undefined}
               data-letter={needsAnchor ? firstLetter : undefined}
+              className={needsAnchor ? `letter-section-anchor ${activeLetter === firstLetter ? "letter-section-active" : ""}` : undefined}
             >
               <WordCard concept={concept} />
             </div>

@@ -87,19 +87,19 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       <div className="space-y-1 mb-3 sm:mb-4">
         <p className="text-base sm:text-lg text-foreground font-medium">{word.roman}</p>
         <p className="text-ipa text-[11px] sm:text-sm">/{word.ipa}/</p>
-        <p className="text-sm text-muted-foreground mt-2 capitalize">
+        <p className="text-sm text-foreground/80 mt-2 capitalize">
           {word.english}
         </p>
         {!hindiMode && word.description && (
-          <p className="text-xs sm:text-sm text-muted-foreground italic mt-1 px-2">
+          <p className="text-xs sm:text-sm text-foreground/75 italic mt-1 px-2">
             {word.description}
           </p>
         )}
         {hindiMode && hiDesc && (
-          <p className="text-sm text-muted-foreground mt-1 font-devanagari px-2">{hiDesc}</p>
+          <p className="text-sm text-foreground/75 mt-1 font-devanagari px-2">{hiDesc}</p>
         )}
         {(word.category || word.tags.length > 0) && (
-          <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-2 tracking-wide">
+          <p className="text-[10px] sm:text-xs text-muted-foreground mt-2 tracking-wide">
             {[
               word.category ? t(`category.${word.category}`, word.category) : null,
               ...word.tags.slice(0, 2).map((tag) => t(`tag.${tag}`, tag)),
@@ -111,7 +111,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {/* Synonyms (Paryayvachi) */}
       {word.synonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
             <span className="font-devanagari">पर्यायवाची</span>
             {!hindiMode && <> · Synonyms</>}
           </p>
@@ -128,7 +128,7 @@ const LearnCard = forwardRef<HTMLDivElement, LearnCardProps>(({ word, onNext, on
       {/* Antonyms (Vilom) */}
       {word.antonyms.length > 0 && (
         <div className="mb-3 pt-3 border-t border-border">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
             <span className="font-devanagari">विलोम</span>
             {!hindiMode && <> · Antonyms</>}
           </p>

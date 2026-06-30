@@ -184,14 +184,14 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             onClick={handleShuffle}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
           >
             <Shuffle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {shuffled ? t("learn.sequential", "Sequential") : t("learn.shuffle", "Shuffle")}
           </button>
           <button
             onClick={handleRandom}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
           >
             <Dices className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {t("learn.random", "Random")}
@@ -199,7 +199,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           {index > 0 && (
             <button
               onClick={handleStartOver}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               {t("learn.startOver", "Start Over")}
@@ -218,7 +218,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           <Sheet>
             <SheetTrigger asChild>
               <button
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
               >
                 <Bookmark className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 {t("learn.bookmarks", "Bookmarks")}
