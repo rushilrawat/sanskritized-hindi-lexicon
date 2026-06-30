@@ -1,11 +1,14 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { createPortal } from "react-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import SearchBar from "@/components/SearchBar";
 import WordOfTheDay from "@/components/WordOfTheDay";
 import WordCard from "@/components/WordCard";
+import EntryDetailDrawer from "@/components/EntryDetailDrawer";
 import AnimatedHeading from "@/components/AnimatedHeading";
+import HomeScriptBackdrop from "@/components/HomeScriptBackdrop";
 import { getWordOfTheDay } from "@/lib/getWordOfTheDay";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
@@ -30,8 +33,15 @@ const Index = () => {
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const [activeLetter, setActiveLetter] = useState<string | null>(null);
+  const [activeEntry, setActiveEntry] = useState<{ letter: string; english: string } | null>(null);
+  const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
+  const [searchPinned, setSearchPinned] = useState(false);
+  const [stickyTop, setStickyTop] = useState(72);
   const listRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const searchAnchorRef = useRef<HTMLElement>(null);
+  const searchClusterRef = useRef<HTMLDivElement>(null);
+  const searchOverlayRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -153,38 +163,83 @@ const Index = () => {
   useEffect(() => {
     if (search) {
       setActiveLetter(null);
+      setActiveEntry(null);
       return;
     }
 
     const handleScroll = () => {
-      const letters = document.querySelectorAll("[data-letter]");
-      if (!letters.length) return;
-      // Threshold = bottom of sticky search/alphabet bar (approx)
-      const threshold = 240;
-      let current: string | null = null;
-      for (const el of letters) {
+      const entries = document.querySelectorAll("[data-entry]");
+      if (!entries.length) return;
+      const searchCluster = searchPinned ? searchOverlayRef.current : searchClusterRef.current;
+      const threshold = searchCluster
+        ? searchCluster.getBoundingClientRect().bottom + 24
+        : 240;
+      let current: { letter: string; english: string } | null = null;
+      for (const el of entries) {
         const rect = (el as HTMLElement).getBoundingClientRect();
         if (rect.top <= threshold) {
-          current = (el as HTMLElement).dataset.letter || null;
+          current = {
+            letter: (el as HTMLElement).dataset.entryLetter || "",
+            english: (el as HTMLElement).dataset.entry || "",
+          };
         } else {
           break;
         }
       }
-      setActiveLetter(current);
+      setActiveLetter(current?.letter || null);
+      setActiveEntry(current?.english ? current : null);
     };
 
     handleScroll();
+    const id = window.setInterval(handleScroll, 180);
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
     return () => {
+      window.clearInterval(id);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [search, visibleCount, filtered.length]);
+  }, [search, searchPinned, visibleCount, filtered.length]);
+
+  useEffect(() => {
+    const syncPinnedSearch = () => {
+      const anchor = searchAnchorRef.current;
+      const cluster = searchClusterRef.current;
+      if (!anchor || !cluster) return;
+
+      const nextStickyTop = 8;
+      anchor.style.setProperty("--home-search-height", `${cluster.offsetHeight}px`);
+      setStickyTop((prev) => Math.abs(prev - nextStickyTop) > 1 ? nextStickyTop : prev);
+
+      const shouldPin = anchor.getBoundingClientRect().bottom <= nextStickyTop && window.scrollY > 80;
+      setSearchPinned(shouldPin);
+    };
+
+    syncPinnedSearch();
+    const id = window.setInterval(syncPinnedSearch, 180);
+    window.addEventListener("scroll", syncPinnedSearch, { passive: true });
+    window.addEventListener("resize", syncPinnedSearch, { passive: true });
+    return () => {
+      window.clearInterval(id);
+      window.removeEventListener("scroll", syncPinnedSearch);
+      window.removeEventListener("resize", syncPinnedSearch);
+    };
+  }, [search, filtered.length]);
 
   const availableLetters = useMemo(() => {
     return new Set(filtered.map((c) => c.english[0].toUpperCase()));
   }, [filtered]);
+
+  const suggestedCategories = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const concept of concepts) {
+      counts.set(concept.category, (counts.get(concept.category) || 0) + 1);
+    }
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 4)
+      .map(([category]) => category);
+  }, [concepts]);
 
   const handleJumpToLetter = useCallback((letter: string) => {
     const idx = filtered.findIndex(
@@ -213,30 +268,23 @@ const Index = () => {
     }
   }, [wotd, setSearchParams]);
 
+  const handleClearSearch = useCallback(() => {
+    setSearch("");
+    setSearchParams({});
+  }, [setSearchParams]);
+
   const lettersRendered = new Set<string>();
   const visibleItems = filtered.slice(0, visibleCount);
 
-  if (loading) return <WordsLoading />;
-
-  if (concepts.length === 0) {
-    return <DataFallback message={t("index.noData", "No word data found. The lexicon data file may be empty or malformed.")} />;
-  }
-
-  return (
-    <div className="container-page">
-      <section className="text-center mb-6 sm:mb-10 pt-4 sm:pt-6">
-        <AnimatedHeading />
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
-          {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
-        </p>
-        <Ornament glyph="✦" className="mt-5 max-w-xs mx-auto" />
-      </section>
-
-
-      <section className="sticky top-[85px] md:top-14 z-20 bg-background border-b border-border py-2 sm:py-3 -mx-4 px-4">
-        <SearchBar onSearch={setSearch} autoFocus initialValue={search} />
-        {!search && filtered.length > 5 && (
-          <div className="flex gap-px sm:gap-0.5 justify-center items-center mt-2">
+  const renderSearchRail = (pinned = false) => (
+    <div
+      ref={pinned ? searchOverlayRef : searchClusterRef}
+      className={`home-search-cluster ${pinned ? "home-search-cluster-overlay" : ""}`}
+    >
+      <SearchBar onSearch={setSearch} autoFocus={!pinned} initialValue={search} />
+      {!search && (
+        <div className="mini-glossary-row">
+          <div className="home-alphabet-nav" aria-label={t("index.browseByLetter", "Browse entries by letter")}>
             {alphabet.map((letter) => {
               const isAvailable = availableLetters.has(letter);
               const isActive = activeLetter === letter;
@@ -245,9 +293,9 @@ const Index = () => {
                   key={letter}
                   onClick={() => handleJumpToLetter(letter)}
                   disabled={!isAvailable}
-                  className={`w-[calc((100%-25px)/26)] sm:w-6 h-6 flex-shrink-0 rounded text-[10px] sm:text-[11px] font-medium transition-colors ${
+                  className={`home-letter-button ${
                     isActive
-                      ? "bg-primary text-primary-foreground shadow-sm"
+                      ? "home-letter-button-active"
                       : isAvailable
                         ? "text-foreground hover:bg-primary hover:text-primary-foreground"
                         : "text-muted-foreground/30 cursor-default"
@@ -258,11 +306,52 @@ const Index = () => {
               );
             })}
           </div>
-        )}
+          {activeEntry && (
+            <div className="mini-glossary-pill" aria-live="polite">
+              <span>{activeEntry.letter}</span>
+              <b>{activeEntry.english}</b>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+
+  if (loading) return <WordsLoading />;
+
+  if (concepts.length === 0) {
+    return <DataFallback message={t("index.noData", "No word data found. The lexicon data file may be empty or malformed.")} />;
+  }
+
+  return (
+    <div className="container-page home-page">
+      {!search && <HomeScriptBackdrop />}
+      <section className="archive-page-header">
+        <AnimatedHeading />
+        <p className="archive-subtitle">
+          {t("index.subtitle", "A structured, etymology-based reference of Sanskrit-derived Hindi vocabulary.")}
+        </p>
+        <Ornament glyph="✦" className="mt-5 max-w-xs mx-auto" />
       </section>
 
+
+      <section
+        ref={searchAnchorRef}
+        className="home-search-anchor"
+        aria-label={t("search.placeholder", "Search by English, Devanagari, or IPA...")}
+      >
+        {renderSearchRail(false)}
+      </section>
+
+      {searchPinned && createPortal(
+        <div className="home-search-overlay" style={{ top: `${stickyTop}px` }}>
+          {renderSearchRail(true)}
+        </div>,
+        document.body
+      )}
+
       {wotd && !search && (
-        <section className="mb-6 mt-4">
+        <section className="home-wotd-section">
           <WordOfTheDay concept={wotd} onViewEntry={handleViewWotdEntry} />
           <div className="mt-6 flex items-center gap-3">
             <div className="h-px flex-1 bg-border" />
@@ -279,9 +368,50 @@ const Index = () => {
 
       <section className="space-y-3 sm:space-y-5" ref={listRef}>
         {filtered.length === 0 && (
-          <p className="text-center text-muted-foreground py-8">
-            {t("index.noEntries", "No entries found. Try another term.")}
-          </p>
+          <div className="search-empty-state" role="status" aria-live="polite">
+            <div className="search-empty-glyph" aria-hidden="true">अ</div>
+            <p className="search-empty-eyebrow">
+              {t("index.noEntriesEyebrow", "No manuscript match")}
+            </p>
+            <h2 className="search-empty-title">
+              {t("index.noEntriesTitle", "Nothing found for")} <span>“{search.trim()}”</span>
+            </h2>
+            <p className="search-empty-copy">
+              {t(
+                "index.noEntriesHelp",
+                "Try a Devanagari form, an IPA transcription, a simpler English root, or browse a related category."
+              )}
+            </p>
+
+            <div className="search-empty-hints" aria-label={t("index.searchHints", "Search suggestions")}>
+              <button type="button" onClick={() => setSearch("उत्साह")}>
+                {t("index.tryDevanagari", "Try Devanagari")} <span>उत्साह</span>
+              </button>
+              <button type="button" onClick={() => setSearch("utsaah")}>
+                {t("index.tryRoman", "Try romanized Hindi")} <span>utsaah</span>
+              </button>
+              <button type="button" onClick={() => setSearch("ʊtsaːh")}>
+                {t("index.tryIpa", "Try IPA")} <span>/ʊtsaːh/</span>
+              </button>
+            </div>
+
+            {suggestedCategories.length > 0 && (
+              <div className="search-empty-categories">
+                <span>{t("index.browseRelated", "Browse categories")}</span>
+                <div>
+                  {suggestedCategories.map((category) => (
+                    <Link key={category} to={`/categories?category=${encodeURIComponent(category)}`}>
+                      {t(`category.${category}`, category)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <button type="button" className="search-empty-reset" onClick={handleClearSearch}>
+              {t("index.clearSearch", "Clear search")}
+            </button>
+          </div>
         )}
         {visibleItems.map((concept) => {
           const firstLetter = concept.english[0].toUpperCase();
@@ -292,8 +422,11 @@ const Index = () => {
               key={concept.english}
               id={needsAnchor ? `word-${firstLetter}` : undefined}
               data-letter={needsAnchor ? firstLetter : undefined}
+              data-entry={concept.english}
+              data-entry-letter={firstLetter}
+              className={needsAnchor ? `letter-section-anchor ${activeLetter === firstLetter ? "letter-section-active" : ""}` : undefined}
             >
-              <WordCard concept={concept} />
+              <WordCard concept={concept} onOpenDetail={setSelectedConcept} />
             </div>
           );
         })}
@@ -305,6 +438,14 @@ const Index = () => {
           </div>
         )}
       </section>
+
+      <EntryDetailDrawer
+        concept={selectedConcept}
+        open={Boolean(selectedConcept)}
+        onOpenChange={(open) => {
+          if (!open) setSelectedConcept(null);
+        }}
+      />
     </div>
   );
 };

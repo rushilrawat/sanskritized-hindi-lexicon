@@ -52,7 +52,7 @@ const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ onSearch, autoFo
         spellCheck={false}
         aria-label={resolvedPlaceholder}
         placeholder={resolvedPlaceholder}
-        className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all font-body text-xs sm:text-sm"
+        className="archive-search font-body"
       />
     </div>
   );

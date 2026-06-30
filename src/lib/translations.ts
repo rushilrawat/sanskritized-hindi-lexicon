@@ -10,13 +10,22 @@ const translations = {
   "settings.display": "प्रदर्शन",
   "settings.share": "साझा करें",
   "settings.copied": "प्रतिलिपित!",
-  "footer.tagline": "संस्कृतनिष्ठ हिन्दी शब्दकोश · संस्करण १.० · एक तटस्थ, मुक्त-स्रोत भाषाई संग्रह",
+  "footer.tagline": "संस्कृतनिष्ठ हिन्दी शब्दकोश · संस्करण २.० · एक तटस्थ, मुक्त-स्रोत भाषाई संग्रह",
   "footer.github": "गिटहब",
 
   // Index page
   "index.subtitle": "एक सुव्यवस्थित, व्युत्पत्ति-आधारित संस्कृतोद्भव हिन्दी शब्दसंग्रह।",
   "index.allEntries": "सभी प्रविष्टियाँ",
   "index.noEntries": "कोई प्रविष्टि नहीं मिली। कोई अन्य शब्द खोजें।",
+  "index.noEntriesEyebrow": "पांडुलिपि में मेल नहीं मिला",
+  "index.noEntriesTitle": "इसके लिए कुछ नहीं मिला",
+  "index.noEntriesHelp": "देवनागरी रूप, IPA लिप्यंतरण, सरल अंग्रेज़ी मूल, या संबंधित श्रेणी से खोजकर देखें।",
+  "index.searchHints": "खोज सुझाव",
+  "index.tryDevanagari": "देवनागरी आज़माएँ",
+  "index.tryRoman": "रोमन हिन्दी आज़माएँ",
+  "index.tryIpa": "IPA आज़माएँ",
+  "index.browseRelated": "श्रेणियाँ देखें",
+  "index.clearSearch": "खोज मिटाएँ",
   "index.loadingMore": "और लोड हो रहा है…",
   "index.noData": "कोई शब्द-सामग्री नहीं मिली। शब्दकोश की आँकड़ा संचिका रिक्त या दूषित हो सकती है।",
 
@@ -31,6 +40,8 @@ const translations = {
   "wordCard.sanskritDerived": "संस्कृतोद्भव",
   "wordCard.otherSources": "अन्य ऐतिहासिक स्रोत",
   "wordCard.normalized": "मानकीकृत",
+  "entryDrawer.open": "प्रविष्टि विवरण खोलें",
+  "entryDrawer.focusEntry": "संग्रह में देखें",
 
   // Categories
   "categories.title": "श्रेणी के अनुसार खोजें",
@@ -127,7 +138,7 @@ const translations = {
   "about.code.text": "इस परियोजना की स्रोत-संहिता अध्ययन एवं अवलोकन हेतु सार्वजनिक रूप से उपलब्ध है।",
   "about.code.link": "गिटहब पर देखें →",
   "about.version.title": "संस्करण",
-  "about.version.text": "संस्करण १.० · मई २०२५. यह परियोजना समय के साथ नई प्रविष्टियों एवं परिष्करणों के साथ विकसित होती रहेगी।",
+  "about.version.text": "संस्करण २.० · जून २०२६. यह परियोजना समय के साथ नई प्रविष्टियों एवं परिष्करणों के साथ विकसित होती रहेगी।",
   "about.disclaimer": "यह एक भाषाई संग्रह है। सुधार-उपकरण नहीं। राजनीतिक उपकरण नहीं। शुद्धतावादी उपकरण नहीं।",
   "about.share": "हमारी परियोजना पसन्द आई? साझा करें →",
 

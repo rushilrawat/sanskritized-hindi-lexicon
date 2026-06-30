@@ -1,35 +1,49 @@
-// Centralized categories and registry tags.
-// Keep in sync with the dataset (src/data/words.json) and validator (src/lib/validateWords.ts).
+import type { Tag } from "@/types/word";
 
 export const CATEGORIES = [
-  "everyday",
-  "emotions",
-  "nature",
-  "society",
-  "abstract",
-  "actions",
-  "objects",
-  "people",
-  "time",
-  "place",
-  "punctuation",
+  "Abstract Concepts",
+  "Body & Health",
+  "Education",
+  "Emotion",
+  "Geography",
+  "Governance",
+  "Law",
+  "Nature",
+  "Occupations",
+  "Relationships",
+  "Society",
 ] as const;
 
 export type Category = typeof CATEGORIES[number];
 
 export const REGISTRY_TAGS = [
-  "classical",
-  "literary",
   "formal",
   "colloquial",
-  "informal",
+  "classical",
   "archaic",
-  "technical",
+  "literary",
   "religious",
-  "poetic",
-  "neologism",
-] as const;
+  "philosophical",
+  "administrative",
+  "legal",
+  "academic",
+  "technical",
+] as const satisfies readonly Tag[];
 
 export type RegistryTag = typeof REGISTRY_TAGS[number];
 
 export const MAX_TAGS_PER_WORD = 2;
+
+export const CATEGORY_META: Record<string, { glyph: string; label: string }> = {
+  "Abstract Concepts": { glyph: "💭", label: "Principles" },
+  "Body & Health": { glyph: "🏥", label: "Body" },
+  Education: { glyph: "📚", label: "Learning" },
+  Emotion: { glyph: "💖", label: "Feeling" },
+  Geography: { glyph: "🌍", label: "Earth" },
+  Governance: { glyph: "🏛️", label: "Statecraft" },
+  Law: { glyph: "⚖️", label: "Justice" },
+  Nature: { glyph: "🌿", label: "Nature" },
+  Occupations: { glyph: "💼", label: "Work" },
+  Relationships: { glyph: "🤝", label: "Relation" },
+  Society: { glyph: "👥", label: "People" },
+};

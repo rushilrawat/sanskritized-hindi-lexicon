@@ -33,7 +33,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   }, [concepts]);
 
   const words = useMemo(() => {
-    let filtered = selectedCategory
+    const filtered = selectedCategory
       ? concepts.filter((c) => c.category === selectedCategory)
       : concepts;
     const flat = flattenWords(filtered, "sanskrit_derived");
@@ -95,18 +95,22 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("input, textarea, select, button, [contenteditable='true']")) return;
       if (e.key === "ArrowRight") handleNext();
       else if (e.key === "ArrowLeft") handlePrev();
       else if (e.key === " ") {
         e.preventDefault();
-        const utterance = new SpeechSynthesisUtterance(words[index]?.dev);
+        const currentWord = words[index];
+        if (!currentWord) return;
+        const utterance = new SpeechSynthesisUtterance(currentWord.dev);
         utterance.lang = "hi-IN";
         window.speechSynthesis.speak(utterance);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleNext, handlePrev]);
+  }, [handleNext, handlePrev, index, words]);
 
   const handleShuffle = () => {
     setShuffled((s) => !s);
@@ -180,14 +184,14 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             onClick={handleShuffle}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
           >
             <Shuffle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {shuffled ? t("learn.sequential", "Sequential") : t("learn.shuffle", "Shuffle")}
           </button>
           <button
             onClick={handleRandom}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
           >
             <Dices className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {t("learn.random", "Random")}
@@ -195,7 +199,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           {index > 0 && (
             <button
               onClick={handleStartOver}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               {t("learn.startOver", "Start Over")}
@@ -208,13 +212,13 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
           >
             <option value="">{t("learn.allCategories", "All Categories")}</option>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>{t(`category.${cat}` as never, cat)}</option>
+              <option key={cat} value={cat}>{t(`category.${cat}`, cat)}</option>
             ))}
           </select>
           <Sheet>
             <SheetTrigger asChild>
               <button
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border text-xs sm:text-sm text-foreground/75 hover:text-foreground hover:bg-muted transition-colors"
               >
                 <Bookmark className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 {t("learn.bookmarks", "Bookmarks")}

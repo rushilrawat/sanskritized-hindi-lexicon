@@ -10,7 +10,7 @@ const DataFallback = ({ message }: DataFallbackProps) => {
 
   return (
     <div className="container-page">
-      <div className="card-elevated max-w-md mx-auto p-8 text-center">
+      <div className="folio-card max-w-md mx-auto p-8 text-center">
         <AlertTriangle className="h-10 w-10 text-primary mx-auto mb-4" />
         <h2 className="text-lg font-semibold text-foreground mb-2">
           {t("data.unavailable", "Data Unavailable")}

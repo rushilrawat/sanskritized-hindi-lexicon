@@ -50,7 +50,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
 
         {/* Frontispiece */}
         <header className="text-center pt-3 pb-2">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
+          <h1 className="archive-title">
             {t("about.title", "About This Project")}
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
@@ -198,7 +198,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
             <p>
               {t(
                 "about.version.text",
-                "Version 1.0 · May 2025. This project will continue to grow with additional entries and refinements over time."
+                "Version 2.0 · June 2026. This project will continue to grow with additional entries and refinements over time."
               )}
             </p>
           </Section>
@@ -224,12 +224,16 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
                 try {
                   await navigator.share({ title: "Sanskritized Hindi Lexicon", text, url });
                   return;
-                } catch {}
+                } catch {
+                  // Continue to clipboard fallback.
+                }
               }
               try {
                 await navigator.clipboard.writeText(shareMessage);
                 alert("Link copied to clipboard!");
-              } catch {}
+              } catch {
+                alert("Could not copy the link. Please copy it from the address bar.");
+              }
             }}
             className="inline-flex items-center gap-2 text-xs sm:text-sm text-primary hover:underline font-medium"
           >

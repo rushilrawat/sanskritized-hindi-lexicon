@@ -1,12 +1,12 @@
 import { useState, useMemo, forwardRef, useCallback, useEffect } from "react";
-import { Copy, Check, ArrowRight, X, Eraser } from "lucide-react";
+import { Copy, Check, ArrowRight, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
 import { buildReplacementMap, replaceSentenceWithHighlights, normalizeFullStops } from "@/lib/replaceLogic";
 import type { ReplacementDetail } from "@/lib/replaceLogic";
 import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
-import WordCard from "@/components/WordCard";
+import EntryDetailDrawer from "@/components/EntryDetailDrawer";
 import { useTranslation } from "@/hooks/useTranslation";
 import { PageHeader } from "@/components/ManuscriptOrnaments";
 import { toast } from "sonner";
@@ -88,7 +88,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
             maxLength={MAX_INPUT_LENGTH}
             rows={4}
             placeholder={t("replace.placeholder", "यहाँ अपना वाक्य लिखें...")}
-            className="w-full rounded-lg border border-border bg-card p-3 sm:p-4 text-sm sm:text-base text-foreground font-devanagari placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 resize-y"
+            className="archive-search min-h-32 resize-y p-3 sm:p-4 text-sm sm:text-base font-devanagari"
           />
           <div className="mt-1 flex justify-end">
             <span className={`text-[10px] sm:text-xs tabular-nums ${input.length >= MAX_INPUT_LENGTH ? "text-destructive" : "text-muted-foreground/60"}`}>
@@ -136,7 +136,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 {copied ? t("replace.copied", "Copied!") : t("replace.copy", "Copy")}
               </button>
             </div>
-            <div className="w-full rounded-lg border border-primary/30 bg-saffron-light p-3 sm:p-4 font-devanagari text-sm sm:text-base text-foreground min-h-[60px] sm:min-h-[80px] whitespace-pre-wrap">
+            <div className="folio-card w-full p-3 sm:p-4 font-devanagari text-sm sm:text-base text-foreground min-h-[60px] sm:min-h-[80px] whitespace-pre-wrap">
               {segments.map((seg, i) =>
                 seg.replaced ? (
                   <mark key={i} className="bg-primary/25 text-primary font-medium px-0.5 rounded-sm">
@@ -160,7 +160,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
                 <button
                   key={i}
                   onClick={() => handleReplacementClick(r)}
-                  className="group inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1.5 text-sm transition-colors hover:border-primary/40 hover:bg-accent/50"
+                  className="group archive-chip"
                 >
                   <span className="font-devanagari text-muted-foreground line-through decoration-muted-foreground/40">
                     {r.original}
@@ -178,25 +178,20 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         )}
 
-        {selectedConcept && (
-          <div className="relative">
-            <button
-              onClick={() => setSelectedConcept(null)}
-              className="absolute -top-1 right-0 z-10 p-1 rounded-full bg-muted hover:bg-muted-foreground/20 transition-colors"
-              aria-label="Close"
-            >
-              <X className="h-4 w-4 text-muted-foreground" />
-            </button>
-            <WordCard concept={selectedConcept} />
-          </div>
-        )}
-
         {input.trim() && !hasChanges && (
           <p className="text-xs sm:text-sm text-muted-foreground">
             {t("replace.noReplacements", "No replacements found in the input text.")}
           </p>
         )}
       </div>
+
+      <EntryDetailDrawer
+        concept={selectedConcept}
+        open={Boolean(selectedConcept)}
+        onOpenChange={(open) => {
+          if (!open) setSelectedConcept(null);
+        }}
+      />
     </div>
   );
 });

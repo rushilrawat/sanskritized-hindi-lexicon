@@ -44,7 +44,9 @@ const isStringOrNull = (v: unknown): v is string | null =>
 function savePref(key: string, value: unknown) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
-  } catch {}
+  } catch {
+    return;
+  }
 }
 
 export const AccessibilityProvider = ({ children }: { children: ReactNode }) => {

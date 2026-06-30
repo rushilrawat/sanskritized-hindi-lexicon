@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { PanelRightOpen } from "lucide-react";
 import type { Concept, WordEntry } from "@/types/word";
 import InlineAudio from "@/components/InlineAudio";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -8,6 +9,7 @@ import { getPunctuationSymbol } from "@/lib/punctuationSymbols";
 
 interface WordCardProps {
   concept: Concept;
+  onOpenDetail?: (concept: Concept) => void;
 }
 
 function WordRow({ w, t }: { w: WordEntry; t: (k: string, fb: string) => string }) {
@@ -29,16 +31,37 @@ function WordRow({ w, t }: { w: WordEntry; t: (k: string, fb: string) => string 
   );
 }
 
-const WordCard = memo(({ concept }: WordCardProps) => {
+const WordCard = memo(({ concept, onOpenDetail }: WordCardProps) => {
   const { t, hindiMode } = useTranslation();
   const description = hindiMode && descriptionsHi[concept.english.toLowerCase()]
     ? descriptionsHi[concept.english.toLowerCase()]
     : concept.description;
+  const isInteractive = Boolean(onOpenDetail);
+
+  const handleOpen = (target: EventTarget | null) => {
+    if (!onOpenDetail) return;
+    const element = target instanceof HTMLElement ? target : null;
+    if (element?.closest("button, a, input, textarea, select, [role='button']")) return;
+    onOpenDetail(concept);
+  };
+
   return (
-    <div className="card-elevated p-3 sm:p-5 animate-fade-in">
-      <div className="flex items-start justify-between mb-2 sm:mb-4">
+    <article
+      className={`folio-card p-3 sm:p-5 animate-fade-in ${isInteractive ? "word-card-clickable" : ""}`}
+      tabIndex={isInteractive ? 0 : undefined}
+      aria-label={isInteractive ? t("entryDrawer.open", "Open entry details") : undefined}
+      onClick={(event) => handleOpen(event.target)}
+      onKeyDown={(event) => {
+        if (!onOpenDetail) return;
+        if (event.key === "Enter") {
+          event.preventDefault();
+          onOpenDetail(concept);
+        }
+      }}
+    >
+      <div className="relative z-10 flex items-start justify-between mb-2 sm:mb-4">
         <div className="flex items-center gap-2">
-          <h3 className="text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
+          <h3 className="font-archive text-base sm:text-lg font-semibold text-foreground capitalize">{concept.english}</h3>
           {getPunctuationSymbol(concept.english) && (
             <span
               aria-label="Symbol"
@@ -48,11 +71,24 @@ const WordCard = memo(({ concept }: WordCardProps) => {
             </span>
           )}
         </div>
-        <span className="tag-badge shrink-0 ml-2 sm:ml-3 text-[10px] sm:text-xs">{t(`category.${concept.category}` as never, concept.category)}</span>
+        <div className="flex shrink-0 items-center gap-1.5 ml-2 sm:ml-3">
+          <span className="tag-badge text-[10px] sm:text-xs">{t(`category.${concept.category}`, concept.category)}</span>
+          {onOpenDetail && (
+            <button
+              type="button"
+              onClick={() => onOpenDetail(concept)}
+              className="entry-detail-button"
+              aria-label={t("entryDrawer.open", "Open entry details")}
+              title={t("entryDrawer.open", "Open entry details")}
+            >
+              <PanelRightOpen className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
       </div>
-      <p className={`text-xs sm:text-sm text-muted-foreground -mt-1 mb-2 sm:mb-3 ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
+      <p className={`relative z-10 text-xs sm:text-sm text-muted-foreground -mt-1 mb-2 sm:mb-3 leading-relaxed ${hindiMode ? "font-devanagari" : ""}`}>{description}</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
         {/* Sanskrit-derived */}
         <div>
           <h4 className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-primary mb-1.5 sm:mb-2">
@@ -60,7 +96,7 @@ const WordCard = memo(({ concept }: WordCardProps) => {
           </h4>
           <ul className="space-y-1.5 sm:space-y-2">
             {concept.sanskrit_derived.map((w, i) => (
-              <li key={i} className="bg-saffron-light rounded-md px-2 py-1.5 sm:px-3 sm:py-2">
+              <li key={i} className="entry-strip">
                 <WordRow w={w} t={t as (k: string, fb: string) => string} />
               </li>
             ))}
@@ -74,14 +110,14 @@ const WordCard = memo(({ concept }: WordCardProps) => {
           </h4>
           <ul className="space-y-1.5 sm:space-y-2">
             {concept.other_historical_sources.map((w, i) => (
-              <li key={i} className="bg-secondary rounded-md px-2 py-1.5 sm:px-3 sm:py-2">
+              <li key={i} className="entry-strip entry-strip-muted">
                 <WordRow w={w} t={t as (k: string, fb: string) => string} />
               </li>
             ))}
           </ul>
         </div>
       </div>
-    </div>
+    </article>
   );
 });
 
