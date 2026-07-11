@@ -5,12 +5,14 @@
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38BDF8?logo=tailwindcss&logoColor=white)
 ![Version](https://img.shields.io/badge/Version-2.0-sienna)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Open Source](https://img.shields.io/badge/Open_Source-Yes-brightgreen)
 
 **Version 2.0 · June 2026**
 
 Sanskritized Hindi Lexicon is a structured, etymology-based web archive for exploring Sanskrit-derived Hindi vocabulary alongside words from other historical sources such as Persian, Arabic, Turkic, and English.
 
-This project is a linguistic reference and educational archive. It is **not** a correction tool, political tool, or purity tool.
+This project is an MIT-licensed linguistic reference and educational archive. It is **not** a correction tool, political tool, or purity tool.
 
 ---
 
@@ -30,6 +32,11 @@ This project is a linguistic reference and educational archive. It is **not** a 
 - [Testing and Validation](#testing-and-validation)
 - [Design Language](#design-language)
 - [Deployment](#deployment)
+- [Open Source](#open-source)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Citation](#citation)
+- [License](#license)
 - [Project Philosophy](#project-philosophy)
 
 ---
@@ -186,6 +193,11 @@ flowchart TD
 ```text
 sanskritized-hindi-lexicon/
 ├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+├── CITATION.cff
 ├── package.json
 ├── package-lock.json
 ├── index.html
@@ -199,6 +211,11 @@ sanskritized-hindi-lexicon/
 ├── tsconfig.node.json
 ├── components.json
 ├── vercel.json
+├── .github/
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md
+│       └── data_correction.md
 ├── docs/
 │   └── architecture-orbit.svg
 ├── public/
@@ -539,6 +556,98 @@ Version 2.0 · June 2026
 
 ---
 
+## Open Source
+
+This project is open source under the MIT License.
+
+Open-source project files included:
+
+| File | Purpose |
+| --- | --- |
+| `LICENSE` | MIT License terms |
+| `CONTRIBUTING.md` | Contributor setup, data rules, and pull request checklist |
+| `CODE_OF_CONDUCT.md` | Community behavior expectations |
+| `SECURITY.md` | Vulnerability reporting policy |
+| `CITATION.cff` | Citation metadata for research and reference use |
+| `.github/ISSUE_TEMPLATE/bug_report.md` | Bug report template |
+| `.github/ISSUE_TEMPLATE/data_correction.md` | Word/data correction template |
+| `.github/PULL_REQUEST_TEMPLATE.md` | Pull request checklist |
+
+Package metadata also declares:
+
+- `license: MIT`
+- public package status; this project is not marked `private`
+- repository URL
+- issue tracker URL
+- homepage URL
+- project keywords
+- author
+
+---
+
+## Contributing
+
+Contributions are welcome when they improve accuracy, clarity, accessibility,
+documentation, maintainability, or the breadth of the archive.
+
+Start here:
+
+```text
+CONTRIBUTING.md
+```
+
+Before opening a pull request:
+
+```bash
+npm run lint
+npm run test
+npm run build
+```
+
+Please keep contributions neutral, archival, and source-aware.
+
+---
+
+## Security
+
+Security reporting instructions live in:
+
+```text
+SECURITY.md
+```
+
+Please do not disclose vulnerabilities publicly before they can be reviewed.
+
+---
+
+## Citation
+
+Citation metadata is available in:
+
+```text
+CITATION.cff
+```
+
+Use it if this archive supports research, teaching, or reference work.
+
+---
+
+## License
+
+Released under the MIT License.
+
+```text
+Copyright (c) 2026 Rushil Rawat
+```
+
+See:
+
+```text
+LICENSE
+```
+
+---
+
 ## Project Philosophy
 
 This archive documents word histories and registers without ranking them.
@@ -546,4 +655,3 @@ This archive documents word histories and registers without ranking them.
 Hindi is layered, historical, and alive. Sanskrit-derived vocabulary, Persianate vocabulary, Arabic-derived vocabulary, Turkic traces, English loans, and regional usage all carry cultural and linguistic meaning. This project exists to make those layers easier to study.
 
 > This is a linguistic archive. Not a correction tool. Not a political tool. Not a purity tool.
-

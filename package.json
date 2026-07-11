@@ -1,7 +1,29 @@
 {
   "name": "sanskritized-hindi-lexicon",
-  "private": true,
   "version": "2.0.0",
+  "description": "An open-source, etymology-based archive for Sanskrit-derived Hindi vocabulary with Devanagari, IPA, search, learning, and replacement tools.",
+  "license": "MIT",
+  "author": "Rushil Rawat",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rushilrawat/sanskritized-hindi-lexicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rushilrawat/sanskritized-hindi-lexicon/issues"
+  },
+  "homepage": "https://github.com/rushilrawat/sanskritized-hindi-lexicon#readme",
+  "keywords": [
+    "hindi",
+    "sanskrit",
+    "lexicon",
+    "dictionary",
+    "linguistics",
+    "devanagari",
+    "ipa",
+    "etymology",
+    "react",
+    "vite"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
