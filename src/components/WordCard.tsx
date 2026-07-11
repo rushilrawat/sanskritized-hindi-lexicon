@@ -42,6 +42,7 @@ const WordCard = memo(({ concept, onOpenDetail }: WordCardProps) => {
     if (!onOpenDetail) return;
     const element = target instanceof HTMLElement ? target : null;
     if (element?.closest("button, a, input, textarea, select, [role='button']")) return;
+    if (element?.closest(".entry-strip, .tag-pill, .tag-badge")) return;
     onOpenDetail(concept);
   };
 

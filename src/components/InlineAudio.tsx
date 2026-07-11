@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState, type MouseEvent } from "react";
 import { Volume2 } from "lucide-react";
 import SoundWave from "@/components/SoundWave";
 
@@ -16,7 +16,8 @@ const InlineAudio = forwardRef<HTMLButtonElement, InlineAudioProps>(({ text }, r
     if (playing) window.speechSynthesis.cancel();
   }, [playing]);
 
-  const speak = () => {
+  const speak = (event?: MouseEvent<HTMLButtonElement>) => {
+    event?.stopPropagation();
     const now = Date.now();
     if (now - lastClickRef.current < COOLDOWN_MS) return;
     lastClickRef.current = now;

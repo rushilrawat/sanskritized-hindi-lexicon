@@ -779,6 +779,74 @@
   .manuscript-panel::before { top: 0.5rem; }
   .manuscript-panel::after { bottom: 0.5rem; }
 
+  .about-page {
+    position: relative;
+  }
+
+  .about-manuscript {
+    overflow: hidden;
+    background-image:
+      linear-gradient(90deg, hsl(var(--copper) / 0.18) 0 1px, transparent 1px),
+      repeating-linear-gradient(180deg, transparent 0 2.55rem, hsl(var(--copper) / 0.08) 2.55rem calc(2.55rem + 1px)),
+      radial-gradient(circle at top left, hsl(var(--saffron-light) / 0.62), transparent 34%),
+      radial-gradient(circle at bottom right, hsl(var(--secondary) / 0.5), transparent 38%);
+    background-size: 4.75rem 100%, auto, auto, auto;
+  }
+
+  .about-manuscript::before {
+    left: 3.4rem;
+    right: 1rem;
+  }
+
+  .about-manuscript::after {
+    left: 3.4rem;
+    right: 1rem;
+  }
+
+  .about-manuscript > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-manuscript .manuscript-corner {
+    z-index: 2;
+  }
+
+  .about-manuscript .manuscript-section {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.82), hsl(var(--parchment) / 0.72));
+    border-color: hsl(var(--copper) / 0.32);
+    box-shadow:
+      0 1px 0 hsl(var(--card)) inset,
+      0 10px 28px -26px hsl(var(--ink) / 0.48);
+  }
+
+  .about-manuscript .manuscript-section::before {
+    content: "";
+    position: absolute;
+    inset: 0.45rem;
+    border: 1px solid hsl(var(--copper) / 0.12);
+    border-radius: 0.35rem;
+    pointer-events: none;
+  }
+
+  .about-folio-mark {
+    @apply mb-5 flex items-center justify-between gap-3 border-b pb-3 font-devanagari-serif text-[11px] text-saffron-dark sm:text-xs;
+    border-color: hsl(var(--copper) / 0.2);
+  }
+
+  .about-frontispiece {
+    padding-top: 0.35rem;
+  }
+
+  .about-frontispiece .archive-title {
+    margin-bottom: 0.6rem;
+  }
+
+  .about-section-title {
+    @apply mb-2 font-archive text-base font-semibold tracking-tight text-foreground sm:text-lg;
+  }
+
   .manuscript-corner {
     position: absolute;
     width: 18px;

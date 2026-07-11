@@ -26,7 +26,7 @@ const Section = ({
       <span className="manuscript-number">
         <span>{formatNumber(n, hindiMode)}</span>
       </span>
-      <h2 className="text-base sm:text-lg font-semibold mb-2 text-foreground tracking-tight">
+      <h2 className="about-section-title">
         {title}
       </h2>
       <div className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed space-y-2">
@@ -40,16 +40,23 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
   const { t, n: num } = useTranslation();
 
   return (
-    <div ref={ref} className="container-page max-w-3xl">
-      <div className="manuscript-panel relative p-5 sm:p-8 md:p-10">
+    <div ref={ref} className="container-page about-page max-w-4xl">
+      <div className="manuscript-panel about-manuscript relative p-5 sm:p-8 md:p-10">
         <DevanagariBackdrop />
         <span className="manuscript-corner tl" aria-hidden="true" />
         <span className="manuscript-corner tr" aria-hidden="true" />
         <span className="manuscript-corner bl" aria-hidden="true" />
         <span className="manuscript-corner br" aria-hidden="true" />
+        <div className="about-folio-mark" aria-hidden="true">
+          <span>॥ ग्रन्थपत्रम् ॥</span>
+          <span>२.०</span>
+        </div>
 
         {/* Frontispiece */}
-        <header className="text-center pt-3 pb-2">
+        <header className="about-frontispiece text-center pt-3 pb-2">
+          <p className="font-devanagari-serif text-xs text-primary mb-2" aria-hidden="true">
+            ॥ भाषासंग्रहस्य परिचयः ॥
+          </p>
           <h1 className="archive-title">
             {t("about.title", "About This Project")}
           </h1>

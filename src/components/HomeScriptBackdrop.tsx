@@ -10,6 +10,8 @@ const GLYPHS = [
   { char: "म", top: 63, left: 11, size: 4.8, opacity: 0.064, tone: "leaf", delay: 840 },
   { char: "त्र", top: 57, left: 92, size: 5.4, opacity: 0.066, tone: "copper", delay: 980 },
   { char: "व", top: 83, left: 86, size: 4.6, opacity: 0.056, tone: "primary", delay: 1120 },
+  { char: "य", top: 78, left: 4, size: 4.3, opacity: 0.052, tone: "saffron", delay: 1260 },
+  { char: "स", top: 91, left: 97, size: 4.7, opacity: 0.05, tone: "indigo", delay: 1400 },
 ];
 
 const HomeScriptBackdrop = () => {
