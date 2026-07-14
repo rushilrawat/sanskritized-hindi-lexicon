@@ -7,6 +7,6 @@ authors:
     given-names: Rushil
 version: 2.0.0
 date-released: 2026-06-01
-license: MIT
+license: other
 repository-code: https://github.com/rushilrawat/sanskritized-hindi-lexicon
-abstract: An open-source, etymology-based archive for Sanskrit-derived Hindi vocabulary with Devanagari, IPA, search, learning, and replacement tools.
+abstract: A source-available, etymology-based archive for Sanskrit-derived Hindi vocabulary with Devanagari, IPA, search, learning, and replacement tools.

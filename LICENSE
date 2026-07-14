@@ -1,21 +1,65 @@
-MIT License
+Sanskritized Hindi Lexicon Source-Available Contribution License
+Version 1.0
 
-Copyright (c) 2026 Rushil Rawat
+Copyright (c) 2026 Rushil Rawat. All rights reserved except for the
+permissions expressly granted below.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This software, data, documentation, design, branding, and associated files
+(the "Project") are made available for reading, local evaluation, education,
+and contribution to the official Sanskritized Hindi Lexicon repository only.
+This is not an open-source license.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Permission Granted
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+You may:
+
+(a) view and study the Project source code and documentation;
+(b) run the Project locally for personal, educational, or evaluation purposes;
+(c) create temporary local copies, branches, or repository forks solely to
+    prepare and submit contributions to the official repository;
+(d) submit issues, suggestions, patches, or pull requests to the official
+    repository.
+
+2. Contribution Grant
+
+By submitting a contribution, you represent that you have the right to submit
+it and you grant Rushil Rawat and the official Sanskritized Hindi Lexicon
+project a perpetual, worldwide, royalty-free, irrevocable, sublicensable
+license to use, reproduce, modify, publish, distribute, display, perform, and
+incorporate your contribution into the Project and related materials.
+
+You retain copyright in your contribution.
+
+3. Restrictions
+
+Except with prior written permission from Rushil Rawat, you may not:
+
+(a) copy, publish, redistribute, sell, sublicense, or provide the Project or
+    substantial portions of it to others;
+(b) maintain, promote, or publish a separate fork, mirror, clone, derivative
+    project, or competing copy;
+(c) deploy or host a public instance of the Project;
+(d) use the Project name, branding, visual identity, data, or assets for a
+    separate product or service;
+(e) remove or alter copyright, attribution, or license notices;
+(f) relicense the Project or grant rights not expressly permitted here;
+(g) use the Project for commercial purposes.
+
+Temporary forks or copies made solely for submitting contributions back to the
+official repository are allowed only for that contribution workflow and must
+not be maintained, promoted, or presented as a separate project.
+
+4. No Warranty
+
+THE PROJECT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY, OR AVAILABILITY.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM,
+DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE PROJECT OR THE USE
+OF THE PROJECT.
+
+5. Permission Requests
+
+For permission to use the Project beyond the terms above, contact the
+repository owner.
