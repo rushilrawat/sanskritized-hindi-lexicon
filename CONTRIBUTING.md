@@ -6,6 +6,22 @@ This project is a linguistic archive. Contributions should improve accuracy,
 clarity, accessibility, maintainability, or the breadth of the archive without
 turning the project into a prescriptive language tool.
 
+## Contribution License
+
+This repository is source-available, not open source. You may create temporary
+forks, branches, or local copies solely to prepare contributions to the
+official repository. Please do not publish, rebrand, host, sell, or maintain a
+separate copy of the project.
+
+By submitting an issue, patch, pull request, suggestion, or other contribution,
+you confirm that you have the right to submit it and you grant Rushil Rawat and
+the official Sanskritized Hindi Lexicon project a perpetual, worldwide,
+royalty-free, irrevocable, sublicensable license to use, reproduce, modify,
+publish, distribute, display, perform, and incorporate that contribution into
+the project and related materials.
+
+You retain copyright in your contribution.
+
 ## Ways to Contribute
 
 - Add or correct word entries.
@@ -83,4 +99,3 @@ Prefer precise, neutral, source-aware language.
 - UI changes are responsive.
 - Documentation is updated when needed.
 - `npm run lint`, `npm run test`, and `npm run build` pass.
-

@@ -187,7 +187,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
               <p>
                 {t(
                   "about.code.text",
-                  "The source code for this project is open source under the MIT License and may be used, modified, and shared under those terms."
+                  "The source code is source-available for study and contribution to the official project. Redistribution, rebranding, public hosting, or separate copies are not permitted without written permission."
                 )}
               </p>
               <a

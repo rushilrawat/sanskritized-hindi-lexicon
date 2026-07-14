@@ -5,14 +5,14 @@
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38BDF8?logo=tailwindcss&logoColor=white)
 ![Version](https://img.shields.io/badge/Version-2.0-sienna)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Open Source](https://img.shields.io/badge/Open_Source-Yes-brightgreen)
+![License](https://img.shields.io/badge/License-Source--Available-orange)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome_to_official_repo-brightgreen)
 
 **Version 2.0 · June 2026**
 
 Sanskritized Hindi Lexicon is a structured, etymology-based web archive for exploring Sanskrit-derived Hindi vocabulary alongside words from other historical sources such as Persian, Arabic, Turkic, and English.
 
-This project is an MIT-licensed linguistic reference and educational archive. It is **not** a correction tool, political tool, or purity tool.
+This project is a source-available linguistic reference and educational archive. You may study it, run it locally, and contribute to the official repository, but you may not publish, rebrand, host, sell, or maintain another copy without written permission. It is **not** a correction tool, political tool, or purity tool.
 
 ---
 
@@ -32,7 +32,7 @@ This project is an MIT-licensed linguistic reference and educational archive. It
 - [Testing and Validation](#testing-and-validation)
 - [Design Language](#design-language)
 - [Deployment](#deployment)
-- [Open Source](#open-source)
+- [Source Availability](#source-availability)
 - [Contributing](#contributing)
 - [Security](#security)
 - [Citation](#citation)
@@ -556,15 +556,23 @@ Version 2.0 · June 2026
 
 ---
 
-## Open Source
+## Source Availability
 
-This project is open source under the MIT License.
+This repository is source-available, not open source under the OSI definition.
+The code is visible so people can study the project, run it locally for
+personal or educational use, and contribute improvements back to the official
+repository.
 
-Open-source project files included:
+You may not redistribute, rebrand, publicly host, sell, publish, or maintain a
+separate copy of this project without written permission from the repository
+owner. Temporary forks or branches are allowed only for preparing contributions
+to the official repository.
+
+Project governance files included:
 
 | File | Purpose |
 | --- | --- |
-| `LICENSE` | MIT License terms |
+| `LICENSE` | Source-available contribution terms |
 | `CONTRIBUTING.md` | Contributor setup, data rules, and pull request checklist |
 | `CODE_OF_CONDUCT.md` | Community behavior expectations |
 | `SECURITY.md` | Vulnerability reporting policy |
@@ -575,8 +583,8 @@ Open-source project files included:
 
 Package metadata also declares:
 
-- `license: MIT`
-- public package status; this project is not marked `private`
+- `license: SEE LICENSE IN LICENSE`
+- private package status to prevent accidental npm publication
 - repository URL
 - issue tracker URL
 - homepage URL
@@ -589,6 +597,11 @@ Package metadata also declares:
 
 Contributions are welcome when they improve accuracy, clarity, accessibility,
 documentation, maintainability, or the breadth of the archive.
+
+Contributions must be submitted to the official repository. By submitting a
+pull request or patch, you grant the project permission to use, modify,
+publish, and distribute that contribution as part of Sanskritized Hindi Lexicon
+while you retain copyright in your contribution.
 
 Start here:
 
@@ -634,7 +647,7 @@ Use it if this archive supports research, teaching, or reference work.
 
 ## License
 
-Released under the MIT License.
+Released under a custom source-available contribution license.
 
 ```text
 Copyright (c) 2026 Rushil Rawat
