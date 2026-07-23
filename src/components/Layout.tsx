@@ -10,6 +10,8 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const PROJECT_LAST_UPDATED = "2026-07-22T00:00:00";
+
 const ShareButton = ({ className, label }: { className?: string; label?: string }) => {
   const [copied, setCopied] = useState(false);
   const { t } = useTranslation();
@@ -17,7 +19,7 @@ const ShareButton = ({ className, label }: { className?: string; label?: string 
   const handleShare = async () => {
     const url = window.location.origin;
     const text =
-      "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
+      "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — A source-available, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
     const shareMessage = `${text}\n\n${url}`;
 
     if (navigator.share) {
@@ -278,11 +280,11 @@ const Layout = ({ children }: LayoutProps) => {
       <footer className="relative z-10 archive-footer mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
           <p className={`text-xs text-muted-foreground ${hindiMode ? "font-devanagari" : ""}`}>
-            {t("footer.tagline", "Sanskritized Hindi Lexicon · v2.0 · A neutral, open-source linguistic archive")}
+            {t("footer.tagline", "Sanskritized Hindi Lexicon · v2.0 · A neutral, source-available linguistic archive")}
           </p>
           <p className="text-[11px] text-muted-foreground/75">
             {t("footer.lastUpdated", "Last updated")}:{" "}
-            {new Date(import.meta.env.VITE_BUILD_DATE || Date.now()).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", {
+            {new Date(PROJECT_LAST_UPDATED).toLocaleDateString(hindiMode ? "hi-IN" : "en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
