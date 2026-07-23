@@ -224,8 +224,8 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
           <button
             onClick={async () => {
               const url = window.location.origin;
-              const text =
-                "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — An open, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
+            const text =
+              "Sanskritized Hindi Lexicon · संस्कृतनिष्ठ हिन्दी शब्दकोश — A source-available, etymology-based reference of Sanskrit-derived Hindi vocabulary with Devanagari, IPA, and audio.";
               const shareMessage = `${text}\n\n${url}`;
               if (navigator.share) {
                 try {
