@@ -12451,6 +12451,39 @@
     ]
   },
   {
+    "english": "enigma",
+    "category": "Abstract Concepts",
+    "description": "A person, thing, or situation that is mysterious and difficult to understand.",
+    "sanskrit_derived": [
+      {
+        "dev": "रहस्य",
+        "roman": "rahasya",
+        "ipa": "ɾəɦəsjə",
+        "tags": [
+          "formal"
+        ]
+      },
+      {
+        "dev": "गूढ़प्रश्न",
+        "roman": "goodhprashn",
+        "ipa": "ɡuːɽʱprəʃn",
+        "tags": [
+          "literary"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "मुअम्मा",
+        "roman": "muamma",
+        "ipa": "mʊəmːaː",
+        "tags": [
+          "literary"
+        ]
+      }
+    ]
+  },
+  {
     "english": "end",
     "category": "Abstract Concepts",
     "description": "The final part or conclusion of something.",
@@ -30426,6 +30459,41 @@
       }
     ],
     "other_historical_sources": []
+  },
+  {
+    "english": "quiz",
+    "category": "Education",
+    "description": "A short test or set of questions used for learning or assessment.",
+    "sanskrit_derived": [
+      {
+        "dev": "प्रश्नोत्तरी",
+        "roman": "prashnottari",
+        "ipa": "prəʃnoːt̪t̪əriː",
+        "tags": [
+          "formal",
+          "academic"
+        ]
+      },
+      {
+        "dev": "लघुपरीक्षा",
+        "roman": "laghupareeksha",
+        "ipa": "ləɡʱʊpəriːkʂaː",
+        "tags": [
+          "formal",
+          "academic"
+        ]
+      }
+    ],
+    "other_historical_sources": [
+      {
+        "dev": "क्विज़",
+        "roman": "quiz",
+        "ipa": "kwɪz",
+        "tags": [
+          "colloquial"
+        ]
+      }
+    ]
   },
   {
     "english": "quorum",
