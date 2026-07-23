@@ -5,6 +5,8 @@
  * and can be tuned without touching the search loop.
  */
 
+import type { Concept, WordEntry } from "@/types/word";
+
 export const SEARCH_WEIGHTS = {
   exact: 1000,
   prefix: 500,
@@ -63,3 +65,77 @@ export function editDistance(a: string, b: string, maxDist: number): number {
 }
 
 export const fuzzyBudget = (len: number) => (len >= 7 ? 2 : len >= 4 ? 1 : 0);
+
+export interface SearchSuggestion {
+  concept: Concept;
+  entry: WordEntry;
+}
+
+const normalizeForDistance = (value: string, script: Script) => {
+  const normalized = script === "dev" ? value.trim() : normalizeQuery(value);
+  return normalized.replace(/^\/+|\/+$/g, "").replace(/\s+/g, " ");
+};
+
+const commonPrefixLength = (a: string, b: string) => {
+  const limit = Math.min(a.length, b.length);
+  let length = 0;
+  while (length < limit && a[length] === b[length]) length += 1;
+  return length;
+};
+
+/**
+ * Finds the lexicon entry nearest to a query that produced no search results.
+ * Matching stays within the detected script so the three suggested forms all
+ * belong to one useful entry rather than serving a fixed example.
+ */
+export function findClosestSearchSuggestion(
+  concepts: Concept[],
+  rawQuery: string
+): SearchSuggestion | null {
+  const queryScript = detectScript(rawQuery);
+  const query = normalizeForDistance(rawQuery, queryScript);
+  if (!query || concepts.length === 0) return null;
+
+  let best: {
+    concept: Concept;
+    entry: WordEntry;
+    score: number;
+    prefixLength: number;
+    priority: number;
+  } | null = null;
+
+  const consider = (concept: Concept, entry: WordEntry, value: string, priority: number) => {
+    const candidate = normalizeForDistance(value, queryScript);
+    if (!candidate) return;
+
+    const distance = editDistance(query, candidate, Math.max(query.length, candidate.length));
+    const score = distance / Math.max(query.length, candidate.length, 1);
+    const prefixLength = commonPrefixLength(query, candidate);
+    if (
+      !best ||
+      score < best.score ||
+      (score === best.score && prefixLength > best.prefixLength) ||
+      (score === best.score && prefixLength === best.prefixLength && priority < best.priority) ||
+      (score === best.score && prefixLength === best.prefixLength && priority === best.priority && concept.english.localeCompare(best.concept.english) < 0)
+    ) {
+      best = { concept, entry, score, prefixLength, priority };
+    }
+  };
+
+  for (const concept of concepts) {
+    const entries = [...concept.sanskrit_derived, ...concept.other_historical_sources];
+    const fallbackEntry = entries[0];
+    if (!fallbackEntry) continue;
+
+    if (queryScript === "roman") {
+      consider(concept, fallbackEntry, concept.english, 0);
+    }
+
+    entries.forEach((entry, index) => {
+      const value = queryScript === "dev" ? entry.dev : queryScript === "ipa" ? entry.ipa : entry.roman;
+      consider(concept, entry, value, index + 1);
+    });
+  }
+
+  return best ? { concept: best.concept, entry: best.entry } : null;
+}

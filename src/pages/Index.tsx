@@ -20,6 +20,7 @@ import {
   normalizeQuery,
   editDistance,
   fuzzyBudget,
+  findClosestSearchSuggestion,
   type Script,
 } from "@/lib/searchScoring";
 
@@ -241,6 +242,11 @@ const Index = () => {
       .map(([category]) => category);
   }, [concepts]);
 
+  const closestSuggestion = useMemo(
+    () => filtered.length === 0 ? findClosestSearchSuggestion(concepts, search) : null,
+    [concepts, filtered.length, search]
+  );
+
   const handleJumpToLetter = useCallback((letter: string) => {
     const idx = filtered.findIndex(
       (c) => c.english[0].toUpperCase() === letter
@@ -383,17 +389,19 @@ const Index = () => {
               )}
             </p>
 
-            <div className="search-empty-hints" aria-label={t("index.searchHints", "Search suggestions")}>
-              <button type="button" onClick={() => setSearch("उत्साह")}>
-                {t("index.tryDevanagari", "Try Devanagari")} <span>उत्साह</span>
-              </button>
-              <button type="button" onClick={() => setSearch("utsaah")}>
-                {t("index.tryRoman", "Try romanized Hindi")} <span>utsaah</span>
-              </button>
-              <button type="button" onClick={() => setSearch("ʊtsaːh")}>
-                {t("index.tryIpa", "Try IPA")} <span>/ʊtsaːh/</span>
-              </button>
-            </div>
+            {closestSuggestion && (
+              <div className="search-empty-hints" aria-label={t("index.searchHints", "Search suggestions")}>
+                <button type="button" onClick={() => setSearch(closestSuggestion.entry.dev)}>
+                  {t("index.tryDevanagari", "Try Devanagari")} <span>{closestSuggestion.entry.dev}</span>
+                </button>
+                <button type="button" onClick={() => setSearch(closestSuggestion.entry.roman)}>
+                  {t("index.tryRoman", "Try romanized Hindi")} <span>{closestSuggestion.entry.roman}</span>
+                </button>
+                <button type="button" onClick={() => setSearch(closestSuggestion.entry.ipa)}>
+                  {t("index.tryIpa", "Try IPA")} <span>/{closestSuggestion.entry.ipa}/</span>
+                </button>
+              </div>
+            )}
 
             {suggestedCategories.length > 0 && (
               <div className="search-empty-categories">
