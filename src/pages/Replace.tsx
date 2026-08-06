@@ -1,4 +1,4 @@
-import { useState, useMemo, forwardRef, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { Copy, Check, ArrowRight, Eraser } from "lucide-react";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -14,7 +14,7 @@ import { toast } from "sonner";
 const MAX_INPUT_LENGTH = 5000;
 const DEBOUNCE_MS = 150;
 
-const Replace = forwardRef<HTMLDivElement>((_, ref) => {
+const Replace = () => {
   const { concepts, loading } = useWords();
   const [input, setInput] = useState(() => {
     const stored = localStorage.getItem("replace-input") || "";
@@ -53,7 +53,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
   }
 
   return (
-    <div ref={ref} className="container-page">
+    <div className="container-page">
       <PageHeader
         title={t("replace.title", "Sentence Replacement")}
         glyph="❀"
@@ -194,7 +194,7 @@ const Replace = forwardRef<HTMLDivElement>((_, ref) => {
       />
     </div>
   );
-});
+};
 
 Replace.displayName = "Replace";
 

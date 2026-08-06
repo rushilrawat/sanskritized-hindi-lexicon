@@ -101,14 +101,18 @@ const Categories = () => {
       setActiveEntry(current?.english ? current : null);
     };
 
-    handleScroll();
-    const id = window.setInterval(handleScroll, 180);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(handleScroll);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
-      window.clearInterval(id);
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [visibleCount, filtered.length]);
 
@@ -125,14 +129,18 @@ const Categories = () => {
       setAlphaPinned(anchor.getBoundingClientRect().bottom <= nextTop && window.scrollY > 80);
     };
 
-    syncPinnedRail();
-    const id = window.setInterval(syncPinnedRail, 180);
-    window.addEventListener("scroll", syncPinnedRail, { passive: true });
-    window.addEventListener("resize", syncPinnedRail, { passive: true });
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(syncPinnedRail);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
-      window.clearInterval(id);
-      window.removeEventListener("scroll", syncPinnedRail);
-      window.removeEventListener("resize", syncPinnedRail);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [filtered.length, visibleCount]);
 

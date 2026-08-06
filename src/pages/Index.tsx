@@ -15,14 +15,9 @@ import WordsLoading from "@/components/WordsLoading";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Ornament } from "@/components/ManuscriptOrnaments";
 import {
-  SEARCH_WEIGHTS,
-  detectScript,
-  normalizeQuery,
-  editDistance,
-  fuzzyBudget,
   findClosestSearchSuggestion,
-  type Script,
 } from "@/lib/searchScoring";
+import { searchConcepts } from "@/lib/searchConcepts";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -58,86 +53,7 @@ const Index = () => {
   const wotd = useMemo(() => getWordOfTheDay(concepts), [concepts]);
 
   const filtered = useMemo(() => {
-    let list = [...concepts].sort((a, b) => a.english.localeCompare(b.english));
-
-    if (search.trim()) {
-      const raw = search.trim();
-      const queryScript: Script = detectScript(raw);
-      const q = normalizeQuery(raw);
-      // Also try a "spaces removed" needle so "pre m" matches "premium",
-      // but only when the query actually contains internal spaces — this
-      // prevents confusing two distinct words.
-      const qNoSpace = q.replace(/\s+/g, "");
-      const useConcat = /\s/.test(q) && qNoSpace.length >= 3;
-      const rawNoSpace = raw.replace(/\s+/g, "");
-
-      const W = SEARCH_WEIGHTS;
-
-      const scoreOnce = (hay: string, needle: string, concatPenalty = 1): number => {
-        if (!hay || !needle) return 0;
-        if (hay === needle) return W.exact * concatPenalty;
-        if (hay.startsWith(needle))
-          return (W.prefix - (hay.length - needle.length) * W.prefixLenPenalty) * concatPenalty;
-        const idx = hay.indexOf(needle);
-        if (idx !== -1) {
-          const prev = hay[idx - 1];
-          const boundary = idx === 0 || /\s|[-_/]/.test(prev || "");
-          const base = boundary ? W.wordBoundary : W.substring;
-          return (base - idx * W.substringIdxPenalty - (hay.length - needle.length) * W.substringLenPenalty) * concatPenalty;
-        }
-        return 0;
-      };
-
-      const scoreFuzzy = (hay: string, needle: string): number => {
-        const budget = fuzzyBudget(needle.length);
-        if (budget === 0) return 0;
-        let bestDist = editDistance(hay, needle, budget);
-        if (bestDist > budget && hay.length > needle.length) {
-          const winLen = needle.length;
-          for (let i = 0; i + winLen <= hay.length; i++) {
-            const d = editDistance(hay.slice(i, i + winLen), needle, budget);
-            if (d < bestDist) bestDist = d;
-            if (bestDist === 0) break;
-          }
-        }
-        if (bestDist > budget) return 0;
-        return W.fuzzyBase - bestDist * W.fuzzyEditPenalty;
-      };
-
-      const scoreString = (s: string, fieldScript: Script): number => {
-        if (!s) return 0;
-        const isDev = fieldScript === "dev";
-        const hay = isDev ? s : normalizeQuery(s);
-        const needle = isDev ? raw : q;
-        let best = scoreOnce(hay, needle);
-        if (useConcat) {
-          const altNeedle = isDev ? rawNoSpace : qNoSpace;
-          best = Math.max(best, scoreOnce(hay, altNeedle, W.concatPenalty));
-        }
-        if (best === 0 && !isDev) {
-          best = scoreFuzzy(hay, needle);
-          if (useConcat) best = Math.max(best, scoreFuzzy(hay, qNoSpace) * W.concatPenalty);
-        }
-        // Boost matches that share script with the query.
-        if (best > 0 && fieldScript === queryScript) best *= W.scriptBoost;
-        return best;
-      };
-
-      const scored: { c: Concept; score: number }[] = [];
-      for (const c of list) {
-        let best = scoreString(c.english, "roman");
-        for (const w of [...c.sanskrit_derived, ...c.other_historical_sources]) {
-          best = Math.max(best, scoreString(w.dev, "dev"));
-          best = Math.max(best, scoreString(w.roman, "roman"));
-          best = Math.max(best, scoreString(w.ipa, "ipa"));
-        }
-        if (best > 0) scored.push({ c, score: best });
-      }
-      scored.sort((a, b) => b.score - a.score || a.c.english.localeCompare(b.c.english));
-      list = scored.map((s) => s.c);
-    }
-
-    return list;
+    return searchConcepts(concepts, search);
   }, [search, concepts]);
 
   useEffect(() => {
@@ -191,14 +107,18 @@ const Index = () => {
       setActiveEntry(current?.english ? current : null);
     };
 
-    handleScroll();
-    const id = window.setInterval(handleScroll, 180);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(handleScroll);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
-      window.clearInterval(id);
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [search, searchPinned, visibleCount, filtered.length]);
 
@@ -216,14 +136,18 @@ const Index = () => {
       setSearchPinned(shouldPin);
     };
 
-    syncPinnedSearch();
-    const id = window.setInterval(syncPinnedSearch, 180);
-    window.addEventListener("scroll", syncPinnedSearch, { passive: true });
-    window.addEventListener("resize", syncPinnedSearch, { passive: true });
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(syncPinnedSearch);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
-      window.clearInterval(id);
-      window.removeEventListener("scroll", syncPinnedSearch);
-      window.removeEventListener("resize", syncPinnedSearch);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [search, filtered.length]);
 

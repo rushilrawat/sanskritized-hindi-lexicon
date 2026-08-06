@@ -14,12 +14,13 @@ export function flattenWords(
   sourceFilter?: "sanskrit_derived" | "other_historical_sources"
 ): FlatWord[] {
   const flat: FlatWord[] = [];
+  const conceptsByEnglish = new Map(concepts.map((concept) => [concept.english, concept]));
   for (const concept of concepts) {
     // Resolve antonym Devanagari from linked english words
     const antonymDevs: string[] = [];
     if (concept.antonyms) {
       for (const ant of concept.antonyms) {
-        const antConcept = concepts.find((c) => c.english === ant);
+        const antConcept = conceptsByEnglish.get(ant);
         if (antConcept && antConcept.sanskrit_derived.length > 0) {
           antonymDevs.push(antConcept.sanskrit_derived[0].dev);
         }

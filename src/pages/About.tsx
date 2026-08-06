@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { formatNumber } from "@/lib/numerals";
 import DevanagariBackdrop from "@/components/DevanagariBackdrop";
@@ -36,11 +35,11 @@ const Section = ({
   );
 };
 
-const About = forwardRef<HTMLDivElement>((_, ref) => {
+const About = () => {
   const { t, n: num } = useTranslation();
 
   return (
-    <div ref={ref} className="container-page about-page max-w-4xl">
+    <div className="container-page about-page max-w-4xl">
       <div className="manuscript-panel about-manuscript relative p-5 sm:p-8 md:p-10">
         <DevanagariBackdrop />
         <span className="manuscript-corner tl" aria-hidden="true" />
@@ -250,7 +249,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
     </div>
   );
-});
+};
 
 About.displayName = "About";
 

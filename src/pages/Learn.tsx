@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, forwardRef, useRef } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Concept } from "@/types/word";
 import { useWords } from "@/hooks/useWords";
@@ -14,7 +14,7 @@ import DataFallback from "@/components/DataFallback";
 import WordsLoading from "@/components/WordsLoading";
 import { useLearnProgress } from "@/hooks/useLearnProgress";
 
-const Learn = forwardRef<HTMLDivElement>((_, ref) => {
+const Learn = () => {
   const { concepts, loading } = useWords();
   const { bookmarks, removeBookmark } = useBookmarks();
   const [shuffled, setShuffled] = useState(false);
@@ -168,7 +168,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
   }
 
   return (
-    <div ref={ref} className="container-page">
+    <div className="container-page">
       <PageHeader
         title={t("learn.title", "Learn Words")}
         glyph="✺"
@@ -281,7 +281,7 @@ const Learn = forwardRef<HTMLDivElement>((_, ref) => {
       />
     </div>
   );
-});
+};
 
 Learn.displayName = "Learn";
 
