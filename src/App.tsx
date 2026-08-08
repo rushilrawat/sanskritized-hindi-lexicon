@@ -16,6 +16,9 @@ const Learn = lazy(() => import("./pages/Learn"));
 const Replace = lazy(() => import("./pages/Replace"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Copyright = lazy(() => import("./pages/Copyright"));
 
 const App = () => (
   <ErrorBoundary>
@@ -34,6 +37,9 @@ const App = () => (
                       <Route path="/learn" element={<Learn />} />
                       <Route path="/replace" element={<Replace />} />
                       <Route path="/about" element={<About />} />
+                      <Route path="/privacy" element={<Privacy />} />
+                      <Route path="/terms" element={<Terms />} />
+                      <Route path="/copyright" element={<Copyright />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </Suspense>

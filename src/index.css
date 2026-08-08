@@ -382,6 +382,18 @@
     box-shadow: 0 1px 0 hsl(var(--card)) inset;
   }
 
+  .legal-section-title {
+    @apply font-archive text-lg sm:text-xl font-semibold text-foreground;
+  }
+
+  .legal-link {
+    @apply text-primary underline underline-offset-2 hover:text-primary/80;
+  }
+
+  .archive-button {
+    @apply inline-flex items-center justify-center rounded-md border border-primary/30 px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground;
+  }
+
   textarea.archive-search {
     padding-left: 1rem;
   }

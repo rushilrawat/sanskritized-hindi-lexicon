@@ -35,6 +35,9 @@ This project is a source-available linguistic reference and educational archive.
 - [Source Availability](#source-availability)
 - [Contributing](#contributing)
 - [Security](#security)
+- [Privacy](#privacy)
+- [Terms of Use](#terms-of-use)
+- [Copyright and IP](#copyright-and-ip)
 - [Citation](#citation)
 - [License](#license)
 - [Project Philosophy](#project-philosophy)
@@ -628,6 +631,25 @@ Security reporting instructions live in:
 ```text
 SECURITY.md
 ```
+
+## Privacy
+
+The application has no accounts, analytics, advertising, cookies, or remote
+API calls. Preferences, bookmarks, learning progress, and Replace text remain
+in browser-local storage. Read the [Privacy Policy](/privacy) for the global
+data-handling disclosure and the local-data clearing control.
+
+## Terms of Use
+
+Use the archive as an educational and linguistic reference, subject to the
+[Terms of Use](/terms). Content may contain omissions or errors and should be
+verified against primary sources for important decisions.
+
+## Copyright and IP
+
+The [Copyright and IP page](/copyright) explains attribution, data-correction,
+and infringement reporting. Do not submit sensitive personal information in a
+public issue.
 
 Please do not disclose vulnerabilities publicly before they can be reviewed.
 

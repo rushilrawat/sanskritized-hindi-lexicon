@@ -298,6 +298,11 @@ const Layout = ({ children }: LayoutProps) => {
           >
             {t("footer.github", "GitHub")}
           </a>
+          <nav className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground/80" aria-label="Legal">
+            <NavLink to="/privacy" className="hover:text-primary hover:underline">Privacy</NavLink>
+            <NavLink to="/terms" className="hover:text-primary hover:underline">Terms</NavLink>
+            <NavLink to="/copyright" className="hover:text-primary hover:underline">Copyright &amp; IP</NavLink>
+          </nav>
         </div>
       </footer>
     </div>

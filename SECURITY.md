@@ -75,3 +75,18 @@ static bundle. If a backend is introduced, it must:
 
 Do not put secrets, API keys, authorization decisions, or trusted user data in
 the client bundle or localStorage.
+
+## Privacy and Data Compliance Boundary
+
+The current app has no accounts, authentication, analytics, advertising,
+cookies, remote API calls, or server-side user profile. Preferences,
+bookmarks, learning progress, and Replace text are stored only in the user's
+browser localStorage. The Privacy page provides a control to clear those
+known keys.
+
+The project does not claim GDPR, UK GDPR, CCPA/CPRA, LGPD, PIPEDA, POPIA, or
+DPDP Act certification. The public policy pages describe the current data
+flows and rights boundary. A future backend must add a data inventory, lawful
+bases, retention schedule, deletion/export workflows, regional disclosures,
+processor agreements, and server-side rate limiting before collecting personal
+data or creating accounts.
